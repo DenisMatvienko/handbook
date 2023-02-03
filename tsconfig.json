@@ -1,0 +1,27 @@
+{
+    /* 
+        The above sample assumes version >= 2.7 or newer of TypeScript is used with the new
+        esModuleInterop and allowSyntheticDefaultImports compiler options in your tsconfig.json file. - habitual import
+
+        allowSyntheticDefaultImports:
+        from: import * as webpack from 'webpack', to: import webpack from 'webpack';
+    */
+    "compilerOptions": {
+      "outDir": "./dist/", // place with build
+      "noImplicitAny": true, // if won't implicate data type
+      "module": "esnext",
+      "target": "es5", // in which version es will be compile
+      "jsx": "react-jsx", // jsx constructions
+      "allowJs": true, // not just ts file compiles, and also js
+      "moduleResolution": "node", // define which import was (node or classic)
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true, 
+    },
+
+    "ts-node": {
+    "compilerOptions": {
+        "module": "CommonJS"
+        }
+    },
+      
+}
