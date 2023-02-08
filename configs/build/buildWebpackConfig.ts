@@ -23,7 +23,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         },
         resolve:
             /* Now we shouldn't add extention of tsx, ts, js into path (from: './test.ts' to: './test') */
-            buildResolve(),
+            buildResolve(options),
 
         devtool:
             /* https://webpack.js.org/guides/development/#using-source-maps 

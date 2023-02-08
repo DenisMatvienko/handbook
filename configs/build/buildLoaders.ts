@@ -13,6 +13,33 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
         If didn't use TypeScript - we need to use babel for work with jsx
     */
+    const svgLoader = {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+    }
+
+
+    const babelLoader = {
+        test: /\.m?(js|jsx|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: ['@babel/preset-env'],
+                "plugins": [
+                    [
+                        "i18next-extract",
+                        {
+                            locales: ['ru', 'en'],
+                            keyAsDefaultValue: true,
+                        }
+                    ],
+                ]
+            }
+        }
+    }
+
     const cssLoader = {
         // Was installed loader with newest version, if was problem -
         // downgrade 'css-loader' 'sass' 'sass-loader' 'style-loader' by version in dependencies
@@ -29,11 +56,11 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.')),
                         // prod build we have - [hash:base64:8] - unique generate classNmaes, 
                         // dev build we have - [path][name]__[local] - sinple naming of classNames, for debugging and readble
-                        localIdentName: isDev 
-                        ? '[path][name]__[local]--[hash:base64:5]' 
-                        : '[hash:base64:8]',
+                        localIdentName: isDev
+                            ? '[path][name]__[local]--[hash:base64:5]'
+                            : '[hash:base64:8]',
                     },
-                    
+
                 }
             },
             "sass-loader",
@@ -46,8 +73,20 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     }
 
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     return [
+        svgLoader,
+        babelLoader,
         typescriptLoader,
         cssLoader,
+        fileLoader,
     ]
 }

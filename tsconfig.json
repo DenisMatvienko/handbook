@@ -9,11 +9,15 @@
     "compilerOptions": {
       "outDir": "./dist/", // place with build
       "noImplicitAny": true, // if won't implicate data type
-      "module": "esnext",
+      "module": "ESNext",
       "target": "es5", // in which version es will be compile
       "jsx": "react-jsx", // jsx constructions
       "allowJs": true, // not just ts file compiles, and also js
       "moduleResolution": "node", // define which import was (node or classic)
+      "baseUrl": ".",
+      "paths": {
+        "*": ["./src/*"]
+      },
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true, 
     },
