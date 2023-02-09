@@ -1,6 +1,6 @@
 // Navbar public API
-import Navbar from "./ui/Navbar";
+import Navbar from './ui/Navbar';
 
 export {
-    Navbar,
-}
+  Navbar,
+};

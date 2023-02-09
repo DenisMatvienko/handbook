@@ -1,7 +1,7 @@
-import { buildWebpackConfig } from './configs/build/buildWebpackConfig';
-import { BuildPaths, BuildEnv } from './configs/build/types/config';
 import webpack from 'webpack';
 import path from 'path';
+import { buildWebpackConfig } from './configs/build/buildWebpackConfig';
+import { BuildPaths, BuildEnv } from './configs/build/types/config';
 
 export default (env: BuildEnv) => {
   // env -https://webpack.js.org/guides/environment-variables/
@@ -10,7 +10,7 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
-  }
+  };
 
   const mode = env.mode || 'development'; // if env.mode didn't set, that mode is - development
   const isDev = mode === 'development';
@@ -21,7 +21,7 @@ export default (env: BuildEnv) => {
     paths,
     isDev,
     port: PORT,
-  })
+  });
 
   return config;
-} 
+};
