@@ -1,4 +1,5 @@
-import type { Configuration as DevServerConfigurations } from 'webpack-dev-server';
+import type { Configuration as DevServerConfigurations }
+  from 'webpack-dev-server';
 import { BuildOptions } from './types/config';
 
 export function buildDevServer(options: BuildOptions): DevServerConfigurations {
@@ -10,6 +11,5 @@ export function buildDevServer(options: BuildOptions): DevServerConfigurations {
     // useful for Single Page Applications that utilise the HTML5 History API.
     historyApiFallback: true,
     hot: true,
-
   };
 }

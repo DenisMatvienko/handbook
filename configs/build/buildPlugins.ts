@@ -4,7 +4,8 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ isDev, paths }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({ isDev, paths }:
+  BuildOptions): webpack.WebpackPluginInstance[] {
   return [
     /* Plugins list */
     new HTMLWebpackPlugin({

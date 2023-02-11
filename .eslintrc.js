@@ -12,6 +12,7 @@
   'react/function-component-definition': 'off' -
   means that should use function declaration instead of arrow func in component
 
+  'i18next/no-literal-string': ['error', { markupOnly: true }]
 */
 
 module.exports = {
@@ -46,7 +47,8 @@ module.exports = {
   rules: {
     'react/jsx-indent': [2, 4],
     'react/jsx-indent-props': [2, 4],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension':
+      [2, { extensions: ['.js', '.jsx', '.tsx'] }],
     'linebreak-style': ['error', 'windows'],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
@@ -60,7 +62,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-multi-spaces': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': 'off',
+    'max-len': ['error', { ignoreComments: true }],
   },
   globals: {
     __IS_DEV__: true,

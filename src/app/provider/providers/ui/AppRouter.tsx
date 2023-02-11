@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const AppRouter = () => (
     <div className="page-wrapper">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback="...">
             <Routes>
                 {Object.values(routeConfig).map(({ element, path }) => (
                     <Route

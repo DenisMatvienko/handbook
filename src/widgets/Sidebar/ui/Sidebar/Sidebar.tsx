@@ -18,7 +18,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
   // [classes.collapsed]: - if true add collapsed
-      <div className={classNames(classes.Sidebar, { [classes.collapsed]: collapsed }, [className])}>
+      <div className={classNames(
+        classes.Sidebar,
+        { [classes.collapsed]: collapsed },
+        [className],
+      )}
+      >
           <div className={classes.sidebarWrapper}>
               <button
                   type="button"

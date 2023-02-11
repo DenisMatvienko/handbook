@@ -2,7 +2,11 @@
 // as key-str, as property: bool or str <key, propery | property>
 type Mods = Record<string, boolean | string>
 
-export function classNames(cls: string, mods: Mods = {}, additional: string[] = []): string {
+export function classNames(
+  cls: string,
+  mods: Mods = {},
+  additional: string[] = [],
+): string {
   // Mods = {}, string[] = [] - means optional argument
   // should return string of classes. Func. for convenient to combine classes
   // cls - get main class (exml: App)
