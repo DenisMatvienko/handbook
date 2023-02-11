@@ -1,12 +1,10 @@
 .Sidebar {
-
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
     background-color: var(--navbar-color);
-    box-shadow: 2px 3px 3px var(--box-shadow) ;
-
+    box-shadow: 2px 3px 3px var(--box-shadow);
     position: relative;
-    transition: width .3s;
+    transition: width 0.3s;
 }
 
 .button {
