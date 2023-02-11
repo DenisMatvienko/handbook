@@ -22,8 +22,9 @@ export function classNames(cls: string, mods: Mods = {}, additional: string[] = 
     // after that we are filter each tuple, which 'property' - is true - return into array, false property - filtering and remove
     // filtered map we itterate by .map, here we need key, which we are return
     // {  className - key: property - property  }
-    Object.entries(mods)
-      .filter(([className, property]) => Boolean(property))
+    ...Object.entries(mods)
+      .filter(([_, property]) => Boolean(property))
       .map(([className]) => className),
-  ].join(' ');
+  ]
+    .join(' ');
 }
