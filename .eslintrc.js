@@ -12,6 +12,7 @@
   'react/function-component-definition': 'off' -
   means that should use function declaration instead of arrow func in component
 
+  edit i18n to errors when forgot add literal to translate:
   'i18next/no-literal-string': ['error', { markupOnly: true }]
 */
 

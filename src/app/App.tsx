@@ -3,8 +3,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/provider/ThemeProvider';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
-import { AppRouter } from './provider/providers';
+import { Suspense, useEffect } from 'react';
+import { PageLoader } from 'widgets/PageLoader';
+import { AppRouter } from './provider/router';
 
 function App() {
   // We have global access to theme
@@ -12,7 +13,7 @@ function App() {
 
   return (
       <div className={`app ${classNames('app', {}, [theme])}`}>
-          <Suspense fallback="...">
+          <Suspense fallback={<PageLoader />}>
               <Navbar />
               <div className="content-page">
                   <Sidebar />
