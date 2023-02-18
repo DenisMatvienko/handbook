@@ -1,4 +1,4 @@
-.app.light {
+:root {
     --bg-color: #f3f6f3;
     --navbar-color: #5900e4;
     --primary-color: #fcfffc;
@@ -10,9 +10,13 @@
     --nav-text-color: #fcfffc;
 
     // Links color
+    --nav-links-color-purple: #5900e4;
     --nav-links-color-black: #212420;
     --nav-links-color-light: #fcfffc;
 
     // Icons color
     --icon-color: #fcfffc;
+
+    //  Border color
+    --border-color: #5900e4;
 }

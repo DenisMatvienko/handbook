@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoaders';
+import { BuildSvgLoader } from './loaders/buildSvgLoaders';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   /*
@@ -15,11 +17,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
 
         If didn't use TypeScript - we need to use babel for work with jsx
     */
-  const svgLoader = {
-    test: /\.svg$/i,
-    issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack'],
-  };
+  const svgLoader = BuildSvgLoader();
 
   const babelLoader = {
     test: /\.m?(js|jsx|tsx)$/,
@@ -41,33 +39,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     },
   };
 
-  const cssLoader = {
-    // Was installed loader with newest version, if was problem -
-    // downgrade 'css-loader' 'sass' 'sass-loader' 'style-loader' by version in dependencies
-    test: /\.s[ac]ss$/i,
-    use: [
-      // Creates if dev-mode - style-loader, else - `MiniCssExtractPlugin`
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      {
-        // Translates CSS into CommonJS
-        loader: 'css-loader',
-        options: {
-          modules: {
-            // if in path we have .module.scss - return true, else -false
-            auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-            // prod build we have - [hash:base64:8] - unique generate classNmaes,
-            // dev build we have - [path][name]__[local] - sinple naming of
-            // classNames, for debugging and readble
-            localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:5]'
-              : '[hash:base64:8]',
-          },
-
-        },
-      },
-      'sass-loader',
-    ],
-  };
+  const cssLoader = buildCssLoader(isDev);
 
   const typescriptLoader = {
     test: /\.tsx?$/, // regex

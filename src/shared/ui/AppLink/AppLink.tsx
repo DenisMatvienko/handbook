@@ -7,6 +7,7 @@ export enum AppLinkTheme {
     // Themes for links
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    WHITE = 'white',
 }
 
 interface AppLinkProps extends LinkProps {

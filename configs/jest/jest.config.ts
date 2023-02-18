@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
 
   // Automatically clear mock calls, instances and results before every test
@@ -18,6 +20,13 @@ export default {
   // An array of directory names to be searched recursively up from the requiring module's location
   moduleDirectories: [
     'node_modules',
+  ],
+
+  // When we are importing with absolute path, we catch error 'cannot find module', this
+  // config fix that
+  modulePaths: [
+    '<rootDir>src',
+    '/home/some/other/path',
   ],
 
   // An array of file extensions your modules use
@@ -38,6 +47,18 @@ export default {
 
   // The root directory that Jest should scan for tests and modules within
   rootDir: '../../',
+
+  // jest-dom
+  // In jest.config.js add (if you haven't already)
+  setupFilesAfterEnv: ['<rootDir>configs/jest/setupTests.ts'],
+
+  // correct modules.scss error when run test
+  moduleNameMapper: {
+    // css, scss mapper
+    '\\.s?css$': 'identity-obj-proxy',
+    // svg mapper for svg extensions errors in jest
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+  },
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,

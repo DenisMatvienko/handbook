@@ -12,8 +12,11 @@
   'react/function-component-definition': 'off' -
   means that should use function declaration instead of arrow func in component
 
-  edit i18n to errors when forgot add literal to translate:
+  you should add to translate this string:
   'i18next/no-literal-string': ['error', { markupOnly: true }]
+
+  overrides - means that we are for all this files in key "files" override
+  rule in key "rules"
 */
 
 module.exports = {
@@ -63,10 +66,24 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-multi-spaces': 'off',
-    'i18next/no-literal-string': 'off',
-    'max-len': ['error', { ignoreComments: true }],
+    'i18next/no-literal-string':
+      ['error',
+        {
+          markupOnly: true,
+          ignoreAttribute: ['data-testid', 'to'],
+        },
+      ],
+    'max-len': ['error', { ignoreComments: true, code: 100 }],
   },
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
 };

@@ -1,5 +1,5 @@
 {
-    /* 
+    /*
         The above sample assumes version >= 2.7 or newer of TypeScript is used with the new
         esModuleInterop and allowSyntheticDefaultImports compiler options in your tsconfig.json file. - habitual import
 
@@ -8,9 +8,9 @@
     */
     "compilerOptions": {
       "outDir": "./dist/", // place with build
-      "noImplicitAny": true, // if won't implicate data type
+      "noImplicitAny": true, // if you won't implicate data type
       "module": "ESNext",
-      "target": "es5", // in which version es will be compile
+      "target": "es5", // in which version es will be compiled
       "jsx": "react-jsx", // jsx constructions
       "allowJs": true, // not just ts file compiles, and also js
       "moduleResolution": "node", // define which import was (node or classic)
@@ -19,7 +19,7 @@
         "*": ["./src/*"]
       },
       "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true, 
+      "allowSyntheticDefaultImports": true
     },
 
     "ts-node": {
@@ -27,5 +27,11 @@
         "module": "CommonJS"
         }
     },
-      
+
+  // https://github.com/testing-library/jest-dom#with-typescript
+  "include": [
+    "./configs/jest/setupTests.ts",
+    "./src/**/*.ts", // solve TS2307: Cannot find module problem
+    "./src/**/*.tsx", // solve TS2307: Cannot find module problem
+  ]
 }
