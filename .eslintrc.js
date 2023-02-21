@@ -53,7 +53,7 @@ module.exports = {
     'react/jsx-indent-props': [2, 4],
     'react/jsx-filename-extension':
       [2, { extensions: ['.js', '.jsx', '.tsx'] }],
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'warn',
