@@ -1,4 +1,6 @@
-import { Button } from 'shared/ui/Button/Button';
+import {
+  Button, ButtonRadius, ButtonSize, ButtonTheme,
+} from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -21,6 +23,8 @@ export const BugButton = ({ className }: BugButtonProps) => {
   return (
       <Button
           onClick={addBug}
+          theme={ButtonTheme.BACKGROUND}
+          radius={ButtonRadius.SEMI_ELLIPSE}
       >
           {t('Нажмите для ошибки')}
       </Button>
