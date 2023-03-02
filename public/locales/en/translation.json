@@ -1,4 +1,5 @@
 {
+    "Lorem-layout": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cupiditate\n et exercitationem, harum neque quam quasi. Delectus eligendi inventore ipsa nemo\n              quasi repellendus reprehenderit. Aliquid cupiditate et itaque modi suscipit!",
     "Тестовый пример": "Test example",
     "Перевод": "Translate",
     "Главная страница": "Main page",
@@ -10,5 +11,6 @@
     "Меню": "Menu",
     "Главная": "Main page",
     "О сайте": "About page",
-    "Короткий язык": "Eng"
+    "Короткий язык": "Eng",
+    "Войти": "Log in"
 }
