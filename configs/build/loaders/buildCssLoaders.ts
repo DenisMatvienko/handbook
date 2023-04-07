@@ -14,6 +14,7 @@ export function buildCssLoader(isDev : boolean) {
         options: {
           modules: {
             // if in path we have .module.scss - return true, else -false
+            // for example: mean that will generate className just in files with .modules.scss extensions
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             // prod build we have - [hash:base64:8] - unique generate classNmaes,
             // dev build we have - [path][name]__[local] - sinple naming of
