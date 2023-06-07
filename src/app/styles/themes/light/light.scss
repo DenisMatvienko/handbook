@@ -1,4 +1,4 @@
-:root {
+.app_light_theme {
     --bg-color: #f3f6f3;
     --navbar-color: #5900e4;
     --primary-color: #fcfffc;
@@ -24,7 +24,9 @@
     //  Buttons color - hover
     --button-bgc-hover-light: #f2f2f2;
     --button-color-hover-ligth: #5900e4;
+    --button-bgc-hover-inverted: #33019f;
     --button-sidebar-hover: #6a6b6a9e;
+    --box-shadow-hover: #080c08;
 
     // Modal
     --modal-background: #f3f6f3;

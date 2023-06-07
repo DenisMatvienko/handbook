@@ -1,4 +1,4 @@
-.dark {
+.app_dark_theme {
     --bg-color: #0f120e;
     --navbar-color: #1a1d1a;
     --primary-color: #1a1d1a;
@@ -24,7 +24,9 @@
     // Button color
     --button-bgc-hover-light: #0f120e;
     --button-color-hover-ligth: #daddd9;
+    --button-bgc-hover-inverted: #b578f3;
     --button-sidebar-hover: #494848;
+    --box-shadow-hover: #080c08;
 
     // Modal
     --modal-background: #1a1d1a;

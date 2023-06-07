@@ -1,3 +1,10 @@
+// This hook return type UseThemeResult
+// We need grant access by *useContext*
+//
+// Trow on body className - newTheme, because in any components we are often need to add,
+// class 'theme' from useTheme in additional in classNames method.
+// That move allows us didn't add permanently 'theme' in additional
+
 import { useContext } from 'react';
 import { ThemeContext, Theme, LOCAL_STORAGE_THEME_KEY } from './ThemeContext';
 
@@ -7,14 +14,12 @@ interface UseThemeResult {
 }
 
 export function useTheme(): UseThemeResult {
-  // This hook return type UseThemeResult
-  // We need grant access by *useContext*
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
     setTheme(newTheme);
-    // Save newTheme into local storage
+    document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 

@@ -48,10 +48,11 @@
 }
 
 .background:hover {
-    background: var(--button-bgc-hover-light);
-    color: var(--button-color-hover-ligth);
+    background: var(--button-bgc-hover-inverted);
+    color: var(--nav-text-color);
     fill: var(--button-color-hover-ligth);
-    box-shadow: 2px 3px 3px var(--box-shadow);
+    box-shadow: 2px 3px 3px var(--box-shadow-hover);
+    transition: 0.2s ease-in-out;
 }
 
 .backgroundInverted {
@@ -66,10 +67,11 @@
 }
 
 .backgroundInverted:hover {
-    background: var(--navbar-color);
+    background: var(--button-bgc-hover-inverted);
     color: var(--nav-text-color);
     fill: var(--nav-text-color);
-    box-shadow: 2px 3px 3px var(--box-shadow);
+    box-shadow: 2px 3px 3px var(--box-shadow-hover);
+    transition: 0.2s ease-in-out;
 }
 
 .square.size_none {
