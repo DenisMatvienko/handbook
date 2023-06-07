@@ -9,9 +9,20 @@
 
 .button {
     position: absolute;
-    top: -35px;
-    left: 19px;
+    top: -40px;
+    left: 10px;
     cursor: pointer;
+}
+
+.BarsIcon {
+    width: 25px;
+    height: 25px;
+    fill: var(--nav-links-color-light);
+
+    &:hover {
+        fill: var(--nav-links-color-light);
+        opacity: 1;
+    }
 }
 
 .sidebarWrapper {
@@ -28,11 +39,6 @@
     width: 80%;
 }
 
-.rotate {
-    transition: transform 500ms ease-in-out;
-    transform: rotate(90deg);
-}
-
 .items {
     display: flex;
     justify-content: center;
@@ -45,6 +51,7 @@
     display: flex;
     align-items: center;
     margin-top: 5px;
+    height: 40px;
 }
 
 .link {
@@ -54,7 +61,7 @@
 
 .icon {
     width: 25px;
-    height: 25px;
+    height: 40px;
     transition: margin-top 0.5s ease-in-out;
     fill: var(--nav-links-color-light);
 }
@@ -68,11 +75,6 @@
         flex-direction: column;
     }
 
-    .rotate {
-        transition: transform 500ms ease-in-out;
-        transform: rotate(180deg);
-    }
-
     .lang {
         margin-top: 10px;
     }
@@ -84,7 +86,10 @@
     }
 
     .icon {
-        margin-top: 10px;
         transition: margin-top 0.5s ease-in-out;
+    }
+
+    .roll {
+        rotate: 180deg;
     }
 }

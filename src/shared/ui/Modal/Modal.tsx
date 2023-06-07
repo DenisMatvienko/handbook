@@ -1,3 +1,14 @@
+// setTimeout in closeHandler
+// Speed as far is closing animation.
+// Timeout using in ref because - if we delete modal from DOM, timeout run anyway, and we try
+// change state of undefined deleted modal component, that mean  - app crash with error
+//
+//
+// useCallback in onKeyDown
+// useCallback memorize every time this function.
+// Because without useCallback, after each render create new this function
+// And each of this new functions has new links
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
   ReactNode, useState, useRef, useEffect, useCallback,
@@ -31,18 +42,12 @@ export const Modal = (props: ModalProps) => {
     if (onClose) {
       setIsClosing(true);
       timerRef.current = setTimeout(() => {
-        // Speed as far is closing animation.
-        // Timeout using in ref because - if we delete modal from DOM, timeout run anyway, and we try
-        // change state of undefined deleted modal component, that mean  - app crash with error
         onClose();
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
   }, [onClose]);
 
-  // useCallback memorize every time this function.
-  // Because without useCallback, after each render create new this function
-  // And each of this new functions has new links
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeHandler();

@@ -12,5 +12,7 @@
     "Главная": "Main page",
     "О сайте": "About page",
     "Короткий язык": "Eng",
-    "Войти": "Log in"
+    "Войти": "Sign in",
+    "decr": "Decr",
+    "incr": "Incr"
 }

@@ -27,8 +27,11 @@ Primary.args = {
 export const ClearThemeButton = Template.bind({});
 // Clear button, without styles (scss class: .clear)
 ClearThemeButton.args = {
-  children: 'Text',
+  children: <BarsIcon />,
   theme: ButtonTheme.CLEAR,
+  square: true,
+  size: ButtonSize.XXL,
+  radius: ButtonRadius.CIRCLE,
 };
 
 export const OutlineThemeButton = Template.bind({});

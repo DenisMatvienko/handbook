@@ -1,8 +1,7 @@
 import { Theme, useTheme } from 'app/provider/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
-import DarkIcon from 'shared/assets/icons/lightbulb-solid.svg';
-import LightIcon from 'shared/assets/icons/lightbulb-regular.svg';
-import SunIcon from 'shared/assets/icons/sun-solid.svg';
+import DarkIcon from 'shared/assets/icons/light-theme.svg';
+import LightIcon from 'shared/assets/icons/dark-theme.svg';
 import {
   Button, ButtonRadius, ButtonSize, ButtonTheme,
 } from 'shared/ui/Button/Button';

@@ -11,6 +11,19 @@
     background: none;
     outline: none;
     color: var(--border-color);
+    fill: var(--border-color);
+
+    &:hover {
+        opacity: 0.4;
+        border-radius: 50%;
+        background-color: var(--button-sidebar-hover);
+    }
+
+    &:active {
+        transition: opacity 0.1s;
+        opacity: 0.1;
+        border: 1px solid black;
+    }
 }
 
 .outline {

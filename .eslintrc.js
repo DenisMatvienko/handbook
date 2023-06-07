@@ -79,6 +79,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'off', // semantic filter, use later
     'react-hooks/rules-of-hooks': 'error', // Check rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Check effect dependencies
+    'no-param-reassign': 'off', // allow to change functions args (immer js for slices)
   },
   globals: {
     __IS_DEV__: true,

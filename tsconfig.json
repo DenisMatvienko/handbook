@@ -32,6 +32,6 @@
   "include": [
     "./configs/jest/setupTests.ts",
     "./src/**/*.ts", // solve TS2307: Cannot find module problem
-    "./src/**/*.tsx", // solve TS2307: Cannot find module problem
+    "./src/**/*.tsx" // solve TS2307: Cannot find module problem
   ]
 }

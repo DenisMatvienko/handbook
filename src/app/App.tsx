@@ -17,7 +17,6 @@ function App() {
       <div className={`app ${classNames('app', {}, [theme])}`}>
           <Suspense fallback={<PageLoader />}>
               <Navbar />
-              {/* <button onClick={() => setIsOpen(true)} type="button">123</button> */}
               <div className="content-page">
                   <Sidebar />
                   <AppRouter />
