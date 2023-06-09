@@ -14,5 +14,7 @@
     "Короткий язык": "Eng",
     "Войти": "Sign in",
     "decr": "Decr",
-    "incr": "Incr"
+    "incr": "Incr",
+    "Введите пароль": "Enter password...",
+    "Введите логин": "Enter login..."
 }

@@ -1,0 +1,24 @@
+.simpleInput {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    width: 300px;
+    height: 50px;
+    outline: none;
+    color: transparent;
+    text-shadow: 0 0 0 var(--button-colorized);
+    font-size: 18px;
+    box-shadow: 1px 1px 1px var(--box-shadow-hover);
+    transition: 0.3s linear;
+    padding-left: 40px;
+
+    &::placeholder {
+        color: #c0c0c0;
+    }
+
+    &:focus {
+        color: var(--bg-color);
+        background-color: var(--button-colorized);
+    }
+}

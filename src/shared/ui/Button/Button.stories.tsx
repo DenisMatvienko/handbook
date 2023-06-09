@@ -59,6 +59,25 @@ BackgroundThemeButton.args = {
   theme: ButtonTheme.BACKGROUND,
 };
 
+export const BackgroundThemeColorized = Template.bind({});
+// Background theme test
+BackgroundThemeColorized.args = {
+  children: 'Sign In',
+  size: ButtonSize.XL,
+  radius: ButtonRadius.SEMI_ELLIPSE,
+  theme: ButtonTheme.BACKGROUND_WT_B_BT_P,
+};
+
+export const BackgroundThemeColorizedDark = Template.bind({});
+// Background theme test
+BackgroundThemeColorizedDark.args = {
+  children: 'Sign In',
+  size: ButtonSize.XL,
+  radius: ButtonRadius.SEMI_ELLIPSE,
+  theme: ButtonTheme.BACKGROUND_WT_B_BT_P,
+};
+BackgroundThemeColorizedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
 export const BackgroundThemeButtonDark = Template.bind({});
 // Background theme test - main theme dark
 BackgroundThemeButtonDark.args = {

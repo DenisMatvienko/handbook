@@ -45,14 +45,14 @@
     fill: var(--nav-text-color);
     padding: 10px;
     border: none;
-}
 
-.background:hover {
-    background: var(--button-bgc-hover-inverted);
-    color: var(--nav-text-color);
-    fill: var(--button-color-hover-ligth);
-    box-shadow: 2px 3px 3px var(--box-shadow-hover);
-    transition: 0.2s ease-in-out;
+    &:hover {
+        background: var(--button-bgc-hover-inverted);
+        color: var(--nav-text-color);
+        fill: var(--button-color-hover-ligth);
+        box-shadow: 1px 1px 3px var(--box-shadow-hover);
+        transition: 0.2s ease-in-out;
+    }
 }
 
 .backgroundInverted {
@@ -64,14 +64,33 @@
     background: var(--button-bgc-hover-light);
     color: var(--button-color-hover-ligth);
     fill: var(--button-color-hover-ligth);
+
+    &:hover {
+        background: var(--button-bgc-hover-inverted);
+        color: var(--nav-text-color);
+        fill: var(--nav-text-color);
+        box-shadow: 1px 1px 3px var(--box-shadow-hover);
+        transition: 0.2s ease-in-out;
+    }
 }
 
-.backgroundInverted:hover {
-    background: var(--button-bgc-hover-inverted);
+.backgroundColorized {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--button-colorized);
     color: var(--nav-text-color);
     fill: var(--nav-text-color);
-    box-shadow: 2px 3px 3px var(--box-shadow-hover);
-    transition: 0.2s ease-in-out;
+    padding: 10px;
+    border: none;
+
+    &:hover {
+        background: var(--button-bgc-hover-colorized);
+        color: var(--nav-text-color);
+        fill: var(--button-color-hover-ligth);
+        box-shadow: 1px 1px 3px var(--box-shadow-hover);
+        transition: 0.2s ease-in-out;
+    }
 }
 
 .square.size_none {

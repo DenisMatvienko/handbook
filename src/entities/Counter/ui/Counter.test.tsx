@@ -11,7 +11,7 @@ import { StateSchema } from 'app/provider/StoreProvider';
 import { userEvent } from '@storybook/testing-library';
 import { Counter } from './Counter';
 
-const initialState: StateSchema = {
+const initialState = {
   counter: { value: 10 },
 };
 

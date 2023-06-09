@@ -19,7 +19,7 @@ export const PageError = ({ className }: PageErrorProps) => {
 
   return (
       <div className={classNames(classes.PageError, {}, [className, theme])}>
-          <p>{t('Непредвиденная ошибка')}</p>
+          <p className={classes.message}>{t('Непредвиденная ошибка')}</p>
           <Button
               onClick={reloadPage}
               theme={ButtonTheme.BACKGROUND}
