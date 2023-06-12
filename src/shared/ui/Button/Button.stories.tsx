@@ -145,3 +145,13 @@ SizeXXLEllipseButton.args = {
   radius: ButtonRadius.ELLIPSE,
   theme: ButtonTheme.BACKGROUND,
 };
+
+export const ButtonDisabled = Template.bind({});
+// Button shouldn't use "square = true", because this is not square, this rectangle
+ButtonDisabled.args = {
+  children: 'Disabled',
+  size: ButtonSize.XL,
+  radius: ButtonRadius.SEMI_ELLIPSE,
+  theme: ButtonTheme.BACKGROUND_WT_B_BT_P,
+  disabled: true,
+};

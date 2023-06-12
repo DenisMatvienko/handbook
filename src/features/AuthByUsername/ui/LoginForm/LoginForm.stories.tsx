@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { LoginForm } from './LoginForm';
 
 export default {
@@ -15,13 +16,41 @@ export default {
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
-export const LoginFormDark = Template.bind({});
-LoginFormDark.args = {
+export const CorrectDataLight = Template.bind({});
+CorrectDataLight.args = {};
+CorrectDataLight.decorators = [
+  StoreDecorator(
+    {
+      loginForm: {
+        username: 'admin',
+        password: 'admin',
+      },
+    },
+  ),
+];
 
-};
-LoginFormDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const WithErrorLight = Template.bind({});
+WithErrorLight.args = {};
+WithErrorLight.decorators = [
+  StoreDecorator(
+    {
+      loginForm: {
+        username: 'admin',
+        password: 'admin',
+        error: 'ERROR',
+      },
+    },
+  ),
+];
 
-export const LoginFormLight = Template.bind({});
-LoginFormLight.args = {
-
-};
+export const LoadingLight = Template.bind({});
+LoadingLight.args = {};
+LoadingLight.decorators = [
+  StoreDecorator(
+    {
+      loginForm: {
+        isLoading: true,
+      },
+    },
+  ),
+];

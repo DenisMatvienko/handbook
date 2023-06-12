@@ -1,3 +1,6 @@
+// ThemeDecorator - global storybook theme,
+// change theme we are can in - ComponentName.stories.tsx, change for even Template by the decorators
+
 import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -15,6 +18,5 @@ export const parameters = {
 };
 
 addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator(Theme.LIGHT)); // global storybook theme,
-// change theme we are can in - ComponentName.stories.tsx, change for even Template by the decorators
+addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);

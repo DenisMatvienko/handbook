@@ -74,7 +74,7 @@ module.exports = {
           ignoreAttribute: ['data-testid', 'to'],
         },
       ],
-    'max-len': ['error', { ignoreComments: true, code: 100 }],
+    'max-len': ['error', { ignoreComments: true, code: 120 }],
     'jsx-a11y/no-static-element-interactions': 'off', // semantic filter, use later
     'jsx-a11y/click-events-have-key-events': 'off', // semantic filter, use later
     'react-hooks/rules-of-hooks': 'error', // Check rules of Hooks
