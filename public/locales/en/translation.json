@@ -16,5 +16,7 @@
     "decr": "Decr",
     "incr": "Incr",
     "Введите пароль": "Enter password...",
-    "Введите логин": "Enter login..."
+    "Введите логин": "Enter login...",
+    "Авторизация": "Authorization",
+    "Некорректные данные": "Incorrect login or password error"
 }
