@@ -9,7 +9,6 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
-    // interface describes props for args to Navbar component
     className?: string;
 }
 
@@ -59,10 +58,12 @@ export const Navbar = ({ className }: NavbarProps) => {
           >
               {t('Войти')}
           </Button>
+          {isAuthModal && (
           <LoginModal
               isOpen={isAuthModal}
               onClose={onCloseModal}
           />
+          )}
       </div>
   );
 };

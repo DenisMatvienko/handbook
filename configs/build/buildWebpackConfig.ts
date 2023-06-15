@@ -1,3 +1,17 @@
+/**
+ *  Now we shouldn't add extensions
+ *  of tsx, ts, js into path (from: './test.ts' to: './test')
+ *
+ *  https://webpack.js.org/guides/development/#using-source-maps
+ *  For example, if you bundle three source files (a.js, b.js, and c.js)
+ *  into one bundle (bundle.js) and one of the source files contains an
+ *  error, the stack trace will point to bundle.js
+ *
+ * is dev ? add source-maps in dev build : remove source-maps from prod build
+ *
+ * dev-server: run just in dev build. in prod build - didn't
+ */
+
 import webpack from 'webpack';
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
@@ -23,20 +37,12 @@ export function buildWebpackConfig(options: BuildOptions):
       rules: buildLoaders(options),
     },
     resolve:
-            /* Now we shouldn't add extention
-             of tsx, ts, js into path (from: './test.ts' to: './test') */
             buildResolve(options),
 
     devtool:
-            /* https://webpack.js.org/guides/development/#using-source-maps
-                For example, if you bundle three source files (a.js, b.js, and c.js)
-                into one bundle (bundle.js) and one of the source files contains an
-                 error, the stack trace will point to bundle.js
-            */
             isDev
-              ? 'inline-source-map' // add source-maps in dev build
-              : undefined, // remove source-maps from prod build
-    // dev-server run just in dev build. prod build - didn't
+              ? 'inline-source-map'
+              : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
 
   };
