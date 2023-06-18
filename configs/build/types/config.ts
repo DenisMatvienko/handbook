@@ -1,3 +1,7 @@
+/**
+ * Types for webpack config build
+ */
+
 export type BuildMode = 'production' | 'development'
 
 export interface BuildPaths {

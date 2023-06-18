@@ -1,4 +1,7 @@
-// createAsyncThunk, generic = Returned, ThunkArg, thunkAPIType
+/**
+ * createAsyncThunk, generic = Returned: User, ThunkArg: loginByUsername,
+ * thunkAPIType: { rejectValue: string }
+ */
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
