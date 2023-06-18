@@ -1,9 +1,11 @@
-// This hook return type UseThemeResult
-// We need grant access by *useContext*
-//
-// Trow on body className - newTheme, because in any components we are often need to add,
-// class 'theme' from useTheme in additional in classNames method.
-// That move allows us didn't add permanently 'theme' in additional
+/**
+ * This hook return type UseThemeResult
+ * We need grant access by *useContext*
+ *
+ * Trow on body className - newTheme, because in any components we are often need to add,
+ * class 'theme' from useTheme in additional in classNames method.
+ * That move allows us didn't add permanently 'theme' in additional
+ */
 
 import { useContext } from 'react';
 import { ThemeContext, Theme, LOCAL_STORAGE_THEME_KEY } from './ThemeContext';
