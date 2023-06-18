@@ -1,14 +1,21 @@
-// devTools - off in production mode
+/**
+ * devTools - off in production mode
+ */
 
-import { combineReducers, configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  configureStore, ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { StateSchema } from 'app/provider/StoreProvider/config/StateSchema';
 import { counterReducer } from 'entities/Counter/model/slice/CounterSlice';
 import { userReducer } from 'entities/User';
-// import { loginReducer } from 'features/AuthByUsername';
 import { createReducerManager } from './reducerManager';
 
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+) {
   const RootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
   };

@@ -1,7 +1,8 @@
 /**
  *  StateSchema - Root state type
  *
- *  StateSchemaKey - add keys of StateSchema. Example:
+ *  StateSchemaKey - add keys of StateSchema, in this type can be just items, which same
+ *  as keys of StateSchema. Example:
  *  KeysOfStateSchema: Array<StateSchemaKey> = ['user', 'counter', 'loginForm'];
  *
  *  ReducerManager interface describe types returned from ReducerManager

@@ -35,7 +35,7 @@ WithErrorLight.decorators = [
       loginForm: {
         username: 'admin',
         password: 'admin',
-        error: 'ERROR',
+        error: 'error',
       },
     },
   ),

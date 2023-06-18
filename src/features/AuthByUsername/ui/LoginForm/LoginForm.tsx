@@ -1,5 +1,5 @@
 /**
- *  <Button /> disabled when isLoading - true
+ *  <Button disabled />  - disabled when isLoading - true
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -10,6 +10,7 @@ import { useDispatch, useSelector, useStore } from 'react-redux';
 import { memo, useCallback, useEffect } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ReduxStoreWithManager } from 'app/provider/StoreProvider';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import {
   getLoginUsername,
@@ -30,30 +31,15 @@ export interface LoginFormProps {
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
-  const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
 
-  useEffect(() => {
-  /**
-   * In moment when component did mount we are add reducer
-   */
-    store.reducerManager.add('loginForm', loginReducer);
-    dispatch({ type: '@INIT LoginForm' });
-
-    return () => {
-      /**
-       * After all, when component not needed, component unmount and
-       * remove reducer
-       * Notice: component unmount because lazy, code splitting
-       */
-      store.reducerManager.remove('loginForm');
-      dispatch({ type: '@DESTROY LoginForm' });
-    };
-  }, []);
+  const initialReducers:ReducerList = {
+    loginForm: loginReducer,
+  };
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -68,38 +54,43 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, username, password]);
 
   return (
-      <div className={classNames(classes.LoginForm, {}, [className])}>
-          <Text title={t('Вход')} theme={TextTheme.PRIMARY} />
-          {error && <Text title={t('Некорректные данные')} theme={TextTheme.ERROR} />}
-          <Input
-              type="text"
-              autofocus
-              theme={InputTheme.SIMPLE}
-              className={classes.input}
-              placeholderTemplate={t('Введите логин')}
-              onChange={onChangeUsername}
-              value={username}
-          />
-          <Input
-              type="text"
-              theme={InputTheme.SIMPLE}
-              className={classes.input}
-              placeholderTemplate={t('Введите пароль')}
-              onChange={onChangePassword}
-              value={password}
-          />
-          <div className={classNames(classes.signInWrapper, {}, [])}>
-              <Button
-                  className={classes.loginBtn}
-                  theme={ButtonTheme.BACKGROUND_WT_B_BT_P}
-                  radius={ButtonRadius.SEMI_ELLIPSE}
-                  onClick={onLoginClick}
-                  disabled={isLoading}
-              >
-                  {t('Войти')}
-              </Button>
+      <DynamicModuleLoader
+          removeAfterUnmount
+          reducers={initialReducers}
+      >
+          <div className={classNames(classes.LoginForm, {}, [className])}>
+              <Text title={t('Вход')} theme={TextTheme.PRIMARY} />
+              {error && <Text title={t('Некорректные данные')} theme={TextTheme.ERROR} />}
+              <Input
+                  type="text"
+                  autofocus
+                  theme={InputTheme.SIMPLE}
+                  className={classes.input}
+                  placeholderTemplate={t('Введите логин')}
+                  onChange={onChangeUsername}
+                  value={username}
+              />
+              <Input
+                  type="text"
+                  theme={InputTheme.SIMPLE}
+                  className={classes.input}
+                  placeholderTemplate={t('Введите пароль')}
+                  onChange={onChangePassword}
+                  value={password}
+              />
+              <div className={classNames(classes.signInWrapper, {}, [])}>
+                  <Button
+                      className={classes.loginBtn}
+                      theme={ButtonTheme.BACKGROUND_WT_B_BT_P}
+                      radius={ButtonRadius.SEMI_ELLIPSE}
+                      onClick={onLoginClick}
+                      disabled={isLoading}
+                  >
+                      {t('Войти')}
+                  </Button>
+              </div>
           </div>
-      </div>
+      </DynamicModuleLoader>
   );
 });
 
