@@ -23,13 +23,13 @@ describe('loginSlice', () => {
     expect(loginReducer(
       state as LoginSchema,
       loginActions.setUsername('Den27'),
-    )).toBe({ username: 'Den27' });
+    )).toEqual({ username: 'Den27' });
   });
   test('set password, change state by action', () => {
     const state: DeepPartial<LoginSchema> = { password: 'admin' };
     expect(loginReducer(
       state as LoginSchema,
-      loginActions.setPassword('admin'),
-    )).toBe({ username: '0000' });
+      loginActions.setPassword('0000'),
+    )).toEqual({ password: '0000' });
   });
 });
