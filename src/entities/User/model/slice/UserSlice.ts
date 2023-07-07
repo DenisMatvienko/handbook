@@ -1,12 +1,14 @@
-// setAuthData - when user add login and password data, this data's saving in local-storage
-// in loginByUsername
-//
-// initAuthData - page reload or something, we are check:
-// we have in local storage data's which we are set in setAuthData
-// if true we are set this data in authData state
-// Mounting/dispatching of this logic done in the App component
-//
-// logout - exit from user Account
+/**
+ * setAuthData - when user add login and password data, this data's saving in local-storage
+ * in loginByUsername
+ *
+ * initAuthData - page reload or something, we are check:
+ * we have in local storage data's which we are set in setAuthData
+ * if true we are set this data in authData state
+ * Mounting/dispatching of this logic done in the App component
+ *
+ * logout - exit from user Account
+ */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
