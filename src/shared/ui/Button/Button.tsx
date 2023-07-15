@@ -1,4 +1,25 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+/**
+ *  - Button ui-element
+ *   button theme - have theme by colors and shapes for button
+ *   square - consider size's for button AND for content into button, button will always be squared
+ *   size - using just with square, beacouse size classes in Button.module include size of content
+ *   and size of button
+ *   radius - confirm shapes of button
+ *  @param ButtonTheme
+ *  list of theme's where value is: css-selector
+ *  @param ButtonSize
+ *  Use with square buttons-radius, with props 'square' = true
+ *  @param ButtonRadius
+ *   SQUARE - radius just for square
+ *   SUPER_ELLIPSE - radius just for square
+ *   CIRCLE - radius just for square
+ *   SEMI_ELLIPSE - radius just for rectangles
+ *   ELLIPSE - radius just for rectangles
+ */
+
+import {
+  ButtonHTMLAttributes, FC, memo, ReactNode,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 
@@ -11,7 +32,6 @@ export enum ButtonTheme {
 }
 
 export enum ButtonSize {
-  // Just for square buttons, with props 'square' = true
   NN = 'size_none',
   M = 'size_m',
   L = 'size_l',
@@ -20,11 +40,6 @@ export enum ButtonSize {
 }
 
 export enum ButtonRadius {
-  // SQUARE - radius just for square
-  // SUPER_ELLIPSE - radius just for square
-  // CIRCLE - radius just for square
-  // SEMI_ELLIPSE - radius just for rectangles
-  // ELLIPSE - radius just for rectangles
   SQUARE = 'radius_square',
   SUPER_ELLIPSE = 'radius_semi_super_ellipse',
   CIRCLE = 'radius_circle',
@@ -33,19 +48,15 @@ export enum ButtonRadius {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  // button theme - have theme by colors for button
-  // square - consider size's for button AND for content into button, button will always be squared
-  // size - using just with square, beacouse size classes in Button.module include size of content
-  // and size of button
-  // radius - confirm shapes of button
     className?: string;
     theme?: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
     radius?: ButtonRadius;
+    children?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
@@ -79,4 +90,4 @@ export const Button: FC<ButtonProps> = (props) => {
           {children}
       </button>
   );
-};
+});

@@ -1,3 +1,8 @@
+/**
+ *  - Login reducers:
+ *      Log in system by reducers on this slice;
+ */
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   LoginByUsername,

@@ -4,7 +4,7 @@
     background-color: var(--navbar-color);
     box-shadow: 2px 3px 3px var(--box-shadow);
     position: relative;
-    transition: width 0.3s;
+    transition: width 0.2s;
 }
 
 .button {
@@ -30,15 +30,6 @@
     justify-content: center;
 }
 
-.switchers {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    bottom: 20px;
-    width: 80%;
-}
-
 .items {
     display: flex;
     justify-content: center;
@@ -47,23 +38,13 @@
     margin-left: 20px;
 }
 
-.item {
+.switchers {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 5px;
-    height: 40px;
-}
-
-.link {
-    margin-left: 20px;
-    opacity: 1;
-}
-
-.icon {
-    width: 25px;
-    height: 40px;
-    transition: margin-top 0.5s ease-in-out;
-    fill: var(--nav-links-color-light);
+    position: absolute;
+    bottom: 20px;
+    width: 80%;
 }
 
 .collapsed {

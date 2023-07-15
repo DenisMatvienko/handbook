@@ -1,3 +1,12 @@
+/**
+ * - App router:
+ *      Loop the routeConfig which creating by Record in config, getting element and path from config
+ *   @returns Routes
+ *
+ *   @param routeConfig
+ *      see more: 'shared/config/routeConfig/routeConfig'
+ */
+
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';

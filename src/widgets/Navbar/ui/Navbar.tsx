@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
@@ -12,7 +12,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authDate = useSelector(getUserAuthData);
@@ -34,7 +34,12 @@ export const Navbar = ({ className }: NavbarProps) => {
     return (
         <div className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.accountBar, {}, [className])}>
-                <Text title={`${authDate.username},`} theme={TextTheme.PRIMARY} />
+                <div className={classes.usernameLinks}>
+                    <Text
+                        text={`${authDate.username},`}
+                        theme={TextTheme.LINK_LIGHT}
+                    />
+                </div>
                 <Button
                     theme={ButtonTheme.BACKGROUND_INVERTED}
                     radius={ButtonRadius.SEMI_ELLIPSE}
@@ -66,6 +71,6 @@ export const Navbar = ({ className }: NavbarProps) => {
           )}
       </div>
   );
-};
+});
 
 export default Navbar;

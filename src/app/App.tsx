@@ -1,3 +1,17 @@
+/**
+ *  - Main app, using other components and routes
+ *
+ *  @param useTheme
+ *    using theme by this hook, use by ThemeContext. See more on: 'app/provider/ThemeProvider'
+ *
+ *  @param initAuthData
+ *    if when we have logged user, this action init this in local storage. That move doing here
+ *    for init user on first start app. See more on: 'entities/User/slice/UserSlice'
+ *
+ *   @param AppRouter
+ *    see more: 'app/provider/router/ui/AppRouter.tsx'
+ */
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/provider/ThemeProvider';
 import { Navbar } from 'widgets/Navbar';
@@ -9,7 +23,6 @@ import { useDispatch } from 'react-redux';
 import { AppRouter } from './provider/router';
 
 function App() {
-  // We have global access to theme
   const { theme } = useTheme();
   const dispatch = useDispatch();
 

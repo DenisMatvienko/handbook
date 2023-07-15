@@ -1,24 +1,30 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import classes from './Text.module.scss';
 
 export enum TextTheme {
   PRIMARY = 'primary',
   ERROR = 'error',
+  TEXT_WHITE = 'textWhite',
+  LINK_LIGHT = 'linkLight',
 }
 
 interface TextProps {
     className?: string;
     title?: string;
     text?: string;
+    textWhite?: string;
+    linkLight?: string;
     theme?: TextTheme;
 }
 
-export const Text = (props: TextProps) => {
+export const Text = memo((props: TextProps) => {
   const {
     className,
     title,
     text,
+    textWhite,
+    linkLight,
     theme = TextTheme.PRIMARY,
   } = props;
 
@@ -30,6 +36,8 @@ export const Text = (props: TextProps) => {
       <div className={classNames(classes.Text, mods, [className])}>
           {title && <p className={classes.title}>{title}</p>}
           {text && <p className={classes.text}>{text}</p>}
+          {linkLight && <p className={classes.linkLight}>{text}</p>}
+          {textWhite && <p className={classes.textWhite}>{text}</p>}
       </div>
   );
-};
+});

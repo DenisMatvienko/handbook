@@ -1,5 +1,11 @@
 /**
  * devTools - off in production mode
+ *
+ * @param Getting dispatch type
+ * - Store created inside the 'createReduxStore' function, and we cannot get store outside in
+ * AppDispatch. For solving this use ReturnType
+ * useAppDispatch into => shared/lib/hooks/useAppDispatch
+ * https://redux-toolkit.js.org/usage/usage-with-typescript#getting-the-dispatch-type
  */
 
 import {
@@ -8,6 +14,7 @@ import {
 import { StateSchema } from 'app/provider/StoreProvider/config/StateSchema';
 import { counterReducer } from 'entities/Counter/model/slice/CounterSlice';
 import { userReducer } from 'entities/User';
+import { useDispatch } from 'react-redux';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
@@ -32,3 +39,5 @@ export function createReduxStore(
   store.reducerManager = reducerManager;
   return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

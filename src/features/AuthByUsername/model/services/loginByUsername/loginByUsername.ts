@@ -1,6 +1,8 @@
 /**
- * createAsyncThunk, generic = Returned: User, ThunkArg: loginByUsername,
- * thunkAPIType: { rejectValue: string }
+ * @param createAsyncThunkArgs(generic):
+ *  @return User,
+ *  @ThunkArg: loginByUsername,
+ *  @thunkAPI - type: { rejectValue: string }
  *
  * Dispatch to be called 3 times:
  * 1 time called-When we are call action LoginByUsername

@@ -1,10 +1,14 @@
-import { FC } from 'react';
+/**
+ *  AppLink component
+ *    Allow to add themes for links tag <a>;
+ */
+
+import { memo, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './AppLink.module.scss';
 
 export enum AppLinkTheme {
-    // Themes for links
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
     WHITE = 'white',
@@ -13,9 +17,10 @@ export enum AppLinkTheme {
 interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme;
+    children?: ReactNode;
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink = memo((props: AppLinkProps) => {
   const {
     to,
     className,
@@ -37,4 +42,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
           {children}
       </Link>
   );
-};
+});

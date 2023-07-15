@@ -1,19 +1,23 @@
-// setTimeout in closeHandler
-// Speed as far is closing animation.
-// Timeout using in ref because - if we delete modal from DOM, timeout run anyway, and we try
-// change state of undefined deleted modal component, that mean  - app crash with error
-//
-//
-// useCallback in onKeyDown
-// useCallback memorize every time this function.
-// Because without useCallback, after each render create new this function
-// And each of this new functions has new links
-//
-// We use lazy loading of the modal because it is rendered first because of the portal
-// With 'lazy' is true and !isMounted we are didn't mount modal in DOM
-// 2 arguments to use 'lazy':
-// - component didn't render while modal will mount
-// - autofocus will work in input when modal will open and mount
+/**
+ *  - Modal component
+ *  @param setTimeout in closeHandler
+ *  - Speed as far is closing animation.
+ *    Timeout using in ref because - if we delete modal from DOM, timeout run anyway, and we try
+ *    change state of undefined deleted modal component, that mean  - app crash with error
+ *
+ *
+ *  @param useCallback in onKeyDown
+ *  - useCallback memorize every time this function.
+ *    Because without useCallback, after each render create new this function
+ *    And each of this new functions has new links
+ *
+ *  We use lazy loading of the modal because it is rendered first because of the portal
+ *  With 'lazy' is true and !isMounted we are didn't mount modal in DOM
+ *  2 arguments to use 'lazy':
+ *  - component didn't render while modal will mount
+ *  - autofocus will work in input when modal will open and mount
+ *
+ */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
