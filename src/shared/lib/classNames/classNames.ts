@@ -30,10 +30,10 @@ export function classNames(
 ): string {
   return [
     cls,
+    ...additional.filter(Boolean),
     ...Object.entries(mods)
       .filter(([key, value]) => Boolean(value))
       .map(([key, value]) => key),
-    ...additional.filter(Boolean),
   ]
     .join(' ');
 }
