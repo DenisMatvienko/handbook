@@ -2,16 +2,16 @@
  * - TestAsyncThunk - Filler class (placeholder class or dummy class) - for reusing
  *   test's by this filler class with same types which using in LoginByUsername, createAsyncThunk
  *
- * - Type 'ActionCreatorType' imitate 'createAsyncThunk' generic type in loginByUsername:
+ *   @param Type 'ActionCreatorType' imitate 'createAsyncThunk' generic type in loginByUsername:
  *   represent as function, which have arg, and return asyncThunkAction
  *
- * - Type 'ActionCreatorType' path of generics:
+ *   @param Type 'ActionCreatorType' path of generics:
  *   ActionCreatorType -> createAsyncThunk -> AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
  *    -> which eq to AsyncThunkActionCreator<Returned, ThunkArg, ThunkApiConfig>
  *    -> finally get arg which we are made:
  *      (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
  *
- * - callThunk():
+ *   @param callThunk():
  *    actionCreator(LoginByUsername) - is createAsyncThunk function - which create async thunk(action);
  *    result = action() - after that we are call this action and add into 'result' var;
  *

@@ -1,5 +1,7 @@
-// UserSchema - interface for state.
-// If authData - undef., user wasn't authorized
+/**
+ *  - UserSchema - interface for state.
+ *    If authData - undefined, user wasn't authorized
+ */
 
 export interface User {
   id: string;

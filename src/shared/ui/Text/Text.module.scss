@@ -19,3 +19,27 @@
         color: var(--error);
     }
 }
+
+.linkLight {
+    .title {
+        font: var(--font-l);
+        color: var(--nav-link-color);
+    }
+
+    .text {
+        font: var(--font-m);
+        color: var(--nav-link-color);
+    }
+}
+
+.textWhite {
+    .title {
+        font: var(--font-l);
+        color: var(--white);
+    }
+
+    .text {
+        font: var(--font-m);
+        color: var(--white);
+    }
+}

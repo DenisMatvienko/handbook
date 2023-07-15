@@ -1,0 +1,30 @@
+.item {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    height: 40px;
+}
+
+.link {
+    margin-left: 20px;
+    opacity: 1;
+}
+
+.icon {
+    width: 25px;
+    height: 40px;
+    transition: margin-top 0.5s ease-in-out;
+    fill: var(--nav-links-color-light);
+}
+
+.collapsed {
+    .link {
+        display: none;
+        flex-wrap: nowrap;
+        width: 0;
+    }
+
+    .icon {
+        transition: margin-top 0.5s ease-in-out;
+    }
+}

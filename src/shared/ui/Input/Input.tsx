@@ -1,7 +1,11 @@
-// Omit for exclude from <InputHTMLAttributes<HTMLInputElement> to solve conflict with 'value',
-// onChange types
-//
-// onChange? - with optional chaining, because props may not be transferred
+/**
+ *  Input ui-component
+ *  @param HTMLInputProps
+ *  - Omit for exclude from <InputHTMLAttributes<HTMLInputElement> to solve conflict with 'value',
+ *    onChange types
+ *
+ *  onChange? - with optional chaining, because props may not be transferred
+ */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';

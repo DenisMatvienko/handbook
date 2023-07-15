@@ -1,16 +1,20 @@
 /**
  *  <Button disabled />  - disabled when isLoading - true
+ *  @param onChangeUsername - change username state by action from loginSlice
+ *  @param onChangePassword - change password state by action from loginSlice
+ *  @param onSuccess - add props onClose when response data - fulfilled. That move close
+ *  modal window, when logout
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { memo, useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ReduxStoreWithManager } from 'app/provider/StoreProvider';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import {
   getLoginUsername,
@@ -27,11 +31,12 @@ import classes from './LoginForm.module.scss';
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess?: () => void;
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
@@ -49,9 +54,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = useCallback(() => {
-    dispatch(LoginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  const onLoginClick = useCallback(async () => {
+    const result = await dispatch(LoginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, [onSuccess, dispatch, username, password]);
 
   return (
       <DynamicModuleLoader
@@ -60,7 +68,15 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
       >
           <div className={classNames(classes.LoginForm, {}, [className])}>
               <Text title={t('Вход')} theme={TextTheme.PRIMARY} />
-              {error && <Text title={t('Некорректные данные')} theme={TextTheme.ERROR} />}
+              {error && (
+              <div className={classNames(classes.errorPallet, {}, [])}>
+                  <Text
+                      className={classNames(classes.errorText, {}, [])}
+                      text={t('Некорректные данные')}
+                      theme={TextTheme.TEXT_WHITE}
+                  />
+              </div>
+              )}
               <Input
                   type="text"
                   autofocus
