@@ -18,3 +18,4 @@ declare module '*.svg' {
 
 // __IS_DEV__ is - DefinePlugin var
 declare const __IS_DEV__: boolean;
+declare const __API__: string;

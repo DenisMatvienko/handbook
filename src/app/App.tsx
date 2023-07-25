@@ -10,6 +10,10 @@
  *
  *   @param AppRouter
  *    see more: 'app/provider/router/ui/AppRouter.tsx'
+ *
+ *  @func useNavigate
+ *    If you need to do something after event (ex: after auth you need to redirect into profile)
+ *
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';

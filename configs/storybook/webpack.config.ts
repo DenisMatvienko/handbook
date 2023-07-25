@@ -1,5 +1,6 @@
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
+import { json } from 'stream/consumers';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoaders';
 import { BuildSvgLoader } from '../build/loaders/buildSvgLoaders';
@@ -31,7 +32,8 @@ export default ({ config }: {config:webpack.Configuration}) => {
 
   config.plugins.push(
     new DefinePlugin({
-      __IS_DEV__: true,
+      __IS_DEV__: JSON.stringify(true),
+      __API__: JSON.stringify(''),
     }),
   );
 
