@@ -16,6 +16,12 @@
  *   @param headers.authorization
  *    - Contain auth token which is getting from localStorage;
  *    - In its turn, being written to localStorage in LoginByUsername (AuthByUsername service)
+ *
+ *    @error
+ *      localStorage can return 'null' is not assignable to type 'string | number | boolean'.
+ *      Type 'null' is not assignable to type 'string | number | boolean'.
+ *      To authorization need add empty string, for solving error with null
+ *
  */
 
 import axios from 'axios';
@@ -24,6 +30,6 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 export const $api = axios.create({
   baseURL: __API__,
   headers: {
-    authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY),
+    authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
   },
 });

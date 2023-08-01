@@ -1,20 +1,25 @@
 /**
- * - DynamicModuleLoader
- *  Dynamically add reducers when wrapped component mount, and delete reducers when component
- *  will unmount. Decision for max optimization of app
+ *  - DynamicModuleLoader
+ *    Dynamically add reducers when wrapped component mount, and delete reducers when component
+ *    will unmount. Decision for max optimization of app
  *
- * Add reducers in runtime. When app is working, reducers could be added.
- * Like provider wrap component and use reducerManager methods
+ *    Add reducers in runtime. When app is working, reducers could be added.
+ *    Like provider wrap component and use reducerManager methods
  *
- * @param componentName - the name of the lazy component/chunk in which we make the lazy reducer;
- * @param reducer - name of reducer/reducers, which add into component;
- * @param removeAfterUnmount - reducer will unmount with component/chunk;
+ *  @param componentName
+ *    - the name of the lazy component/chunk in which we make the lazy reducer;
+ *  @param reducer
+ *    - name of reducer/reducers, which add into component;
+ *  @param removeAfterUnmount
+ *    - reducer will unmount with component/chunk;
  *
- * @param ReducerList - This type allow to add more than 1 reducer,
+ *  @param ReducerList
+ *    - This type allow to add more than 1 reducer,
  * we are decompose object, here componentName and reducer
  *
- * @param ReducerListEntry - types for decompose tuple's (which contain key: 'component-name',)
- * from props
+ *  @param ReducerListEntry
+ *    - types for decompose tuple's (which contain key: 'component-name',)
+ *    from props
  *
  */
 

@@ -1,6 +1,11 @@
 {
+  "Edit": "Edit",
+  "Firstname": "Firstname",
+  "Lastname": "Lastname",
   "Lorem-layout": "",
   "Profile page": "Profile page",
+  "UserProfile": "UserProfile",
+  "Your name": "Your name",
   "decr": "decr",
   "incr": "incr",
   "Авторизация": "",

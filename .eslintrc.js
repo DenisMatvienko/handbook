@@ -1,23 +1,39 @@
-/*
-  line-breaks:
-  linebreak-style': ['error', 'windows'] - (in vscode use crlf in this file)
-  (linebreak in windows looks is - \r\n)
-  https://eslint.org/docs/latest/rules/linebreak-style
-  https://stackoverflow.com/questions/39114446/how-can-i-write-a-eslint-rule-for-linebreak-style-changing-depending-on-windo
-
-  react/jsx-indent - 4 - indents
-  'no-unused-vars': 'warn' - use warning when var is unused
-  'react/react-in-jsx-scope': 'off' - after React 17, should off
-  'react/jsx-props-no-spreading': 'warn' - spread for props is bad, except ui components
-  'react/function-component-definition': 'off' -
-  means that should use function declaration instead of arrow func in component
-
-  you should add to translate this string:
-  'i18next/no-literal-string': ['error', { markupOnly: true }]
-
-  overrides - means that we are for all this files in key "files" override
-  rule in key "rules"
-*/
+/**
+ *    - Eslint config
+ *      Contain rules for all project
+ *
+ *   @param line-breaks
+ *       linebreak-style': ['error', 'windows'] - (in vscode use crlf in this file)
+ *       (linebreak in windows looks is - \r\n)
+ *       https://eslint.org/docs/latest/rules/linebreak-style
+ *       https://stackoverflow.com/questions/39114446/how-can-i-write-a-eslint-rule-for-linebreak-style-changing-depending-on-windo
+ *
+ *   @param react/jsx-indent
+ *       - 4 indents
+ *
+ *   @param 'no-unused-vars'
+ *       'warn' - use warning when var is unused
+ *
+ *   @param 'react/react-in-jsx-scope'
+ *       'off' - after React 17, should off
+ *
+ *   @param 'react/jsx-props-no-spreading'
+ *       'warn' - spread for props is bad, except ui components
+ *
+ *   @param 'react/function-component-definition'
+ *       'off' - means that should use function declaration instead of arrow func in component
+ *
+ *   - Should add to translate this string:
+ *   'i18next/no-literal-string': ['error', { markupOnly: true }]
+ *
+ *   @param overrides
+ *       means that we are for all this files in key "files" override
+ *       rule in key "rules"
+ *
+ *   @param no-undef
+ *       prevent using global variables. false - because this property will not allow using global.d.ts
+ *       types.
+ */
 
 module.exports = {
   env: {

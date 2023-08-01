@@ -1,3 +1,6 @@
 {
-  "UserProfile": "Профиль"
+  "UserProfile": "Профиль",
+  "Edit": "Редактировать",
+  "Firstname": "Имя",
+  "Lastname": "Фамилиия"
 }
