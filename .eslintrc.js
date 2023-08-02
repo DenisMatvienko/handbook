@@ -31,8 +31,8 @@
  *       rule in key "rules"
  *
  *   @param no-undef
- *       prevent using global variables. false - because this property will not allow using global.d.ts
- *       types.
+ *       prevent using global variables. 'off' - because this property will not allow using
+ *       global.d.ts types. to all other this property working for designation by 'var'
  */
 
 module.exports = {
@@ -83,6 +83,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-multi-spaces': 'off',
+    'no-undef': 'off',
     'i18next/no-literal-string':
       ['error',
         {

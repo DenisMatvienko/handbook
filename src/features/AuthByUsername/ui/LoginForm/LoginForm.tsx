@@ -1,9 +1,16 @@
 /**
- *  <Button disabled />  - disabled when isLoading - true
- *  @param onChangeUsername - change username state by action from loginSlice
- *  @param onChangePassword - change password state by action from loginSlice
- *  @param onSuccess - add props onClose when response data - fulfilled. That move close
- *  modal window, when logout
+ *    LoginForm
+ *      - Form which allow to add username and passwords for login in service
+ *
+ *    @param  disabled
+ *      - in <Button/> component. Button become disabled when isLoading - true
+ *    @param onChangeUsername
+ *      - change username state by action from loginSlice
+ *    @param onChangePassword
+ *      - change password state by action from loginSlice
+ *    @param onSuccess
+ *      - add props onClose when response data - fulfilled. That move close
+ *      modal window, when logout
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';

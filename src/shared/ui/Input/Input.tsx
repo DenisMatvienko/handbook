@@ -1,10 +1,10 @@
 /**
- *  Input ui-component
- *  @param HTMLInputProps
- *  - Omit for exclude from <InputHTMLAttributes<HTMLInputElement> to solve conflict with 'value',
- *    onChange types
+ *    Input ui-component
+ *    @param HTMLInputProps
+ *    - Omit for exclude from <InputHTMLAttributes<HTMLInputElement> to solve conflict with 'value',
+ *      onChange types
  *
- *  onChange? - with optional chaining, because props may not be transferred
+ *    - onChange? - with optional chaining, because props may not be transferred
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -36,7 +36,7 @@ export const Input = memo((props: InputProps) => {
     onChange,
     type = 'text',
     placeholderTemplate,
-    theme,
+    theme = InputTheme.SIMPLE,
     autofocus,
     ...otherProps
   } = props;

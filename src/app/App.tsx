@@ -1,19 +1,18 @@
 /**
- *  - Main app, using other components and routes
+ *    - Main app, using other components and routes
  *
- *  @param useTheme
- *    using theme by this hook, use by ThemeContext. See more on: 'app/provider/ThemeProvider'
+ *    @param useTheme
+ *      using theme by this hook, use by ThemeContext. See more on: 'app/provider/ThemeProvider'
  *
- *  @param initAuthData
- *    if when we have logged user, this action init this in local storage. That move doing here
- *    for init user on first start app. See more on: 'entities/User/slice/UserSlice'
+ *    @param initAuthData
+ *      if when we have logged user, this action init this in local storage. That move doing here
+ *      for init user on first start app. See more on: 'entities/User/slice/UserSlice'
  *
- *   @param AppRouter
- *    see more: 'app/provider/router/ui/AppRouter.tsx'
+ *    @param AppRouter
+ *      see more: 'app/provider/router/ui/AppRouter.tsx'
  *
- *  @func useNavigate
- *    If you need to do something after event (ex: after auth you need to redirect into profile)
- *
+ *    @func useNavigate
+ *      If you need to do something after event (ex: after auth you need to redirect into profile)
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';

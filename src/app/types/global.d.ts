@@ -4,8 +4,15 @@
  *  @param __IS_DEV__
  *    - is DefinePlugin variable
  *
+ *   @param __IS_API__
+ *    - is Instance API variable
+ *
  *  @type DeepPartial<T>
- *    - allow to add all fields. Basically using in decorator
+ *    - allow to add all fields. Basically using in decorator.
+ *      in strict mode some StateSchema fields crash with error (as example Login Schema):
+ *      TS2739: Type '{ password: string; }' is missing the following properties from
+ *      type 'LoginSchema': username, isLoading;
+ *      Which means, that in this place needed to add all fields, as already added password field
  *      https://stackoverflow.com/questions/61132262/typescript-deep-partial
  */
 
