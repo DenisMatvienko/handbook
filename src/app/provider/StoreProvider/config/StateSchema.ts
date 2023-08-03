@@ -30,7 +30,9 @@
  *
  *  @param ThunkConfig
  *    - Config from loginByUsername generic, replaced for cut the long args path;
- *      (with generic type <T> for error)
+ *      (with generic type <T> for error);
+ *      get types from: createAsyncThunk --> ThunkApiConfig extends AsyncThunkConfig -->
+ *      --> type AsyncThunkConfig
  */
 
 import { CounterSchema } from 'entities/Counter';
@@ -43,6 +45,7 @@ import { ProfileSchema } from 'entities/Profile/model/type/profile';
 import { AxiosInstance } from 'axios';
 import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
+import { Dispatch } from 'redux';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -70,10 +73,11 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate: (to: To, options?: NavigateOptions) => void,
+  navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
+  dispatch?: Dispatch;
 }

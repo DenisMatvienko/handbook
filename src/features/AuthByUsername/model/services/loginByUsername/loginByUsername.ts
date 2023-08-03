@@ -26,30 +26,34 @@ interface loginByUsername {
   password: string;
 }
 
-export const LoginByUsername = createAsyncThunk<User, loginByUsername, ThunkConfig<string>>(
-  'login/loginByUsername',
-  async ({ username, password }, thunkAPI) => {
+export const LoginByUsername = createAsyncThunk<
+  User,
+  loginByUsername,
+  ThunkConfig<string>
+  >(
+    'login/loginByUsername',
+    async ({ username, password }, thunkAPI) => {
     /**
      * destruct thunkAPI
      */
-    const { extra, dispatch, rejectWithValue } = thunkAPI;
+      const { extra, dispatch, rejectWithValue } = thunkAPI;
 
-    try {
-      const response = await thunkAPI.extra.api.post<User>('/login', {
-        username,
-        password,
-      });
+      try {
+        const response = await thunkAPI.extra.api.post<User>('/login', {
+          username,
+          password,
+        });
 
-      if (!response.data) {
-        throw new Error();
+        if (!response.data) {
+          throw new Error();
+        }
+        localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+        dispatch(userActions.setAuthData(response.data));
+        // extra.navigate('/profile');
+        return response.data;
+      } catch (e) {
+        console.log(e);
+        return rejectWithValue('error');
       }
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-      dispatch(userActions.setAuthData(response.data));
-      extra.navigate('/profile');
-      return response.data;
-    } catch (e) {
-      console.log(e);
-      return rejectWithValue('error');
-    }
-  },
-);
+    },
+  );

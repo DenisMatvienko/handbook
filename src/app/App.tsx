@@ -23,11 +23,12 @@ import { Suspense, useEffect } from 'react';
 import { PageLoader } from 'widgets/PageLoader';
 import { userActions } from 'entities/User';
 import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppRouter } from './provider/router';
 
 function App() {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

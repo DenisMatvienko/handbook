@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTheme } from 'app/provider/ThemeProvider';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import classes from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -19,7 +20,10 @@ export const PageError = ({ className }: PageErrorProps) => {
 
   return (
       <div className={classNames(classes.PageError, {}, [className, theme])}>
-          <p className={classes.message}>{t('Непредвиденная ошибка')}</p>
+          <Text
+              text={t('Непредвиденная ошибка')}
+              theme={TextTheme.PRIMARY}
+          />
           <Button
               onClick={reloadPage}
               theme={ButtonTheme.BACKGROUND}
