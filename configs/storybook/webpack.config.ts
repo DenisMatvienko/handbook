@@ -1,6 +1,5 @@
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
-import { json } from 'stream/consumers';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoaders';
 import { BuildSvgLoader } from '../build/loaders/buildSvgLoaders';
