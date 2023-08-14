@@ -1,18 +1,28 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": 1 }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "users": [
-    { "id": "1",
+    {
+      "id": "1",
       "username": "admin",
-      "password": "admin" }
+      "password": "admin"
+    }
   ],
   "profile": {
-    "firstName": "Denis",
-    "lastName":"Matvienko",
+    "firstName": "firstName",
+    "lastName": "lastName",
     "age": 22,
     "currency": "RUB",
     "country": "Russia",

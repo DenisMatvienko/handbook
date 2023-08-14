@@ -10,10 +10,12 @@
  * @param cls
  *    - name of class, using as str;
  *  @param mods
+ *    - When value always true - should add this class to additional
  *    - allow to add bool flag if we want to add new css selector to current class;
  *      using as obj, example: classNames(classes.button, { hovered: true, blinked: false })
  *      will be: class="button hovered";
  *  @param additional
+ *    - When value always true - should add to additional!!!
  *    - allow to add array of selectors to className
  *      using as array, example:
  *      classNames(classes.button, { hovered: true, blinked: false }, [withPadding, withMargin]),

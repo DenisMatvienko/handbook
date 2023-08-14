@@ -1,0 +1,38 @@
+.errorPallet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.default {
+  border-radius: 10px;
+  background: var(--button-colorized);
+  color: var(--nav-text-color);
+  fill: var(--nav-text-color);
+}
+
+.size_none {
+  width: 100px;
+  padding: 5px;
+}
+
+.size_m {
+  width: 200px;
+  padding: 10px;
+}
+
+.size_l {
+  width: 300px;
+  padding: 10px;
+}
+
+.size_xl {
+  width: 500px;
+  padding: 20px;
+}
+
+.size_xxl {
+  width: 700px;
+  padding: 40px;
+}

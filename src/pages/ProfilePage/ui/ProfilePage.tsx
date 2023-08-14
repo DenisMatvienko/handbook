@@ -4,19 +4,19 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { fetchProfileData, profileReducer, ProfileCard } from 'entities/Profile';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import classes from './ProfilePage.module.scss';
 import { useSelector } from 'react-redux';
 import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
 import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
 import {
-  getProfileIsLoading
+  getProfileIsLoading,
 } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
+import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
-    className?: string;
+  className?: string;
 }
 
-const initialReducers:ReducerList = {
+const initialReducers: ReducerList = {
   profile: profileReducer,
 };
 
@@ -38,9 +38,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
       >
           <div className={classNames(classes.ProfilePage, {}, [className])}>
               <ProfileCard
-                data={data}
-                isLoading={isLoading}
-                error ={error}
+                  data={data}
+                  isLoading={isLoading}
+                  error={error}
               />
           </div>
       </DynamicModuleLoader>
