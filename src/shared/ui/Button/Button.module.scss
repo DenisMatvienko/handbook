@@ -1,144 +1,144 @@
 .Button {
-    cursor: pointer;
-    background: var(--primary-color);
-    border: 1px solid var(--border-color);
-    color: var(--border-color);
+  cursor: pointer;
+  background: var(--primary-color);
+  border: 1px solid var(--border-color);
+  color: var(--border-color);
 }
 
 .clear {
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
-    color: var(--border-color);
-    fill: var(--border-color);
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--border-color);
+  fill: var(--border-color);
 
-    &:hover {
-        opacity: 0.4;
-        border-radius: 50%;
-        background-color: var(--button-sidebar-hover);
-    }
+  &:hover {
+    opacity: 0.4;
+    border-radius: 50%;
+    background-color: var(--button-sidebar-hover);
+  }
 
-    &:active {
-        transition: opacity 0.1s;
-        opacity: 0.1;
-        border: 1px solid black;
-    }
+  &:active {
+    transition: opacity 0.1s;
+    opacity: 0.1;
+    border: 1px solid black;
+  }
 }
 
 .outline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--border-color);
-    fill: var(--border-color);
-    color: var(--border-color);
-    background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  fill: var(--border-color);
+  color: var(--border-color);
+  background: none;
 }
 
 .background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--navbar-color);
-    color: var(--nav-text-color);
-    fill: var(--nav-text-color);
-    padding: 10px;
-    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--navbar-color);
+  color: var(--nav-text-color);
+  fill: var(--nav-text-color);
+  padding: 10px;
+  border: none;
 
-    &:hover {
-        background: var(--button-bgc-hover-inverted);
-        color: var(--nav-text-color);
-        fill: var(--button-color-hover-ligth);
-        box-shadow: 1px 1px 3px var(--box-shadow-hover);
-        transition: 0.2s ease-in-out;
-    }
+  &:hover {
+    background: var(--button-bgc-hover-inverted);
+    color: var(--nav-text-color);
+    fill: var(--button-color-hover-ligth);
+    box-shadow: 1px 1px 3px var(--box-shadow-hover);
+    transition: 0.2s ease-in-out;
+  }
 }
 
 .backgroundInverted {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    border: none;
-    background: var(--button-bgc-hover-light);
-    color: var(--button-color-hover-ligth);
-    fill: var(--button-color-hover-ligth);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background: var(--button-bgc-hover-light);
+  color: var(--button-color-hover-ligth);
+  fill: var(--button-color-hover-ligth);
 
-    &:hover {
-        background: var(--button-bgc-hover-inverted);
-        color: var(--nav-text-color);
-        fill: var(--nav-text-color);
-        box-shadow: 1px 1px 3px var(--box-shadow-hover);
-        transition: 0.2s ease-in-out;
-    }
+  &:hover {
+    background: var(--button-bgc-hover-inverted);
+    color: var(--nav-text-color);
+    fill: var(--nav-text-color);
+    box-shadow: 1px 1px 3px var(--box-shadow-hover);
+    transition: 0.2s ease-in-out;
+  }
 }
 
 .backgroundColorized {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--button-colorized);
-    color: var(--nav-text-color);
-    fill: var(--nav-text-color);
-    padding: 10px;
-    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-colorized);
+  color: var(--nav-text-color);
+  fill: var(--nav-text-color);
+  padding: 10px;
+  border: none;
 
-    &:hover {
-        background: var(--button-bgc-hover-colorized);
-        color: var(--nav-text-color);
-        fill: var(--button-color-hover-ligth);
-        box-shadow: 1px 1px 3px var(--box-shadow-hover);
-        transition: 0.2s ease-in-out;
-    }
+  &:hover {
+    background: var(--button-bgc-hover-colorized);
+    color: var(--nav-text-color);
+    fill: var(--button-color-hover-ligth);
+    box-shadow: 1px 1px 3px var(--box-shadow-hover);
+    transition: 0.2s ease-in-out;
+  }
 }
 
 .disabled {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .square.size_none {
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 }
 
 .square.size_m {
-    width: var(--font-line-m);
-    height: var(--font-line-m);
+  width: var(--font-line-m);
+  height: var(--font-line-m);
 }
 
 .square.size_l {
-    width: var(--font-line-l);
-    height: var(--font-line-l);
-    font-size: var(--font-l);
+  width: var(--font-line-l);
+  height: var(--font-line-l);
+  font-size: var(--font-l);
 }
 
 .square.size_xl {
-    width: var(--font-line-xl);
-    height: var(--font-line-xl);
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
 }
 
 .square.size_xxl {
-    width: var(--font-line-xxl);
-    height: var(--font-line-xxl);
+  width: var(--font-line-xxl);
+  height: var(--font-line-xxl);
 }
 
 .radius_square {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 .radius_semi_super_ellipse {
-    border-radius: 25%;
+  border-radius: 25%;
 }
 
 .radius_semi_ellipse {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .radius_ellipse {
-    border-radius: 100px;
+  border-radius: 100px;
 }
 
 .radius_circle {
-    border-radius: 50%;
+  border-radius: 50%;
 }

@@ -37,7 +37,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           reducers={initialReducers}
       >
           <div className={classNames(classes.ProfilePage, {}, [className])}>
-              <ProfileCard />
+              <ProfileCard
+                data={data}
+                isLoading={isLoading}
+                error ={error}
+              />
           </div>
       </DynamicModuleLoader>
   );

@@ -1,45 +1,45 @@
 .title {
-    font: var(--font-l);
-    color: var(--secondary-color);
+  font: var(--font-l);
+  color: var(--secondary-color);
 }
 
 .text {
-    font: var(--font-m);
-    color: var(--secondary-color);
+  font: var(--font-m);
+  color: var(--secondary-color);
 }
 
 .error {
-    .title {
-        font: var(--font-l);
-        color: var(--error);
-    }
+  .title {
+    font: var(--font-l);
+    color: var(--error);
+  }
 
-    .text {
-        font: var(--font-m);
-        color: var(--error);
-    }
+  .text {
+    font: var(--font-m);
+    color: var(--error);
+  }
 }
 
 .linkLight {
-    .title {
-        font: var(--font-l);
-        color: var(--nav-link-color);
-    }
+  .title {
+    font: var(--font-l);
+    color: var(--nav-link-color);
+  }
 
-    .text {
-        font: var(--font-m);
-        color: var(--nav-link-color);
-    }
+  .text {
+    font: var(--font-m);
+    color: var(--nav-link-color);
+  }
 }
 
 .textWhite {
-    .title {
-        font: var(--font-l);
-        color: var(--white);
-    }
+  .title {
+    font: var(--font-l);
+    color: var(--white);
+  }
 
-    .text {
-        font: var(--font-m);
-        color: var(--white);
-    }
+  .text {
+    font: var(--font-m);
+    color: var(--white);
+  }
 }

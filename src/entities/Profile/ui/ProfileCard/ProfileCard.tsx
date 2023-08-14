@@ -2,18 +2,36 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
+import { PageLoader } from 'widgets/PageLoader';
 
 import { Input, InputTheme } from 'shared/ui/Input/Input';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/type/profile';
 
 interface ProfileCardProps {
-    className?: string;
-    data?: Profile
+  className?: string;
+  data?: Profile;
+  error?: string;
+  isLoading?: boolean;
 }
 
-export const ProfileCard = ({ className, data }: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
+  const {
+    className,
+    data,
+    error,
+    isLoading,
+  } = props;
+
   const { t } = useTranslation('profile');
+
+  if (isLoading) {
+    return (
+        <div className={classNames(classes.ProfileCard, {}, [className])}>
+            <PageLoader />
+        </div>
+    );
+  }
 
   return (
       <div className={classNames(classes.ProfileCard, {}, [className])}>

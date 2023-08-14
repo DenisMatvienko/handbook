@@ -1,13 +1,13 @@
 .PageError {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: var(--bg-color);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--bg-color);
 }
 
 .message {
-    color: var(--nav-links-color-light);
+  color: var(--nav-links-color-light);
 }
