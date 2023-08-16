@@ -10,6 +10,9 @@ import { getProfileError } from 'entities/Profile/model/selectors/getProfileErro
 import {
   getProfileIsLoading,
 } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
+import {
+  getProfileReadonly,
+} from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -26,6 +29,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const data = useSelector(getProfileData);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
+  const readonly = useSelector(getProfileReadonly);
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -41,6 +45,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                   data={data}
                   isLoading={isLoading}
                   error={error}
+                  readonly={readonly}
               />
           </div>
       </DynamicModuleLoader>

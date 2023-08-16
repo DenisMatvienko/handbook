@@ -17,6 +17,7 @@ interface ProfileCardProps {
   data?: Profile;
   error?: string;
   isLoading?: boolean;
+  readonly?: boolean;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -25,6 +26,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     data,
     error,
     isLoading,
+    readonly,
   } = props;
 
   const { t } = useTranslation('profile');
