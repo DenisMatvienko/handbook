@@ -1,8 +1,19 @@
-.errorPallet {
+.errorPallete {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.ProfileCardWrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ProfileCardButton {
+  margin-top: 50px;
 }
 
 .default {

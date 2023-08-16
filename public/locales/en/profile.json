@@ -2,5 +2,7 @@
   "UserProfile": "Profile",
   "Edit": "Edit",
   "Firstname": "Firstname",
-  "Lastname": "Lastname"
+  "Lastname": "Lastname",
+  "ProfileErrorTitle": "Error with loading page",
+  "ProfileErrorText": "Try to refresh page"
 }

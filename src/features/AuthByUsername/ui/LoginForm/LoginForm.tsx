@@ -26,7 +26,7 @@ import {
   ErrorPalette,
   ErrorPaletteSize,
   ErrorPaletteTheme,
-} from 'shared/ui/errorPalette/errorPalette';
+} from 'shared/ui/ErrorPalette/ErrorPalette';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -83,10 +83,9 @@ const LoginForm = memo(({
               {error && (
               <ErrorPalette
                   theme={ErrorPaletteTheme.DEFAULT}
+                  text={t('Некорректные данные')}
                   size={ErrorPaletteSize.L}
-              >
-                  {t('Некорректные данные')}
-              </ErrorPalette>
+              />
               )}
               <Input
                   type="text"

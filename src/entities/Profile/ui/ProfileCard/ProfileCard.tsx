@@ -5,6 +5,12 @@ import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { PageLoader } from 'widgets/PageLoader';
 
 import { Input, InputTheme } from 'shared/ui/Input/Input';
+import {
+  ErrorPalette,
+  ErrorPaletteSize,
+  ErrorPaletteTheme,
+} from 'shared/ui/ErrorPalette/ErrorPalette';
+import { BugButton } from 'app/provider/ErrorBoundary';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/type/profile';
 
@@ -33,11 +39,26 @@ export const ProfileCard = (props: ProfileCardProps) => {
     );
   }
 
+  if (error) {
+    return (
+        <div className={classNames(classes.ProfileCard, {}, [className])}>
+            <ErrorPalette
+                theme={ErrorPaletteTheme.DEFAULT}
+                title={t('ProfileErrorTitle')}
+                text={t('ProfileErrorText')}
+                size={ErrorPaletteSize.XXL}
+                refresh
+            />
+        </div>
+    );
+  }
+
   return (
       <div className={classNames(classes.ProfileCard, {}, [className])}>
           <div className={classes.header}>
               <Text
                   title={t('UserProfile')}
+                  text={t('UserProfile')}
                   theme={TextTheme.PRIMARY}
               />
               <Button

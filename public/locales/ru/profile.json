@@ -2,5 +2,7 @@
   "UserProfile": "Профиль",
   "Edit": "Редактировать",
   "Firstname": "Имя",
-  "Lastname": "Фамилиия"
+  "Lastname": "Фамилиия",
+  "ProfileErrorTitle": "Произошла ошибка при загрузке страницы",
+  "ProfileErrorText": "Попробуйте обновить страницу"
 }

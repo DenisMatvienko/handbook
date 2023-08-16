@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface BugButtonProps {
-    className?: string;
+  className?: string;
 }
 
 // Component for testing functionality with errors (as ErrorBoundary)
