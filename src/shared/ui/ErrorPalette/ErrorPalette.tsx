@@ -26,7 +26,7 @@ interface ErrorPaletteProps {
   refresh?: boolean;
 }
 
-export const ErrorPalette: FC<ErrorPaletteProps> = memo((props: ErrorPaletteProps) => {
+export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) => {
   const {
     className,
     title,
@@ -89,4 +89,4 @@ export const ErrorPalette: FC<ErrorPaletteProps> = memo((props: ErrorPaletteProp
           </div>
       </div>
   );
-});
+};

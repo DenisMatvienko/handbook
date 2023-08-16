@@ -10,7 +10,6 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { BugButton } from 'app/provider/ErrorBoundary';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/type/profile';
 
