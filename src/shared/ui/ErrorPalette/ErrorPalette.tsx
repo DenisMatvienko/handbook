@@ -51,9 +51,9 @@ export const ErrorPalette: FC<ErrorPaletteProps> = memo((props: ErrorPaletteProp
 
   if (refresh) {
     return (
-        <div className={classNames(classes.ProfileCardWrapper)}>
+        <div className={classNames(classes.ErrorPaletteWrapper)}>
             <div
-                className={classNames(classes.errorPallete, mods, [])}
+                className={classNames(classes.ErrorPalette, mods, [])}
                 {...otherProps}
             >
                 <Text
@@ -62,7 +62,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = memo((props: ErrorPaletteProp
                     theme={TextTheme.TEXT_WHITE}
                 />
             </div>
-            <div className={classNames(classes.ProfileCardButton)}>
+            <div className={classNames(classes.RefreshButton)}>
                 <Button
                     onClick={reloadPage}
                     theme={ButtonTheme.BACKGROUND}
@@ -76,9 +76,9 @@ export const ErrorPalette: FC<ErrorPaletteProps> = memo((props: ErrorPaletteProp
   }
 
   return (
-      <div className={classNames(classes.ProfileCardWrapper)}>
+      <div className={classNames(classes.ErrorPaletteWrapper)}>
           <div
-              className={classNames(classes.errorPallete, mods, [])}
+              className={classNames(classes.ErrorPalette, mods, [])}
               {...otherProps}
           >
               <Text

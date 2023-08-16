@@ -7,22 +7,8 @@
   height: 600px;
 }
 
-.errorPallet {
-  display: flex;
-  justify-content: center;
-  border-radius: 10px;
-  background: var(--button-colorized);
-  color: var(--nav-text-color);
-  fill: var(--nav-text-color);
-  align-items: center;
-  width: 300px;
-  padding: 10px;
+.ErrorPaletteWrapper {
   margin-top: 10px;
-}
-
-.errorText {
-  width: auto;
-  text-align: center;
 }
 
 .input {

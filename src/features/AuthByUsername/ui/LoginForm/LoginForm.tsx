@@ -81,11 +81,13 @@ const LoginForm = memo(({
           <div className={classNames(classes.LoginForm, {}, [className])}>
               <Text title={t('Вход')} theme={TextTheme.PRIMARY} />
               {error && (
-              <ErrorPalette
-                  theme={ErrorPaletteTheme.DEFAULT}
-                  text={t('Некорректные данные')}
-                  size={ErrorPaletteSize.L}
-              />
+              <div className={classes.ErrorPaletteWrapper}>
+                  <ErrorPalette
+                      theme={ErrorPaletteTheme.DEFAULT}
+                      text={t('Некорректные данные')}
+                      size={ErrorPaletteSize.L}
+                  />
+              </div>
               )}
               <Input
                   type="text"
