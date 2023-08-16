@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
@@ -30,9 +30,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   const { t } = useTranslation('profile');
 
+  const mods: Mods = {
+    [classes.loading]: true,
+  };
+
   if (isLoading) {
     return (
-        <div className={classNames(classes.ProfileCard, {}, [className])}>
+        <div className={classNames(classes.ProfileCard, mods, [className])}>
             <PageLoader />
         </div>
     );
@@ -57,7 +61,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
           <div className={classes.header}>
               <Text
                   title={t('UserProfile')}
-                  text={t('UserProfile')}
                   theme={TextTheme.PRIMARY}
               />
               <Button

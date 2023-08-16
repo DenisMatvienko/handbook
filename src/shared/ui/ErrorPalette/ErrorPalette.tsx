@@ -68,7 +68,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
                     theme={ButtonTheme.BACKGROUND}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                 >
-                    {t('Обновить страницу')}
+                    {t('RefreshPage')}
                 </Button>
             </div>
         </div>

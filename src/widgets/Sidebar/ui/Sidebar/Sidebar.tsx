@@ -12,11 +12,11 @@ import { SidebarItemsList } from 'widgets/Sidebar/models/items';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);

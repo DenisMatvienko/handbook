@@ -3,6 +3,7 @@
   "Edit": "Edit",
   "Firstname": "Firstname",
   "Lastname": "Lastname",
-  "ProfileErrorTitle": "Error with loading page",
-  "ProfileErrorText": "Try to refresh page"
+  "ProfileErrorTitle": "Error with loading profile",
+  "ProfileErrorText": "Try to authorize or refresh page",
+  "RefreshPage": "Refresh page"
 }
