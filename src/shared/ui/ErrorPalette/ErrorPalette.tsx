@@ -1,6 +1,6 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import classes from './ErrorPalette.module.scss';
@@ -60,6 +60,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
                     text={text}
                     title={title}
                     theme={TextTheme.TEXT_WHITE}
+                    align={TextAlign.CENTER}
                 />
             </div>
             <div className={classNames(classes.RefreshButton)}>

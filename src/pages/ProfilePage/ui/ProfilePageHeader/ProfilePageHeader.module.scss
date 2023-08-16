@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+
+  .editButton {
+    margin-left: auto;
+    width: 150px;
+  }
+}
+
