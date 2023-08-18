@@ -9,6 +9,7 @@ import { fetchProfileData } from './model/services/fetchProfileData/fetchProfile
 import { getProfileData } from './model/selectors/getProfileData/getProfileData';
 import { getProfileError } from './model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 
 export {
   Profile,
@@ -19,4 +20,5 @@ export {
   getProfileData,
   getProfileError,
   getProfileIsLoading,
+  getProfileReadonly,
 };

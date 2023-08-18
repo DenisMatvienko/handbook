@@ -22,19 +22,17 @@
  *    Solving: Need add to props, default theme ()
  */
 
-import {
-  ButtonHTMLAttributes, FC, memo, ReactNode,
-} from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Theme } from 'app/provider/ThemeProvider';
 import classes from './Button.module.scss';
 
 export enum ButtonTheme {
-    CLEAR = 'clear',
-    OUTLINE = 'outline',
-    BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundInverted',
-    BACKGROUND_WT_B_BT_P = 'backgroundColorized',
+  CLEAR = 'clear',
+  OUTLINE = 'outline',
+  CANCEL = 'cancel',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'backgroundInverted',
+  BACKGROUND_WT_B_BT_P = 'backgroundColorized',
 }
 
 export enum ButtonSize {
@@ -54,12 +52,12 @@ export enum ButtonRadius {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string;
-    theme?: ButtonTheme;
-    square?: boolean;
-    size?: ButtonSize;
-    radius?: ButtonRadius;
-    children?: ReactNode;
+  className?: string;
+  theme?: ButtonTheme;
+  square?: boolean;
+  size?: ButtonSize;
+  radius?: ButtonRadius;
+  children?: ReactNode;
 }
 
 export const Button = memo((props: ButtonProps) => {

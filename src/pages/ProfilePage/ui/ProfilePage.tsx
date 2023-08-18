@@ -1,18 +1,19 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
-import { fetchProfileData, profileReducer, ProfileCard } from 'entities/Profile';
-import { useEffect } from 'react';
+import {
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
+  getProfileReadonly,
+  profileActions,
+  ProfileCard,
+  profileReducer,
+} from 'entities/Profile';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import {
-  getProfileIsLoading,
-} from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import {
-  getProfileReadonly,
-} from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -35,17 +36,28 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     dispatch(fetchProfileData());
   }, [dispatch]);
 
+  const changeFirstname = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ firstName: value || '' }));
+  }, [dispatch]);
+
+  const changeLastname = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ lastName: value || '' }));
+  }, [dispatch]);
+
   return (
       <DynamicModuleLoader
           removeAfterUnmount
           reducers={initialReducers}
       >
           <div className={classNames(classes.ProfilePage, {}, [className])}>
+
               <ProfileCard
                   data={data}
                   isLoading={isLoading}
                   error={error}
                   readonly={readonly}
+                  onChangeFirstname={changeFirstname}
+                  onChangeLastname={changeLastname}
               />
           </div>
       </DynamicModuleLoader>

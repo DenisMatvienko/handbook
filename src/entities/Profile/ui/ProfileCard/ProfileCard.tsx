@@ -9,8 +9,16 @@ import {
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
-import classes from './ProfileCard.module.scss';
+import { useEffect, useMemo } from 'react';
+import { ProfileItemsList } from 'entities/Profile/model/items/items';
+import { ProfileCardItem } from 'entities/Profile/ui/ProfileCard/ProfileCardItem/ProfileCardItem';
+import { fetchProfileData } from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+  ProfileDataItemReadonly,
+} from 'entities/Profile/ui/ProfileCard/ProfileDataItem/ProfileDataItemReadonly';
 import { Profile } from '../../model/type/profile';
+import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
   className?: string;
@@ -18,6 +26,8 @@ interface ProfileCardProps {
   error?: string;
   isLoading?: boolean;
   readonly?: boolean;
+  onChangeFirstname?: (value?: string) => void;
+  onChangeLastname?: (value?: string) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -27,9 +37,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
     error,
     isLoading,
     readonly,
+    onChangeFirstname,
+    onChangeLastname,
   } = props;
 
   const { t } = useTranslation('profile');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   const mods: Mods = {
     [classes.loading]: true,
@@ -57,6 +74,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
     );
   }
 
+  if (readonly) {
+    return (
+        <div className={classNames(classes.ProfileCard, {}, [className])}>
+            <ProfilePageHeader />
+            <ProfileDataItemReadonly item={data} />
+        </div>
+    );
+  }
+
   return (
       <div className={classNames(classes.ProfileCard, {}, [className])}>
           <ProfilePageHeader />
@@ -66,12 +92,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
                   value={data?.firstName}
                   theme={InputTheme.SIMPLE}
                   placeholder={t('Firstname')}
+                  onChange={onChangeFirstname}
+                  readonly={readonly}
               />
               <Input
                   className={classes.input}
                   value={data?.lastName}
                   theme={InputTheme.SIMPLE}
                   placeholder={t('Lastname')}
+                  onChange={onChangeLastname}
+                  readonly={readonly}
               />
           </div>
       </div>

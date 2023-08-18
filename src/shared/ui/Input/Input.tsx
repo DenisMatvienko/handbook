@@ -7,7 +7,7 @@
  *    - onChange? - with optional chaining, because props may not be transferred
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, {
   InputHTMLAttributes, memo, useEffect, useRef, useState,
@@ -21,12 +21,13 @@ export enum InputTheme {
 }
 
 interface InputProps extends HTMLInputProps {
-    className?: string;
-    value?: string;
-    placeholderTemplate?: string;
-    theme?: InputTheme;
-    autofocus?: boolean;
-    onChange?: (value: string) => void;
+  className?: string;
+  value?: string;
+  placeholderTemplate?: string;
+  onChange?: (value: string) => void;
+  theme?: InputTheme;
+  autofocus?: boolean;
+  readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -38,6 +39,7 @@ export const Input = memo((props: InputProps) => {
     placeholderTemplate,
     theme = InputTheme.SIMPLE,
     autofocus,
+    readonly,
     ...otherProps
   } = props;
 
@@ -56,8 +58,9 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [classes[theme]]: true,
+    [classes.readonly]: readonly,
   };
 
   return (

@@ -6,7 +6,14 @@
  *  @param PayloadAction<Profile>
  *    - Because the backend returns user profile data, not the entire schema
  *
+ *  @param setReadonly
+ *    - Using for editing or cancel editing profile
  *
+ *  @param updateProfile
+ *    - Using for update inputs in profile, when is readonly of ready to edit
+ *      ...state.data - old data
+ *      ...state.payload - new data
+ *      - if some field in inputs will update old data change on new data
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -23,7 +30,17 @@ const initialState: ProfileSchema = {
 export const ProfileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadonly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload;
+    },
+    updateProfile: (state, action: PayloadAction<Profile>) => {
+      state.data = {
+        ...state.data,
+        ...action.payload,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProfileData.pending, (state, action) => {
