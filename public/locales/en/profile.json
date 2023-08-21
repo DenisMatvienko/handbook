@@ -6,5 +6,13 @@
   "ProfileErrorTitle": "Error with loading profile",
   "ProfileErrorText": "Try to authorize or refresh page",
   "RefreshPage": "Refresh page",
-  "Cancel": "Cancel"
+  "Cancel": "Cancel",
+  "firstName": "Name",
+  "lastName": "Surname",
+  "age": "Age",
+  "currency": "Currency",
+  "country": "Country",
+  "city": "City",
+  "username": "Username",
+  "avatar": "Avatar"
 }

@@ -1,10 +1,16 @@
 {
   "UserProfile": "Профиль",
   "Edit": "Редактировать",
-  "Firstname": "Имя",
-  "Lastname": "Фамилиия",
   "ProfileErrorTitle": "Произошла ошибка при загрузке профиля пользователя",
   "ProfileErrorText": "Авторизируйтесь, либо обновите страницу",
   "RefreshPage": "Обновить страницу",
-  "Cancel": "Отменить"
+  "Cancel": "Отменить",
+  "firstName": "Имя",
+  "lastName": "Фамилия",
+  "age": "Возраст",
+  "currency": "Валюта",
+  "country": "Страна",
+  "city": "Город",
+  "username": "Логин",
+  "avatar": "Аватар"
 }

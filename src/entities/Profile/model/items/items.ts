@@ -1,4 +1,15 @@
+import { useTranslation } from 'react-i18next';
+import { getProfileData, Profile } from 'entities/Profile';
+import { useSelector } from 'react-redux';
+
 /**
+ *  Profile Items
+ *    - List of items, titles for data in Profile
+ *
+ *  Profile Data
+ *    - List of data, which need to view on Profile card
+ *
+ *
  * Type of sidebar items
  *  @param id
  *  - id of profile properties
@@ -6,51 +17,67 @@
  *  - name of profile properties
  */
 
-// export interface ProfileDataType {
-//   profileId: number;
-//   firstName: string;
-//   secondName: string;
-//   age: string;
-// }
-
 export interface ProfileItemType {
   profileId: number;
   title: string;
 }
 
-export const ProfileItemsList: ProfileItemType[] = [
-  {
-    profileId: 1,
-    title: 'Имя',
-  },
-  {
-    profileId: 2,
-    title: 'Фамилия',
+export const ProfileItem = () => {
+  const { t } = useTranslation('profile');
 
-  },
-  {
-    profileId: 3,
-    title: 'Возраст',
-  },
-  {
-    profileId: 4,
-    title: 'Валюта',
-  },
-  {
-    profileId: 5,
-    title: 'Страна',
+  const ProfileItemsList: ProfileItemType[] = [
+    {
+      profileId: 1,
+      title: t('firstName'),
+    },
+    {
+      profileId: 2,
+      title: t('lastName'),
 
-  },
-  {
-    profileId: 6,
-    title: 'Город',
-  },
-  {
-    profileId: 7,
-    title: 'Логин',
-  },
-  {
-    profileId: 8,
-    title: 'Аватар',
-  },
-];
+    },
+    {
+      profileId: 3,
+      title: t('age'),
+    },
+    {
+      profileId: 4,
+      title: t('currency'),
+    },
+    {
+      profileId: 5,
+      title: t('country'),
+
+    },
+    {
+      profileId: 6,
+      title: t('city'),
+    },
+    {
+      profileId: 7,
+      title: t('username'),
+    },
+    {
+      profileId: 8,
+      title: t('avatar'),
+    },
+  ];
+
+  return ProfileItemsList;
+};
+
+export const ProfileData = () => {
+  const data = useSelector(getProfileData);
+
+  const ProfileDataList: Profile = {
+    firstName: data?.firstName,
+    lastName: data?.lastName,
+    age: data?.age,
+    currency: data?.currency,
+    country: data?.country,
+    city: data?.city,
+    username: data?.username,
+    avatar: data?.avatar,
+  };
+
+  return ProfileDataList;
+};

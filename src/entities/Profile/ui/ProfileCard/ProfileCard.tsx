@@ -9,14 +9,12 @@ import {
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
-import { useEffect, useMemo } from 'react';
-import { ProfileItemsList } from 'entities/Profile/model/items/items';
-import { ProfileCardItem } from 'entities/Profile/ui/ProfileCard/ProfileCardItem/ProfileCardItem';
+import { useEffect } from 'react';
 import { fetchProfileData } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   ProfileDataItemReadonly,
-} from 'entities/Profile/ui/ProfileCard/ProfileDataItem/ProfileDataItemReadonly';
+} from 'entities/Profile/ui/ProfileCard/ProfileDataItemReadonly/ProfileDataItemReadonly';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -78,7 +76,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(classes.ProfileCard, {}, [className])}>
             <ProfilePageHeader />
-            <ProfileDataItemReadonly item={data} />
+            <ProfileDataItemReadonly />
         </div>
     );
   }
