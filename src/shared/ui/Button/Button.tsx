@@ -30,6 +30,7 @@ export enum ButtonTheme {
   CLEAR = 'clear',
   OUTLINE = 'outline',
   CANCEL = 'cancel',
+  SAVE = 'save',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
   BACKGROUND_WT_B_BT_P = 'backgroundColorized',

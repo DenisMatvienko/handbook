@@ -1,6 +1,6 @@
 /**
- *   - Profile isLoading selector
- *     Get is Loading;
+ *   - Profile Readonly selector
+ *     Didn't allow edit form, while readonly state - true;
  */
 
 import { StateSchema } from 'app/provider/StoreProvider';

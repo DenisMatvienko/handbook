@@ -1,15 +1,24 @@
-import { useTranslation } from 'react-i18next';
+/**
+ *  Profile data item readonly
+ *    - Complex component which contain lists of:
+ *      1) itemsList - title of data
+ *      2) dataList - Profile data
+ */
+
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { useMemo } from 'react';
-import { Profile } from '../../../model/type/profile';
+import { useEffect, useMemo } from 'react';
+import {
+  fetchProfileData,
+  getProfileData, Profile, ProfileData, ProfileItem,
+} from 'entities/Profile';
+import { useSelector } from 'react-redux';
 import classes from './ProfileDataItemReadonly.module.scss';
-import { ProfileData, ProfileItem } from '../../../model/items/items';
 
 export const ProfileDataItemReadonly = () => {
-  const items = ProfileItem();
+  const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
 
-  const itemsList = useMemo(() => items
+  const itemsList = useMemo(() => profileItemList
     .map((item) => (
         <Text
             key={item.profileId}
@@ -17,12 +26,12 @@ export const ProfileDataItemReadonly = () => {
             theme={TextTheme.PRIMARY}
             align={TextAlign.LEFT}
         />
-    )), [items]);
+    )), [profileItemList]);
 
   const dataList = useMemo(() => (Object.entries(profileDataList)
     .map(([key, value]) => (
         <Text
-            key={value.toString()}
+            key={value}
             title={`${value};`}
             theme={TextTheme.PRIMARY}
             align={TextAlign.LEFT}

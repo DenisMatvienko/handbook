@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
 import {
   fetchProfileData,
-  getProfileData,
-  getProfileError,
+  getProfileError, getProfileForm,
   getProfileIsLoading,
   getProfileReadonly,
   profileActions,
@@ -14,6 +13,7 @@ import {
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { ProfilePageHeader } from 'pages/ProfilePage';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -27,7 +27,7 @@ const initialReducers: ReducerList = {
 const ProfilePage = ({ className }: ProfilePageProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const data = useSelector(getProfileData);
+  const formData = useSelector(getProfileForm);
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
@@ -50,9 +50,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           reducers={initialReducers}
       >
           <div className={classNames(classes.ProfilePage, {}, [className])}>
-
+              <ProfilePageHeader />
               <ProfileCard
-                  data={data}
+                  data={formData}
                   isLoading={isLoading}
                   error={error}
                   readonly={readonly}

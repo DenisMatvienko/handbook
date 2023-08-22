@@ -8,7 +8,6 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { useEffect } from 'react';
 import { fetchProfileData } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -41,6 +40,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
+  const isCardEditable = !readonly;
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -72,36 +72,35 @@ export const ProfileCard = (props: ProfileCardProps) => {
     );
   }
 
-  if (readonly) {
-    return (
-        <div className={classNames(classes.ProfileCard, {}, [className])}>
-            <ProfilePageHeader />
-            <ProfileDataItemReadonly />
-        </div>
-    );
-  }
-
   return (
       <div className={classNames(classes.ProfileCard, {}, [className])}>
-          <ProfilePageHeader />
-          <div className={classes.data}>
-              <Input
-                  className={classes.input}
-                  value={data?.firstName}
-                  theme={InputTheme.SIMPLE}
-                  placeholder={t('Firstname')}
-                  onChange={onChangeFirstname}
-                  readonly={readonly}
-              />
-              <Input
-                  className={classes.input}
-                  value={data?.lastName}
-                  theme={InputTheme.SIMPLE}
-                  placeholder={t('Lastname')}
-                  onChange={onChangeLastname}
-                  readonly={readonly}
-              />
-          </div>
+          {readonly
+            ? (
+                <div>
+                    <ProfileDataItemReadonly />
+                </div>
+            ) : (
+                <div>
+                    <div className={classes.data}>
+                        <Input
+                            className={classes.input}
+                            value={data?.firstName}
+                            theme={InputTheme.SIMPLE}
+                            placeholder={t('Firstname')}
+                            onChange={onChangeFirstname}
+                            readonly={readonly}
+                        />
+                        <Input
+                            className={classes.input}
+                            value={data?.lastName}
+                            theme={InputTheme.SIMPLE}
+                            placeholder={t('Lastname')}
+                            onChange={onChangeLastname}
+                            readonly={readonly}
+                        />
+                    </div>
+                </div>
+            )}
       </div>
   );
 };

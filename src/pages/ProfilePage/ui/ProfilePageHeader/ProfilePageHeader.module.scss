@@ -6,9 +6,22 @@
   height: auto;
   margin-bottom: 20px;
 
-  .editButton {
+  .toEditButton {
     margin-left: auto;
     width: 150px;
+  }
+}
+
+.editButtons {
+  display: flex;
+}
+
+.editButton {
+  margin-left: auto;
+  width: 150px;
+
+  &:last-child {
+    margin-left: 10px;
   }
 }
 

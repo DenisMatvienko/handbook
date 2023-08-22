@@ -22,6 +22,8 @@ export interface ProfileItemType {
   title: string;
 }
 
+type ProfileDataType = Omit<Profile, 'id'>;
+
 export const ProfileItem = () => {
   const { t } = useTranslation('profile');
 
@@ -67,8 +69,7 @@ export const ProfileItem = () => {
 
 export const ProfileData = () => {
   const data = useSelector(getProfileData);
-
-  const ProfileDataList: Profile = {
+  const ProfileDataList: ProfileDataType = {
     firstName: data?.firstName,
     lastName: data?.lastName,
     age: data?.age,
