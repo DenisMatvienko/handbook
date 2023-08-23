@@ -6,15 +6,15 @@
  */
 
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { useEffect, useMemo } from 'react';
-import {
-  fetchProfileData,
-  getProfileData, Profile, ProfileData, ProfileItem,
-} from 'entities/Profile';
-import { useSelector } from 'react-redux';
+import { useMemo } from 'react';
+import { ProfileData, ProfileItem } from 'entities/Profile';
 import classes from './ProfileDataItemReadonly.module.scss';
 
-export const ProfileDataItemReadonly = () => {
+interface ProfileDataItemReadonlyProps {
+  className: string;
+}
+
+export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps) => {
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
 
@@ -23,7 +23,7 @@ export const ProfileDataItemReadonly = () => {
         <Text
             key={item.profileId}
             title={`${item.title}: `}
-            theme={TextTheme.PRIMARY}
+            theme={TextTheme.TEXT_WHITE}
             align={TextAlign.LEFT}
         />
     )), [profileItemList]);
@@ -33,7 +33,7 @@ export const ProfileDataItemReadonly = () => {
         <Text
             key={value}
             title={`${value};`}
-            theme={TextTheme.PRIMARY}
+            theme={TextTheme.TEXT_WHITE}
             align={TextAlign.LEFT}
         />
     ))

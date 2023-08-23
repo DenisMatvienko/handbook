@@ -22,7 +22,7 @@ export const SidebarItem = (props: SidebarItemProps) => {
       <AppLink
           theme={AppLinkTheme.WHITE}
           className={classNames(classes.item, { [classes.collapsed]: collapsed })}
-          to={redirect ? item.path : '/'}
+          to={redirect ? '/' : item.path}
       >
           <item.Icon className={classNames(classes.icon)} />
           <span

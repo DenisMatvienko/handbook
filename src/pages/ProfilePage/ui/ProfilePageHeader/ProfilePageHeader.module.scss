@@ -5,11 +5,18 @@
   width: 100%;
   height: auto;
   margin-bottom: 20px;
+  background-color: var(--block-colorized);
+  padding: 15px;
+  border-radius: 10px;
 
   .toEditButton {
     margin-left: auto;
     width: 150px;
   }
+}
+
+.titleText {
+  color: var(--white);
 }
 
 .editButtons {

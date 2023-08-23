@@ -9,7 +9,7 @@
   color: transparent;
   text-shadow: 0 0 0 var(--button-colorized);
   font-size: 18px;
-  box-shadow: 1px 1px 1px var(--box-shadow-hover);
+  background-color: var(--input-dark-bg);
   transition: 0.3s linear;
   padding-left: 40px;
 
@@ -19,7 +19,8 @@
 
   &:focus {
     color: var(--bg-color);
-    background-color: var(--button-colorized);
+    background-color: var(--white);
+    box-shadow: 1px 1px 4px var(--box-shadow-hover);
   }
 }
 

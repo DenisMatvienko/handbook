@@ -31,14 +31,15 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   return (
       <div className={classes.header}>
           <Text
+              className={classes.titleText}
               title={t('UserProfile')}
-              theme={TextTheme.PRIMARY}
+              theme={TextTheme.TEXT_WHITE}
           />
           {readonly
             ? (
                 <Button
                     className={classes.toEditButton}
-                    theme={ButtonTheme.BACKGROUND_WT_B_BT_P}
+                    theme={ButtonTheme.BACKGROUND_INVERTED}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                     onClick={onEdit}
                 >

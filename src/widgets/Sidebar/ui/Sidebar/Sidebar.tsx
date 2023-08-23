@@ -1,3 +1,10 @@
+/**
+ *  Sidebar - widget
+ *
+ *  @param SidebarItem - redirect
+ *    - need update
+ */
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -30,7 +37,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
           item={item}
           collapsed={collapsed}
           key={item.path}
-          redirect={!readonly}
       />
   )), [collapsed, readonly]);
 

@@ -79,7 +79,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
             ? (
                 <div>
                     <ProfilePageHeader />
-                    <ProfileDataItemReadonly />
+                    <ProfileDataItemReadonly className={classes.data} />
                 </div>
             ) : (
                 <div>

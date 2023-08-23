@@ -1,6 +1,9 @@
 .dataReadonly {
   display: flex;
-  width: 900px;
+  width: 100%;
+  background-color: var(--block-colorized);
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .title {

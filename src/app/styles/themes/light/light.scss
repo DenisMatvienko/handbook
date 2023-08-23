@@ -6,6 +6,9 @@
   --rare-color: #5900e4;
   --box-shadow: #6a6b6a9e;
 
+  // Block color
+  --block-colorized: #5900e4;
+
   // Text color
   --white: #fcfffc;
   --error: #e60026;
@@ -27,6 +30,7 @@
   //  Buttons color
   --button-save: #1AA260;
   --button-cancel: #de5246;
+  --button-bgc-purple-light: #f2f2f2;
   --button-bgc-hover-light: #f2f2f2;
   --button-color-hover-ligth: #5900e4;
   --button-bgc-hover-inverted: #33019f;
@@ -41,4 +45,5 @@
 
   // Input
   --input-bg: #5900e4;
+  --input-dark-bg: #fcfffc;
 }
