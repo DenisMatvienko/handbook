@@ -13,7 +13,6 @@ import {
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { ProfilePageHeader } from 'pages/ProfilePage';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -50,7 +49,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           reducers={initialReducers}
       >
           <div className={classNames(classes.ProfilePage, {}, [className])}>
-              <ProfilePageHeader />
               <ProfileCard
                   data={formData}
                   isLoading={isLoading}

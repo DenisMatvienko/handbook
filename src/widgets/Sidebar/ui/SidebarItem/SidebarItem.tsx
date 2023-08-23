@@ -5,21 +5,31 @@ import { SidebarItemType } from 'widgets/Sidebar/models/items';
 import classes from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item: SidebarItemType;
-    collapsed: boolean;
+  item: SidebarItemType;
+  collapsed: boolean;
+  redirect?: boolean;
 }
 
-export const SidebarItem = ({ item, collapsed }: SidebarItemProps) => {
+export const SidebarItem = (props: SidebarItemProps) => {
+  const {
+    item,
+    collapsed,
+    redirect = false,
+  } = props;
   const { t } = useTranslation();
 
   return (
       <AppLink
           theme={AppLinkTheme.WHITE}
           className={classNames(classes.item, { [classes.collapsed]: collapsed })}
-          to={item.path}
+          to={redirect ? item.path : '/'}
       >
           <item.Icon className={classNames(classes.icon)} />
-          <span className={classNames(classes.link, { [classes.collapsed]: collapsed })}>{t(item.text)}</span>
+          <span
+              className={classNames(classes.link, { [classes.collapsed]: collapsed })}
+          >
+              {t(item.text)}
+          </span>
       </AppLink>
   );
 };

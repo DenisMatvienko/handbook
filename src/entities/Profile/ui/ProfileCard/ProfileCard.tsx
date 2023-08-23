@@ -14,6 +14,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   ProfileDataItemReadonly,
 } from 'entities/Profile/ui/ProfileCard/ProfileDataItemReadonly/ProfileDataItemReadonly';
+import { ProfilePageHeader } from 'pages/ProfilePage';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -77,10 +78,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
           {readonly
             ? (
                 <div>
+                    <ProfilePageHeader />
                     <ProfileDataItemReadonly />
                 </div>
             ) : (
                 <div>
+                    <ProfilePageHeader />
                     <div className={classes.data}>
                         <Input
                             className={classes.input}
