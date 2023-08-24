@@ -45,10 +45,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
   const dispatch = useAppDispatch();
   const isCardEditable = !readonly;
 
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
-
   const mods: Mods = {
     [classes.loading]: true,
   };

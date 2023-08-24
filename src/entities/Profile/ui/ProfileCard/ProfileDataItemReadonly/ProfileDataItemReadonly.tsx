@@ -8,7 +8,6 @@
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useMemo } from 'react';
 import { ProfileData, ProfileItem } from 'entities/Profile';
-import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import classes from './ProfileDataItemReadonly.module.scss';
 
@@ -44,7 +43,7 @@ export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps)
   return (
       <div className={classes.dataWrapper}>
           <HalfPageBlock>
-              <div>hello</div>
+              <div>```hello```</div>
           </HalfPageBlock>
           <HalfPageBlock>
               <div className={classes.dataReadonly}>
