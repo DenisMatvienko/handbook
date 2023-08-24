@@ -22,7 +22,7 @@ export enum InputTheme {
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   placeholderTemplate?: string;
   onChange?: (value: string) => void;
   theme?: InputTheme;

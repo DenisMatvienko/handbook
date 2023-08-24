@@ -21,14 +21,10 @@
     }
   ],
   "profile": {
-    "id": 1,
-    "firstName": "firstName",
-    "lastName": "lastName",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Saint-P",
-    "username": "admin",
-    "avatar": "https://w0.peakpx.com/wallpaper/289/736/HD-wallpaper-valve-half-life-logo-black-mesa-games.jpg"
+    "firstName": "admin",
+    "lastName": "m",
+    "age": 28,
+    "city": "saint p",
+    "username": "admin"
   }
 }
