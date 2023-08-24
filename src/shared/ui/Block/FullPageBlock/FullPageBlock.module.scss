@@ -1,0 +1,8 @@
+.blockWrapper {
+  display: flex;
+  width: 100%;
+  background-color: var(--block-colorized);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px var(--box-shadow);
+}

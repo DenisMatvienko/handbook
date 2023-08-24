@@ -15,6 +15,8 @@ import {
   ProfileDataItemReadonly,
 } from 'entities/Profile/ui/ProfileCard/ProfileDataItemReadonly/ProfileDataItemReadonly';
 import { ProfilePageHeader } from 'pages/ProfilePage';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -84,23 +86,27 @@ export const ProfileCard = (props: ProfileCardProps) => {
             ) : (
                 <div>
                     <ProfilePageHeader />
-                    <div className={classes.data}>
-                        <Input
-                            className={classes.input}
-                            value={data?.firstName}
-                            theme={InputTheme.SIMPLE}
-                            placeholder={t('Firstname')}
-                            onChange={onChangeFirstname}
-                            readonly={readonly}
-                        />
-                        <Input
-                            className={classes.input}
-                            value={data?.lastName}
-                            theme={InputTheme.SIMPLE}
-                            placeholder={t('Lastname')}
-                            onChange={onChangeLastname}
-                            readonly={readonly}
-                        />
+                    <div className={classes.dataWrapper}>
+                        <HalfPageBlock>
+                            <div className={classes.data}>
+                                <Input
+                                    className={classes.input}
+                                    value={data?.firstName}
+                                    theme={InputTheme.SIMPLE}
+                                    placeholder={t('Firstname')}
+                                    onChange={onChangeFirstname}
+                                    readonly={readonly}
+                                />
+                                <Input
+                                    className={classes.input}
+                                    value={data?.lastName}
+                                    theme={InputTheme.SIMPLE}
+                                    placeholder={t('Lastname')}
+                                    onChange={onChangeLastname}
+                                    readonly={readonly}
+                                />
+                            </div>
+                        </HalfPageBlock>
                     </div>
                 </div>
             )}

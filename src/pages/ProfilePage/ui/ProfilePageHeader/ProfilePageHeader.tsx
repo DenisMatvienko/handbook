@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getProfileReadonly, profileActions } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -29,42 +30,47 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   return (
-      <div className={classes.header}>
-          <Text
-              className={classes.titleText}
-              title={t('UserProfile')}
-              theme={TextTheme.TEXT_WHITE}
-          />
-          {readonly
-            ? (
-                <Button
-                    className={classes.toEditButton}
-                    theme={ButtonTheme.BACKGROUND_INVERTED}
-                    radius={ButtonRadius.SEMI_ELLIPSE}
-                    onClick={onEdit}
-                >
-                    {t('Edit')}
-                </Button>
-            ) : (
-                <div className={classes.editButtons}>
-                    <Button
-                        className={classes.editButton}
-                        theme={ButtonTheme.SAVE}
-                        radius={ButtonRadius.SEMI_ELLIPSE}
-                        onClick={onCancelEdit}
-                    >
-                        {t('Save')}
-                    </Button>
-                    <Button
-                        className={classes.editButton}
-                        theme={ButtonTheme.CANCEL}
-                        radius={ButtonRadius.SEMI_ELLIPSE}
-                        onClick={onCancelEdit}
-                    >
-                        {t('Cancel')}
-                    </Button>
-                </div>
-            )}
+
+      <div className={classes.headerWrapper}>
+          <FullPageBlock>
+              <div className={classes.header}>
+                  <Text
+                      className={classes.titleText}
+                      title={t('UserProfile')}
+                      theme={TextTheme.TEXT_WHITE}
+                  />
+                  {readonly
+                    ? (
+                        <Button
+                            className={classes.toEditButton}
+                            theme={ButtonTheme.BACKGROUND_INVERTED}
+                            radius={ButtonRadius.SEMI_ELLIPSE}
+                            onClick={onEdit}
+                        >
+                            {t('Edit')}
+                        </Button>
+                    ) : (
+                        <div className={classes.editButtons}>
+                            <Button
+                                className={classes.editButton}
+                                theme={ButtonTheme.SAVE}
+                                radius={ButtonRadius.SEMI_ELLIPSE}
+                                onClick={onCancelEdit}
+                            >
+                                {t('Save')}
+                            </Button>
+                            <Button
+                                className={classes.editButton}
+                                theme={ButtonTheme.CANCEL}
+                                radius={ButtonRadius.SEMI_ELLIPSE}
+                                onClick={onCancelEdit}
+                            >
+                                {t('Cancel')}
+                            </Button>
+                        </div>
+                    )}
+              </div>
+          </FullPageBlock>
       </div>
   );
 };

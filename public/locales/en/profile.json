@@ -14,5 +14,6 @@
   "country": "Country",
   "city": "City",
   "username": "Username",
-  "avatar": "Avatar"
+  "avatar": "Avatar",
+  "Save": "Save"
 }

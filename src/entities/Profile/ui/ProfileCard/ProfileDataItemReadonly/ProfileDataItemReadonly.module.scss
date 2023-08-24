@@ -1,15 +1,19 @@
+.dataWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
 .dataReadonly {
   display: flex;
-  width: 100%;
-  background-color: var(--block-colorized);
-  padding: 15px;
-  border-radius: 10px;
+  overflow: scroll;
+  @supports (scrollbar-gutter: stable) {
+    overflow: auto;
+    scrollbar-gutter: stable;
+  }
 }
 
 .title {
   width: 300px;
-}
-
-.titleName {
-
 }
