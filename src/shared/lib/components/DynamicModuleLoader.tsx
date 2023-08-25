@@ -60,11 +60,11 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     /**
      * In moment when component did mount we are add reducer
      */
-    console.log(reducers);
-    Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager?.add(name as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name}` });
-    }, []);
+    Object.entries(reducers)
+      .forEach(([name, reducer]) => {
+        store.reducerManager?.add(name as StateSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name}` });
+      }, []);
 
     return () => {
       /**
@@ -78,10 +78,11 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
        *  mounted we are trigger - 'store.reducerManager.add'
        */
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(([name, reducer]) => {
-          store.reducerManager?.remove(name as StateSchemaKey);
-          dispatch({ type: `@DESTROY ${name}` });
-        });
+        Object.entries(reducers)
+          .forEach(([name, reducer]) => {
+            store.reducerManager?.remove(name as StateSchemaKey);
+            dispatch({ type: `@DESTROY ${name}` });
+          });
       }
     };
     // eslint-disable-next-line

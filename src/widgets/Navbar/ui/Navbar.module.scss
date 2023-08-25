@@ -9,13 +9,22 @@
   box-shadow: 0 3px 5px var(--box-shadow);
 
   :first-child {
-    align-items: flex-start;
     justify-content: flex-end;
   }
 }
 
 .accountBar {
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :not(:last-child):not(:first-child) {
+    margin-right: 15px;
+  }
+
+  :first-child {
+    margin-right: 1px;
+  }
 }
 
 .usernameLinks {

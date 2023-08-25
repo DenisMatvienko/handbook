@@ -7,8 +7,11 @@
 
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useMemo } from 'react';
-import { ProfileData, ProfileItem } from 'entities/Profile';
+import { getProfileData, ProfileData, ProfileItem } from 'entities/Profile';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import classes from './ProfileDataItemReadonly.module.scss';
 
 interface ProfileDataItemReadonlyProps {
@@ -18,6 +21,8 @@ interface ProfileDataItemReadonlyProps {
 export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps) => {
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
+  const authDate = useSelector(getUserAuthData);
+  const data = useSelector(getProfileData);
 
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
@@ -32,7 +37,7 @@ export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps)
   const dataList = useMemo(() => (Object.entries(profileDataList)
     .map(([key, value]) => (
         <Text
-            key={value}
+            key={key.toString()}
             title={`${value};`}
             theme={TextTheme.TEXT_WHITE}
             align={TextAlign.LEFT}
@@ -43,7 +48,17 @@ export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps)
   return (
       <div className={classes.dataWrapper}>
           <HalfPageBlock>
-              <div>```hello```</div>
+              <div className={classes.blockUser}>
+                  <Text
+                      title={`Hi, ${authDate?.username}`}
+                      theme={TextTheme.TEXT_WHITE}
+                  />
+                  <div className={classes.dataAvatar}>
+                      <Avatar
+                          size={AvatarSize.XL}
+                      />
+                  </div>
+              </div>
           </HalfPageBlock>
           <HalfPageBlock>
               <div className={classes.dataReadonly}>

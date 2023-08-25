@@ -6,10 +6,11 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -34,6 +35,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
         <div className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.accountBar, {}, [className])}>
+                <div className={classes.usernameAvatar}>
+                    <Avatar size={AvatarSize.M} />
+                </div>
                 <div className={classes.usernameLinks}>
                     <Text
                         text={`${authDate.username},`}

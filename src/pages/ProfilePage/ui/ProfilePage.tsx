@@ -30,7 +30,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
-  const regex = /[A-Za-z-]/g;
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -45,8 +44,15 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }, [dispatch]);
 
   const onChangeAge = useCallback((value?: string) => {
-    dispatch(profileActions.updateProfile({ age: Number(value?.match(regex) ? 0 : value || 0) }));
-  }, [dispatch, regex]);
+    const regex = /[A-Za-z-]/g;
+    dispatch(profileActions.updateProfile({
+      age: Number(
+        value?.match(regex)
+          ? 0
+          : value || 0,
+      ),
+    }));
+  }, [dispatch]);
 
   const onChangeCity = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ city: value || '' }));
@@ -54,6 +60,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   const onChangeUsername = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ username: value || '' }));
+  }, [dispatch]);
+
+  const onChangeAvatar = useCallback((value?: string) => {
+    dispatch(profileActions.updateProfile({ avatar: value || '' }));
   }, [dispatch]);
 
   return (
@@ -72,6 +82,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                   onChangeAge={onChangeAge}
                   onChangeCity={onChangeCity}
                   onChangeUsername={onChangeUsername}
+                  onChangeAvatar={onChangeAvatar}
               />
           </div>
       </DynamicModuleLoader>

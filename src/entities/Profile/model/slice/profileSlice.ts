@@ -13,7 +13,13 @@
  *    - Using for update inputs in profile, when is readonly of ready to edit
  *      ...state.data - old data
  *      ...state.payload - new data
- *      - if some field in inputs will update old data change on new data
+ *      - if some field in inputs will update old data change on new data in inputs
+ *
+ *  @param canselEdit
+ *      - Cansel btn logic.
+ *      ...state.data - old data
+ *      ...state.form - newest data
+ *      Will always return from 'newest data' to 'default data', when will push cansel btn
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';

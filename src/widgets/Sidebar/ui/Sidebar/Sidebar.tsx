@@ -38,7 +38,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
           collapsed={collapsed}
           key={item.path}
       />
-  )), [collapsed, readonly]);
+  )), [collapsed]);
 
   return (
       <div

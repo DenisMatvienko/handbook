@@ -1,0 +1,48 @@
+.Avatar {
+  display: flex;
+}
+
+.userAvatar {
+
+}
+
+.DefaultAvatar {
+
+}
+
+.clear {
+  cursor: pointer;
+}
+
+.size_m {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.size_l {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.size_xl {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.size_xxl {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.radius_square {
+  border-radius: 0%;
+}
+
+.radius_circle {
+  border-radius: 50%;
+}
+
+.radius_ellipse {
+  border-radius: 10px;
+}
+

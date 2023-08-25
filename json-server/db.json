@@ -21,10 +21,11 @@
     }
   ],
   "profile": {
-    "firstName": "admin",
-    "lastName": "m",
+    "firstName": "den",
+    "lastName": "ma",
     "age": 28,
     "city": "saint p",
-    "username": "admin"
+    "username": "admin",
+    "avatar": ""
   }
 }
