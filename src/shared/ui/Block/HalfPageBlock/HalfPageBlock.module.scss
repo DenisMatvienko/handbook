@@ -1,5 +1,7 @@
 .HalfPageBlock {
   display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
   width: 49.8%;
   background-color: var(--block-colorized);
   padding: 15px;

@@ -2,12 +2,12 @@
  *  Profile data item readonly
  *    - Complex component which contain lists of:
  *      1) itemsList - title of data
- *      2) dataList - Profile data
+ *      2) dataList - data of Profile
  */
 
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useMemo } from 'react';
-import { getProfileData, ProfileData, ProfileItem } from 'entities/Profile';
+import { ProfileData, ProfileItem } from 'entities/Profile';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
@@ -22,7 +22,6 @@ export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps)
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
   const authDate = useSelector(getUserAuthData);
-  const data = useSelector(getProfileData);
 
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
@@ -38,7 +37,7 @@ export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps)
     .map(([key, value]) => (
         <Text
             key={key.toString()}
-            title={`${value};`}
+            title={`${value || '-'}`}
             theme={TextTheme.TEXT_WHITE}
             align={TextAlign.LEFT}
         />

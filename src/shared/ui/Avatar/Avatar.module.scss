@@ -2,11 +2,21 @@
   display: flex;
 }
 
-.userAvatar {
-
+.avatarWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #fff;
+  object-fit: contain;
+  background-size: cover;
 }
 
-.DefaultAvatar {
+.avatarUser {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
 
 }
 

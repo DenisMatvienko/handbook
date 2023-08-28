@@ -8,6 +8,7 @@
 .dataReadonly {
   display: flex;
   overflow: scroll;
+
   @supports (scrollbar-gutter: stable) {
     overflow: auto;
     scrollbar-gutter: stable;

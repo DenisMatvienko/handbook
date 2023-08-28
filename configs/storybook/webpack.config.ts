@@ -1,11 +1,10 @@
-import * as webpack from 'webpack';
-import { DefinePlugin, RuleSetRule } from 'webpack';
-import * as path from 'path';
+import path from 'path';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoaders';
 import { BuildSvgLoader } from '../build/loaders/buildSvgLoaders';
 
-export default ({ config }: {config:webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
     build: '',
     html: '',
@@ -17,13 +16,21 @@ export default ({ config }: {config:webpack.Configuration}) => {
 
   // eslint-disable-next-line no-param-reassign
   // @ts-ignore
-  config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
+  config!.module!.rules = config.module!.rules!.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       // in config find rule which handle svg's
-      return { ...rule, exclude: /\.svg$/i };
+      return {
+        ...rule,
+        exclude: /\.svg$/i,
+      };
     }
 
     return rule;
+  });
+
+  config.module!.rules.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
   });
 
   config!.module!.rules.push(BuildSvgLoader());

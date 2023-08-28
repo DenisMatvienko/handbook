@@ -3,9 +3,9 @@
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import DefaultAvatar from 'shared/assets/icons/anime-away-face.svg';
 import { useSelector } from 'react-redux';
 import { getProfileData } from 'entities/Profile';
+import DefaultAvatar from '../../assets/icons/anime-away-face.svg';
 import classes from './Avatar.module.scss';
 
 export enum AvatarTheme {
@@ -30,6 +30,7 @@ interface AvatarProps {
   theme?: AvatarTheme;
   size?: AvatarSize;
   radius?: AvatarRadius;
+  src?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
@@ -38,6 +39,7 @@ export const Avatar = (props: AvatarProps) => {
     theme = AvatarTheme.CLEAR,
     size = AvatarSize.L,
     radius = AvatarRadius.CIRCLE,
+    src,
     ...otherProps
   } = props;
 
@@ -45,42 +47,29 @@ export const Avatar = (props: AvatarProps) => {
 
   const blockMods: Mods = {
     [classes[theme]]: true,
-    [classes[size]]: false,
+    [classes[size]]: true,
     [classes[radius]]: true,
   };
 
-  const svgMods: Mods = {
-    [classes[theme]]: true,
-    [classes[size]]: true,
-  };
+  if (!data?.avatar) {
+    return (
+        <DefaultAvatar className={classNames(classes.avatarUser, blockMods)} />
+    );
+  }
 
   return (
-      <div className={classNames(
-        classes.Avatar,
-        blockMods,
-        [className],
-      )}
-      >
-          {data?.avatar
-            ? (
-                <img
-                    src={data?.avatar}
-                    alt={data?.username}
-                    className={classNames(
-                      classes.userAvatar,
-                      svgMods,
-                      [className],
-                    )}
-                />
-            )
-            : (
-                <DefaultAvatar className={classNames(
-                  classes.DefaultAvatar,
-                  svgMods,
-                  [className],
-                )}
-                />
-            )}
+      <div className={classes.Avatar}>
+          <div className={classNames(
+            classes.avatarWrap,
+            blockMods,
+          )}
+          >
+              <img
+                  src={!src ? data?.avatar : src}
+                  alt={data?.username}
+                  className={classes.avatarUser}
+              />
+          </div>
       </div>
   );
 };
