@@ -1,10 +1,9 @@
-// https://react.i18next.com/misc/testing - Sidebar testing with translation
-// Sidebar toggle on/off test:
-// toggleBtn -get toggle button
-// toHaveClass('collapsed') - means that
-// sidebar is closed, when 'mods' get class 'collapsed' by the:
-// className={classNames(mods: { [classes.collapsed]: collapsed }, when:
-// we are click (fireEvent.click(toggleBtn);) on toggleBtn
+/**
+ *    https://react.i18next.com/misc/testing - Sidebar testing with translation
+ *
+ *    - "toggle on/off test"
+ *       toggleBtn -get toggle button
+ */
 
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
 import { fireEvent, render, screen } from '@testing-library/react';
@@ -17,14 +16,17 @@ import { componentRender } from 'shared/lib/tests/componentRender/componentRende
 describe('Sidebar', () => {
   test('Sidebar component test', () => {
     componentRender(<Sidebar />);
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    expect(screen.getByTestId('sidebar'))
+      .toBeInTheDocument();
   });
 
   test('Sidebar toggle on/off test', () => {
     componentRender(<Sidebar />);
     const toggleBtn = screen.getByTestId('sidebar-toggle');
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    expect(screen.getByTestId('sidebar'))
+      .toHaveClass('collapsed');
     fireEvent.click(toggleBtn);
-    expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+    expect(screen.getByTestId('sidebar'))
+      .toBeInTheDocument();
   });
 });

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
+import { getProfileData } from 'entities/Profile';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,6 +19,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authDate = useSelector(getUserAuthData);
   const dispatch = useDispatch();
+  const data = useSelector(getProfileData);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -36,7 +38,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <div className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.accountBar, {}, [className])}>
                 <div className={classes.usernameAvatar}>
-                    <Avatar size={AvatarSize.M} />
+                    <Avatar
+                        size={AvatarSize.M}
+                        src={data?.avatar}
+                        alt={data?.username}
+                    />
                 </div>
                 <div className={classes.usernameLinks}>
                     <Text

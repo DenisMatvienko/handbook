@@ -11,8 +11,8 @@
  *    - if env. port didn't set, that port is - 3000
  */
 
-import webpack from 'webpack';
 import path from 'path';
+import webpack from 'webpack';
 import { buildWebpackConfig } from './configs/build/buildWebpackConfig';
 import { BuildPaths, BuildEnv } from './configs/build/types/config';
 

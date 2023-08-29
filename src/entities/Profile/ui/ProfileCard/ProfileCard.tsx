@@ -13,6 +13,7 @@ import {
 } from 'entities/Profile/ui/ProfileCard/ProfileDataItemReadonly/ProfileDataItemReadonly';
 import { ProfilePageHeader } from 'pages/ProfilePage';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -79,12 +80,29 @@ export const ProfileCard = (props: ProfileCardProps) => {
             ? (
                 <div>
                     <ProfilePageHeader />
-                    <ProfileDataItemReadonly className={classes.data} />
+                    <ProfileDataItemReadonly
+                        data={data}
+                        className={classes.data}
+                    />
                 </div>
             ) : (
                 <div>
                     <ProfilePageHeader />
                     <div className={classes.dataWrapper}>
+                        <HalfPageBlock>
+                            <div className={classes.textWrapper}>
+                                <Text
+                                    title={t('Profile')}
+                                    theme={TextTheme.TEXT_WHITE}
+                                    align={TextAlign.LEFT}
+                                />
+                                <Text
+                                    text={t('Edit')}
+                                    theme={TextTheme.TEXT_WHITE}
+                                    align={TextAlign.LEFT}
+                                />
+                            </div>
+                        </HalfPageBlock>
                         <HalfPageBlock>
                             <div className={classes.data}>
                                 <div className={classes.dataInputs}>

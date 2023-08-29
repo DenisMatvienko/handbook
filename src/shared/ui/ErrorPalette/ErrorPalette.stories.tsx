@@ -4,7 +4,7 @@ import 'app/styles/index.scss';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from './ErrorPalette';
 
 export default {
-  title: 'widgets/Modal',
+  title: 'shared/ErrorPalette',
   component: ErrorPalette,
   argTypes: {
     backgroundColor: { control: 'color' },

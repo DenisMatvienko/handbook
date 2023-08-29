@@ -7,7 +7,7 @@
 
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useMemo } from 'react';
-import { ProfileData, ProfileItem } from 'entities/Profile';
+import { Profile, ProfileData, ProfileItem } from 'entities/Profile';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
@@ -16,9 +16,13 @@ import classes from './ProfileDataItemReadonly.module.scss';
 
 interface ProfileDataItemReadonlyProps {
   className: string;
+  data?: Profile;
 }
 
-export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps) => {
+export const ProfileDataItemReadonly = ({
+  className,
+  data,
+}: ProfileDataItemReadonlyProps) => {
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
   const authDate = useSelector(getUserAuthData);
@@ -55,6 +59,8 @@ export const ProfileDataItemReadonly = (className: ProfileDataItemReadonlyProps)
                   <div className={classes.dataAvatar}>
                       <Avatar
                           size={AvatarSize.XL}
+                          src={data?.avatar}
+                          alt={data?.username}
                       />
                   </div>
               </div>

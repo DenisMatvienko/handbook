@@ -31,6 +31,7 @@ interface AvatarProps {
   size?: AvatarSize;
   radius?: AvatarRadius;
   src?: string;
+  alt?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
@@ -40,10 +41,9 @@ export const Avatar = (props: AvatarProps) => {
     size = AvatarSize.L,
     radius = AvatarRadius.CIRCLE,
     src,
+    alt,
     ...otherProps
   } = props;
-
-  const data = useSelector(getProfileData);
 
   const blockMods: Mods = {
     [classes[theme]]: true,
@@ -51,25 +51,23 @@ export const Avatar = (props: AvatarProps) => {
     [classes[radius]]: true,
   };
 
-  if (!data?.avatar) {
-    return (
-        <DefaultAvatar className={classNames(classes.avatarUser, blockMods)} />
-    );
-  }
-
   return (
       <div className={classes.Avatar}>
-          <div className={classNames(
-            classes.avatarWrap,
-            blockMods,
+          {src ? (
+              <div className={classNames(
+                classes.avatarWrap,
+                blockMods,
+              )}
+              >
+                  <img
+                      src={src}
+                      alt={alt}
+                      className={classes.avatarUser}
+                  />
+              </div>
+          ) : (
+              <DefaultAvatar className={classNames(classes.avatarUser, blockMods)} />
           )}
-          >
-              <img
-                  src={!src ? data?.avatar : src}
-                  alt={data?.username}
-                  className={classes.avatarUser}
-              />
-          </div>
       </div>
   );
 };

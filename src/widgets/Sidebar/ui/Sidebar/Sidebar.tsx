@@ -16,8 +16,6 @@ import {
 import BarsIcon from 'shared/assets/icons/bars-Yt.svg';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { SidebarItemsList } from 'widgets/Sidebar/models/items';
-import { useSelector } from 'react-redux';
-import { getProfileReadonly } from 'entities/Profile';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -26,7 +24,6 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(true);
-  const readonly = useSelector(getProfileReadonly);
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);

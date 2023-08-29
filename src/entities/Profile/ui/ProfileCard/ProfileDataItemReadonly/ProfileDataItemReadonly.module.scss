@@ -8,6 +8,7 @@
 .dataReadonly {
   display: flex;
   overflow: scroll;
+  word-break: break-all;
 
   @supports (scrollbar-gutter: stable) {
     overflow: auto;
@@ -22,4 +23,9 @@
 
 .title {
   width: 300px;
+}
+
+.titleName {
+  width: 300px;
+  word-break: break-all;
 }

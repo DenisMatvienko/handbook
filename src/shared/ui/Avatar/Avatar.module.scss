@@ -8,9 +8,8 @@
   align-items: center;
   margin: 0 auto;
   overflow: hidden;
-  background-color: #fff;
-  object-fit: contain;
-  background-size: cover;
+  backdrop-filter: blur(5px);
+  background: #ffffff;
 }
 
 .avatarUser {
@@ -25,23 +24,23 @@
 }
 
 .size_m {
-  max-width: 25px;
-  max-height: 25px;
+  width: 25px;
+  height: 25px;
 }
 
 .size_l {
-  max-width: 50px;
-  max-height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .size_xl {
-  max-width: 100px;
-  max-height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .size_xxl {
-  max-width: 200px;
-  max-height: 200px;
+  width: 200px;
+  height: 200px;
 }
 
 .radius_square {

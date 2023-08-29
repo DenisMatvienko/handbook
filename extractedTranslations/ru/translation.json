@@ -10,6 +10,7 @@
   "Firstname": "Firstname",
   "Lastname": "Lastname",
   "Lorem-layout": "Lorem-layout",
+  "Profile": "Profile",
   "Profile page": "Profile page",
   "ProfileError": "ProfileError",
   "ProfileErrorText": "ProfileErrorText",
@@ -38,6 +39,7 @@
   "О сайте": "О сайте",
   "Обновить страницу": "Обновить страницу",
   "Перевод": "Перевод",
+  "Профиль": "Профиль",
   "Страница отсутствует": "Страница отсутствует",
   "Тестовый пример": "Тестовый пример",
   "Язык": "Рус"
