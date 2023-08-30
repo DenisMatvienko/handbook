@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import React, {
   InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -26,6 +27,7 @@ interface InputProps extends HTMLInputProps {
   placeholderTemplate?: string;
   onChange?: (value: string) => void;
   theme?: InputTheme;
+  label?: string;
   autofocus?: boolean;
   readonly?: boolean;
 }
@@ -40,6 +42,7 @@ export const Input = memo((props: InputProps) => {
     theme = InputTheme.SIMPLE,
     autofocus,
     readonly,
+    label,
     ...otherProps
   } = props;
 
@@ -64,14 +67,24 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-      <input
-          className={classNames(classes.Input, mods, [className])}
-          ref={ref}
-          type={type}
-          value={value}
-          placeholder={placeholderTemplate}
-          onChange={onChangeHandler}
-          {...otherProps}
-      />
+      <div className={classes.inputWrapper}>
+          {label && (
+          <div className={classes.label}>
+              <Text
+                  title={label}
+                  theme={TextTheme.TEXT_WHITE}
+              />
+          </div>
+          )}
+          <input
+              className={classNames(classes.Input, mods, [className])}
+              ref={ref}
+              type={type}
+              value={value}
+              placeholder={placeholderTemplate}
+              onChange={onChangeHandler}
+              {...otherProps}
+          />
+      </div>
   );
 });

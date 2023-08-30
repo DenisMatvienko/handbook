@@ -28,19 +28,19 @@ SelectOptionsDark.args = {
   label: 'Set label pls',
   options: [
     {
-      value: '0',
+      value: 'hello',
       content: 'hello',
     },
     {
-      value: '1',
+      value: 'set',
       content: 'set',
     },
     {
-      value: '2',
+      value: 'label',
       content: 'label',
     },
     {
-      value: '3',
+      value: 'pls',
       content: 'pls',
     },
   ],
