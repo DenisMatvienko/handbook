@@ -23,8 +23,26 @@ SelectPrimary.args = {
   label: 'Set label pls',
 };
 
-export const SelectDark = Template.bind({});
-SelectDark.args = {
+export const SelectOptionsDark = Template.bind({});
+SelectOptionsDark.args = {
   label: 'Set label pls',
+  options: [
+    {
+      value: '0',
+      content: 'hello',
+    },
+    {
+      value: '1',
+      content: 'set',
+    },
+    {
+      value: '2',
+      content: 'label',
+    },
+    {
+      value: '3',
+      content: 'pls',
+    },
+  ],
 };
-SelectDark.decorators = [ThemeDecorator(Theme.DARK)];
+SelectOptionsDark.decorators = [ThemeDecorator(Theme.DARK)];

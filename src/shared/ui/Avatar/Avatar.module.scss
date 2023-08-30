@@ -9,7 +9,7 @@
   margin: 0 auto;
   overflow: hidden;
   backdrop-filter: blur(5px);
-  background: #ffffff;
+  background: var(--border-grey);
 }
 
 .avatarUser {
