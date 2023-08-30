@@ -24,6 +24,7 @@
     "firstName": "den",
     "lastName": "27",
     "age": 28,
-    "username": "admin"
+    "username": "admin",
+    "currency": "RUB"
   }
 }

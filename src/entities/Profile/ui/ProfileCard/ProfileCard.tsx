@@ -16,8 +16,8 @@ import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Select } from 'shared/ui/Select/Select';
 import { City, Country } from 'shared/const/common';
-import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect';
+import { Currency } from 'entities/Currency';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -30,7 +30,9 @@ interface ProfileCardProps {
   onChangeFirstname?: (value?: string) => void;
   onChangeLastname?: (value?: string) => void;
   onChangeAge?: (value?: string) => void;
-  onChangeCity?: (value?: string) => void;
+  onChangeCountry?: (country: Country) => void;
+  onChangeCity?: (city?: City) => void;
+  onChangeCurrency?: (currency: Currency) => void;
   onChangeUsername?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
 }
@@ -45,7 +47,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeFirstname,
     onChangeLastname,
     onChangeAge,
+    onChangeCountry,
     onChangeCity,
+    onChangeCurrency,
     onChangeUsername,
     onChangeAvatar,
   } = props;
@@ -191,6 +195,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                     <div className={classes.selectWrapper}>
                                         <CurrencySelect
                                           value={data?.currency}
+                                          onChange={onChangeCurrency}
                                           label
                                       />
                                     </div>
