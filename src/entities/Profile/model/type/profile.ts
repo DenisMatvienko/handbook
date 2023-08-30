@@ -12,7 +12,8 @@
  *      - Storage which contain, that user edit in data's.
  */
 
-import { Country, Currency } from 'shared/const/common';
+import { Country } from 'shared/const/common';
+import { Currency } from 'entities/Currency/model/types/currency';
 
 export interface Profile {
   profileId?: number;

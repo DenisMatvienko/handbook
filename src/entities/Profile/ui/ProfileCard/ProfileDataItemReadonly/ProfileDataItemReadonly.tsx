@@ -51,27 +51,30 @@ export const ProfileDataItemReadonly = ({
   return (
       <div className={classes.dataWrapper}>
           <HalfPageBlock>
-              <div className={classes.blockUser}>
-                  <Text
-                      title={`Hi, ${authDate?.username}`}
-                      theme={TextTheme.TEXT_WHITE}
-                  />
-                  <div className={classes.dataAvatar}>
-                      <Avatar
-                          size={AvatarSize.XL}
-                          src={data?.avatar}
-                          alt={data?.username}
+              <div className={classes.blockUserWrapper}>
+                  <div className={classes.blockUser}>
+                      <Text
+                          title={`Hi, ${authDate?.username}`}
+                          theme={TextTheme.TEXT_WHITE}
                       />
+                      <div className={classes.dataAvatar}>
+                          <Avatar
+                              size={AvatarSize.XL}
+                              src={data?.avatar}
+                              alt={data?.username}
+                          />
+                      </div>
+                  </div>
+                  <div className={classes.dataReadonly}>
+                      <div className={classes.title}>{itemsList}</div>
+                      <div className={classes.titleName}>
+                          {dataList}
+                      </div>
                   </div>
               </div>
           </HalfPageBlock>
           <HalfPageBlock>
-              <div className={classes.dataReadonly}>
-                  <div className={classes.title}>{itemsList}</div>
-                  <div className={classes.titleName}>
-                      {dataList}
-                  </div>
-              </div>
+              <div className={classes.dataReadonly} />
           </HalfPageBlock>
       </div>
   );

@@ -9,6 +9,7 @@
   display: flex;
   overflow: scroll;
   word-break: break-all;
+  width: auto;
 
   @supports (scrollbar-gutter: stable) {
     overflow: auto;
@@ -16,9 +17,18 @@
   }
 }
 
+.blockUserWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .blockUser {
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
 }
 
 .title {

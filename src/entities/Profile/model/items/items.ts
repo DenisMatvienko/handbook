@@ -58,10 +58,6 @@ export const ProfileItem = () => {
       profileId: 7,
       title: t('username'),
     },
-    {
-      profileId: 8,
-      title: t('avatar'),
-    },
   ];
 
   return ProfileItemsList;
@@ -77,7 +73,6 @@ export const ProfileData = () => {
     country: data?.country,
     city: data?.city,
     username: data?.username,
-    avatar: data?.avatar,
   };
 
   return ProfileDataList;

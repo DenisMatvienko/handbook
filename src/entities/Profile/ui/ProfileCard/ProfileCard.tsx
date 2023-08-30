@@ -15,7 +15,8 @@ import { ProfilePageHeader } from 'pages/ProfilePage';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Select } from 'shared/ui/Select/Select';
-import { City, Country, Currency } from 'shared/const/common';
+import { City, Country } from 'shared/const/common';
+import { Currency } from 'entities/Currency/model/types/currency';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -148,60 +149,60 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                     />
                                     <div className={classes.selectWrapper}>
                                         <Select
-                                            label={t('Country')}
-                                            options={[
-                                              {
-                                                value: Country.Russia,
-                                                content: Country.Russia,
-                                              },
-                                              {
-                                                value: Country.Belorussian,
-                                                content: Country.Belorussian,
-                                              },
-                                              {
-                                                value: Country.China,
-                                                content: Country.China,
-                                              },
-                                            ]}
-                                        />
+                                          label={t('Country')}
+                                          options={[
+                                          {
+                                            value: Country.Russia,
+                                            content: Country.Russia,
+                                          },
+                                          {
+                                            value: Country.Belorussian,
+                                            content: Country.Belorussian,
+                                          },
+                                          {
+                                            value: Country.China,
+                                            content: Country.China,
+                                          },
+                                        ]}
+                                      />
                                     </div>
                                     <div className={classes.selectWrapper}>
                                         <Select
-                                            label={t('City')}
-                                            options={[
-                                              {
-                                                value: City.SAINT_P,
-                                                content: City.SAINT_P,
-                                              },
-                                              {
-                                                value: City.MOSCOW,
-                                                content: City.MOSCOW,
-                                              },
-                                              {
-                                                value: City.SOCHI,
-                                                content: City.SOCHI,
-                                              },
-                                            ]}
-                                        />
+                                          label={t('City')}
+                                          options={[
+                                          {
+                                            value: City.SAINT_P,
+                                            content: City.SAINT_P,
+                                          },
+                                          {
+                                            value: City.MOSCOW,
+                                            content: City.MOSCOW,
+                                          },
+                                          {
+                                            value: City.SOCHI,
+                                            content: City.SOCHI,
+                                          },
+                                        ]}
+                                      />
                                     </div>
                                     <div className={classes.selectWrapper}>
                                         <Select
-                                            label={t('Currency')}
-                                            options={[
-                                              {
-                                                value: Currency.RUB,
-                                                content: Currency.RUB,
-                                              },
-                                              {
-                                                value: Currency.EUR,
-                                                content: Currency.EUR,
-                                              },
-                                              {
-                                                value: Currency.USD,
-                                                content: Currency.USD,
-                                              },
-                                            ]}
-                                        />
+                                          label={t('Currency')}
+                                          options={[
+                                          {
+                                            value: Currency.RUB,
+                                            content: Currency.RUB,
+                                          },
+                                          {
+                                            value: Currency.EUR,
+                                            content: Currency.EUR,
+                                          },
+                                          {
+                                            value: Currency.USD,
+                                            content: Currency.USD,
+                                          },
+                                        ]}
+                                      />
                                     </div>
                                 </div>
                             </div>
