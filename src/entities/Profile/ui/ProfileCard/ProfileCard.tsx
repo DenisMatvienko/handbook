@@ -17,6 +17,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Select } from 'shared/ui/Select/Select';
 import { City, Country } from 'shared/const/common';
 import { Currency } from 'entities/Currency/model/types/currency';
+import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -150,6 +151,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                     <div className={classes.selectWrapper}>
                                         <Select
                                           label={t('Country')}
+                                          value={data?.country}
                                           options={[
                                           {
                                             value: Country.Russia,
@@ -169,6 +171,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                     <div className={classes.selectWrapper}>
                                         <Select
                                           label={t('City')}
+                                          value={data?.city}
                                           options={[
                                           {
                                             value: City.SAINT_P,
@@ -186,22 +189,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                       />
                                     </div>
                                     <div className={classes.selectWrapper}>
-                                        <Select
-                                          label={t('Currency')}
-                                          options={[
-                                          {
-                                            value: Currency.RUB,
-                                            content: Currency.RUB,
-                                          },
-                                          {
-                                            value: Currency.EUR,
-                                            content: Currency.EUR,
-                                          },
-                                          {
-                                            value: Currency.USD,
-                                            content: Currency.USD,
-                                          },
-                                        ]}
+                                        <CurrencySelect
+                                          value={data?.currency}
+                                          label
                                       />
                                     </div>
                                 </div>
