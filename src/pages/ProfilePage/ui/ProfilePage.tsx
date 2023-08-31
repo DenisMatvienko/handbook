@@ -1,6 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader';
 import {
   fetchProfileData,
   getProfileError, getProfileForm,
@@ -14,13 +17,14 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
   className?: string;
 }
 
-const initialReducers: ReducerList = {
+const initialReducers: ReducersList = {
   profile: profileReducer,
 };
 
@@ -71,13 +75,22 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     dispatch(profileActions.updateProfile({ currency }));
   }, [dispatch]);
 
+  const onChangeCountry = useCallback((country?: Country) => {
+    dispatch(profileActions.updateProfile({ country }));
+  }, [dispatch]);
+
+  const mods: Mods = {
+    [classes.readonly]: !!readonly,
+  };
+
   return (
       <DynamicModuleLoader
           removeAfterUnmount
           reducers={initialReducers}
       >
-          <div className={classNames(classes.ProfilePage, {}, [className])}>
+          <div>
               <ProfileCard
+                  className={classNames(classes.ProfileCard, mods)}
                   data={formData}
                   isLoading={isLoading}
                   error={error}
@@ -89,6 +102,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                   onChangeUsername={onChangeUsername}
                   onChangeAvatar={onChangeAvatar}
                   onChangeCurrency={onChangeCurrency}
+                  onChangeCountry={onChangeCountry}
               />
           </div>
       </DynamicModuleLoader>

@@ -7,14 +7,12 @@ import classes from './SidebarItem.module.scss';
 interface SidebarItemProps {
   item: SidebarItemType;
   collapsed: boolean;
-  redirect?: boolean;
 }
 
 export const SidebarItem = (props: SidebarItemProps) => {
   const {
     item,
     collapsed,
-    redirect = false,
   } = props;
   const { t } = useTranslation();
 
@@ -22,7 +20,7 @@ export const SidebarItem = (props: SidebarItemProps) => {
       <AppLink
           theme={AppLinkTheme.WHITE}
           className={classNames(classes.item, { [classes.collapsed]: collapsed })}
-          to={redirect ? '/' : item.path}
+          to={item.path}
       >
           <item.Icon className={classNames(classes.icon)} />
           <span

@@ -20,7 +20,7 @@ import { Input, InputTheme } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   ErrorPalette,
@@ -51,7 +51,7 @@ const LoginForm = memo(({
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
 
-  const initialReducers: ReducerList = {
+  const initialReducers: ReducersList = {
     loginForm: loginReducer,
   };
 

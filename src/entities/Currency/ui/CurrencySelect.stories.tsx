@@ -18,12 +18,12 @@ export default {
 
 const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />;
 
-export const SelectWithLabel = Template.bind({});
-SelectWithLabel.args = {
+export const CurrencySelectWithLabel = Template.bind({});
+CurrencySelectWithLabel.args = {
   label: true,
 };
-SelectWithLabel.decorators = [ThemeDecorator(Theme.DARK)];
+CurrencySelectWithLabel.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const Select = Template.bind({});
-Select.args = {};
-Select.decorators = [ThemeDecorator(Theme.DARK)];
+export const CurrencySelectEmpty = Template.bind({});
+CurrencySelectEmpty.args = {};
+CurrencySelectEmpty.decorators = [ThemeDecorator(Theme.DARK)];
