@@ -1,3 +1,14 @@
+/**
+ *    Profile card
+ *     - Card which displayed on profile page using state by async reducers of DynamycModuleLoader
+ *
+ *    @param ProfileDataItemReadonly
+ *     include:
+ *     - List of data elements;
+ *     - List of items (values of data) elements;
+ *     Both lists includes into wrap and push to the profile card when state readonly = true
+ */
+
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { PageLoader } from 'widgets/PageLoader';
@@ -18,9 +29,6 @@ import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect';
-import { useEffect } from 'react';
-import { fetchProfileData } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -58,7 +66,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
   } = props;
 
   const { t } = useTranslation('profile');
-  console.log(readonly ? 'READ OPENED' : 'DONT OPENED');
 
   const mods: Mods = {
     [classes.loading]: true,
@@ -132,29 +139,29 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   readonly={readonly}
                               />
                               <Input
-                                  label={t('Age')}
+                                  label={t('age')}
                                   className={classes.input}
                                   value={data?.age}
                                   theme={InputTheme.SIMPLE}
-                                  placeholder={t('Age')}
+                                  placeholder={t('age')}
                                   onChange={onChangeAge}
                                   readonly={readonly}
                               />
                               <Input
-                                  label={t('Username')}
+                                  label={t('username')}
                                   className={classes.input}
                                   value={data?.username}
                                   theme={InputTheme.SIMPLE}
-                                  placeholder={t('Username')}
+                                  placeholder={t('username')}
                                   onChange={onChangeUsername}
                                   readonly={readonly}
                               />
                               <Input
-                                  label={t('Avatar')}
+                                  label={t('avatar')}
                                   className={classes.input}
                                   value={data?.avatar}
                                   theme={InputTheme.SIMPLE}
-                                  placeholder={t('Avatar')}
+                                  placeholder={t('avatar')}
                                   onChange={onChangeAvatar}
                                   readonly={readonly}
                               />
@@ -166,11 +173,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   />
                               </div>
                               <Input
-                                  label={t('City')}
+                                  label={t('city')}
                                   className={classes.input}
                                   value={data?.city}
                                   theme={InputTheme.SIMPLE}
-                                  placeholder={t('City')}
+                                  placeholder={t('city')}
                                   onChange={onChangeCity}
                                   readonly={readonly}
                               />

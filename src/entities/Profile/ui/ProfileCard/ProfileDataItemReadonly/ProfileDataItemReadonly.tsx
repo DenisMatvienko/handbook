@@ -12,6 +12,7 @@ import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
+import { useTranslation } from 'react-i18next';
 import classes from './ProfileDataItemReadonly.module.scss';
 
 interface ProfileDataItemReadonlyProps {
@@ -23,6 +24,7 @@ export const ProfileDataItemReadonly = ({
   className,
   data,
 }: ProfileDataItemReadonlyProps) => {
+  const { t } = useTranslation('profile');
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
   const authDate = useSelector(getUserAuthData);
@@ -54,7 +56,7 @@ export const ProfileDataItemReadonly = ({
               <div className={classes.blockUserWrapper}>
                   <div className={classes.blockUser}>
                       <Text
-                          title={`Hi, ${authDate?.username}`}
+                          title={`${t('Hi')}, ${authDate?.username}`}
                           theme={TextTheme.TEXT_WHITE}
                       />
                       <div className={classes.dataAvatar}>

@@ -30,11 +30,11 @@ export const ProfileItem = () => {
   const ProfileItemsList: ProfileItemType[] = [
     {
       profileId: 1,
-      title: t('firstName'),
+      title: t('Firstname'),
     },
     {
       profileId: 2,
-      title: t('lastName'),
+      title: t('Lastname'),
 
     },
     {

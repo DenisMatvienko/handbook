@@ -24,7 +24,7 @@ interface ProfilePageProps {
   className?: string;
 }
 
-const initialReducers: ReducersList = {
+const reducers: ReducersList = {
   profile: profileReducer,
 };
 
@@ -85,8 +85,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
       <DynamicModuleLoader
+          reducers={reducers}
           removeAfterUnmount
-          reducers={initialReducers}
       >
           <div>
               <ProfileCard

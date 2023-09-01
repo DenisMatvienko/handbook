@@ -34,6 +34,7 @@ import { useDispatch, useStore } from 'react-redux';
 import { ReduxStoreWithManager, StateSchema } from 'app/provider/StoreProvider';
 import { StateSchemaKey } from 'app/provider/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
@@ -48,13 +49,13 @@ type ReducerListEntry = [StateSchemaKey, Reducer]
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const {
-    reducers,
     children,
+    reducers,
     removeAfterUnmount,
   } = props;
 
   const store = useStore() as ReduxStoreWithManager;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     /**
@@ -63,7 +64,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     Object.entries(reducers)
       .forEach(([name, reducer]) => {
         store.reducerManager?.add(name as StateSchemaKey, reducer);
-        dispatch({ type: `@INIT ${name}` });
+        dispatch({ type: `@INIT ${name} reducer` });
       }, []);
 
     return () => {
@@ -81,7 +82,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         Object.entries(reducers)
           .forEach(([name, reducer]) => {
             store.reducerManager?.remove(name as StateSchemaKey);
-            dispatch({ type: `@DESTROY ${name}` });
+            dispatch({ type: `@DESTROY ${name} reducer` });
           });
       }
     };
@@ -89,8 +90,9 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   }, []);
 
   return (
-      <div>
+      // eslint-disable-next-line react/jsx-no-useless-fragment
+      <>
           {children}
-      </div>
+      </>
   );
 };

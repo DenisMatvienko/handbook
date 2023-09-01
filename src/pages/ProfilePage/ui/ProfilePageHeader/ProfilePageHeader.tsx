@@ -1,3 +1,8 @@
+/**
+ *  Profile page header
+ *    - Profile page pallet, which include buttons of 'edit', 'save' and 'cancel'
+ */
+
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';

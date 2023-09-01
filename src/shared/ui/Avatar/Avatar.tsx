@@ -1,5 +1,6 @@
 /**
- *  - Avatar ui-element
+ *    Avatar ui-element
+ *      - User-avatar may contain size, radius and theme, for using component in any places of pages
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';

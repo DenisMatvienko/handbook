@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import { getProfileData } from 'entities/Profile';
+import { getProfileForm } from 'entities/Profile';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -17,9 +17,9 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
-  const authDate = useSelector(getUserAuthData);
+  const isAuth = useSelector(getUserAuthData);
   const dispatch = useDispatch();
-  const data = useSelector(getProfileData);
+  const data = useSelector(getProfileForm);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -33,7 +33,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
-  if (authDate) {
+  if (isAuth) {
     return (
         <div className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.accountBar, {}, [className])}>
@@ -46,7 +46,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 </div>
                 <div className={classes.usernameLinks}>
                     <Text
-                        text={`${authDate.username},`}
+                        text={`${isAuth.username},`}
                         theme={TextTheme.LINK_LIGHT}
                     />
                 </div>

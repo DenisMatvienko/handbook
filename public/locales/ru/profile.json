@@ -5,13 +5,14 @@
   "ProfileErrorText": "Авторизируйтесь, либо обновите страницу",
   "RefreshPage": "Обновить страницу",
   "Cancel": "Отменить",
-  "firstName": "Имя",
-  "lastName": "Фамилия",
+  "Firstname": "Имя",
+  "Lastname": "Фамилия",
   "age": "Возраст",
   "currency": "Валюта",
   "country": "Страна",
   "city": "Город",
   "username": "Логин",
   "avatar": "Аватар",
-  "Save": "Сохранить"
+  "Save": "Сохранить",
+  "Hi": "Привет"
 }

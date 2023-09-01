@@ -1,3 +1,8 @@
+/**
+ *  Half-page block
+ *    - Block which to take place half of page area
+ */
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ReactNode } from 'react';
