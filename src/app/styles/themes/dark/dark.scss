@@ -1,42 +1,51 @@
 .app_dark_theme {
-    --bg-color: #0f120e;
-    --navbar-color: #1a1d1a;
-    --primary-color: #1a1d1a;
-    --secondary-color: #daddd9;
-    --rare-color: #494848;
-    --box-shadow: #080c08;
+  --bg-color: #0f120e;
+  --navbar-color: #1a1d1a;
+  --primary-color: #1a1d1a;
+  --secondary-color: #daddd9;
+  --rare-color: #494848;
+  --box-shadow: #080c08;
 
-    // Text color
-    --white: #fcfffc;
-    --error: #e60026;
-    --nav-text-color: #daddd9;
-    --nav-link-color: #b479f3;
+  // Block color
+  --block-colorized: #1a1d1a;
 
-    // Links color
-    --nav-links-color-purple: #5900e4;
-    --nav-links-color-black: #b479f3;
-    --nav-links-color-light: #daddd9;
+  // Text color
+  --white: #fcfffc;
+  --error: #e60026;
+  --nav-text-color: #daddd9;
+  --nav-link-color: #b479f3;
 
-    // Icon color
-    --icon-color: #daddd9;
+  // Links color
+  --nav-links-color-purple: #5900e4;
+  --nav-links-color-black: #b479f3;
+  --nav-links-color-light: #daddd9;
 
-    //  Border color
-    --border-color: #fcfffc;
-    --border-color-secondary: #0f120e;
+  // Icon color
+  --icon-color: #daddd9;
 
-    // Button color
-    --button-bgc-hover-light: #0f120e;
-    --button-color-hover-ligth: #daddd9;
-    --button-bgc-hover-inverted: #b578f3;
-    --button-bgc-hover-colorized: #33019f;
-    --button-sidebar-hover: #494848;
-    --box-shadow-hover: #080c08;
-    --button-colorized: #b578f3;
+  //  Border color
+  --border-color: #fcfffc;
+  --border-color-secondary: #0f120e;
+  --border-grey: #808080;
 
-    // Modal
-    --modal-background: #1a1d1a;
-    --modal-color: #fcfffc;
+  // Button color
+  --button-save: #1aa260;
+  --button-cancel: #de5246;
+  --button-bgc-purple-light: #b578f3;
+  --button-bgc-hover-light: #0f120e;
+  --button-color-hover-ligth: #daddd9;
+  --button-bgc-hover-inverted: #b578f3;
+  --button-bgc-hover-colorized: #33019f;
+  --button-sidebar-hover: #494848;
+  --box-shadow-hover: #080c08;
+  --button-colorized: #b578f3;
 
-    // Input
-    --input-bg: #b578f3;
+  // Modal
+  --modal-background: #1a1d1a;
+  --modal-background-blur: rgb(0 0 0 / 1%);
+  --modal-color: #fcfffc;
+
+  // Input
+  --input-bg: #b578f3;
+  --input-dark-bg: #494848;
 }

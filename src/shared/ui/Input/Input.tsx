@@ -1,17 +1,18 @@
 /**
- *  Input ui-component
- *  @param HTMLInputProps
- *  - Omit for exclude from <InputHTMLAttributes<HTMLInputElement> to solve conflict with 'value',
- *    onChange types
+ *    Input ui-component
+ *    @param HTMLInputProps
+ *    - Omit for exclude from <InputHTMLAttributes<HTMLInputElement> to solve conflict with 'value',
+ *      onChange types
  *
- *  onChange? - with optional chaining, because props may not be transferred
+ *    - onChange? - with optional chaining, because props may not be transferred
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, {
   InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -21,12 +22,14 @@ export enum InputTheme {
 }
 
 interface InputProps extends HTMLInputProps {
-    className?: string;
-    value?: string;
-    placeholderTemplate?: string;
-    theme?: InputTheme;
-    autofocus?: boolean;
-    onChange?: (value: string) => void;
+  className?: string;
+  value?: string | number;
+  placeholderTemplate?: string;
+  onChange?: (value: string) => void;
+  theme?: InputTheme;
+  label?: string;
+  autofocus?: boolean;
+  readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -36,8 +39,10 @@ export const Input = memo((props: InputProps) => {
     onChange,
     type = 'text',
     placeholderTemplate,
-    theme,
+    theme = InputTheme.SIMPLE,
     autofocus,
+    readonly,
+    label,
     ...otherProps
   } = props;
 
@@ -56,19 +61,30 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [classes[theme]]: true,
+    [classes.readonly]: readonly,
   };
 
   return (
-      <input
-          className={classNames(classes.Input, mods, [className])}
-          ref={ref}
-          type={type}
-          value={value}
-          placeholder={placeholderTemplate}
-          onChange={onChangeHandler}
-          {...otherProps}
-      />
+      <div className={classes.inputWrapper}>
+          {label && (
+          <div className={classes.label}>
+              <Text
+                  title={label}
+                  theme={TextTheme.TEXT_WHITE}
+              />
+          </div>
+          )}
+          <input
+              className={classNames(classes.Input, mods, [className])}
+              ref={ref}
+              type={type}
+              value={value}
+              placeholder={placeholderTemplate}
+              onChange={onChangeHandler}
+              {...otherProps}
+          />
+      </div>
   );
 });

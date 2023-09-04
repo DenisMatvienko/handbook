@@ -1,32 +1,41 @@
 .Navbar {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 20px;
-    width: 100%;
-    height: var(--navbar-height);
-    background-color: var(--navbar-color);
-    box-shadow: 0 3px 5px var(--box-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  width: 100%;
+  height: var(--navbar-height);
+  background-color: var(--navbar-color);
+  box-shadow: 0 3px 5px var(--box-shadow);
 
-    :first-child {
-        align-items: flex-start;
-        justify-content: flex-end;
-    }
+  :first-child {
+    justify-content: flex-end;
+  }
 }
 
 .accountBar {
-    display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :not(:last-child):not(:first-child) {
+    margin-right: 15px;
+  }
+
+  :first-child {
+    margin-right: 1px;
+  }
 }
 
 .usernameLinks {
-    height: 40px;
-    padding: 5px;
+  height: 40px;
+  padding: 5px;
 }
 
 .links {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .mainLink {
-    margin-right: 15px;
+  margin-right: 15px;
 }

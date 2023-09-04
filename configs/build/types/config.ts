@@ -1,5 +1,9 @@
 /**
  * Types for webpack config build
+ *
+ *  @param BuildEnv
+ *      - Environment Variables
+ *       https://webpack.js.org/guides/environment-variables/
  */
 
 export type BuildMode = 'production' | 'development'
@@ -14,6 +18,7 @@ export interface BuildPaths {
 export interface BuildEnv {
     mode: BuildMode;
     port: number;
+    apiUrl: string;
 }
 
 export interface BuildOptions {
@@ -21,4 +26,5 @@ export interface BuildOptions {
     paths: BuildPaths;
     isDev: boolean;
     port: number;
+    apiUrl: string;
 }

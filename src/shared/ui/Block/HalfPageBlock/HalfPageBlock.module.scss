@@ -1,0 +1,10 @@
+.HalfPageBlock {
+  display: flex;
+  flex-wrap: wrap;
+  width: 49.8%;
+  background-color: var(--block-colorized);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px var(--box-shadow);
+  word-break: break-all;
+}

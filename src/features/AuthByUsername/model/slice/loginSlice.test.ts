@@ -6,7 +6,6 @@
  *   Change state with value 'admin': {password: 'admin'}, on value '0000', by setUsername actions
  */
 
-import { DeepPartial } from '@reduxjs/toolkit';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { LoginSchema } from '../types/loginSchema';
 

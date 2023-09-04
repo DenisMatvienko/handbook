@@ -1,5 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
-import { CounterSchema } from 'entities/Counter';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { getCounterValue } from './getCounterValue';
 
