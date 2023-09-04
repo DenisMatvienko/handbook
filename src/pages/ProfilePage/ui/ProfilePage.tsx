@@ -1,3 +1,18 @@
+/**
+ *    Profile page
+ *      - Page with overview and editing profile
+ *
+ *     @param onChangeFirstname
+ *      - Change state in firstname field by dispatching actions, when change input
+ *     @param onChangeLastname
+ *      - Change state in lastname field by dispatching actions, when change input
+ *     @param onChangeAge
+ *      - Change state in Age field by dispatching actions, when change input
+ *        if inputting data's isNaN - will view '0' on page, handler of error
+ *
+ *      - Rest dispatch do same changes, just with other fields as country,city,avatar etc..
+ */
+
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
