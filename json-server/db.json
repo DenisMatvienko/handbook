@@ -1,23 +1,33 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" }
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": 1 }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "users": [
-    { "id": "1",
+    {
+      "id": "1",
       "username": "admin",
-      "password": "admin" }
+      "password": "admin"
+    }
   ],
   "profile": {
-    "firstName": "typicode",
-    "lastName":"",
-    "age": 22,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Saint-P",
+    "firstName": "den",
+    "lastName": "matv",
+    "age": 28,
     "username": "admin",
-    "avatar": "https://w0.peakpx.com/wallpaper/289/736/HD-wallpaper-valve-half-life-logo-black-mesa-games.jpg"
+    "avatar": "https://www.wordonfire.org/wp-content/uploads/2021/12/B_F_diehard.png",
+    "country": "Russia",
+    "city": "be",
+    "currency": "RUB"
   }
 }

@@ -4,21 +4,45 @@
 @import "./themes/dark/dark";
 
 body {
-    font: var(--font-m);
+  font: var(--font-m);
 }
 
 .app,
 .app_modal {
-    color: var(--secondary-color);
-    background: var(--bg-color);
-    min-height: 100vh;
+  color: var(--secondary-color);
+  background: var(--bg-color);
+  min-height: 100vh;
 }
 
 .content-page {
-    display: flex;
+  display: flex;
 }
 
 .page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: var(--bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  height: 1px;
+  border: 2px solid var(--bg-color);
 }

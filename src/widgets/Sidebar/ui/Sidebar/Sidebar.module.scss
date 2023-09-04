@@ -1,76 +1,76 @@
 .Sidebar {
-    height: calc(100vh - var(--navbar-height));
-    width: var(--sidebar-width);
-    background-color: var(--navbar-color);
-    box-shadow: 2px 3px 3px var(--box-shadow);
-    position: relative;
-    transition: width 0.2s;
+  height: calc(100vh - var(--navbar-height));
+  width: var(--sidebar-width);
+  background-color: var(--navbar-color);
+  box-shadow: 2px 3px 3px var(--box-shadow);
+  position: relative;
+  transition: width 0.2s;
 }
 
 .button {
-    position: absolute;
-    top: -40px;
-    left: 10px;
-    cursor: pointer;
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  cursor: pointer;
 }
 
 .BarsIcon {
-    width: 25px;
-    height: 25px;
-    fill: var(--nav-links-color-light);
+  width: 25px;
+  height: 25px;
+  fill: var(--nav-links-color-light);
 
-    &:hover {
-        fill: var(--nav-links-color-light);
-        opacity: 1;
-    }
+  &:hover {
+    fill: var(--nav-links-color-light);
+    opacity: 1;
+  }
 }
 
 .sidebarWrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .items {
-    display: flex;
-    justify-content: center;
-    flex-flow: column wrap;
-    margin-top: 40px;
-    margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  margin-top: 40px;
+  margin-left: 20px;
 }
 
 .switchers {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    bottom: 20px;
-    width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  width: 80%;
 }
 
 .collapsed {
-    width: var(--sidebar-width-collapsed);
+  width: var(--sidebar-width-collapsed);
 
-    .switchers {
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
+  .switchers {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    .lang {
-        margin-top: 10px;
-    }
+  .lang {
+    margin-top: 10px;
+  }
 
-    .link {
-        display: none;
-        flex-wrap: nowrap;
-        width: 0;
-    }
+  .link {
+    display: none;
+    flex-wrap: nowrap;
+    width: 0;
+  }
 
-    .icon {
-        transition: margin-top 0.5s ease-in-out;
-    }
+  .icon {
+    transition: margin-top 0.5s ease-in-out;
+  }
 
-    .roll {
-        rotate: 180deg;
-    }
+  .roll {
+    rotate: 180deg;
+  }
 }

@@ -1,0 +1,35 @@
+.selectWrapper {
+  margin-top: 10px;
+}
+
+.ProfileCard {
+  width: 100%;
+}
+
+.dataWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.textWrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.data {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.item {
+  margin-top: 15px;
+}
+
+.input {
+  margin-top: 10px;
+}

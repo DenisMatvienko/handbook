@@ -17,11 +17,16 @@
  *  - component didn't render while modal will mount
  *  - autofocus will work in input when modal will open and mount
  *
+ *  @error Common mistake's
+ *    - clearTimout cannot get null. But cause isOpen can be undefined. In ReturnType of timerRef
+ *      was added 'typeof setTimeout | null'. That get mistake with clearTimout.
+ *      Solving: add timerRef as MutableRefObject
+ *
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
-  ReactNode, useState, useRef, useEffect, useCallback,
+  ReactNode, useState, useRef, useEffect, useCallback, MutableRefObject,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/provider/ThemeProvider';
@@ -48,7 +53,7 @@ export const Modal = (props: ModalProps) => {
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timerRef = useRef < ReturnType< typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType< typeof setTimeout>>;
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -88,7 +93,7 @@ export const Modal = (props: ModalProps) => {
     };
   }, [isOpen, onKeyDown]);
 
-  const mods: Record<string, boolean> = {
+  const mods: Mods = {
     [classes.opened]: isOpen,
     [classes.isClosing]: isClosing,
   };

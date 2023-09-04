@@ -9,13 +9,20 @@ export enum TextTheme {
   LINK_LIGHT = 'linkLight',
 }
 
+export enum TextAlign {
+  RIGHT = 'right',
+  LEFT = 'left',
+  CENTER = 'center',
+}
+
 interface TextProps {
-    className?: string;
-    title?: string;
-    text?: string;
-    textWhite?: string;
-    linkLight?: string;
-    theme?: TextTheme;
+  className?: string;
+  title?: string;
+  text?: string;
+  textWhite?: string;
+  linkLight?: string;
+  theme?: TextTheme;
+  align?: TextAlign;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -26,10 +33,12 @@ export const Text = memo((props: TextProps) => {
     textWhite,
     linkLight,
     theme = TextTheme.PRIMARY,
+    align = TextAlign.CENTER,
   } = props;
 
   const mods: Record<string, boolean> = {
     [classes[theme]]: true,
+    [classes[align]]: true,
   };
 
   return (

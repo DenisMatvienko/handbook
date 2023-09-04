@@ -1,26 +1,33 @@
 /**
- *  - Config file of all routes
- *  @param MAIN
- *    Main page route
- *  @param ABOUT
- *    About page route
- *  @param ProfilePage
- *    Profile page route
- *  @param NOT_FOUND // last
- *    Not found page route
+ *    - Config file of all routes
+ *    @param MAIN
+ *      Main page route
+ *    @param ABOUT
+ *      About page route
+ *    @param ProfilePage
+ *      Profile page route
+ *    @param NOT_FOUND // last
+ *      Not found page route
+ *
+ *    @param AppRouterProps
+ *      - Type will expand default router props, which get from - RouteProps of react-router-dom
  */
 
 import { AboutPage } from 'pages/AboutPage';
 import { MainPage } from 'pages/MainPage';
-import { RouteProps } from 'react-router-dom';
+import { RouteProps, RouterProps } from 'react-router-dom';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 
+type AppRoutesProps = RouteProps & {
+  authOnly?: boolean;
+}
+
 export enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about',
-    PROFILE = 'profile',
-    NOT_FOUND = 'not_found',
+  MAIN = 'main',
+  ABOUT = 'about',
+  PROFILE = 'profile',
+  NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -30,7 +37,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />,
@@ -42,6 +49,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
