@@ -1,17 +1,18 @@
 /**
- * template - add root template
- * Add index.html into build folder
+ *    All build plugins
+ *      template - add root template
+ *      Add index.html into build folder
  *
- * With help of DefinePlugin, we can add into app (like i18n) global variable
- * first we need in i18n isDev check
+ *      With help of DefinePlugin, we can add into app (like i18n) global variable
+ *      first we need in i18n isDev check
  *
- * Last requirement - if is Dev mode we are add these plugins in build,
- * but if prod-didn't.
- * This check made for prevent addition BuildAnalyzerPlugin in to prod build
- * because BuildAnalyzerPlugin running in GitHub actions, and still be running
- * interfere successfully build bundle in actions
+ *      Last requirement - if is Dev mode we are add these plugins in build,
+ *      but if prod-didn't.
+ *      This check made for prevent addition BuildAnalyzerPlugin in to prod build
+ *      because BuildAnalyzerPlugin running in GitHub actions, and still be running
+ *      interfere successfully build bundle in actions
  *
- * https://www.npmjs.com/package/webpack-bundle-analyzer
+ *      https://www.npmjs.com/package/webpack-bundle-analyzer
  */
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -20,7 +21,13 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ isDev, paths, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
+  const {
+    isDev,
+    paths,
+    apiUrl,
+  } = options;
+
   const plugins = [
     new HTMLWebpackPlugin({
       template: paths.html,

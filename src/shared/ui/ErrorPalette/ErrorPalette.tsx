@@ -11,6 +11,7 @@ export enum ErrorPaletteTheme {
 
 export enum ErrorPaletteSize {
   NN = 'size_none',
+  AUTO = 'size_auto',
   M = 'size_m',
   L = 'size_l',
   XL = 'size_xl',

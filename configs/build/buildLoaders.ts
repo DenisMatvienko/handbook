@@ -1,13 +1,14 @@
 /**
- *  https://webpack.js.org/guides/typescript/#loader
+ *      All build loaders
+ *        https://webpack.js.org/guides/typescript/#loader
  *
- *  Important module in file. Handle other file which
- *  not .js (is - css, scss, png, jpeg, ts, tsx etc..)
- *  This will direct webpack to enter through ./index.ts,
- *  load all .ts and .tsx files through the ts-loader,
- *  and output a bundle.js file in our current directory.
+ *        Important module in file. Handle other file which
+ *        not .js (is - css, scss, png, jpeg, ts, tsx etc..)
+ *        This will direct webpack to enter through ./index.ts,
+ *        load all .ts and .tsx files through the ts-loader,
+ *        and output a bundle.js file in our current directory.
  *
- *  If didn't use TypeScript - we need to use babel for work with jsx
+ *        If didn't use TypeScript - we need to use babel for work with jsx
  */
 
 import webpack from 'webpack';

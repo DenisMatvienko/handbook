@@ -16,5 +16,17 @@
   "username": "Username",
   "avatar": "Avatar",
   "Save": "Save",
-  "Hi": "Hi"
+  "Hi": "Hi",
+  "no-data-error": "Error! No data",
+  "server-error": "Server hung",
+  "incorrect-firstname-length": "Firstname length incorrect",
+  "incorrect-lastname-length": "Lastname length incorrect",
+  "incorrect-user-data": "Type firstname or lastname",
+  "wrong-age-range-too-old": "Age is too old",
+  "wrong-age-range-too-young": "Age is too young",
+  "incorrect-age": "Incorrect age",
+  "incorrect-currency": "Type currency",
+  "incorrect-city": "Type city",
+  "incorrect-country": "Type country",
+  "incorrect-username": "Type username"
 }

@@ -1,12 +1,15 @@
 /**
- * https://webpack.js.org/configuration/resolve/#resolvemodules
- * Another way of acces to absolute path on alias is:
- * Remove preferAbsolute and modules, add alias: "@":paths.srs
- * absolute path will - @/shared/classNames
- * with current configurations with alias: {} + modules + preferAbsolute
- * absolute path is - shared/classNames
+ *      Build resolve
+ *        - Contain webpack field 'build resolve'
  *
- * explicitly indicate - index as main file by PUBLIC API
+ *      https://webpack.js.org/configuration/resolve/#resolvemodules
+ *      Another way of acces to absolute path on alias is:
+ *      Remove preferAbsolute and modules, add alias: "@":paths.srs
+ *      absolute path will - @/shared/classNames
+ *      with current configurations with alias: {} + modules + preferAbsolute
+ *      absolute path is - shared/classNames
+ *
+ *      explicitly indicate - index as main file by PUBLIC API
  */
 
 import { ResolveOptions } from 'webpack';

@@ -23,7 +23,7 @@ import {
   fetchProfileData,
   getProfileError, getProfileForm,
   getProfileIsLoading,
-  getProfileReadonly,
+  getProfileReadonly, getProfileValidateErrors,
   profileActions,
   ProfileCard,
   profileReducer,
@@ -33,6 +33,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import {
+  ErrorPalette,
+  ErrorPaletteSize,
+  ErrorPaletteTheme,
+} from 'shared/ui/ErrorPalette/ErrorPalette';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -64,7 +69,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }, [dispatch]);
 
   const onChangeAge = useCallback((value?: string) => {
-    const regex = /[A-Za-z-]/g;
+    const regex = /[^0-9-]/g;
     dispatch(profileActions.updateProfile({
       age: Number(
         value?.match(regex)

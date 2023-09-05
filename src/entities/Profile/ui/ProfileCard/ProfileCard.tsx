@@ -1,12 +1,18 @@
 /**
- *    Profile card
- *     - Card which displayed on profile page using state by async reducers of DynamycModuleLoader
+ *    Profile card;
+ *     - Card which displayed on profile page using state by async reducers of DynamicModuleLoader.
  *
- *    @param ProfileDataItemReadonly
+ *    @param ProfileDataItemReadonly;
  *     include:
  *     - List of data elements;
  *     - List of items (values of data) elements;
- *     Both lists includes into wrap and push to the profile card when state readonly = true
+ *     Both lists includes into wrap and push to the profile card when state readonly = true.
+ *
+ *    @param validateErrorsTranslates;
+ *     - mapping of errors code's to errors translates.
+ *     - key: error from ValidateProfileError;
+ *     - value: description with translate;
+ *     In ErrorPalette get value by key from validateErrorsTranslates obj
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -29,6 +35,8 @@ import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect';
+import { useSelector } from 'react-redux';
+import { getProfileValidateErrors, ValidateProfileError } from 'entities/Profile';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -66,6 +74,21 @@ export const ProfileCard = (props: ProfileCardProps) => {
   } = props;
 
   const { t } = useTranslation('profile');
+  const validateErrors = useSelector(getProfileValidateErrors);
+  const validateErrorsTranslates = {
+    [ValidateProfileError.NO_DATA]: t('no-data-error'),
+    [ValidateProfileError.SERVER_ERROR]: t('server-error'),
+    [ValidateProfileError.INCORRECT_USER_FIRSTNAME_LENGTH]: t('incorrect-firstname-length'),
+    [ValidateProfileError.INCORRECT_USER_LASTNAME_LENGTH]: t('incorrect-lastname-length'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('incorrect-user-data'),
+    [ValidateProfileError.WRONG_AGE_RANGE_TOO_OLD]: t('wrong-age-range-too-old'),
+    [ValidateProfileError.WRONG_AGE_RANGE_TOO_YOUNG]: t('wrong-age-range-too-young'),
+    [ValidateProfileError.INCORRECT_AGE]: t('incorrect-age'),
+    [ValidateProfileError.INCORRECT_CURRENCY]: t('incorrect-currency'),
+    [ValidateProfileError.INCORRECT_CITY]: t('incorrect-city'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('incorrect-country'),
+    [ValidateProfileError.INCORRECT_USERNAME]: t('incorrect-username'),
+  };
 
   const mods: Mods = {
     [classes.loading]: true,
@@ -117,6 +140,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
                               theme={TextTheme.TEXT_WHITE}
                               align={TextAlign.LEFT}
                           />
+                          {validateErrors?.length && validateErrors.map((item) => (
+                              <ErrorPalette
+                                  key={item}
+                                  theme={ErrorPaletteTheme.DEFAULT}
+                                  text={t(validateErrorsTranslates[item])}
+                                  size={ErrorPaletteSize.XL}
+                              />
+                          ))}
                       </div>
                       <div className={classes.data}>
                           <div className={classes.dataInputs}>
