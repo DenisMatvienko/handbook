@@ -1,0 +1,33 @@
+.headerWrapper {
+  margin-top: 5px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: auto;
+
+  .toEditButton {
+    margin-left: auto;
+    width: 150px;
+  }
+}
+
+.titleText {
+  color: var(--white);
+}
+
+.editButtons {
+  display: flex;
+}
+
+.editButton {
+  margin-left: auto;
+  width: 150px;
+
+  &:last-child {
+    margin-left: 10px;
+  }
+}

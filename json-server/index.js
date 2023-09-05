@@ -1,6 +1,25 @@
+/**
+ *  Имитация backand-сервера
+ *
+ *  @func Promise
+ *    - Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
+ *
+ *  @param server.post
+ *    - Эндпоинт для логина
+ *
+ *  @param req.headers.authorization
+ *   - Проверяем, авторизован ли пользователь
+ *     Условие: имитация авторизации, сам токен не проверяется, поскольку это имитация бекенда то
+ *     проверяется только наличие заголовка authorization
+ *
+ *  @param server.listen
+ *    - Запуск сервера
+ *
+ */
+
 const fs = require('fs');
-const jsonServer = require('json-server');
 const path = require('path');
+const jsonServer = require('json-server');
 
 const server = jsonServer.create();
 
@@ -9,7 +28,6 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
-// Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
   await new Promise((res) => {
     setTimeout(res, 800);
@@ -17,10 +35,12 @@ server.use(async (req, res, next) => {
   next();
 });
 
-// Эндпоинт для логина
 server.post('/login', (req, res) => {
   try {
-    const { username, password } = req.body;
+    const {
+      username,
+      password,
+    } = req.body;
     const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
     const { users = [] } = db;
 
@@ -32,18 +52,20 @@ server.post('/login', (req, res) => {
       return res.json(userFromBd);
     }
 
-    return res.status(403).json({ message: 'User not found' });
+    return res.status(403)
+      .json({ message: 'User not found' });
   } catch (e) {
     console.log(e);
-    return res.status(500).json({ message: e.message });
+    return res.status(500)
+      .json({ message: e.message });
   }
 });
 
-// проверяем, авторизован ли пользователь
-// eslint-disable-next-line
+// eslint-disable-next-line consistent-return
 server.use((req, res, next) => {
   if (!req.headers.authorization) {
-    return res.status(403).json({ message: 'AUTH ERROR' });
+    return res.status(403)
+      .json({ message: 'AUTH ERROR' });
   }
 
   next();
@@ -51,7 +73,6 @@ server.use((req, res, next) => {
 
 server.use(router);
 
-// запуск сервера
 server.listen(8000, () => {
   console.log('server is running on 8000 port');
 });

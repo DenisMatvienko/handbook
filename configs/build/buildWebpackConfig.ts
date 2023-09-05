@@ -1,15 +1,18 @@
 /**
- *  Now we shouldn't add extensions
- *  of tsx, ts, js into path (from: './test.ts' to: './test')
+ *       Webpack config.
+ *        - contain each described in folder components (buildPlugins, buildLoaders, buildResolve)
  *
- *  https://webpack.js.org/guides/development/#using-source-maps
- *  For example, if you bundle three source files (a.js, b.js, and c.js)
- *  into one bundle (bundle.js) and one of the source files contains an
- *  error, the stack trace will point to bundle.js
+ *        - Add extensions of tsx, ts, js into path
+ *          (from: './test.ts' to: './test')
  *
- * is dev ? add source-maps in dev build : remove source-maps from prod build
+ *        https://webpack.js.org/guides/development/#using-source-maps
+ *        - For example, if you bundle three source files (a.js, b.js, and c.js)
+ *        into one bundle (bundle.js) and one of the source files contains an
+ *        error, the stack trace will point to bundle.js
  *
- * dev-server: run just in dev build. in prod build - didn't
+ *        @param dev-server
+ *        - run just in dev build. in prod build - didn't
+ *          is dev ? add source-maps in dev build : remove source-maps from prod build
  */
 
 import webpack from 'webpack';
@@ -19,9 +22,12 @@ import { buildResolve } from './buildResolve';
 import { BuildOptions } from './types/config';
 import { buildDevServer } from './buildDevServer';
 
-export function buildWebpackConfig(options: BuildOptions):
-  webpack.Configuration {
-  const { paths, mode, isDev } = options;
+export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
+  const {
+    paths,
+    mode,
+    isDev,
+  } = options;
 
   return {
     mode,
@@ -37,12 +43,12 @@ export function buildWebpackConfig(options: BuildOptions):
       rules: buildLoaders(options),
     },
     resolve:
-            buildResolve(options),
+        buildResolve(options),
 
     devtool:
-            isDev
-              ? 'inline-source-map'
-              : undefined,
+        isDev
+          ? 'inline-source-map'
+          : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
 
   };

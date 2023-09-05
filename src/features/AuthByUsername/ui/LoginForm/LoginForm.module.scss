@@ -1,43 +1,29 @@
 .LoginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 500px;
-    height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 600px;
 }
 
-.errorPallet {
-    display: flex;
-    justify-content: center;
-    border-radius: 10px;
-    background: var(--button-colorized);
-    color: var(--nav-text-color);
-    fill: var(--nav-text-color);
-    align-items: center;
-    width: 300px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.errorText {
-    width: auto;
-    text-align: center;
+.ErrorPaletteWrapper {
+  margin-top: 10px;
 }
 
 .input {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .signInWrapper {
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
 }
 
 .loginBtn {
-    width: 300px;
-    height: 70px;
-    margin-top: 15px;
+  width: 300px;
+  height: 70px;
+  margin-top: 15px;
 }

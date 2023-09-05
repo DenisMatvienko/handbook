@@ -1,7 +1,9 @@
 /**
- * historyApiFallback - Allows to proxy requests through a specified
- * index page (by default 'index.html'),
- * useful for Single Page Applications that utilise the HTML5 History API.
+ *      Dev-server options
+ *        @param historyApiFallback
+ *          - Allows to proxy requests through a specified
+ *          index page (by default 'index.html'),
+ *          useful for Single Page Applications that utilise the HTML5 History API.
  */
 
 import type { Configuration as DevServerConfigurations }
