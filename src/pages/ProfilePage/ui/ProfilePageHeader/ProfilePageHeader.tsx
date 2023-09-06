@@ -11,6 +11,10 @@ import { getProfileReadonly, profileActions, updateProfileData } from 'entities/
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import Save from 'shared/assets/icons/save-filled.svg';
+import Cancel from 'shared/assets/icons/cancel.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import Settings from 'shared/assets/icons/settings.svg';
 import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -56,7 +60,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             radius={ButtonRadius.SEMI_ELLIPSE}
                             onClick={onEdit}
                         >
-                            {t('Edit')}
+                            <Settings className={classNames(classes.SettingsIcon, {}, [])} />
                         </Button>
                     ) : (
                         <div className={classes.editButtons}>
@@ -66,7 +70,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onSave}
                             >
-                                {t('Save')}
+                                <Save className={classNames(classes.SaveIcon, {}, [])} />
                             </Button>
                             <Button
                                 className={classes.editButton}
@@ -74,7 +78,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onCancelEdit}
                             >
-                                {t('Cancel')}
+                                <Cancel className={classNames(classes.CancelIcon, {}, [])} />
                             </Button>
                         </div>
                     )}
