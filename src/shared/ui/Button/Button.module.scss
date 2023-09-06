@@ -74,37 +74,18 @@
   }
 }
 
-.background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--navbar-color);
-  color: var(--nav-text-color);
-  fill: var(--nav-text-color);
-  padding: 10px;
-  border: none;
-
-  &:hover {
-    background: var(--button-bgc-hover-inverted);
-    color: var(--nav-text-color);
-    fill: var(--button-color-hover-ligth);
-    box-shadow: 1px 1px 3px var(--box-shadow-hover);
-    transition: 0.2s ease-in-out;
-  }
-}
-
-.backgroundInverted {
+.backgroundWhitePurple {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   border: none;
-  background: var(--button-bgc-purple-light);
+  background: var(--button-bgc);
   color: var(--button-color-hover-ligth);
   fill: var(--button-color-hover-ligth);
 
   &:hover {
-    background: var(--button-bgc-hover-inverted);
+    background: var(--button-bgc-hover-white-purple);
     color: var(--nav-text-color);
     fill: var(--nav-text-color);
     box-shadow: 1px 1px 3px var(--box-shadow-hover);
@@ -112,7 +93,7 @@
   }
 }
 
-.backgroundColorized {
+.backgroundBlackPurple {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,7 +104,7 @@
   border: none;
 
   &:hover {
-    background: var(--button-bgc-hover-colorized);
+    background: var(--button-bgc-hover);
     color: var(--nav-text-color);
     fill: var(--button-color-hover-ligth);
     box-shadow: 1px 1px 3px var(--box-shadow-hover);

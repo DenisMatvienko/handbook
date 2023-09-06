@@ -56,7 +56,7 @@ BackgroundThemeButton.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 
 export const BackgroundThemeColorized = Template.bind({});
@@ -65,7 +65,7 @@ BackgroundThemeColorized.args = {
   children: 'Sign In',
   size: ButtonSize.XL,
   radius: ButtonRadius.SEMI_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_WT_B_BT_P,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 
 export const BackgroundThemeColorizedDark = Template.bind({});
@@ -74,7 +74,7 @@ BackgroundThemeColorizedDark.args = {
   children: 'Sign In',
   size: ButtonSize.XL,
   radius: ButtonRadius.SEMI_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_WT_B_BT_P,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 BackgroundThemeColorizedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -85,7 +85,7 @@ BackgroundThemeButtonDark.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 BackgroundThemeButtonDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -96,7 +96,7 @@ InvertedBackgroundThemeButton.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  theme: ButtonTheme.BACKGROUND_LWHITE_DPURPLE,
 };
 
 export const InvertedBackgroundThemeButtonDark = Template.bind({});
@@ -106,7 +106,7 @@ InvertedBackgroundThemeButtonDark.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_INVERTED,
+  theme: ButtonTheme.BACKGROUND_LWHITE_DPURPLE,
 };
 InvertedBackgroundThemeButtonDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -116,7 +116,7 @@ SizeMSuperEllipseSquareButton.args = {
   square: true,
   size: ButtonSize.M,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 
 export const SizeLCircleSquareButton = Template.bind({});
@@ -125,7 +125,7 @@ SizeLCircleSquareButton.args = {
   square: true,
   size: ButtonSize.L,
   radius: ButtonRadius.CIRCLE,
-  theme: ButtonTheme.BACKGROUND,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 
 export const SizeXLSemiEllipseButton = Template.bind({});
@@ -134,7 +134,7 @@ SizeXLSemiEllipseButton.args = {
   children: 'Size XL button by Semi-Ellipse radius',
   size: ButtonSize.XL,
   radius: ButtonRadius.SEMI_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 
 export const SizeXXLEllipseButton = Template.bind({});
@@ -143,7 +143,7 @@ SizeXXLEllipseButton.args = {
   children: 'Size XXL button by Ellipse radius',
   size: ButtonSize.XXL,
   radius: ButtonRadius.ELLIPSE,
-  theme: ButtonTheme.BACKGROUND,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 
 export const ButtonDisabled = Template.bind({});
@@ -152,6 +152,6 @@ ButtonDisabled.args = {
   children: 'Disabled',
   size: ButtonSize.XL,
   radius: ButtonRadius.SEMI_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_WT_B_BT_P,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
   disabled: true,
 };

@@ -137,7 +137,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                       <div className={classes.textWrapper}>
                           <Text
                               title={t('Edit')}
-                              theme={TextTheme.TEXT_WHITE}
+                              theme={TextTheme.HEADER}
                               align={TextAlign.LEFT}
                           />
                           {validateErrors?.length && validateErrors.map((item) => (

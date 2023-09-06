@@ -16,7 +16,7 @@
   "username": "Username",
   "avatar": "Avatar",
   "Save": "Save",
-  "Hi": "Hi",
+  "hi": "Hi",
   "no-data-error": "Error! No data",
   "server-error": "Server hung",
   "incorrect-firstname-length": "Firstname length incorrect",

@@ -72,7 +72,7 @@ export const Input = memo((props: InputProps) => {
           <div className={classes.label}>
               <Text
                   title={label}
-                  theme={TextTheme.TEXT_WHITE}
+                  theme={TextTheme.TEXT_BLACK}
               />
           </div>
           )}

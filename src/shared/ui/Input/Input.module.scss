@@ -23,13 +23,14 @@
   background-color: var(--input-dark-bg);
   transition: 0.3s linear;
   padding-left: 40px;
+  box-shadow: 1px 0px 5px var(--box-shadow);
 
   &::placeholder {
     color: #c0c0c0;
   }
 
   &:focus {
-    color: var(--bg-color);
+    color: var(--black-input);
     background-color: var(--white);
     box-shadow: 1px 1px 4px var(--box-shadow-hover);
   }

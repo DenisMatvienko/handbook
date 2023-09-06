@@ -22,7 +22,7 @@ export const Counter = () => {
           <h1 data-testid="value-title">{counterValue}</h1>
           <Button
               data-testid="increment-btn"
-              theme={ButtonTheme.BACKGROUND}
+              theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
               radius={ButtonRadius.SEMI_ELLIPSE}
               onClick={increment}
           >
@@ -31,7 +31,7 @@ export const Counter = () => {
           </Button>
           <Button
               data-testid="decrement-btn"
-              theme={ButtonTheme.BACKGROUND}
+              theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
               radius={ButtonRadius.SEMI_ELLIPSE}
               onClick={decrement}
           >

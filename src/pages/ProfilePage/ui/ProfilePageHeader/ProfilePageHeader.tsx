@@ -46,13 +46,13 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                   <Text
                       className={classes.titleText}
                       title={t('UserProfile')}
-                      theme={TextTheme.TEXT_WHITE}
+                      theme={TextTheme.HEADER}
                   />
                   {readonly
                     ? (
                         <Button
                             className={classes.toEditButton}
-                            theme={ButtonTheme.BACKGROUND_INVERTED}
+                            theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
                             radius={ButtonRadius.SEMI_ELLIPSE}
                             onClick={onEdit}
                         >
