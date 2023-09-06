@@ -37,6 +37,7 @@ import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect';
 import { useSelector } from 'react-redux';
 import { getProfileValidateErrors, ValidateProfileError } from 'entities/Profile';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Profile } from '../../model/type/profile';
 import classes from './ProfileCard.module.scss';
 
@@ -133,95 +134,97 @@ export const ProfileCard = (props: ProfileCardProps) => {
           <div>
               <ProfilePageHeader />
               <div className={classes.dataWrapper}>
-                  <HalfPageBlock>
-                      <div className={classes.textWrapper}>
-                          <Text
-                              title={t('Edit')}
-                              theme={TextTheme.HEADER}
-                              align={TextAlign.LEFT}
-                          />
-                          {validateErrors?.length && validateErrors.map((item) => (
-                              <ErrorPalette
-                                  key={item}
-                                  theme={ErrorPaletteTheme.DEFAULT}
-                                  text={t(validateErrorsTranslates[item])}
-                                  size={ErrorPaletteSize.XL}
+                  <FullPageBlock>
+                      <div className={classes.content}>
+                          <div className={classes.textWrapper}>
+                              <Text
+                                  title={t('Edit')}
+                                  theme={TextTheme.HEADER}
+                                  align={TextAlign.LEFT}
                               />
-                          ))}
-                      </div>
-                      <div className={classes.data}>
-                          <div className={classes.dataInputs}>
-                              <Input
-                                  label={t('Firstname')}
-                                  className={classes.input}
-                                  value={data?.firstName}
-                                  theme={InputTheme.SIMPLE}
-                                  placeholder={t('Firstname')}
-                                  onChange={onChangeFirstname}
-                                  readonly={readonly}
-                              />
-                              <Input
-                                  label={t('Lastname')}
-                                  className={classes.input}
-                                  value={data?.lastName}
-                                  theme={InputTheme.SIMPLE}
-                                  placeholder={t('Lastname')}
-                                  onChange={onChangeLastname}
-                                  readonly={readonly}
-                              />
-                              <Input
-                                  label={t('age')}
-                                  className={classes.input}
-                                  value={data?.age}
-                                  theme={InputTheme.SIMPLE}
-                                  placeholder={t('age')}
-                                  onChange={onChangeAge}
-                                  readonly={readonly}
-                              />
-                              <Input
-                                  label={t('username')}
-                                  className={classes.input}
-                                  value={data?.username}
-                                  theme={InputTheme.SIMPLE}
-                                  placeholder={t('username')}
-                                  onChange={onChangeUsername}
-                                  readonly={readonly}
-                              />
-                              <Input
-                                  label={t('avatar')}
-                                  className={classes.input}
-                                  value={data?.avatar}
-                                  theme={InputTheme.SIMPLE}
-                                  placeholder={t('avatar')}
-                                  onChange={onChangeAvatar}
-                                  readonly={readonly}
-                              />
-                              <div className={classes.selectWrapper}>
-                                  <CountrySelect
-                                      value={data?.country}
-                                      onChange={onChangeCountry}
-                                      label
+                              {validateErrors?.length && validateErrors.map((item) => (
+                                  <ErrorPalette
+                                      key={item}
+                                      theme={ErrorPaletteTheme.DEFAULT}
+                                      text={t(validateErrorsTranslates[item])}
+                                      size={ErrorPaletteSize.XL}
                                   />
-                              </div>
-                              <Input
-                                  label={t('city')}
-                                  className={classes.input}
-                                  value={data?.city}
-                                  theme={InputTheme.SIMPLE}
-                                  placeholder={t('city')}
-                                  onChange={onChangeCity}
-                                  readonly={readonly}
-                              />
-                              <div className={classes.selectWrapper}>
-                                  <CurrencySelect
-                                      value={data?.currency}
-                                      onChange={onChangeCurrency}
-                                      label
+                              ))}
+                          </div>
+                          <div className={classes.data}>
+                              <div className={classes.dataInputs}>
+                                  <Input
+                                      label={t('Firstname')}
+                                      className={classes.input}
+                                      value={data?.firstName}
+                                      theme={InputTheme.SIMPLE}
+                                      placeholder={t('Firstname')}
+                                      onChange={onChangeFirstname}
+                                      readonly={readonly}
                                   />
+                                  <Input
+                                      label={t('Lastname')}
+                                      className={classes.input}
+                                      value={data?.lastName}
+                                      theme={InputTheme.SIMPLE}
+                                      placeholder={t('Lastname')}
+                                      onChange={onChangeLastname}
+                                      readonly={readonly}
+                                  />
+                                  <Input
+                                      label={t('age')}
+                                      className={classes.input}
+                                      value={data?.age}
+                                      theme={InputTheme.SIMPLE}
+                                      placeholder={t('age')}
+                                      onChange={onChangeAge}
+                                      readonly={readonly}
+                                  />
+                                  <Input
+                                      label={t('username')}
+                                      className={classes.input}
+                                      value={data?.username}
+                                      theme={InputTheme.SIMPLE}
+                                      placeholder={t('username')}
+                                      onChange={onChangeUsername}
+                                      readonly={readonly}
+                                  />
+                                  <Input
+                                      label={t('avatar')}
+                                      className={classes.input}
+                                      value={data?.avatar}
+                                      theme={InputTheme.SIMPLE}
+                                      placeholder={t('avatar')}
+                                      onChange={onChangeAvatar}
+                                      readonly={readonly}
+                                  />
+                                  <div className={classes.selectWrapper}>
+                                      <CountrySelect
+                                          value={data?.country}
+                                          onChange={onChangeCountry}
+                                          label
+                                      />
+                                  </div>
+                                  <Input
+                                      label={t('city')}
+                                      className={classes.input}
+                                      value={data?.city}
+                                      theme={InputTheme.SIMPLE}
+                                      placeholder={t('city')}
+                                      onChange={onChangeCity}
+                                      readonly={readonly}
+                                  />
+                                  <div className={classes.selectWrapper}>
+                                      <CurrencySelect
+                                          value={data?.currency}
+                                          onChange={onChangeCurrency}
+                                          label
+                                      />
+                                  </div>
                               </div>
                           </div>
                       </div>
-                  </HalfPageBlock>
+                  </FullPageBlock>
               </div>
           </div>
       </div>
