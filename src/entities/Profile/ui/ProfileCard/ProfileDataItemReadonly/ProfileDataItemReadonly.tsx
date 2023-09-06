@@ -67,16 +67,15 @@ export const ProfileDataItemReadonly = ({
                           />
                       </div>
                   </div>
-                  <div className={classes.dataReadonly}>
-                      <div className={classes.title}>{itemsList}</div>
-                      <div className={classes.titleName}>
-                          {dataList}
-                      </div>
-                  </div>
               </div>
           </HalfPageBlock>
           <HalfPageBlock>
-              <div className={classes.dataReadonly} />
+              <div className={classes.dataReadonly}>
+                  <div className={classes.title}>{itemsList}</div>
+                  <div className={classes.titleName}>
+                      {dataList}
+                  </div>
+              </div>
           </HalfPageBlock>
       </div>
   );
