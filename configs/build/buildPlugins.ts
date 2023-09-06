@@ -13,6 +13,12 @@
  *      interfere successfully build bundle in actions
  *
  *      https://www.npmjs.com/package/webpack-bundle-analyzer
+ *
+ *      @param __PROJECT__
+ *        - Global variable, which get arg from main webpack.config.ts and get project field.
+ *          Which contain 'frontend' - main environment for developing project.
+ *        - In case: in storybook and jest configs, global variable __PROJECT__ has another keys;
+ *          Jest.config : __PROJECT__: 'jest' etc..
  */
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -26,6 +32,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
     isDev,
     paths,
     apiUrl,
+    project,
   } = options;
 
   const plugins = [
@@ -40,6 +47,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
   ];
 

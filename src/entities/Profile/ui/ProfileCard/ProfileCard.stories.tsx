@@ -4,8 +4,7 @@ import 'app/styles/index.scss';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/provider/ThemeProvider';
+import avatar from 'shared/assets/tests/storybookImg/heavy.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -29,7 +28,7 @@ ProfileCardOk.args = {
     country: Country.Russia,
     city: 'SpB',
     username: 'admin',
-    avatar: './',
+    avatar,
   },
 };
 ProfileCardOk.decorators = [StoreDecorator({})];
@@ -39,7 +38,6 @@ ProfileCardError.args = {
   error: 'true',
 };
 ProfileCardError.decorators = [StoreDecorator({})];
-ProfileCardError.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ProfileCardIsLoading = Template.bind({});
 ProfileCardIsLoading.args = {

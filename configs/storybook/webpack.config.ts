@@ -18,7 +18,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   const rules = config.module!.rules as RuleSetRule[];
   config.module!.rules = rules.map((rule) => (
     /svg/.test(rule.test as string)
-      // in config find rule which handle svg's
+    // in config find rule which handle svg's
       ? {
         ...rule,
         exclude: /\.svg$/i,
@@ -38,6 +38,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
       __API__: JSON.stringify(''),
+      __PROJECT__: JSON.stringify('storybook'),
     }),
   );
 
