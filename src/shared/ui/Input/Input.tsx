@@ -21,6 +21,11 @@ export enum InputTheme {
   SIMPLE = 'simpleInput',
 }
 
+export enum LabelPosition {
+  TOP = 'labelTopPos',
+  LEFT = 'labelLeftPos',
+}
+
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
@@ -28,6 +33,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   theme?: InputTheme;
   label?: string;
+  labelPosition?: LabelPosition;
   autofocus?: boolean;
   readonly?: boolean;
 }
@@ -43,6 +49,7 @@ export const Input = memo((props: InputProps) => {
     autofocus,
     readonly,
     label,
+    labelPosition = LabelPosition.TOP,
     ...otherProps
   } = props;
 
@@ -61,15 +68,19 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
 
+  const wrapperMods: Mods = {
+    [classes[labelPosition]]: true,
+  };
+
   const mods: Mods = {
     [classes[theme]]: true,
     [classes.readonly]: readonly,
   };
 
   return (
-      <div className={classes.inputWrapper}>
+      <div className={classNames(classes.inputWrapper, wrapperMods)}>
           {label && (
-          <div className={classes.label}>
+          <div className={classes.labelOnTop}>
               <Text
                   title={label}
                   theme={TextTheme.TEXT_BLACK}

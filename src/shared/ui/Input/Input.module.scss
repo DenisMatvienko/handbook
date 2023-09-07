@@ -1,10 +1,19 @@
 .inputWrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
 }
+
+.labelTopPos {
+  margin-top: 15px;
+  flex-direction: column;
+}
+
+.labelLeftPos {
+  flex-direction: row;
+}
+
 
 .simpleInput {
   display: flex;
