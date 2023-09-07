@@ -107,7 +107,7 @@
   &:hover {
     background: var(--button-bgc-hover);
     color: var(--nav-text-color);
-    fill: var(--button-color-hover-ligth);
+    fill: var(--button-bgc);
     box-shadow: 1px 1px 3px var(--box-shadow-hover);
     transition: 0.2s ease-in-out;
   }
