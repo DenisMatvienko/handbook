@@ -1,5 +1,5 @@
 .selectWrapper {
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .ProfileCard {
@@ -22,7 +22,8 @@
 
 .textWrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 
   & > * {

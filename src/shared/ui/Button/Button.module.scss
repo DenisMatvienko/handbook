@@ -43,14 +43,15 @@
   background: var(--button-cancel);
   color: var(--white);
   fill: var(--white);
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
   border: none;
+  border-radius: 5px;
+  clip-path: polygon(15px 0%, 100% 0%, 100% 100%, 15px 100%, 0 50%);
 
   &:hover {
     background: var(--button-cancel);
     color: var(--white);
     fill: var(--white);
-    box-shadow: 0 3px 5px var(--box-shadow);
     transition: 0.2s ease-in-out;
   }
 }
