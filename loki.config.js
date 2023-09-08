@@ -14,12 +14,12 @@ module.exports = {
   diffingEngine: 'pixelmatch',
   configurations: {
     'chrome.laptop': {
-      target: 'chrome.docker', // When pushing on gh with actions change 'chrome.app' on 'chrome.docker'
+      target: 'chrome.app', // When pushing on gh with actions change 'chrome.app' on 'chrome.docker'
       width: 1366,
       height: 768,
     },
     'chrome.iphone7': {
-      target: 'chrome.docker',
+      target: 'chrome.app',
       preset: 'iPhone 7',
     },
   },
