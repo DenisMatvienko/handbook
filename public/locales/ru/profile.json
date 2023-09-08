@@ -14,5 +14,17 @@
   "username": "Логин",
   "avatar": "Аватар",
   "Save": "Сохранить",
-  "Hi": "Привет"
+  "hi": "Привет",
+  "no-data-error": "Ошибка! Данные отсутствуют",
+  "server-error": "Ошибка сервера",
+  "incorrect-firstname-length": "Некорректная длина имени",
+  "incorrect-lastname-length": "Некорректная длина фамилии",
+  "incorrect-user-data": "Имя и фамилия не введены",
+  "wrong-age-range-too-old": "Возраст не подходит, высокий диапазон",
+  "wrong-age-range-too-young": "Возраст не подходит, низкий диапазон",
+  "incorrect-age": "Некорректный возраст",
+  "incorrect-currency": "Введите валюту",
+  "incorrect-city": "Введите город",
+  "incorrect-country": "Введите страну",
+  "incorrect-username": "Введите логин"
 }

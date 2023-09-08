@@ -34,7 +34,7 @@ export const ProfileDataItemReadonly = ({
         <Text
             key={item.profileId}
             title={`${item.title}: `}
-            theme={TextTheme.TEXT_WHITE}
+            theme={TextTheme.TEXT_BLACK}
             align={TextAlign.LEFT}
         />
     )), [profileItemList]);
@@ -44,7 +44,7 @@ export const ProfileDataItemReadonly = ({
         <Text
             key={key.toString()}
             title={`${value || '-'}`}
-            theme={TextTheme.TEXT_WHITE}
+            theme={TextTheme.TEXT_BLACK}
             align={TextAlign.LEFT}
         />
     ))
@@ -56,8 +56,8 @@ export const ProfileDataItemReadonly = ({
               <div className={classes.blockUserWrapper}>
                   <div className={classes.blockUser}>
                       <Text
-                          title={`${t('Hi')}, ${authDate?.username}`}
-                          theme={TextTheme.TEXT_WHITE}
+                          title={`${t('hi')}, ${authDate?.username}`}
+                          theme={TextTheme.TEXT_BLACK}
                       />
                       <div className={classes.dataAvatar}>
                           <Avatar
@@ -67,16 +67,15 @@ export const ProfileDataItemReadonly = ({
                           />
                       </div>
                   </div>
-                  <div className={classes.dataReadonly}>
-                      <div className={classes.title}>{itemsList}</div>
-                      <div className={classes.titleName}>
-                          {dataList}
-                      </div>
-                  </div>
               </div>
           </HalfPageBlock>
           <HalfPageBlock>
-              <div className={classes.dataReadonly} />
+              <div className={classes.dataReadonly}>
+                  <div className={classes.title}>{itemsList}</div>
+                  <div className={classes.titleName}>
+                      {dataList}
+                  </div>
+              </div>
           </HalfPageBlock>
       </div>
   );

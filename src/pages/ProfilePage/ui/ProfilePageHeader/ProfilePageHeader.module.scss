@@ -11,7 +11,7 @@
 
   .toEditButton {
     margin-left: auto;
-    width: 150px;
+    width: 50px;
   }
 }
 
@@ -21,13 +21,32 @@
 
 .editButtons {
   display: flex;
+  filter: drop-shadow(-1px 6px 3px var(--box-shadow));
 }
 
 .editButton {
   margin-left: auto;
-  width: 150px;
+  width: 50px;
 
   &:last-child {
     margin-left: 10px;
   }
+}
+
+.SettingsIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+}
+
+.SaveIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
+}
+
+.CancelIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--white);
 }

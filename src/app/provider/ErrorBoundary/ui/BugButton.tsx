@@ -23,7 +23,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
   return (
       <Button
           onClick={addBug}
-          theme={ButtonTheme.BACKGROUND}
+          theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
           radius={ButtonRadius.SEMI_ELLIPSE}
       >
           {t('Нажмите для ошибки')}

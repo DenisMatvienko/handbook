@@ -4,7 +4,7 @@
 
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
-import { Profile } from './model/type/profile';
+import { Profile, ValidateProfileError } from './model/type/profile';
 import { profileActions, profileReducer } from './model/slice/profileSlice';
 import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from './model/services/updateProfileData/updateProfileData';
@@ -13,6 +13,9 @@ import { getProfileError } from './model/selectors/getProfileError/getProfileErr
 import { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 import { ProfileItem, ProfileData } from './model/items/items';
+import {
+  getProfileValidateErrors,
+} from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 export {
   Profile,
@@ -26,6 +29,8 @@ export {
   getProfileIsLoading,
   getProfileReadonly,
   getProfileForm,
+  getProfileValidateErrors,
   ProfileItem,
   ProfileData,
+  ValidateProfileError,
 };

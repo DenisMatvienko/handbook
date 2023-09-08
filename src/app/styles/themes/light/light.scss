@@ -1,22 +1,25 @@
 .app_light_theme {
-  --bg-color: #fafafa;
-  --navbar-color: #5900e4;
+  --bg-color: #f0f0f0;
+  --navbar-color: #303b44;
   --primary-color: #fcfffc;
   --secondary-color: #212420;
-  --rare-color: #5900e4;
+  --rare-color: #303b44;
   --box-shadow: #6a6b6a9e;
 
   // Block color
-  --block-colorized: #9090c0;
+  --block-colorized: #fcfffc;
 
   // Text color
   --white: #fcfffc;
+  --black: #303b44;
+  --header-black: #333;
   --error: #e60026;
   --nav-text-color: #fcfffc;
   --nav-link-color: #fcfffc;
+  --black-input: #303b44;
 
   // Links color
-  --nav-links-color-purple: #5900e4;
+  --nav-links-color-purple: #303b44;
   --nav-links-color-black: #212420;
   --nav-links-color-light: #fcfffc;
 
@@ -25,20 +28,20 @@
 
   //  Border color
   --border-color: #fcfffc;
-  --border-color-secondary: #5900e4;
+  --border-color-secondary: #303b44;
   --border-grey: #808080;
 
   //  Buttons color
   --button-save: #1aa260;
   --button-cancel: #de5246;
-  --button-bgc-purple-light: #f2f2f2;
+  --button-bgc: #f2f2f2;
   --button-bgc-hover-light: #f2f2f2;
-  --button-color-hover-ligth: #5900e4;
-  --button-bgc-hover-inverted: #33019f;
-  --button-bgc-hover-colorized: #33019f;
+  --button-color-hover-ligth: #303b44;
+  --button-bgc-hover-white-purple: #548eaa;
+  --button-bgc-hover: #548eaa;
   --button-sidebar-hover: #6a6b6a9e;
   --box-shadow-hover: #080c08;
-  --button-colorized: #5900e4;
+  --button-colorized: #303b44;
 
   // Modal
   --modal-background: #f3f6f3;
@@ -46,6 +49,6 @@
   --modal-color: #212420;
 
   // Input
-  --input-bg: #5900e4;
+  --input-bg: #303b44;
   --input-dark-bg: #fcfffc;
 }

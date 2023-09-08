@@ -4,6 +4,9 @@
  *  @param env
  *    - https://webpack.js.org/guides/environment-variables/
  *
+ *  @param project
+ *    - frontend - main environment in which developing project
+ *
  *  @const mode
  *    - if env. mode didn't set, that mode is - development
  *
@@ -35,6 +38,7 @@ export default (env: BuildEnv) => {
     isDev,
     apiUrl,
     port: PORT,
+    project: 'frontend',
   });
 
   return config;

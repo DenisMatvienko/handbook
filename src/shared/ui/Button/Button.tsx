@@ -31,9 +31,8 @@ export enum ButtonTheme {
   OUTLINE = 'outline',
   CANCEL = 'cancel',
   SAVE = 'save',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted',
-  BACKGROUND_WT_B_BT_P = 'backgroundColorized',
+  BACKGROUND_LWHITE_DPURPLE = 'backgroundWhitePurple',
+  BACKGROUND_LBLACK_DPURPLE = 'backgroundBlackPurple',
 }
 
 export enum ButtonSize {
@@ -65,7 +64,7 @@ export const Button = memo((props: ButtonProps) => {
   const {
     className,
     children,
-    theme = ButtonTheme.BACKGROUND_WT_B_BT_P,
+    theme = ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
     square,
     size = ButtonSize.NN,
     radius = ButtonRadius.SQUARE,

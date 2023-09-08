@@ -7,6 +7,8 @@ export enum TextTheme {
   ERROR = 'error',
   TEXT_WHITE = 'textWhite',
   LINK_LIGHT = 'linkLight',
+  TEXT_BLACK = 'textBlack',
+  HEADER = 'header',
 }
 
 export enum TextAlign {

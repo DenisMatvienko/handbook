@@ -44,6 +44,25 @@
   }
 }
 
+.textBlack {
+  .title {
+    font: var(--font-l);
+    color: var(--black);
+  }
+
+  .text {
+    font: var(--font-m);
+    color: var(--black);
+  }
+}
+
+.header {
+  .title {
+    font: var(--font-l);
+    color: var(--header-black);
+  }
+}
+
 .right {
   text-align: right;
 }

@@ -1,6 +1,7 @@
 /**
- * - TestAsyncThunk - Filler class (placeholder class or dummy class) - for reusing
- *   test's by this filler class with same types which using in LoginByUsername, createAsyncThunk
+ *    TestAsyncThunk
+ *    - Filler class (placeholder class or dummy class) - for reusing
+ *      test's by this filler class with same types which using in LoginByUsername, createAsyncThunk
  *
  *   @param Type 'ActionCreatorType' imitate 'createAsyncThunk' generic type in loginByUsername:
  *   represent as function, which have arg, and return asyncThunkAction
@@ -10,6 +11,13 @@
  *    -> which eq to AsyncThunkActionCreator<Returned, ThunkArg, ThunkApiConfig>
  *    -> finally get arg which we are made:
  *      (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
+ *
+ *   @arg state?: DeepPartial<StateSchema>
+ *     - For individual test scenarios we want to set some default state value.
+ *     - not necessary arg because, a lot of test cases when initial state is didn't need.
+ *     You need to initialize the state. So that the getState function, then,
+ *     this state returns correctly.
+ *     For example see: 'updateProfileData.test.ts'
  *
  *   @param callThunk():
  *    actionCreator(LoginByUsername) - is createAsyncThunk function - which create async thunk(action);
@@ -38,7 +46,7 @@ import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
 type ActionCreatorType<Returned, Arg, RejectedValue> = (arg: Arg) =>
-  AsyncThunkAction<Returned, Arg, {rejectValue: RejectedValue}>;
+    AsyncThunkAction<Returned, Arg, { rejectValue: RejectedValue }>;
 
 jest.mock('axios');
 
@@ -55,10 +63,13 @@ export class TestAsyncThunk<Returned, Arg, RejectedValue> {
 
   navigate: jest.MockedFn<any>;
 
-  constructor(actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>) {
+  constructor(
+    actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>,
+    state?: DeepPartial<StateSchema>,
+  ) {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn();
-    this.getState = jest.fn();
+    this.getState = jest.fn(() => state as StateSchema);
     this.api = mockedAxios;
     this.navigate = jest.fn();
   }
@@ -68,7 +79,10 @@ export class TestAsyncThunk<Returned, Arg, RejectedValue> {
     const result = await action(
       this.dispatch,
       this.getState,
-      { api: this.api, navigate: this.navigate },
+      {
+        api: this.api,
+        navigate: this.navigate,
+      },
     );
 
     return result;

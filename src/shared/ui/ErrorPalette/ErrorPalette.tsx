@@ -11,6 +11,7 @@ export enum ErrorPaletteTheme {
 
 export enum ErrorPaletteSize {
   NN = 'size_none',
+  AUTO = 'size_auto',
   M = 'size_m',
   L = 'size_l',
   XL = 'size_xl',
@@ -66,7 +67,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
             <div className={classNames(classes.RefreshButton)}>
                 <Button
                     onClick={reloadPage}
-                    theme={ButtonTheme.BACKGROUND}
+                    theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                 >
                     {t('RefreshPage')}

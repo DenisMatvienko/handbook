@@ -20,7 +20,7 @@
 .blockUserWrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -28,7 +28,6 @@
 .blockUser {
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
 }
 
 .title {

@@ -4,7 +4,6 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { AuthDark } from 'widgets/Navbar/ui/Navbar.stories';
 import { Sidebar } from './Sidebar';
 
 export default {
@@ -18,7 +17,6 @@ export default {
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
 export const Light = Template.bind({});
-// Default sidebar theme - light
 Light.args = {};
 Light.decorators = [StoreDecorator(
   {
@@ -29,7 +27,6 @@ Light.decorators = [StoreDecorator(
 )];
 
 export const Dark = Template.bind({});
-// Sidebar theme - dark
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 Dark.decorators = [StoreDecorator(

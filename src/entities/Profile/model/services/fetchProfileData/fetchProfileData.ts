@@ -5,7 +5,7 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
-import { Profile } from '../../type/profile';
+import { Profile, ValidateProfileError } from '../../type/profile';
 
 export const fetchProfileData = createAsyncThunk<Profile,
     void,
@@ -19,6 +19,10 @@ export const fetchProfileData = createAsyncThunk<Profile,
 
         try {
           const response = await extra.api.get<Profile>('/profile');
+
+          if (!response.data) {
+            throw new Error();
+          }
           return response.data;
         } catch (e) {
           console.log(e);
