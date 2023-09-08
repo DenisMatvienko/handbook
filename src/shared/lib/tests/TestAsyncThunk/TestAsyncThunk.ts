@@ -12,6 +12,13 @@
  *    -> finally get arg which we are made:
  *      (arg: ThunkArg) => AsyncThunkAction<Returned, ThunkArg, ThunkApiConfig>
  *
+ *   @arg state?: DeepPartial<StateSchema>
+ *     - For individual test scenarios we want to set some default state value.
+ *     - not necessary arg because, a lot of test cases when initial state is didn't need.
+ *     You need to initialize the state. So that the getState function, then,
+ *     this state returns correctly.
+ *     For example see: 'updateProfileData.test.ts'
+ *
  *   @param callThunk():
  *    actionCreator(LoginByUsername) - is createAsyncThunk function - which create async thunk(action);
  *    result = action() - after that we are call this action and add into 'result' var;
@@ -56,10 +63,13 @@ export class TestAsyncThunk<Returned, Arg, RejectedValue> {
 
   navigate: jest.MockedFn<any>;
 
-  constructor(actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>) {
+  constructor(
+    actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>,
+    state?: DeepPartial<StateSchema>,
+  ) {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn();
-    this.getState = jest.fn();
+    this.getState = jest.fn(() => state as StateSchema);
     this.api = mockedAxios;
     this.navigate = jest.fn();
   }
