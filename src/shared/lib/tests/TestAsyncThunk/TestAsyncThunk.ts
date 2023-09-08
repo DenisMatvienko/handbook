@@ -1,6 +1,7 @@
 /**
- * - TestAsyncThunk - Filler class (placeholder class or dummy class) - for reusing
- *   test's by this filler class with same types which using in LoginByUsername, createAsyncThunk
+ *    TestAsyncThunk
+ *    - Filler class (placeholder class or dummy class) - for reusing
+ *      test's by this filler class with same types which using in LoginByUsername, createAsyncThunk
  *
  *   @param Type 'ActionCreatorType' imitate 'createAsyncThunk' generic type in loginByUsername:
  *   represent as function, which have arg, and return asyncThunkAction
@@ -38,7 +39,7 @@ import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
 type ActionCreatorType<Returned, Arg, RejectedValue> = (arg: Arg) =>
-  AsyncThunkAction<Returned, Arg, {rejectValue: RejectedValue}>;
+    AsyncThunkAction<Returned, Arg, { rejectValue: RejectedValue }>;
 
 jest.mock('axios');
 
@@ -68,7 +69,10 @@ export class TestAsyncThunk<Returned, Arg, RejectedValue> {
     const result = await action(
       this.dispatch,
       this.getState,
-      { api: this.api, navigate: this.navigate },
+      {
+        api: this.api,
+        navigate: this.navigate,
+      },
     );
 
     return result;
