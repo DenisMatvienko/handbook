@@ -51,7 +51,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     />
                 </div>
                 <Button
-                    theme={ButtonTheme.BACKGROUND_LWHITE_DPURPLE}
+                    theme={ButtonTheme.BACKGROUND_BLACK}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                     className={classes.links}
                     onClick={onLogout}
@@ -66,7 +66,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   return (
       <div className={classNames(classes.Navbar, {}, [className])}>
           <Button
-              theme={ButtonTheme.BACKGROUND_LWHITE_DPURPLE}
+              theme={ButtonTheme.BACKGROUND_BLACK}
               radius={ButtonRadius.SEMI_ELLIPSE}
               className={classes.links}
               onClick={onShowModal}

@@ -1,7 +1,7 @@
 .Sidebar {
   min-height: calc(100vh - var(--navbar-height));
   width: var(--sidebar-width);
-  background-color: var(--navbar-color);
+  background-color: var(--secondary-dark);
   box-shadow: 2px 3px 3px var(--box-shadow);
   position: relative;
   transition: width 0.2s;
@@ -17,10 +17,10 @@
 .BarsIcon {
   width: 25px;
   height: 25px;
-  fill: var(--nav-links-color-light);
+  fill: var(--secondary-light);
 
   &:hover {
-    fill: var(--nav-links-color-light);
+    fill: var(--secondary-light);
     opacity: 1;
   }
 }

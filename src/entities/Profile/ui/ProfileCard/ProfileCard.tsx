@@ -139,7 +139,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                           <div className={classes.textWrapper}>
                               <Text
                                   title={t('Edit')}
-                                  theme={TextTheme.HEADER}
+                                  theme={TextTheme.SECONDARY_INVERTED}
                                   align={TextAlign.LEFT}
                               />
                               {validateErrors?.length && validateErrors.map((item) => (

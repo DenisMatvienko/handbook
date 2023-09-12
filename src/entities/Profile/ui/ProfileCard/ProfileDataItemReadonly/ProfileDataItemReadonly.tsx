@@ -34,7 +34,7 @@ export const ProfileDataItemReadonly = ({
         <Text
             key={item.profileId}
             title={`${item.title}: `}
-            theme={TextTheme.TEXT_BLACK}
+            theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
         />
     )), [profileItemList]);
@@ -44,7 +44,7 @@ export const ProfileDataItemReadonly = ({
         <Text
             key={key.toString()}
             title={`${value || '-'}`}
-            theme={TextTheme.TEXT_BLACK}
+            theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
         />
     ))
@@ -57,7 +57,7 @@ export const ProfileDataItemReadonly = ({
                   <div className={classes.blockUser}>
                       <Text
                           title={`${t('hi')}, ${authDate?.username}`}
-                          theme={TextTheme.TEXT_BLACK}
+                          theme={TextTheme.SECONDARY_INVERTED}
                       />
                       <div className={classes.dataAvatar}>
                           <Avatar

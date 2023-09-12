@@ -24,9 +24,9 @@
   height: 50px;
   outline: none;
   color: transparent;
-  text-shadow: 0 0 0 var(--button-colorized);
+  text-shadow: 0 0 0 var(--secondary-inverted);
   font-size: 18px;
-  background-color: var(--input-dark-bg);
+  background-color: var(--block-color);
   transition: 0.3s linear;
   box-shadow: 1px 1px 4px var(--box-shadow) inset;
 
@@ -35,10 +35,10 @@
   }
 
   &:focus {
-    color: var(--black-input);
-    background-color: var(--white);
-    border: 1px solid var(--button-bgc-hover-white-purple);
-    box-shadow: 1px 1px 4px var(--button-bgc-hover-white-purple);
+    color: var(--secondary-light);
+    background-color: var(--accent-dark);
+    border: 1px solid var(--main-hover);
+    box-shadow: 1px 1px 4px var(--main-hover);
   }
 }
 

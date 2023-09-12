@@ -9,8 +9,8 @@ body {
 
 .app,
 .app_modal {
-  color: var(--secondary-color);
-  background: var(--bg-color);
+  color: var(--accent);
+  background: var(--background);
   min-height: 100vh;
 }
 
@@ -38,13 +38,13 @@ body {
 *::-webkit-scrollbar-track {
   cursor: pointer;
   border-radius: 10px;
-  background: var(--bg-color);
+  background: var(--accent-dark);
 }
 
 *::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background-color: var(--button-bgc-hover);
+  background-color: var(--main);
   border-radius: 10px;
   height: 1px;
-  border: 1px solid var(--button-bgc-hover-white-purple);
+  border: 1px solid var(--main);
 }

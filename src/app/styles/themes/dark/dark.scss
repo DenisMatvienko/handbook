@@ -1,34 +1,54 @@
 .app_dark_theme {
-  --bg-color: #0f120e;
-  --navbar-color: #1a1d1a;
-  --primary-color: #1a1d1a;
-  --secondary-color: #daddd9;
-  --rare-color: #494848;
-  --box-shadow: #080c08;
+  --main: #303b44;
+  --secondary: #202d2b;
+  --accent: #f4f8fb;
+
+  // Complementary Colors
+  --secondary-inverted: #f4f8fb;
+  --secondary-dark: #303b44;
+  --secondary-light: #f4f8fb;
+  --accent-dark: #202d2b;
+  --background: #202d2b;
+  --background-inverted: #f4f8fb;
+
+  // Complementary hover
+  --main-hover: #548eaa;
+
+  // Complementary box-shadow
+  --box-shadow: #202d2b;
+
+  // Complementary box-shadow
+  --block-color: #303b44;
+
+  //--bg-color: #0f120e;
+  //--navbar-color: #1a1d1a;
+  //--primary-color: #1a1d1a;
+  //--secondary-color: #daddd9;
+  //--rare-color: #494848;
 
   // Block color
-  --block-colorized: #1a1d1a;
+  //--block-colorized: #1a1d1a;
 
   // Text color
-  --white: #fcfffc;
+  //--white: #fcfffc;
   --error: #e60026;
-  --black: #fcfffc;
-  --header-black: #b479f3;
-  --nav-text-color: #daddd9;
+  //--black: #fcfffc;
+  //--header-black: #b479f3;
+  //--nav-text-color: #daddd9;
   --nav-link-color: #b479f3;
-  --black-input: #b479f3;
+  //--black-input: #b479f3;
 
   // Links color
-  --nav-links-color-purple: #5900e4;
-  --nav-links-color-black: #b479f3;
-  --nav-links-color-light: #daddd9;
+  //--nav-links-color-purple: #5900e4;
+  //--nav-links-color-black: #b479f3;
+  //--nav-links-color-light: #daddd9;
 
   // Icon color
-  --icon-color: #daddd9;
+  //--icon-color: #daddd9;
 
   //  Border color
-  --border-color: #fcfffc;
-  --border-color-secondary: #0f120e;
+  //--border-color: #fcfffc;
+  //--border-color-secondary: #0f120e;
   --border-grey: #808080;
 
   // Button color

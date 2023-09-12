@@ -1,8 +1,8 @@
 .Button {
   cursor: pointer;
-  background: var(--primary-color);
-  border: 1px solid var(--border-color);
-  color: var(--border-color);
+  background: var(--secondary);
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
 }
 
 .clear {
@@ -10,8 +10,8 @@
   border: none;
   background: none;
   outline: none;
-  color: var(--border-color);
-  fill: var(--border-color);
+  color: var(--secondary-light);
+  fill: var(--secondary-light);
 
   &:hover {
     opacity: 0.4;
@@ -30,9 +30,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--border-color);
-  fill: var(--border-color);
-  color: var(--border-color);
+  border: 1px solid var(--secondary);
+  fill: var(--secondary);
+  color: var(--secondary);
   background: none;
 }
 
@@ -75,6 +75,25 @@
   }
 }
 
+.backgroundBlack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background: var(--accent-dark);
+  color: var(--secondary-light);
+  fill: var(--secondary-light);
+
+  &:hover {
+    background: var(--main-hover);
+    color: var(--secondary);
+    fill: var(--secondary);
+    box-shadow: 1px 1px 3px var(--accent-dark);
+    transition: 0.2s ease-in-out;
+  }
+}
+
 .backgroundWhitePurple {
   display: flex;
   justify-content: center;
@@ -87,8 +106,8 @@
 
   &:hover {
     background: var(--button-bgc-hover-white-purple);
-    color: var(--nav-text-color);
-    fill: var(--nav-text-color);
+    color: var(--secondary);
+    fill: var(--secondary);
     box-shadow: 1px 1px 3px var(--box-shadow-hover);
     transition: 0.2s ease-in-out;
   }
@@ -99,14 +118,14 @@
   justify-content: center;
   align-items: center;
   background: var(--button-colorized);
-  color: var(--nav-text-color);
-  fill: var(--nav-text-color);
+  color: var(--secondary);
+  fill: var(--secondary);
   padding: 10px;
   border: none;
 
   &:hover {
     background: var(--button-bgc-hover);
-    color: var(--nav-text-color);
+    color: var(--secondary);
     fill: var(--button-bgc);
     box-shadow: 1px 1px 3px var(--box-shadow-hover);
     transition: 0.2s ease-in-out;

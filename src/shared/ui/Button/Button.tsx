@@ -31,6 +31,7 @@ export enum ButtonTheme {
   OUTLINE = 'outline',
   CANCEL = 'cancel',
   SAVE = 'save',
+  BACKGROUND_BLACK = 'backgroundBlack',
   BACKGROUND_LWHITE_DPURPLE = 'backgroundWhitePurple',
   BACKGROUND_LBLACK_DPURPLE = 'backgroundBlackPurple',
 }

@@ -15,7 +15,9 @@ import classes from './AppLink.module.scss';
 export enum AppLinkTheme {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  WHITE = 'white',
+  DARK_TITLE = 'dark-title',
+  DARK_TEXT = 'dark-text',
+  LIGHT = 'light',
 }
 
 interface AppLinkProps extends LinkProps {

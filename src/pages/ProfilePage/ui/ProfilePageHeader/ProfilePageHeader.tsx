@@ -50,13 +50,13 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                   <Text
                       className={classes.titleText}
                       title={t('UserProfile')}
-                      theme={TextTheme.HEADER}
+                      theme={TextTheme.SECONDARY_INVERTED}
                   />
                   {readonly
                     ? (
                         <Button
                             className={classes.toEditButton}
-                            theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
+                            theme={ButtonTheme.BACKGROUND_BLACK}
                             radius={ButtonRadius.SEMI_ELLIPSE}
                             onClick={onEdit}
                         >
@@ -66,7 +66,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                         <div className={classes.editButtons}>
                             <Button
                                 className={classes.editButton}
-                                theme={ButtonTheme.SAVE}
+                                theme={ButtonTheme.BACKGROUND_BLACK}
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onSave}
                             >
@@ -74,7 +74,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             </Button>
                             <Button
                                 className={classes.editButton}
-                                theme={ButtonTheme.CANCEL}
+                                theme={ButtonTheme.BACKGROUND_BLACK}
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onCancelEdit}
                             >

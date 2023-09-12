@@ -7,9 +7,17 @@
 }
 
 .secondary {
-  color: var(--nav-links-color-purple);
+  color: var(--secondary);
 }
 
-.white {
-  color: var(--nav-links-color-light);
+.dark-title {
+  color: var(--accent-dark);
+}
+
+.dark-text {
+  color: var(--secondary);
+}
+
+.light {
+  color: var(--secondary-light);
 }

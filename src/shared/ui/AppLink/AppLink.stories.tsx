@@ -48,12 +48,12 @@ SecondaryThemeDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const WhiteTheme = Template.bind({});
 WhiteTheme.args = {
   children: 'Text',
-  theme: AppLinkTheme.WHITE,
+  theme: AppLinkTheme.LIGHT,
 };
 
 export const WhiteThemeDark = Template.bind({});
 WhiteThemeDark.args = {
   children: 'Text',
-  theme: AppLinkTheme.WHITE,
+  theme: AppLinkTheme.LIGHT,
 };
 WhiteThemeDark.decorators = [ThemeDecorator(Theme.DARK)];

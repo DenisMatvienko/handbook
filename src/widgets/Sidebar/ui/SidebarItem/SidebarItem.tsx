@@ -25,7 +25,7 @@ export const SidebarItem = (props: SidebarItemProps) => {
 
   return (
       <AppLink
-          theme={AppLinkTheme.WHITE}
+          theme={AppLinkTheme.LIGHT}
           className={classNames(classes.item, { [classes.collapsed]: collapsed })}
           to={item.path}
       >
