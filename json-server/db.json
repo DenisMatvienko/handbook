@@ -21,13 +21,13 @@
     }
   ],
   "profile": {
-    "firstName": "den",
-    "lastName": "matv",
+    "firstName": "Denis",
+    "lastName": "Matvienko",
     "age": 28,
-    "username": "username",
-    "avatar": "https://www.wordonfire.org/wp-content/uploads/2021/12/B_F_diehard.png",
+    "currency": "RUB",
     "country": "Russia",
-    "city": "SpB",
-    "currency": "RUB"
+    "city": "Saint-P",
+    "username": "admin",
+    "avatar": "https://play-lh.googleusercontent.com/proxy/0y2_O7hbOz6jcRu1hYSWsPvMM5WZZcbrzGIpy8MoQcshIR-zn_7loinMSL3Prjf4ilaxqgju8KapB392cUB9gg29DztNqzDIVey-WoAzId-ENRGCmw=s1920-w1920-h1080"
   }
 }
