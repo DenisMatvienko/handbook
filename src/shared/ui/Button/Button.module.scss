@@ -16,7 +16,7 @@
   &:hover {
     opacity: 0.4;
     border-radius: 50%;
-    background-color: var(--button-sidebar-hover);
+    background-color: var(--button-clear-hover);
   }
 
   &:active {
@@ -100,15 +100,15 @@
   align-items: center;
   padding: 10px;
   border: none;
-  background: var(--button-bgc);
-  color: var(--button-color-hover-ligth);
-  fill: var(--button-color-hover-ligth);
+  background: var(--button-dpurple-lwhite);
+  color: var(--secondary-inverted);
+  fill: var(--secondary-inverted);
 
   &:hover {
-    background: var(--button-bgc-hover-white-purple);
+    background: var(--main-hover);
     color: var(--secondary);
     fill: var(--secondary);
-    box-shadow: 1px 1px 3px var(--box-shadow-hover);
+    box-shadow: 1px 1px 3px var(--box-shadow);
     transition: 0.2s ease-in-out;
   }
 }
@@ -117,17 +117,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--button-colorized);
+  background: var(--button-dpurple-ldark);
   color: var(--secondary);
   fill: var(--secondary);
   padding: 10px;
   border: none;
 
   &:hover {
-    background: var(--button-bgc-hover);
+    background: var(--button-dpurple-lblack-hover);
     color: var(--secondary);
-    fill: var(--button-bgc);
-    box-shadow: 1px 1px 3px var(--box-shadow-hover);
+    fill: var(--button-dpurple-lwhite);
+    box-shadow: 1px 1px 3px var(--box-shadow);
     transition: 0.2s ease-in-out;
   }
 }

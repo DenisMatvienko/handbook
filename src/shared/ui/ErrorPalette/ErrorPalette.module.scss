@@ -14,10 +14,13 @@
 
 .RefreshButton {
   margin-top: 20px;
+  border: 1px solid var(--main-hover);
+  border-radius: 10px;
 }
 
 .default {
   border-radius: 10px;
+  border: 1px solid var(--main-hover);
   background: var(--accent-dark);
   color: var(--secondary);
   fill: var(--secondary);

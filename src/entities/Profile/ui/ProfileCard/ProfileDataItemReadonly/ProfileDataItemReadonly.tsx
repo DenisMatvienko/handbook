@@ -33,7 +33,7 @@ export const ProfileDataItemReadonly = ({
     .map((item) => (
         <Text
             key={item.profileId}
-            title={`${item.title}: `}
+            text={`${item.title}: `}
             theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
         />
@@ -43,7 +43,7 @@ export const ProfileDataItemReadonly = ({
     .map(([key, value]) => (
         <Text
             key={key.toString()}
-            title={`${value || '-'}`}
+            text={`${value || '-'}`}
             theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
         />

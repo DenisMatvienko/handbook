@@ -14,61 +14,26 @@
 
   // Complementary hover
   --main-hover: #548eaa;
+  --button-dpurple-lblack-hover: #ceaaf3;
+  --button-clear-hover: #494848;
 
   // Complementary box-shadow
-  --box-shadow: #1C2328;
+  --box-shadow: #1c2328;
 
   // Complementary box-shadow
   --block-color: #303b44;
 
-  //--bg-color: #0f120e;
-  //--navbar-color: #1a1d1a;
-  //--primary-color: #1a1d1a;
-  //--secondary-color: #daddd9;
-  //--rare-color: #494848;
-
-  // Block color
-  //--block-colorized: #1a1d1a;
-
-  // Text color
-  //--white: #fcfffc;
-  //--black: #fcfffc;
-  //--header-black: #b479f3;
-  //--nav-text-color: #daddd9;
-  --nav-link-color: #b479f3;
-  //--black-input: #b479f3;
-
-  // Links color
-  //--nav-links-color-purple: #5900e4;
-  //--nav-links-color-black: #b479f3;
-  //--nav-links-color-light: #daddd9;
-
-  // Icon color
-  //--icon-color: #daddd9;
-
-  //  Border color
-  //--border-color: #fcfffc;
-  //--border-color-secondary: #0f120e;
-  --border-grey: #808080;
-
-  // Button color
+  // Complementary Button color
   --button-save: #1aa260;
   --button-cancel: #de5246;
-  --button-bgc: #b578f3;
-  --button-bgc-hover-light: #0f120e;
-  --button-color-hover-ligth: #daddd9;
-  --button-bgc-hover-white-purple: #b578f3;
-  --button-bgc-hover: #ceaaf3;
-  --button-sidebar-hover: #494848;
-  --box-shadow-hover: #080c08;
-  --button-colorized: #b578f3;
+  --button-dpurple-lwhite: #b578f3;
+  --button-dpurple-ldark: #b578f3;
+
+  // Complementary border color
+  --border-grey: #808080;
 
   // Modal
   --modal-background: #1a1d1a;
   --modal-background-blur: rgb(0 0 0 / 1%);
-  --modal-color: #fcfffc;
-
-  // Input
-  --input-bg: #b578f3;
-  --input-dark-bg: #494848;
+  --modal-color: #f4f8fb;
 }
