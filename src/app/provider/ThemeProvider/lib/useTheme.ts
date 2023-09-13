@@ -31,7 +31,7 @@ export function useTheme(): UseThemeResult {
         newTheme = Theme.DARK;
         break;
       default:
-        newTheme = Theme.LIGHT
+        newTheme = Theme.LIGHT;
     }
 
     setTheme?.(newTheme);
