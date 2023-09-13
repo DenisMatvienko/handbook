@@ -1,0 +1,39 @@
+.app_pink_theme {
+  --main: #844851;
+  --secondary: #693a5d;
+  --accent: #fbf4f5;
+
+  // Complementary Colors
+  --secondary-inverted: #fbf4f5;
+  --secondary-dark: #844851;
+  --secondary-light: #fbf4f5;
+  --accent-dark: #693a5d;
+  --background: #fbf4f5;
+  --background-inverted: #844851;
+  --error: #e60026;
+
+  // Complementary hover
+  --main-hover: #548eaa;
+  --button-dpurple-lblack-hover: #ceaaf3;
+  --button-clear-hover: #494848;
+
+  // Complementary box-shadow
+  --box-shadow: #2c181b;
+
+  // Complementary box-shadow
+  --block-color: #844851;
+
+  // Complementary Button color
+  --button-save: #1aa260;
+  --button-cancel: #de5246;
+  --button-dpurple-lwhite: #b578f3;
+  --button-dpurple-ldark: #b578f3;
+
+  // Complementary border color
+  --border-grey: #808080;
+
+  // Modal
+  --modal-background: #844851;
+  --modal-background-blur: rgb(132 72 81 / 1%);
+  --modal-color: #844851;
+}
