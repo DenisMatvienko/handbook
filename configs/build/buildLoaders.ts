@@ -9,6 +9,12 @@
  *        and output a bundle.js file in our current directory.
  *
  *        If didn't use TypeScript - we need to use babel for work with jsx
+ *
+ *      @param react-refresh/babel
+ *        Using for fast/on time page refreshing in Dev mode
+ *
+ *        using filter in array - cause plugins should contain just plugins
+ *        but if mode not isDev checking with react-refresh return 'false'
  */
 
 import webpack from 'webpack';
@@ -16,29 +22,15 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoaders';
 import { BuildSvgLoader } from './loaders/buildSvgLoaders';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+  const {
+    isDev
+  } = options;
   const svgLoader = BuildSvgLoader();
 
-  const babelLoader = {
-    test: /\.m?(js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
-        ],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(options);
 
   const cssLoader = buildCssLoader(isDev);
 

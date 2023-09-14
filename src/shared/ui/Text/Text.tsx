@@ -5,6 +5,7 @@ import classes from './Text.module.scss';
 export enum TextTheme {
   PRIMARY = 'primary',
   ERROR = 'error',
+  BACKGROUND_TEXT = 'backgroundText',
   SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
   TEXT_BLACK = 'textBlack',
