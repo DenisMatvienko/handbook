@@ -11,10 +11,10 @@
 .select {
   cursor: pointer;
   padding: 2px 10px 2px 2px;
-  background-color: var(--nav-links-color-black);
+  background-color: var(--secondary);
   outline: none;
-  color: var(--white);
-  border: 2px solid var(--nav-links-color-black);
+  color: var(--secondary-inverted);
+  border: 2px solid var(--main-hover);
   border-radius: 10px;
   width: auto;
   height: 34px;

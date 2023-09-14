@@ -25,7 +25,7 @@ export const LangSwitcher = memo(({
       <Button
           className={classNames('', {}, [className])}
           onClick={toggle}
-          theme={ButtonTheme.BACKGROUND_LWHITE_DPURPLE}
+          theme={ButtonTheme.BACKGROUND_BLACK}
           radius={ButtonRadius.SEMI_ELLIPSE}
       >
           {t(short ? 'Короткий язык' : 'Язык')}

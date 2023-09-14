@@ -5,9 +5,10 @@ import classes from './Text.module.scss';
 export enum TextTheme {
   PRIMARY = 'primary',
   ERROR = 'error',
+  SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
-  LINK_LIGHT = 'linkLight',
   TEXT_BLACK = 'textBlack',
+  LINK_LIGHT = 'linkLight',
   HEADER = 'header',
 }
 

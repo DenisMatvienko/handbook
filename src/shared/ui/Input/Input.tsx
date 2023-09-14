@@ -82,8 +82,8 @@ export const Input = memo((props: InputProps) => {
           {label && (
           <div className={classes.labelOnTop}>
               <Text
-                  title={label}
-                  theme={TextTheme.TEXT_BLACK}
+                  text={label}
+                  theme={TextTheme.SECONDARY_INVERTED}
               />
           </div>
           )}

@@ -1,15 +1,15 @@
-.app_dark_theme {
-  --main: #303b44;
-  --secondary: #202d2b;
-  --accent: #f4f8fb;
+.app_pink_theme {
+  --main: #844851;
+  --secondary: #693a5d;
+  --accent: #fbf4f5;
 
   // Complementary Colors
-  --secondary-inverted: #f4f8fb;
-  --secondary-dark: #303b44;
-  --secondary-light: #f4f8fb;
-  --accent-dark: #202d2b;
-  --background: #202d2b;
-  --background-inverted: #f4f8fb;
+  --secondary-inverted: #fbf4f5;
+  --secondary-dark: #844851;
+  --secondary-light: #fbf4f5;
+  --accent-dark: #693a5d;
+  --background: #fbf4f5;
+  --background-inverted: #844851;
   --error: #e60026;
 
   // Complementary hover
@@ -18,10 +18,10 @@
   --button-clear-hover: #494848;
 
   // Complementary box-shadow
-  --box-shadow: #1c2328;
+  --box-shadow: #2c181b;
 
   // Complementary box-shadow
-  --block-color: #303b44;
+  --block-color: #844851;
 
   // Complementary Button color
   --button-save: #1aa260;
@@ -33,7 +33,7 @@
   --border-grey: #808080;
 
   // Modal
-  --modal-background: #1a1d1a;
-  --modal-background-blur: rgb(0 0 0 / 1%);
-  --modal-color: #f4f8fb;
+  --modal-background: #844851;
+  --modal-background-blur: rgb(132 72 81 / 1%);
+  --modal-color: #844851;
 }

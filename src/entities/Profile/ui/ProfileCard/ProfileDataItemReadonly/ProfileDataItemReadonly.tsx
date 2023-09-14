@@ -33,8 +33,8 @@ export const ProfileDataItemReadonly = ({
     .map((item) => (
         <Text
             key={item.profileId}
-            title={`${item.title}: `}
-            theme={TextTheme.TEXT_BLACK}
+            text={`${item.title}: `}
+            theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
         />
     )), [profileItemList]);
@@ -43,8 +43,8 @@ export const ProfileDataItemReadonly = ({
     .map(([key, value]) => (
         <Text
             key={key.toString()}
-            title={`${value || '-'}`}
-            theme={TextTheme.TEXT_BLACK}
+            text={`${value || '-'}`}
+            theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
         />
     ))
@@ -57,7 +57,7 @@ export const ProfileDataItemReadonly = ({
                   <div className={classes.blockUser}>
                       <Text
                           title={`${t('hi')}, ${authDate?.username}`}
-                          theme={TextTheme.TEXT_BLACK}
+                          theme={TextTheme.SECONDARY_INVERTED}
                       />
                       <div className={classes.dataAvatar}>
                           <Avatar

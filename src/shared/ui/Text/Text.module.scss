@@ -1,11 +1,11 @@
 .title {
   font: var(--font-l);
-  color: var(--secondary-color);
+  color: var(--accent);
 }
 
 .text {
   font: var(--font-m);
-  color: var(--secondary-color);
+  color: var(--accent);
 }
 
 .error {
@@ -23,43 +23,55 @@
 .linkLight {
   .title {
     font: var(--font-l);
-    color: var(--nav-link-color);
+    color: var(--secondary-light);
   }
 
   .text {
     font: var(--font-m);
-    color: var(--nav-link-color);
+    color: var(--secondary-light);
+  }
+}
+
+.secondaryInverted {
+  .title {
+    font: var(--font-l);
+    color: var(--accent);
+  }
+
+  .text {
+    font: var(--font-m);
+    color: var(--secondary-inverted);
   }
 }
 
 .textWhite {
   .title {
     font: var(--font-l);
-    color: var(--white);
+    color: var(--secondary-light);
   }
 
   .text {
     font: var(--font-m);
-    color: var(--white);
+    color: var(--secondary-light);
   }
 }
 
 .textBlack {
   .title {
     font: var(--font-l);
-    color: var(--black);
+    color: var(--accent-dark);
   }
 
   .text {
     font: var(--font-m);
-    color: var(--black);
+    color: var(--accent);
   }
 }
 
 .header {
   .title {
     font: var(--font-l);
-    color: var(--header-black);
+    color: var(--secondary);
   }
 }
 

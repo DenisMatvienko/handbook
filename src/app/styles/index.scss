@@ -2,6 +2,7 @@
 @import "./variables/global";
 @import "./themes/light/light";
 @import "./themes/dark/dark";
+@import "./themes/pink/pink";
 
 body {
   font: var(--font-m);
@@ -9,8 +10,8 @@ body {
 
 .app,
 .app_modal {
-  color: var(--secondary-color);
-  background: var(--bg-color);
+  color: var(--accent);
+  background: var(--background);
   min-height: 100vh;
 }
 
@@ -26,7 +27,7 @@ body {
 /* Works on Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--button-bgc-hover);
+  scrollbar-color: var(--button-dpurple-lblack-hover);
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -38,13 +39,13 @@ body {
 *::-webkit-scrollbar-track {
   cursor: pointer;
   border-radius: 10px;
-  background: var(--bg-color);
+  background: var(--accent-dark);
 }
 
 *::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background-color: var(--button-bgc-hover);
+  background-color: var(--main);
   border-radius: 10px;
   height: 1px;
-  border: 1px solid var(--button-bgc-hover-white-purple);
+  border: 1px solid var(--main);
 }

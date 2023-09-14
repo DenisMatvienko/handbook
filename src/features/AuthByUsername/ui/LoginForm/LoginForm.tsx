@@ -109,7 +109,7 @@ const LoginForm = memo(({
               <div className={classNames(classes.signInWrapper, {}, [])}>
                   <Button
                       className={classes.loginBtn}
-                      theme={ButtonTheme.BACKGROUND_LBLACK_DPURPLE}
+                      theme={ButtonTheme.BACKGROUND_BLACK}
                       radius={ButtonRadius.SEMI_ELLIPSE}
                       onClick={onLoginClick}
                       disabled={isLoading}
