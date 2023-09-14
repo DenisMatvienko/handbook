@@ -8,17 +8,17 @@ const MainPage = () => {
 
   return (
       <div>
-        <BugButton />
-        <Text
-          title={t('Edit')}
-          theme={TextTheme.BACKGROUND_TEXT}
-          align={TextAlign.LEFT}
-        />
-        <Text
-          theme={TextTheme.BACKGROUND_TEXT}
-          text={t('Главная страница')}
-          align={TextAlign.LEFT}
-        />
+          <BugButton />
+          <Text
+              title={t('Edit')}
+              theme={TextTheme.BACKGROUND_TEXT}
+              align={TextAlign.LEFT}
+          />
+          <Text
+              theme={TextTheme.BACKGROUND_TEXT}
+              text={t('Главная страница')}
+              align={TextAlign.LEFT}
+          />
       </div>
   );
 };

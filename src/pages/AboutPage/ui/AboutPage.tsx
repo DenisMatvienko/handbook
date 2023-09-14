@@ -7,11 +7,11 @@ const AboutPage = () => {
 
   return (
       <div>
-        <Text
-          theme={TextTheme.BACKGROUND_TEXT}
-          text={t('О сайте')}
-          align={TextAlign.LEFT}
-        />
+          <Text
+              theme={TextTheme.BACKGROUND_TEXT}
+              text={t('О сайте')}
+              align={TextAlign.LEFT}
+          />
       </div>
   );
 };

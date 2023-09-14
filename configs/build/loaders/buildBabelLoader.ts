@@ -2,8 +2,8 @@ import { BuildOptions } from '../types/config';
 
 export function buildBabelLoader(options : BuildOptions) {
   const {
-    isDev
-  } = options
+    isDev,
+  } = options;
 
   return {
     test: /\.m?(js|jsx|tsx)$/,
@@ -20,8 +20,8 @@ export function buildBabelLoader(options : BuildOptions) {
               keyAsDefaultValue: true,
             },
           ],
-          isDev && require.resolve('react-refresh/babel')
-        ].filter(Boolean)
+          isDev && require.resolve('react-refresh/babel'),
+        ].filter(Boolean),
       },
     },
   };
