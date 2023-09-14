@@ -1,13 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 const AboutPage = () => {
-  // about.json chunk, means that load separately from other translations
   const { t } = useTranslation('about');
 
   return (
       <div>
-          {t('О сайте')}
+        <Text
+          theme={TextTheme.BACKGROUND_TEXT}
+          text={t('О сайте')}
+          align={TextAlign.LEFT}
+        />
       </div>
   );
 };
