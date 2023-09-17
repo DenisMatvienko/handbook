@@ -1,4 +1,7 @@
 {
+  "Articles": "Articles",
+  "Articles Detail page": "Articles Detail page",
+  "Articles page": "Articles page",
   "Country": "Country",
   "Edit": "Edit",
   "Firstname": "Firstname",
@@ -9,6 +12,8 @@
   "ProfileErrorTitle": "ProfileErrorTitle",
   "RefreshPage": "RefreshPage",
   "UserProfile": "UserProfile",
+  "Will be Articles": "Will be Articles",
+  "Will be Articles Detail": "Will be Articles Detail",
   "age": "age",
   "avatar": "avatar",
   "city": "city",
