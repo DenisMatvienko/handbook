@@ -7,6 +7,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { ArticleDetails } from 'entities/Article';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -29,6 +30,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                   text={t('Will be Articles Detail')}
                   align={TextAlign.LEFT}
               />
+              <ArticleDetails />
           </div>
       </div>
   );

@@ -1,8 +1,8 @@
 /**
  *  Sidebar - widget
  *
- *  @param SidebarItem - redirect
- *    - need update
+ *  @param SidebarItem
+ *    - Component in which loop SidebarItemsList items
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
