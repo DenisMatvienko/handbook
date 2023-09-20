@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
+import { useParams } from 'react-router-dom';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -16,21 +17,31 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
+  const { id } = useParams<{ id: string }>();
+
+  if (!id) {
+    return (
+        <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+            <div>
+                <Text
+                    title={t('Oopps...')}
+                    theme={TextTheme.BACKGROUND_TEXT}
+                    align={TextAlign.LEFT}
+                />
+                <Text
+                    theme={TextTheme.BACKGROUND_TEXT}
+                    text={t('Article not found')}
+                    align={TextAlign.LEFT}
+                />
+            </div>
+        </div>
+    );
+  }
 
   return (
       <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
           <div>
-              <Text
-                  title={t('Articles Detail page')}
-                  theme={TextTheme.BACKGROUND_TEXT}
-                  align={TextAlign.LEFT}
-              />
-              <Text
-                  theme={TextTheme.BACKGROUND_TEXT}
-                  text={t('Will be Articles Detail')}
-                  align={TextAlign.LEFT}
-              />
-              <ArticleDetails />
+              <ArticleDetails id={id} />
           </div>
       </div>
   );

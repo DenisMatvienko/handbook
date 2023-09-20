@@ -1,3 +1,9 @@
 .ArticleDetails {
+  min-height: 100%;
+}
 
+articleError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

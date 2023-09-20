@@ -1,6 +1,6 @@
 /**
- *    Article schema.
- *      - Main type schema of article entity;
+ *    Article.
+ *      - Data of entity Article;
  *
  *    @param type
  *      - In each of "blocks" interfaces (code, image, text) extending ArticleBlockBase with field "type".

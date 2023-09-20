@@ -1,4 +1,7 @@
 {
+  "Article not found": "Article not found",
+  "ArticleErrorText": "ArticleErrorText",
+  "ArticleErrorTitle": "ArticleErrorTitle",
   "Articles": "Articles",
   "Articles Detail page": "Articles Detail page",
   "Articles page": "Articles page",
@@ -7,6 +10,13 @@
   "Firstname": "Firstname",
   "Lastname": "Lastname",
   "Lorem-layout": "",
+  "Oopps": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Profile page": "Profile page",
   "ProfileErrorText": "ProfileErrorText",
   "ProfileErrorTitle": "ProfileErrorTitle",

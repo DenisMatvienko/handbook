@@ -1,6 +1,6 @@
 /**
  *    ArticleDetailSchema
- *      - Main schema for article details
+ *      - fetching state Article schema
  */
 import { Article } from './article';
 
