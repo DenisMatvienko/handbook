@@ -14,6 +14,7 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import {
   getArticleDetails, getArticleError,
   getArticleIsLoading,
@@ -70,9 +71,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else {
     content = (
         <div className={classNames(classes.ArticleDetails, {}, [className])}>
-            <div>
-                ARTICLE DETAIL
-            </div>
+            <FullPageBlock>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, cupiditate
+                dolorem ducimus eligendi excepturi harum impedit, ipsum itaque laboriosam maiores
+                neque nostrum omnis perspiciatis quasi qui quibusdam quod repellat, sed.
+            </FullPageBlock>
         </div>
     );
   }

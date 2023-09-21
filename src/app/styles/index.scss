@@ -20,7 +20,9 @@ body {
 }
 
 .page-wrapper {
-  flex-grow: 1;
+  width: 75%;
+  margin: 0 auto;
+  //flex-grow: 1;
   padding: 20px;
 }
 
