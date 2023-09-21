@@ -9,7 +9,7 @@ import 'app/styles/index.scss';
 import { Skeleton } from './Skeleton';
 
 export default {
-  title: 'enterSlice/Skeleton',
+  title: 'shared/Skeleton',
   component: Skeleton,
   argTypes: {
     backgroundColor: { control: 'color' },
