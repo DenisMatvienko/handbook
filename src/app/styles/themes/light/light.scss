@@ -40,4 +40,12 @@
   --modal-background: #f3f6f3;
   --modal-background-blur: rgb(0 0 0 / 1%);
   --modal-color: #202d2b;
+
+  // Skeleton colors
+  --skeleton-element-from: var(--accent);
+  --skeleton-element-to: var(--secondary);
+  --skeleton-block-gradient-fist: #60b8fb;
+  --skeleton-block-gradient-second: #92cdfb;
+  --skeleton-block-gradient-third: #c3e3fb;
+  --skeleton-block-gradient-fourth: #f4f8fb;
 }

@@ -40,4 +40,12 @@
   --modal-background: #844851;
   --modal-background-blur: rgb(132 72 81 / 1%);
   --modal-color: #844851;
+
+  // Skeleton colors
+  --skeleton-element-from: var(--accent);
+  --skeleton-element-to: var(--main);
+  --skeleton-block-gradient-fist: #de7988;
+  --skeleton-block-gradient-second: #c06976;
+  --skeleton-block-gradient-third: #a25863;
+  --skeleton-block-gradient-fourth: #844851;
 }
