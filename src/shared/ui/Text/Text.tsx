@@ -7,6 +7,9 @@
  *        UPD: on background (outside block's-component's background) should
  *             use as text and title this theme;
  *
+ *    @param BLOCK_TEXT
+ *      - Main text for use ONLY IN BLOCKS;
+ *
  *    @param ERROR
  *      - Text for errors;
  *
@@ -32,6 +35,7 @@ import classes from './Text.module.scss';
 
 export enum TextTheme {
   BACKGROUND_TEXT = 'backgroundText',
+  BLOCK_TEXT='blockText',
   SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
   TEXT_BLACK = 'textBlack',

@@ -15,8 +15,15 @@ import {
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { Skeleton, SkeletonTheme } from 'shared/ui/Skeleton/Skeleton';
-import { getArticleDetails, getArticleError } from '../../model/selectors/getArticleDetails';
+import { Skeleton, SkeletonTheme } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
+import {
+  SkeletonArticleDetails,
+} from 'shared/ui/Skeleton/SkeletonArticleDetails/SkeletonArticleDetails';
+import {
+  getArticleDetails,
+  getArticleError,
+  getArticleIsLoading,
+} from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import classes from './ArticleDetails.module.scss';
@@ -50,21 +57,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   if (isLoading) {
     content = (
-        <Skeleton
-            width="100%"
-            height="auto"
-            border={5}
-            theme={SkeletonTheme.BLOCKS}
-            block
-        >
-            <div>
-                добавить скелетон контента
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Debitis eligendi enim esse eveniet harum minima omnis quae
-                quasi sunt, tenetur? Dicta doloremque doloribus earum est
-                reprehenderit sequi, velit vitae voluptatum!
-            </div>
-        </Skeleton>
+        <SkeletonArticleDetails />
     );
   } else if (error) {
     content = (

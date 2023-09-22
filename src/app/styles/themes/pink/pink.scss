@@ -15,6 +15,8 @@
   // Complementary Text color
   --text-main: #844851;
   --title-main: #693a5d;
+  --text-block-main: var(--accent);
+  --title-block-main: #693a5d;
 
   // Complementary hover
   --main-hover: #548eaa;
@@ -42,8 +44,8 @@
   --modal-color: #844851;
 
   // Skeleton colors
-  --skeleton-element-from: var(--accent);
-  --skeleton-element-to: var(--main);
+  --skeleton-element-from: var(--main);
+  --skeleton-element-to: var(--accent);
   --skeleton-block-gradient-fist: #de7988;
   --skeleton-block-gradient-second: #c06976;
   --skeleton-block-gradient-third: #a25863;

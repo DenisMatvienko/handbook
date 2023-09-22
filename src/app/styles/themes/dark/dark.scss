@@ -15,6 +15,8 @@
   // Complementary Text color
   --text-main: #f4f8fb;
   --title-main: #548eaa;
+  --text-block-main: var(--accent);
+  --title-block-main: #548eaa;
 
   // Complementary hover
   --main-hover: #548eaa;
@@ -42,10 +44,10 @@
   --modal-color: #f4f8fb;
 
   // Skeleton colors
-  --skeleton-element-from: var(--accent);
-  --skeleton-element-to: var(--main);
-  --skeleton-block-gradient-fist: #9abdda;
-  --skeleton-block-gradient-second: #7792a8;
-  --skeleton-block-gradient-third: #536676;
+  --skeleton-element-from: var(--main);
+  --skeleton-element-to: var(--accent);
+  --skeleton-block-gradient-fist: #5c7182;
+  --skeleton-block-gradient-second: #536676;
+  --skeleton-block-gradient-third: #495a68;
   --skeleton-block-gradient-fourth: #303b44;
 }

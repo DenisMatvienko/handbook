@@ -1,0 +1,55 @@
+.skeletonBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+}
+
+.skeletonHeader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.skeletonHeaderTop {
+  display: flex;
+  flex-direction: column;
+  width: 24%;
+}
+
+.skeletonHeaderTopAvatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skeletonHeaderArticleTitle {
+  margin-top: 4px;
+}
+
+.skeletonHeaderTopDescr {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+
+  &:nth-child(n) {
+    margin-top: 5px;
+  }
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.skeletonContentBlock {
+  margin-top: 10px;
+}

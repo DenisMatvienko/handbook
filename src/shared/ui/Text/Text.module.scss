@@ -44,6 +44,18 @@
   }
 }
 
+.blockText {
+  .title {
+    font: var(--font-l);
+    color: var(--title-block-main);
+  }
+
+  .text {
+    font: var(--font-m);
+    color: var(--text-block-main);
+  }
+}
+
 .secondaryInverted {
   .title {
     font: var(--font-l);
