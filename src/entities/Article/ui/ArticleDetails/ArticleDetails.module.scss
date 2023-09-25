@@ -1,9 +1,95 @@
-.ArticleDetails {
-  min-height: 100%;
-}
-
 .articleError {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.articleBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.articleBlockHeader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.articleBlockHeaderTop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.articleBlockHeaderTopAvatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.articleBlockTopTitle {
+  margin-left: 10px;
+}
+
+.articleBlockHeaderArticleSubtitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.articleHeaderTopStat {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  width: 20%;
+}
+
+.articleHeaderTopStatViews {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+.articleHeaderTopStatData {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+.viewsIcon {
+  width: 25px;
+  height: 25px;
+  fill: var(--text-block-main);
+  margin-right: 5px;
+}
+
+.dateIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-block-main);
+  margin-right: 5px;
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.skeletonContentBlock {
+  margin-top: 10px;
 }

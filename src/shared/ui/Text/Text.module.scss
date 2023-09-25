@@ -56,6 +56,18 @@
   }
 }
 
+.subtitle {
+  .title {
+    font: var(--font-m);
+    color: var(--title-subtitle);
+  }
+
+  .text {
+    font: 13px var(--font-family-main);
+    color: var(--text-subtitle);
+  }
+}
+
 .secondaryInverted {
   .title {
     font: var(--font-l);

@@ -15,8 +15,10 @@
   // Complementary Text color
   --text-main: #303b44;
   --title-main: #202d2b;
-  --text-block-main: var(--secondary);
+  --text-block-main: var(--main);
   --title-block-main: var(--accent);
+  --title-subtitle: #494848;
+  --text-subtitle: #494848;
 
   // Complementary hover
   --main-hover: #548eaa;

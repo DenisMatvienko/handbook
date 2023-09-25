@@ -10,6 +10,9 @@
  *    @param BLOCK_TEXT
  *      - Main text for use ONLY IN BLOCKS;
  *
+ *    @param SUBTITLE
+ *      - Text for subtitles of articles;
+ *
  *    @param ERROR
  *      - Text for errors;
  *
@@ -36,6 +39,7 @@ import classes from './Text.module.scss';
 export enum TextTheme {
   BACKGROUND_TEXT = 'backgroundText',
   BLOCK_TEXT='blockText',
+  SUBTITLE='subtitle',
   SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
   TEXT_BLACK = 'textBlack',
@@ -51,6 +55,12 @@ export enum TextAlign {
   CENTER = 'center',
 }
 
+export enum TextSize {
+  M = 'size_m',
+  L = 'size_l',
+  XL = 'size_xl',
+}
+
 interface TextProps {
   className?: string;
   title?: string;
@@ -59,6 +69,7 @@ interface TextProps {
   linkLight?: string;
   theme?: TextTheme;
   align?: TextAlign;
+  size?: TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -70,11 +81,13 @@ export const Text = memo((props: TextProps) => {
     linkLight,
     theme = TextTheme.PRIMARY,
     align = TextAlign.CENTER,
+    size = TextSize.M,
   } = props;
 
   const mods: Record<string, boolean> = {
     [classes[theme]]: true,
     [classes[align]]: true,
+    [classes[size]]: true,
   };
 
   return (

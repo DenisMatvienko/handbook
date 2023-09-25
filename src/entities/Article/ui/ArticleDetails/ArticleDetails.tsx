@@ -6,7 +6,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { memo, useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
@@ -19,6 +19,11 @@ import { Skeleton, SkeletonTheme } from 'shared/ui/Skeleton/SkeletonDefault/Skel
 import {
   SkeletonArticleDetails,
 } from 'shared/ui/Skeleton/SkeletonArticleDetails/SkeletonArticleDetails';
+import { getProfileForm } from 'entities/Profile';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import ViewsIcon from 'shared/assets/icons/eye-show.svg';
+import DateIcon from 'shared/assets/icons/calendar.svg';
 import {
   getArticleDetails,
   getArticleError,
@@ -44,8 +49,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } = props;
   const { t } = useTranslation('articles');
   const data = useSelector(getArticleDetails);
-  // const isLoading = useSelector(getArticleIsLoading);
-  const isLoading = true;
+  const isLoading = useSelector(getArticleIsLoading);
   const error = useSelector(getArticleError);
   const dispatch = useAppDispatch();
 
@@ -72,13 +76,69 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
   } else {
     content = (
-        <div className={classNames(classes.ArticleDetails, {}, [className])}>
-            <FullPageBlock>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, cupiditate
-                dolorem ducimus eligendi excepturi harum impedit, ipsum itaque laboriosam maiores
-                neque nostrum omnis perspiciatis quasi qui quibusdam quod repellat, sed.
-            </FullPageBlock>
-        </div>
+        <FullPageBlock className={classNames(classes.ArticleDetails, {}, [className])}>
+            <div className={classes.articleBlock}>
+                <div className={classes.articleBlockHeader}>
+                    <div className={classes.articleBlockHeaderTop}>
+                        <div className={classes.articleBlockHeaderTopAvatar}>
+                            <Avatar
+                                size={AvatarSize.L}
+                                src={data?.img}
+                                alt={data?.title}
+                            />
+                            <Text
+                                className={classes.articleBlockTopTitle}
+                                theme={TextTheme.BLOCK_TEXT}
+                                title={t(data?.title ? data?.title : `Статья #${data?.id}`)}
+                                align={TextAlign.LEFT}
+                            />
+                        </div>
+                        <div className={classes.articleBlockHeaderArticleSubtitle}>
+                            <Text
+                                theme={TextTheme.SUBTITLE}
+                                text={t(data?.subtitle ? data?.subtitle : `Статья #${data?.id}`)}
+                                align={TextAlign.LEFT}
+                            />
+                        </div>
+                        <div className={classes.articleHeaderTopStat}>
+                            <div className={classes.articleHeaderTopStatViews}>
+                                <ViewsIcon className={classes.viewsIcon} />
+                                <Text
+                                    theme={TextTheme.SUBTITLE}
+                                    text={t(String(data?.views))}
+                                    align={TextAlign.LEFT}
+                                />
+                            </div>
+                            <div className={classes.articleHeaderTopStatData}>
+                                <DateIcon className={classes.dateIcon} />
+                                <Text
+                                    theme={TextTheme.SUBTITLE}
+                                    text={t(String(data?.createdAt))}
+                                    align={TextAlign.LEFT}
+                                />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div className={classes.skeletonContent}>
+                    <div className={classes.skeletonContentBlock}>
+                        <Skeleton
+                            border={5}
+                            width="100%"
+                            height={300}
+                        />
+                    </div>
+                    <div className={classes.skeletonContentBlock}>
+                        <Skeleton
+                            border={5}
+                            width="100%"
+                            height={300}
+                        />
+                    </div>
+                </div>
+            </div>
+        </FullPageBlock>
     );
   }
 
