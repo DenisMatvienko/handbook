@@ -16,6 +16,7 @@
   --text-main: #303b44;
   --title-main: #202d2b;
   --text-block-main: var(--main);
+  --text-white: #fff;
   --title-block-main: var(--accent);
   --title-subtitle: #494848;
   --text-subtitle: #494848;
@@ -52,4 +53,7 @@
   --skeleton-block-gradient-second: #caced0;
   --skeleton-block-gradient-third: #bfc2c4;
   --skeleton-block-gradient-fourth: #cbcdcf;
+
+  // ThemeSwitcher color
+  --theme-switcher-color: #f4f8fb;
 }

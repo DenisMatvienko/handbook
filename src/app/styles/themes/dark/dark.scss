@@ -15,6 +15,7 @@
   // Complementary Text color
   --text-main: #f4f8fb;
   --title-main: #548eaa;
+  --text-white: #fff;
   --text-block-main: var(--accent);
   --title-block-main: #548eaa;
   --title-subtitle: #f4f8fb;
@@ -52,4 +53,7 @@
   --skeleton-block-gradient-second: #536676;
   --skeleton-block-gradient-third: #495a68;
   --skeleton-block-gradient-fourth: #303b44;
+
+  // ThemeSwitcher color
+  --theme-switcher-color: #202d2b;
 }

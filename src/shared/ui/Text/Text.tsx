@@ -39,14 +39,10 @@ import classes from './Text.module.scss';
 export enum TextTheme {
   BACKGROUND_TEXT = 'backgroundText',
   BLOCK_TEXT='blockText',
-  SUBTITLE='subtitle',
   SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
-  TEXT_BLACK = 'textBlack',
-  LINK_LIGHT = 'linkLight',
-  HEADER = 'header',
+  SUBTITLE='subtitle',
   ERROR = 'error',
-  PRIMARY = 'primary',
 }
 
 export enum TextAlign {
@@ -56,6 +52,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
   XL = 'size_xl',
@@ -79,7 +76,7 @@ export const Text = memo((props: TextProps) => {
     text,
     textWhite,
     linkLight,
-    theme = TextTheme.PRIMARY,
+    theme = TextTheme.BLOCK_TEXT,
     align = TextAlign.CENTER,
     size = TextSize.M,
   } = props;
@@ -94,8 +91,6 @@ export const Text = memo((props: TextProps) => {
       <div className={classNames(classes.Text, mods, [className])}>
           {title && <p className={classes.title}>{title}</p>}
           {text && <p className={classes.text}>{text}</p>}
-          {linkLight && <p className={classes.linkLight}>{text}</p>}
-          {textWhite && <p className={classes.textWhite}>{text}</p>}
       </div>
   );
 });

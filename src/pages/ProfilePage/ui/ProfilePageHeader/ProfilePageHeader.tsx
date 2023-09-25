@@ -50,7 +50,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                   <Text
                       className={classes.titleText}
                       title={t('UserProfile')}
-                      theme={TextTheme.SECONDARY_INVERTED}
+                      theme={TextTheme.BLOCK_TEXT}
                   />
                   {readonly
                     ? (

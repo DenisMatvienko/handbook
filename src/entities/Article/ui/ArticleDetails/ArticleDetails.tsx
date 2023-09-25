@@ -6,7 +6,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
@@ -15,15 +15,27 @@ import {
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { Skeleton, SkeletonTheme } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
+import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
 import {
   SkeletonArticleDetails,
 } from 'shared/ui/Skeleton/SkeletonArticleDetails/SkeletonArticleDetails';
-import { getProfileForm } from 'entities/Profile';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import {
+  ArticleImageBlockComponent,
+} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import {
+  ArticleCodeBlockComponent,
+} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+  ArticleTextBlockComponent,
+} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import {
   getArticleDetails,
   getArticleError,
@@ -52,6 +64,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const isLoading = useSelector(getArticleIsLoading);
   const error = useSelector(getArticleError);
   const dispatch = useAppDispatch();
+
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent />;
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent />;
+      default:
+        return null;
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
@@ -98,43 +123,43 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                                 theme={TextTheme.SUBTITLE}
                                 text={t(data?.subtitle ? data?.subtitle : `Статья #${data?.id}`)}
                                 align={TextAlign.LEFT}
+                                size={TextSize.S}
                             />
                         </div>
                         <div className={classes.articleHeaderTopStat}>
                             <div className={classes.articleHeaderTopStatViews}>
-                                <ViewsIcon className={classes.viewsIcon} />
+                                <Icon
+                                    className={classes.viewsIcon}
+                                    Svg={ViewsIcon}
+                                    theme={IconTheme.BLOCK_ICON}
+                                />
                                 <Text
-                                    theme={TextTheme.SUBTITLE}
+                                    theme={TextTheme.BLOCK_TEXT}
                                     text={t(String(data?.views))}
                                     align={TextAlign.LEFT}
+                                    size={TextSize.S}
                                 />
                             </div>
                             <div className={classes.articleHeaderTopStatData}>
-                                <DateIcon className={classes.dateIcon} />
+                                <Icon
+                                    className={classes.dateIcon}
+                                    Svg={DateIcon}
+                                    theme={IconTheme.BLOCK_ICON}
+                                />
                                 <Text
-                                    theme={TextTheme.SUBTITLE}
+                                    theme={TextTheme.BLOCK_TEXT}
                                     text={t(String(data?.createdAt))}
                                     align={TextAlign.LEFT}
+                                    size={TextSize.S}
                                 />
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div className={classes.skeletonContent}>
-                    <div className={classes.skeletonContentBlock}>
-                        <Skeleton
-                            border={5}
-                            width="100%"
-                            height={300}
-                        />
-                    </div>
-                    <div className={classes.skeletonContentBlock}>
-                        <Skeleton
-                            border={5}
-                            width="100%"
-                            height={300}
-                        />
+                <div className={classes.articleContent}>
+                    <div className={classes.articleContentBlock}>
+                        {data?.blocks.map(renderBlock)}
                     </div>
                 </div>
             </div>

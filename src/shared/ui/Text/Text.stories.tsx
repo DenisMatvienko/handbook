@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
   title: 'shared/Text',
@@ -90,3 +90,38 @@ onlyTitleErrorDark.args = {
   theme: TextTheme.ERROR,
 };
 onlyTitleErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const TextSizeS = Template.bind({});
+TextSizeS.args = {
+  title: 'Hello, i\'m title',
+  text: 'Hello, i\'m text',
+  theme: TextTheme.SUBTITLE,
+  size: TextSize.S,
+};
+
+export const TextSizeM = Template.bind({});
+TextSizeM.args = {
+  title: 'Hello, i\'m title',
+  text: 'Hello, i\'m text',
+  theme: TextTheme.BACKGROUND_TEXT,
+  size: TextSize.M,
+};
+TextSizeM.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const TextSizeL = Template.bind({});
+TextSizeL.args = {
+  title: 'Hello, i\'m title',
+  text: 'Hello, i\'m text',
+  theme: TextTheme.BACKGROUND_TEXT,
+  size: TextSize.L,
+};
+TextSizeM.decorators = [ThemeDecorator(Theme.PINK)];
+
+export const TextSizeXL = Template.bind({});
+TextSizeXL.args = {
+  title: 'Hello, i\'m title',
+  text: 'Hello, i\'m text',
+  theme: TextTheme.BACKGROUND_TEXT,
+  size: TextSize.XL,
+};
+TextSizeXL.decorators = [ThemeDecorator(Theme.LIGHT)];
