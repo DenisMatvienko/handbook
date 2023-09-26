@@ -16,7 +16,7 @@ interface SkeletonArticleDetailsProps {
 export const SkeletonArticleDetails = memo(({ className }: SkeletonArticleDetailsProps) => (
     <div className={classNames(classes.SkeletonArticleDetails, {}, [className])}>
         <Skeleton
-            width="100%"
+            width="69%"
             height="auto"
             border={5}
             theme={SkeletonTheme.BLOCKS}

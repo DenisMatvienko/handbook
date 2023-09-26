@@ -1,12 +1,13 @@
 /**
- *    ArticleDetails-component.
- *      - ArticleDetails
+ *    ArticleDetails.
+ *      - Handle state of article.
+ *        Get article from backend, check on loading and errors, add reducers
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
@@ -17,31 +18,10 @@ import {
 import {
   SkeletonArticleDetails,
 } from 'shared/ui/Skeleton/SkeletonArticleDetails/SkeletonArticleDetails';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
-import ViewsIcon from 'shared/assets/icons/eye-show.svg';
-import DateIcon from 'shared/assets/icons/calendar.svg';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import { RecommendationsBlock } from 'shared/ui/Block/RecommendationsBlock/RecommendationsBlock';
-import {
-  DoubleAdjustableBlock,
-} from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
 import {
   ArticleDetailsContent,
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';
-import {
-  ArticleImageBlockComponent,
-} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
-import {
-  getArticleDetails,
-  getArticleError,
-  getArticleIsLoading,
-} from '../../model/selectors/getArticleDetails';
+import { getArticleError, getArticleIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import classes from './ArticleDetails.module.scss';
