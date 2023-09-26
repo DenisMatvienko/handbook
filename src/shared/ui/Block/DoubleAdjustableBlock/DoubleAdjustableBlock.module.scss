@@ -1,0 +1,15 @@
+.blockWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.blockContent {
+  display: flex;
+  width: 69%;
+  background-color: var(--block-color);
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px var(--box-shadow);
+  margin-right: 1%;
+}

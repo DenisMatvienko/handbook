@@ -1,0 +1,10 @@
+.blockRecommendation {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: var(--block-color);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px var(--box-shadow);
+  height: 60%;
+}

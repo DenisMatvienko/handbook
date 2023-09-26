@@ -14,8 +14,6 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
 import {
   SkeletonArticleDetails,
 } from 'shared/ui/Skeleton/SkeletonArticleDetails/SkeletonArticleDetails';
@@ -26,15 +24,15 @@ import {
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { RecommendationsBlock } from 'shared/ui/Block/RecommendationsBlock/RecommendationsBlock';
+import {
+  DoubleAdjustableBlock,
+} from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
 import {
   ArticleImageBlockComponent,
 } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
-  ArticleCodeBlockComponent,
-} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-  ArticleTextBlockComponent,
-} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import {
   getArticleDetails,
@@ -68,7 +66,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent />;
+        return <ArticleTextBlockComponent block={block} />;
       case ArticleBlockType.CODE:
         return <ArticleCodeBlockComponent />;
       case ArticleBlockType.IMAGE:
@@ -101,69 +99,85 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
   } else {
     content = (
-        <FullPageBlock className={classNames(classes.ArticleDetails, {}, [className])}>
-            <div className={classes.articleBlock}>
-                <div className={classes.articleBlockHeader}>
-                    <div className={classes.articleBlockHeaderTop}>
-                        <div className={classes.articleBlockHeaderTopAvatar}>
-                            <Avatar
-                                size={AvatarSize.L}
-                                src={data?.img}
-                                alt={data?.title}
-                            />
-                            <Text
-                                className={classes.articleBlockTopTitle}
-                                theme={TextTheme.BLOCK_TEXT}
-                                title={t(data?.title ? data?.title : `Статья #${data?.id}`)}
-                                align={TextAlign.LEFT}
-                            />
-                        </div>
-                        <div className={classes.articleBlockHeaderArticleSubtitle}>
-                            <Text
-                                theme={TextTheme.SUBTITLE}
-                                text={t(data?.subtitle ? data?.subtitle : `Статья #${data?.id}`)}
-                                align={TextAlign.LEFT}
-                                size={TextSize.S}
-                            />
-                        </div>
-                        <div className={classes.articleHeaderTopStat}>
-                            <div className={classes.articleHeaderTopStatViews}>
-                                <Icon
-                                    className={classes.viewsIcon}
-                                    Svg={ViewsIcon}
-                                    theme={IconTheme.BLOCK_ICON}
+        <DoubleAdjustableBlock
+            children={(
+                <div className={classes.articleBlock}>
+                    <div className={classes.articleBlockHeader}>
+                        <div className={classes.articleBlockHeaderTop}>
+                            <div className={classes.articleBlockHeaderTopAvatar}>
+                                <Avatar
+                                    size={AvatarSize.L}
+                                    src={data?.img}
+                                    alt={data?.title}
                                 />
                                 <Text
+                                    className={classes.articleBlockTopTitle}
                                     theme={TextTheme.BLOCK_TEXT}
-                                    text={t(String(data?.views))}
+                                    title={t(data?.title ? data?.title : `Статья #${data?.id}`)}
                                     align={TextAlign.LEFT}
-                                    size={TextSize.S}
+                                    size={TextSize.L}
                                 />
                             </div>
-                            <div className={classes.articleHeaderTopStatData}>
-                                <Icon
-                                    className={classes.dateIcon}
-                                    Svg={DateIcon}
-                                    theme={IconTheme.BLOCK_ICON}
-                                />
-                                <Text
-                                    theme={TextTheme.BLOCK_TEXT}
-                                    text={t(String(data?.createdAt))}
-                                    align={TextAlign.LEFT}
-                                    size={TextSize.S}
-                                />
+                            {
+                    data?.subtitle
+                      ? (
+                          <div className={classes.articleBlockHeaderArticleSubtitle}>
+                              <Text
+                                  theme={TextTheme.SUBTITLE}
+                                  text={t(data?.subtitle)}
+                                  align={TextAlign.LEFT}
+                                  size={TextSize.S}
+                              />
+                          </div>
+                      )
+                      : (
+                          <Text
+                              theme={TextTheme.SUBTITLE}
+                              text="-"
+                              align={TextAlign.LEFT}
+                              size={TextSize.S}
+                          />
+                      )
+                  }
+                            <div className={classes.articleHeaderTopStat}>
+                                <div className={classes.articleHeaderTopStatViews}>
+                                    <Icon
+                                        className={classes.viewsIcon}
+                                        Svg={ViewsIcon}
+                                        theme={IconTheme.BLOCK_ICON}
+                                    />
+                                    <Text
+                                        theme={TextTheme.BLOCK_TEXT}
+                                        text={t(String(data?.views))}
+                                        align={TextAlign.LEFT}
+                                        size={TextSize.S}
+                                    />
+                                </div>
+                                <div className={classes.articleHeaderTopStatData}>
+                                    <Icon
+                                        className={classes.dateIcon}
+                                        Svg={DateIcon}
+                                        theme={IconTheme.BLOCK_ICON}
+                                    />
+                                    <Text
+                                        theme={TextTheme.BLOCK_TEXT}
+                                        text={t(String(data?.createdAt))}
+                                        align={TextAlign.LEFT}
+                                        size={TextSize.S}
+                                    />
+                                </div>
                             </div>
-
+                        </div>
+                    </div>
+                    <div className={classes.articleContent}>
+                        <div className={classes.articleContentBlock}>
+                            {data?.blocks.map(renderBlock)}
                         </div>
                     </div>
                 </div>
-                <div className={classes.articleContent}>
-                    <div className={classes.articleContentBlock}>
-                        {data?.blocks.map(renderBlock)}
-                    </div>
-                </div>
-            </div>
-        </FullPageBlock>
+              )}
+            recommendations={<RecommendationsBlock>hello</RecommendationsBlock>}
+        />
     );
   }
 

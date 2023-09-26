@@ -28,6 +28,9 @@
   "avatar": "avatar",
   "city": "city",
   "currency": "currency",
+  "data?": {
+    "subtitle": "subtitle"
+  },
   "decr": "decr",
   "hi": "hi",
   "incorrect-age": "incorrect-age",
