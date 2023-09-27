@@ -1,10 +1,8 @@
 /**
  *    ArticleDetails.
- *      - Handle state of article.
- *        Get article from backend, check on loading and errors, add reducers
+ *      - Get article from backend, check on loading and errors, add reducers
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import React, { memo, useEffect } from 'react';
@@ -21,6 +19,10 @@ import {
 import {
   ArticleDetailsContent,
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';
+import {
+  ArticleRecommendations,
+} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
+import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
 import { getArticleError, getArticleIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -77,9 +79,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
           reducers={reducers}
           removeAfterUnmount
       >
-          <div className={classNames(classes.ArticleDetails, {}, [className])}>
-              {content}
-          </div>
+          {content}
       </DynamicModuleLoader>
   );
 });

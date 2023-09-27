@@ -1,9 +1,12 @@
 /**
  *    ArticleDetailsContent-component.
- *      - ArticleDetailsContent
+ *      - Content which should render as article-content, when
+ *        extra reducer by fetchArticleById - is fulfilled;
+ *
+ *    @param renderBlock.
+ *      - Include handle state of article;
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -27,7 +30,9 @@ import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
 import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
-import { RecommendationsBlock } from 'shared/ui/Block/RecommendationsBlock/RecommendationsBlock';
+import {
+  ArticleRecommendations,
+} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import classes from './ArticleDetailsContent.module.scss';
 
 interface ArticleDetailsContentProps {
@@ -58,27 +63,24 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
   }, []);
 
   return (
-      <DoubleAdjustableBlock
-          recommendations={<RecommendationsBlock>hello</RecommendationsBlock>}
-      >
-          <div className={classes.articleBlock}>
-              <div className={classes.articleBlockHeader}>
-                  <div className={classes.articleBlockHeaderTop}>
-                      <div className={classes.articleBlockHeaderTopAvatar}>
-                          <Avatar
-                              size={AvatarSize.L}
-                              src={data?.img}
-                              alt={data?.title}
-                          />
-                          <Text
-                              className={classes.articleBlockTopTitle}
-                              theme={TextTheme.BLOCK_TEXT}
-                              title={t(data?.title ? data?.title : '-')}
-                              align={TextAlign.LEFT}
-                              size={TextSize.L}
-                          />
-                      </div>
-                      {
+      <div className={classes.articleBlock}>
+          <div className={classes.articleBlockHeader}>
+              <div className={classes.articleBlockHeaderTop}>
+                  <div className={classes.articleBlockHeaderTopAvatar}>
+                      <Avatar
+                          size={AvatarSize.L}
+                          src={data?.img}
+                          alt={data?.title}
+                      />
+                      <Text
+                          className={classes.articleBlockTopTitle}
+                          theme={TextTheme.BLOCK_TEXT}
+                          title={t(data?.title ? data?.title : '-')}
+                          align={TextAlign.LEFT}
+                          size={TextSize.L}
+                      />
+                  </div>
+                  {
               data?.subtitle
                 ? (
                     <div className={classes.articleBlockHeaderArticleSubtitle}>
@@ -99,42 +101,41 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                     />
                 )
             }
-                      <div className={classes.articleHeaderTopStat}>
-                          <div className={classes.articleHeaderTopStatViews}>
-                              <Icon
-                                  className={classes.viewsIcon}
-                                  Svg={ViewsIcon}
-                                  theme={IconTheme.BLOCK_ICON}
-                              />
-                              <Text
-                                  theme={TextTheme.BLOCK_TEXT}
-                                  text={t(String(data?.views))}
-                                  align={TextAlign.LEFT}
-                                  size={TextSize.S}
-                              />
-                          </div>
-                          <div className={classes.articleHeaderTopStatData}>
-                              <Icon
-                                  className={classes.dateIcon}
-                                  Svg={DateIcon}
-                                  theme={IconTheme.BLOCK_ICON}
-                              />
-                              <Text
-                                  theme={TextTheme.BLOCK_TEXT}
-                                  text={t(String(data?.createdAt))}
-                                  align={TextAlign.LEFT}
-                                  size={TextSize.S}
-                              />
-                          </div>
+                  <div className={classes.articleHeaderTopStat}>
+                      <div className={classes.articleHeaderTopStatViews}>
+                          <Icon
+                              className={classes.viewsIcon}
+                              Svg={ViewsIcon}
+                              theme={IconTheme.BLOCK_ICON}
+                          />
+                          <Text
+                              theme={TextTheme.BLOCK_TEXT}
+                              text={t(String(data?.views))}
+                              align={TextAlign.LEFT}
+                              size={TextSize.S}
+                          />
+                      </div>
+                      <div className={classes.articleHeaderTopStatData}>
+                          <Icon
+                              className={classes.dateIcon}
+                              Svg={DateIcon}
+                              theme={IconTheme.BLOCK_ICON}
+                          />
+                          <Text
+                              theme={TextTheme.BLOCK_TEXT}
+                              text={t(String(data?.createdAt))}
+                              align={TextAlign.LEFT}
+                              size={TextSize.S}
+                          />
                       </div>
                   </div>
               </div>
-              <div className={classes.articleContent}>
-                  <div className={classes.articleContentBlock}>
-                      {data?.blocks.map(renderBlock)}
-                  </div>
+          </div>
+          <div className={classes.articleContent}>
+              <div className={classes.articleContentBlock}>
+                  {data?.blocks.map(renderBlock)}
               </div>
           </div>
-      </DoubleAdjustableBlock>
+      </div>
   );
 });

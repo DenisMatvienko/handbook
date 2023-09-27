@@ -5,10 +5,14 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+import React, { createContext, memo } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import {
+  ArticleRecommendations,
+} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
+import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -39,10 +43,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   return (
+
       <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-          <div>
+          <DoubleAdjustableBlock
+              widthLeftBlock="69%"
+              widthRightBlock="30%"
+              rightBlock={<ArticleRecommendations id={id} />}
+          >
               <ArticleDetails id={id} />
-          </div>
+          </DoubleAdjustableBlock>
       </div>
   );
 };

@@ -22,32 +22,42 @@ import classes from './DoubleAdjustableBlock.module.scss';
 
 interface DoubleAdjustableBlockProps {
   className?: string;
-  width?: string | number;
+  widthLeftBlock?: string | number;
+  widthRightBlock?: string | number;
   children: ReactNode,
-  recommendations: ReactNode,
+  rightBlock: ReactNode,
 }
 
 export const DoubleAdjustableBlock = (props: DoubleAdjustableBlockProps) => {
   const {
     className,
-    width,
+    widthLeftBlock,
+    widthRightBlock,
     children,
-    recommendations,
+    rightBlock,
   } = props;
 
-  const styles: CSSProperties = {
-    width,
+  const stylesContent: CSSProperties = {
+    width: widthLeftBlock,
+  };
+
+  const stylesRecommendations: CSSProperties = {
+    width: widthRightBlock,
   };
 
   return (
       <div className={classNames(classes.blockWrapper)}>
           <div
               className={classNames(classes.blockContent)}
-              style={styles}
+              style={stylesContent}
           >
               {children}
           </div>
-          {recommendations}
+          <div
+              style={stylesRecommendations}
+          >
+              {rightBlock}
+          </div>
       </div>
   );
 };
