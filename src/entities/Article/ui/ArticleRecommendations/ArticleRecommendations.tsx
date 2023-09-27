@@ -24,7 +24,7 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
+import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import {
   ArticleDetailsContent,
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';

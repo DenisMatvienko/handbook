@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 import {
   ArticleRecommendations,
 } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
-import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
+import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -45,13 +45,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   return (
 
       <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-          <DoubleAdjustableBlock
+          <DoubleAdjustableFrame
               widthLeftBlock="69%"
               widthRightBlock="30%"
               rightBlock={<ArticleRecommendations id={id} />}
           >
               <ArticleDetails id={id} />
-          </DoubleAdjustableBlock>
+          </DoubleAdjustableFrame>
       </div>
   );
 };

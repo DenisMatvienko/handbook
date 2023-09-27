@@ -29,10 +29,11 @@ import {
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
-import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
+import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import {
   ArticleRecommendations,
 } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import classes from './ArticleDetailsContent.module.scss';
 
 interface ArticleDetailsContentProps {
@@ -63,79 +64,81 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
   }, []);
 
   return (
-      <div className={classes.articleBlock}>
-          <div className={classes.articleBlockHeader}>
-              <div className={classes.articleBlockHeaderTop}>
-                  <div className={classes.articleBlockHeaderTopAvatar}>
-                      <Avatar
-                          size={AvatarSize.L}
-                          src={data?.img}
-                          alt={data?.title}
-                      />
+      <FullPageBlock>
+          <div className={classes.articleBlock}>
+              <div className={classes.articleBlockHeader}>
+                  <div className={classes.articleBlockHeaderTop}>
+                      <div className={classes.articleBlockHeaderTopAvatar}>
+                          <Avatar
+                              size={AvatarSize.L}
+                              src={data?.img}
+                              alt={data?.title}
+                          />
+                          <Text
+                              className={classes.articleBlockTopTitle}
+                              theme={TextTheme.BLOCK_TEXT}
+                              title={t(data?.title ? data?.title : '-')}
+                              align={TextAlign.LEFT}
+                              size={TextSize.L}
+                          />
+                      </div>
+                      {
+                data?.subtitle
+                  ? (
+                      <div className={classes.articleBlockHeaderArticleSubtitle}>
+                          <Text
+                              theme={TextTheme.SUBTITLE}
+                              text={t(data?.subtitle)}
+                              align={TextAlign.LEFT}
+                              size={TextSize.S}
+                          />
+                      </div>
+                  )
+                  : (
                       <Text
-                          className={classes.articleBlockTopTitle}
-                          theme={TextTheme.BLOCK_TEXT}
-                          title={t(data?.title ? data?.title : '-')}
+                          theme={TextTheme.SUBTITLE}
+                          text="-"
                           align={TextAlign.LEFT}
-                          size={TextSize.L}
+                          size={TextSize.S}
                       />
-                  </div>
-                  {
-              data?.subtitle
-                ? (
-                    <div className={classes.articleBlockHeaderArticleSubtitle}>
-                        <Text
-                            theme={TextTheme.SUBTITLE}
-                            text={t(data?.subtitle)}
-                            align={TextAlign.LEFT}
-                            size={TextSize.S}
-                        />
-                    </div>
-                )
-                : (
-                    <Text
-                        theme={TextTheme.SUBTITLE}
-                        text="-"
-                        align={TextAlign.LEFT}
-                        size={TextSize.S}
-                    />
-                )
-            }
-                  <div className={classes.articleHeaderTopStat}>
-                      <div className={classes.articleHeaderTopStatViews}>
-                          <Icon
-                              className={classes.viewsIcon}
-                              Svg={ViewsIcon}
-                              theme={IconTheme.BLOCK_ICON}
-                          />
-                          <Text
-                              theme={TextTheme.BLOCK_TEXT}
-                              text={t(String(data?.views))}
-                              align={TextAlign.LEFT}
-                              size={TextSize.S}
-                          />
-                      </div>
-                      <div className={classes.articleHeaderTopStatData}>
-                          <Icon
-                              className={classes.dateIcon}
-                              Svg={DateIcon}
-                              theme={IconTheme.BLOCK_ICON}
-                          />
-                          <Text
-                              theme={TextTheme.BLOCK_TEXT}
-                              text={t(String(data?.createdAt))}
-                              align={TextAlign.LEFT}
-                              size={TextSize.S}
-                          />
+                  )
+              }
+                      <div className={classes.articleHeaderTopStat}>
+                          <div className={classes.articleHeaderTopStatViews}>
+                              <Icon
+                                  className={classes.viewsIcon}
+                                  Svg={ViewsIcon}
+                                  theme={IconTheme.BLOCK_ICON}
+                              />
+                              <Text
+                                  theme={TextTheme.BLOCK_TEXT}
+                                  text={t(String(data?.views))}
+                                  align={TextAlign.LEFT}
+                                  size={TextSize.S}
+                              />
+                          </div>
+                          <div className={classes.articleHeaderTopStatData}>
+                              <Icon
+                                  className={classes.dateIcon}
+                                  Svg={DateIcon}
+                                  theme={IconTheme.BLOCK_ICON}
+                              />
+                              <Text
+                                  theme={TextTheme.BLOCK_TEXT}
+                                  text={t(String(data?.createdAt))}
+                                  align={TextAlign.LEFT}
+                                  size={TextSize.S}
+                              />
+                          </div>
                       </div>
                   </div>
               </div>
-          </div>
-          <div className={classes.articleContent}>
-              <div className={classes.articleContentBlock}>
-                  {data?.blocks.map(renderBlock)}
+              <div className={classes.articleContent}>
+                  <div className={classes.articleContentBlock}>
+                      {data?.blocks.map(renderBlock)}
+                  </div>
               </div>
           </div>
-      </div>
+      </FullPageBlock>
   );
 });

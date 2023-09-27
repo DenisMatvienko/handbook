@@ -18,7 +18,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { CSSProperties, ReactNode } from 'react';
-import classes from './DoubleAdjustableBlock.module.scss';
+import classes from './DoubleAdjustableFrame.module.scss';
 
 interface DoubleAdjustableBlockProps {
   className?: string;
@@ -28,7 +28,7 @@ interface DoubleAdjustableBlockProps {
   rightBlock: ReactNode,
 }
 
-export const DoubleAdjustableBlock = (props: DoubleAdjustableBlockProps) => {
+export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
   const {
     className,
     widthLeftBlock,

@@ -22,7 +22,7 @@ import {
 import {
   ArticleRecommendations,
 } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
-import { DoubleAdjustableBlock } from 'shared/ui/Block/DoubleAdjustableBlock/DoubleAdjustableBlock';
+import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import { getArticleError, getArticleIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
