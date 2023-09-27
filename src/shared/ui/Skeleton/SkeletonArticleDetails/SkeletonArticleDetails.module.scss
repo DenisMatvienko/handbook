@@ -37,14 +37,10 @@
   margin-top: 10px;
 }
 
-.skeletonHeaderTopDescr {
+.skeletonHeaderTopStats {
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
-
-  &:nth-child(n) {
-    margin-top: 5px;
-  }
+  margin-top: 20px;
 }
 
 .skeletonContent {

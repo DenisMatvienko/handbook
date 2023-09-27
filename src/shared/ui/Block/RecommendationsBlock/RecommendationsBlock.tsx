@@ -7,9 +7,13 @@ import { memo, ReactNode } from 'react';
 import classes from './RecommendationsBlock.module.scss';
 
 interface RecommendationsBlockProps {
+  className?: string;
   children?: ReactNode;
 }
 
-export const RecommendationsBlock = memo(({ children }: RecommendationsBlockProps) => (
-    <div className={classes.blockRecommendation}>{children}</div>
-));
+export const RecommendationsBlock = memo((props: RecommendationsBlockProps) => {
+  const { className, children } = props;
+  return (
+      <div className={classes.blockRecommendation}>{children}</div>
+  );
+});

@@ -9,6 +9,7 @@ import React, { memo, useEffect } from 'react';
 import { RecommendationsBlock } from 'shared/ui/Block/RecommendationsBlock/RecommendationsBlock';
 import { useSelector } from 'react-redux';
 import {
+  getArticleDetails,
   getArticleError,
   getArticleIsLoading,
 } from 'entities/Article/model/selectors/getArticleDetails';
@@ -30,6 +31,9 @@ import {
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import classes from './ArticleRecommendations.module.scss';
 
 interface ArticleRecommendationsProps {
@@ -44,8 +48,16 @@ const reducers: ReducersList = {
 export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) => {
   const { className, id } = props;
   const { t } = useTranslation();
+  const data = useSelector(getArticleDetails);
   const isLoading = useSelector(getArticleIsLoading);
   const error = useSelector(getArticleError);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(fetchArticleById(id));
+    }, 3000);
+  }, [dispatch, id]);
 
   let content;
 
@@ -67,8 +79,14 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
   } else {
     content = (
         <div className={classes.ArticleRecommendations}>
-            <RecommendationsBlock>
-                Text template 1
+            <RecommendationsBlock className={classes.ArticlesList}>
+                <Text
+                    className={classes.articleBlockTopTitle}
+                    theme={TextTheme.BLOCK_TEXT}
+                    text={t(data?.title ? data?.title : '-')}
+                    align={TextAlign.LEFT}
+                    size={TextSize.M}
+                />
             </RecommendationsBlock>
             <RecommendationsBlock>
                 hello

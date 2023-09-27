@@ -44,7 +44,7 @@ export const SkeletonArticleDetails = memo(({ className }: SkeletonArticleDetail
                             height={30}
                         />
                     </div>
-                    <div className={classes.skeletonHeaderTopDescr}>
+                    <div className={classes.skeletonHeaderTopStats}>
                         <Skeleton
                             border={5}
                             width={260}

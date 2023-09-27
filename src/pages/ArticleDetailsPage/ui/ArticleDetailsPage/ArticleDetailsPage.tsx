@@ -1,6 +1,17 @@
 /**
  *    ArticleDetailsPage-component.
  *      - ArticleDetailsPage
+ *
+ *    @param DoubleAdjustableFrame;
+ *      - Wrap 2 blocks ArticleRecommendations and ArticleDetails. Allow to add width for both
+ *        blocks.
+ *
+ *    @param ArticleDetails;
+ *      - Main article content, should to take most of the place. By default, width - 69%.
+ *
+ *    @param ArticleRecommendations;
+ *      - Article list for, stories and other content in right pallet block for navigation
+ *        on article page.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
