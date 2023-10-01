@@ -41,11 +41,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    test: /\.(png|jpe?g|gif|woff2|woff|ttf)$/i,
     use: [
       {
         loader: 'file-loader',
       },
+      // {
+      //   loader: 'file-loader?name=./src/app/styles/fonts/PixelifySans/[name].[ext]',
+      // },
     ],
   };
 

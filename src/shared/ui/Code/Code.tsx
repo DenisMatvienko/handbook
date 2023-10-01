@@ -13,10 +13,6 @@ interface CodeProps {
   children: ReactNode;
 }
 
-export enum CodeTheme {
-
-}
-
 export const Code = memo((props: CodeProps) => {
   const { className, children } = props;
   const { t } = useTranslation();

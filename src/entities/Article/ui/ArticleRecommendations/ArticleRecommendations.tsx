@@ -1,6 +1,8 @@
 /**
  *    ArticleRecommendations-component.
- *      - Render titles of article in separately of content block
+ *      - Temporarily stub as recommendations.
+ *        Need recommendations entity.
+ *        Render titles of article in separately of content block.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -34,6 +36,10 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import {
+  SkeletonArticleRecommendations,
+} from 'shared/ui/Skeleton/SkeletonArticleRecommendations/SkeletonArticleRecommendations';
 import classes from './ArticleRecommendations.module.scss';
 
 interface ArticleRecommendationsProps {
@@ -63,7 +69,7 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
 
   if (isLoading) {
     content = (
-        <p>loading..</p>
+        <SkeletonArticleRecommendations />
     );
   } else if (error) {
     content = (

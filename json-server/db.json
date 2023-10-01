@@ -14,7 +14,11 @@
       "img": "https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg",
       "views": 1022,
       "createdAt": "19.09.2023",
-      "type": ["IT", "JS", "Architecture"],
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -86,6 +90,6 @@
     "country": "Russia",
     "city": "Saint-P",
     "username": "admin",
-    "avatar": "https://play-lh.googleusercontent.com/proxy/0y2_O7hbOz6jcRu1hYSWsPvMM5WZZcbrzGIpy8MoQcshIR-zn_7loinMSL3Prjf4ilaxqgju8KapB392cUB9gg29DztNqzDIVey-WoAzId-ENRGCmw=s1920-w1920-h1080"
+    "avatar": "https://files.vgtimes.ru/download/posts/2017-01/thumbs/1485205515_olphimsk.jpg"
   }
 }
