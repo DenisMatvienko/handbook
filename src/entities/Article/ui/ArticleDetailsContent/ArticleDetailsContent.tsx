@@ -13,15 +13,6 @@ import { useSelector } from 'react-redux';
 import { getArticleDetails } from 'entities/Article/model/selectors/getArticleDetails';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
-import {
-  ArticleTextBlockComponent,
-} from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import {
-  ArticleCodeBlockComponent,
-} from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-  ArticleImageBlockComponent,
-} from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import {
   Text, TextAlign, TextSize, TextTheme,
@@ -29,11 +20,16 @@ import {
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
-import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
-import {
-  ArticleRecommendations,
-} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import {
+  ArticleImageBlockComponent,
+} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import {
+  ArticleCodeBlockComponent,
+} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+  ArticleTextBlockComponent,
+} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleDetailsContent.module.scss';
 
 interface ArticleDetailsContentProps {

@@ -47,7 +47,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         loader: 'file-loader',
       },
       // {
-      //   loader: 'file-loader?name=./src/app/styles/fonts/PixelifySans/[name].[ext]',
+      //   loader: 'file-loader?name=./shared/assets/fonts/PixelifySans/[name].[ext]',
       // },
     ],
   };
