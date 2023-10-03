@@ -18,10 +18,12 @@ export const Code = memo((props: CodeProps) => {
   const { t } = useTranslation();
 
   return (
-      <pre>
-          <code className={classNames(classes.Code, {}, [className])}>
-              {children}
-          </code>
-      </pre>
+      <div className={classes.codeWrapper}>
+          <pre>
+              <code className={classNames(classes.Code, {}, [className])}>
+                  {children}
+              </code>
+          </pre>
+      </div>
   );
 });

@@ -46,9 +46,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       {
         loader: 'file-loader',
       },
-      // {
-      //   loader: 'file-loader?name=./shared/assets/fonts/PixelifySans/[name].[ext]',
-      // },
     ],
   };
 

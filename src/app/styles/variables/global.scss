@@ -1,8 +1,6 @@
-@import "../fonts/fonts";
-
 :root {
   --font-family-main: verdana, "Open Sans", sans-serif;
-  --font-family-code: pixelifysans, "Open Sans" sans-serif;
+  --font-family-code: "Courier New", monospace;
   --font-size-s: 8px;
   --font-line-s: 16px;
   --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
