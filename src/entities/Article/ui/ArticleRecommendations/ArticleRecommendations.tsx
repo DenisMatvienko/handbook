@@ -95,10 +95,22 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
                 />
             </RecommendationsBlock>
             <RecommendationsBlock>
-                hello
+                <Text
+                    className={classes.articleBlockTopTitle}
+                    theme={TextTheme.BLOCK_TEXT}
+                    text={t(data?.title ? data?.title : '-')}
+                    align={TextAlign.LEFT}
+                    size={TextSize.M}
+                />
             </RecommendationsBlock>
             <RecommendationsBlock>
-                Text template 3
+                <Text
+                    className={classes.articleBlockTopTitle}
+                    theme={TextTheme.BLOCK_TEXT}
+                    text={t(data?.title ? data?.title : '-')}
+                    align={TextAlign.LEFT}
+                    size={TextSize.M}
+                />
             </RecommendationsBlock>
         </div>
     );

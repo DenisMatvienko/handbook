@@ -18,7 +18,7 @@ export const ArticleImageBlockComponent = memo(({ className }: ArticleImageBlock
   return (
       <div className={classNames(classes.ArticleImageBlockComponent, {}, [className])}>
           <div>
-              Image block
+              <p />
           </div>
       </div>
   );

@@ -6,4 +6,4 @@ import { ArticlesPageAsync as ArticlesPage } from './ui/ArticlesPage/ArticlesPag
 
 export {
   ArticlesPage,
-}
+};

@@ -34,7 +34,14 @@
 
 .blocks {
   box-shadow: 0 3px 5px var(--accent-dark);
-  background: linear-gradient(90deg, var(--skeleton-block-gradient-fist), var(--skeleton-block-gradient-second), var(--skeleton-block-gradient-third), var(--skeleton-block-gradient-fourth));
+  background:
+    linear-gradient(
+      90deg,
+      var(--skeleton-block-gradient-fist),
+      var(--skeleton-block-gradient-second),
+      var(--skeleton-block-gradient-third),
+      var(--skeleton-block-gradient-fourth)
+    );
   background-size: 400% 400%;
   animation: load-block 3s ease infinite;
   transform: translate3d(0, 0, 0);
