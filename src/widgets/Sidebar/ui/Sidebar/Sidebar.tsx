@@ -6,7 +6,9 @@
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useMemo, useState } from 'react';
+import {
+  memo, useEffect, useMemo, useRef, useState,
+} from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import {
