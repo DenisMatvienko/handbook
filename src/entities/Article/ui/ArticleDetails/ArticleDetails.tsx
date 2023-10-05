@@ -19,10 +19,6 @@ import {
 import {
   ArticleDetailsContent,
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';
-import {
-  ArticleRecommendations,
-} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
-import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import { getArticleError, getArticleIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';

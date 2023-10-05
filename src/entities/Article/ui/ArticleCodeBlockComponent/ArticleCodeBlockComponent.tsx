@@ -20,9 +20,7 @@ export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentP
   return (
       <div className={classNames(classes.ArticleCodeBlockComponent, {}, [className])}>
           {block.code && (
-          <Code>
-              {block.code}
-          </Code>
+          <Code text={block.code} />
           )}
       </div>
   );
