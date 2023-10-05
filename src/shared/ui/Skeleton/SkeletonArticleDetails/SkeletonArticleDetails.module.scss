@@ -1,0 +1,58 @@
+.skeletonBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px 55px;
+}
+
+.skeletonHeader {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.skeletonHeaderTop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 65%;
+}
+
+.skeletonHeaderTopTitle {
+  margin-left: 10px;
+}
+
+.skeletonHeaderTopAvatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skeletonHeaderArticleTitle {
+  margin-top: 10px;
+}
+
+.skeletonHeaderTopStats {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+}
+
+.skeletonContentBlock {
+  margin-top: 10px;
+  width: 100%;
+}

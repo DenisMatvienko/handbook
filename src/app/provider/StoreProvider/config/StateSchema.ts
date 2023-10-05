@@ -3,6 +3,7 @@
  *
  *  @param StateSchema
  *    - Root state type
+ *    - When reducers async - fields should be unnecessary
  *
  *  @param StateSchemaKey
  *    - add keys of StateSchema, in this type can be just items, which same
@@ -46,6 +47,7 @@ import { AxiosInstance } from 'axios';
 import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import { Dispatch } from 'redux';
+import { ArticleDetailSchema } from 'entities/Article';
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -56,6 +58,7 @@ export interface StateSchema {
    */
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
+  articleDetails?: ArticleDetailSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

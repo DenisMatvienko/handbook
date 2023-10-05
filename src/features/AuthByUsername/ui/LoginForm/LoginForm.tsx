@@ -79,7 +79,7 @@ const LoginForm = memo(({
           reducers={initialReducers}
       >
           <div className={classNames(classes.LoginForm, {}, [className])}>
-              <Text title={t('Вход')} theme={TextTheme.PRIMARY} />
+              <Text text={t('Вход')} theme={TextTheme.BLOCK_TEXT} />
               {error && (
               <div className={classes.ErrorPaletteWrapper}>
                   <ErrorPalette

@@ -1,0 +1,20 @@
+.skeletonBlock {
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+}
+
+.articleRecommendations {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 15px;
+  width: 100%;
+}
+
+.articleItem {
+  &:not(:first-child) {
+    margin-top: 35px;
+  }
+}

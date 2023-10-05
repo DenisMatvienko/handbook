@@ -47,7 +47,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <div className={classes.usernameLinks}>
                     <Text
                         text={`${isAuth.username},`}
-                        theme={TextTheme.LINK_LIGHT}
+                        theme={TextTheme.TEXT_WHITE}
                     />
                 </div>
                 <Button

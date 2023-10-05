@@ -9,8 +9,8 @@
   "Обновить страницу": "Reload page",
   "Нажмите для ошибки": "Press for throw error",
   "Меню": "Menu",
-  "Главная": "Main page",
-  "О сайте": "About page",
+  "Main": "Main page",
+  "About": "About page",
   "Короткий язык": "Eng",
   "Войти": "Sign in",
   "Выйти": "Log out",
@@ -20,5 +20,6 @@
   "Введите логин": "Enter login...",
   "Авторизация": "Authorization",
   "Некорректные данные": "Incorrect login or password error",
-  "Профиль": "Profile"
+  "Profile": "Profile",
+  "Articles": "Articles"
 }

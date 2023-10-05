@@ -1,18 +1,36 @@
 {
+  "Article not found": "Article not found",
+  "ArticleErrorText": "ArticleErrorText",
+  "ArticleErrorTitle": "ArticleErrorTitle",
+  "Articles": "Articles",
+  "Articles Detail page": "Articles Detail page",
+  "Articles page": "Articles page",
   "Country": "Country",
   "Edit": "Edit",
   "Firstname": "Firstname",
   "Lastname": "Lastname",
   "Lorem-layout": "",
+  "Oopps": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Profile page": "Profile page",
   "ProfileErrorText": "ProfileErrorText",
   "ProfileErrorTitle": "ProfileErrorTitle",
   "RefreshPage": "RefreshPage",
   "UserProfile": "UserProfile",
+  "Will be Articles": "Will be Articles",
+  "Will be Articles Detail": "Will be Articles Detail",
   "age": "age",
   "avatar": "avatar",
   "city": "city",
   "currency": "currency",
+  "data?": {
+    "subtitle": "subtitle"
+  },
   "decr": "decr",
   "hi": "hi",
   "incorrect-age": "incorrect-age",
