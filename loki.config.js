@@ -7,6 +7,14 @@
  *      and test always fall with error.
  *    - When using local repo and use Loki change on 'chrome.app', cause docker on Windows
  *      with WSL2 overload system and memory. Loki were upgrade 'chrome.app' run successfully
+ *
+ *    @note approve
+ *    - If you approve tests passed on chrome.docker in the reference and vice versa, then in the
+ *      future the reference image of a specific component made on the basis of chrome.docker can be
+ *      saved in the reference. And when you pass the tests and approve it to chrome.app, and if
+ *      no changes are made to this reference image, then there will be an error in the "actions",
+ *      because it is still considered approved to chrome.docker.
+ *      see more: https://github.com/oblador/loki/issues/318
  */
 
 module.exports = {
