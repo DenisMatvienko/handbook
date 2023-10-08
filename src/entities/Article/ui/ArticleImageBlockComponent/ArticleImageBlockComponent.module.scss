@@ -1,0 +1,16 @@
+.ArticleImageBlockComponent {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.img {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.imgTitle {
+  margin-top: 10px;
+}

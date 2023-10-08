@@ -15,6 +15,11 @@
   // Complementary Text color
   --text-main: #844851;
   --title-main: #693a5d;
+  --text-white: #fff;
+  --text-block-main: var(--accent);
+  --title-block-main: #ff8b9c;
+  --title-subtitle: #fbf4f5;
+  --text-subtitle: #fbf4f5;
 
   // Complementary hover
   --main-hover: #548eaa;
@@ -23,8 +28,6 @@
 
   // Complementary box-shadow
   --box-shadow: #2c181b;
-
-  // Complementary box-shadow
   --block-color: #844851;
 
   // Complementary Button color
@@ -40,4 +43,23 @@
   --modal-background: #844851;
   --modal-background-blur: rgb(132 72 81 / 1%);
   --modal-color: #844851;
+
+  // Skeleton colors
+  --skeleton-element-from: var(--main);
+  --skeleton-element-to: var(--accent);
+  --skeleton-block-gradient-fist: #de7988;
+  --skeleton-block-gradient-second: #c06976;
+  --skeleton-block-gradient-third: #a25863;
+  --skeleton-block-gradient-fourth: #844851;
+
+  // ThemeSwitcher color
+  --theme-switcher-color: #ff8b9c;
+
+  // Code block color
+  --code-block-background: #693a5d;
+
+  // Scroll color
+  --scroll: #ff8b9c;
+  --scroll-background: #693a5d;
+  --scroll-border: #ff8b9c;
 }

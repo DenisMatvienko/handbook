@@ -8,14 +8,15 @@ interface FullPageBlockProps {
   children: ReactNode,
 }
 
-export const FullPageBlock = ({
-  className,
-  children,
-}: FullPageBlockProps) => {
+export const FullPageBlock = (props: FullPageBlockProps) => {
+  const {
+    className,
+    children,
+  } = props;
   const { t } = useTranslation();
 
   return (
-      <div className={classNames(classes.blockWrapper)}>
+      <div className={classNames(classes.blockWrapper, {}, [className])}>
           {children}
       </div>
   );

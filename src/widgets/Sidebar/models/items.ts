@@ -12,6 +12,7 @@ import React from 'react';
 import MainPageIcon from 'shared/assets/icons/home-internet.svg';
 import AboutPageIcon from 'shared/assets/icons/about-description-help.svg';
 import ProfilePageIcon from 'shared/assets/icons/profile.svg';
+import ArticlesPageIcon from 'shared/assets/icons/notes-multiple.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 export interface SidebarItemType {
@@ -24,18 +25,24 @@ export interface SidebarItemType {
 export const SidebarItemsList: SidebarItemType[] = [
   {
     path: RoutePath.main,
-    text: 'Главная',
+    text: 'Main',
     Icon: MainPageIcon,
   },
   {
-    path: RoutePath.about,
-    text: 'О сайте',
-    Icon: AboutPageIcon,
+    path: RoutePath.articles,
+    text: 'Articles',
+    Icon: ArticlesPageIcon,
+    authOnly: true,
   },
   {
     path: RoutePath.profile,
-    text: 'Профиль',
+    text: 'Profile',
     Icon: ProfilePageIcon,
     authOnly: true,
+  },
+  {
+    path: RoutePath.about,
+    text: 'About',
+    Icon: AboutPageIcon,
   },
 ];

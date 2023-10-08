@@ -22,7 +22,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { PageLoader } from 'widgets/PageLoader';
 import { getUserInited, userActions } from 'entities/User';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppRouter } from './provider/router';
 

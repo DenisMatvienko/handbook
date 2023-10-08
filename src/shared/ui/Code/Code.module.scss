@@ -1,0 +1,36 @@
+.codeWrapper {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  background-color: var(--code-block-background);
+}
+
+.copyButton {
+  position: absolute;
+  right: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+
+.copyIcon {
+  fill: var(--main);
+  width: 40px;
+  height: 40px;
+}
+
+.copyIcon:hover,
+.copyButton:hover {
+  fill: var(--secondary);
+}
+
+.Code {
+  font-family: var(--font-family-code);
+  font-weight: 300;
+  font-size: 14px;
+  width: 100%;
+}
