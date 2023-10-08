@@ -10,7 +10,7 @@ import DateIcon from 'shared/assets/icons/calendar.svg';
 import { Icon, IconTheme } from './Icon';
 
 export default {
-  title: 'enterSlice/Icon',
+  title: 'shared/Icon',
   component: Icon,
   argTypes: {
     backgroundColor: { control: 'color' },

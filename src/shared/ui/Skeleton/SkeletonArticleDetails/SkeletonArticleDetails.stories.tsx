@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { SkeletonArticleDetails } from './SkeletonArticleDetails';
 
 export default {
-  title: 'enterSlice/SkeletonArticleDetails',
+  title: 'shared/SkeletonArticleDetails',
   component: SkeletonArticleDetails,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -24,12 +24,13 @@ export default {
 
 const Template: ComponentStory<typeof SkeletonArticleDetails> = (args) => <SkeletonArticleDetails {...args} />;
 
-export const FirstSkeletonArticleDetails = Template.bind({});
-FirstSkeletonArticleDetails.args = {};
-FirstSkeletonArticleDetails.decorators = [ThemeDecorator(Theme.DARK)];
-FirstSkeletonArticleDetails.decorators = [StoreDecorator({})];
+export const LightSkeletonArticleDetails = Template.bind({});
+LightSkeletonArticleDetails.args = {};
 
-export const SecondSkeletonArticleDetails = Template.bind({});
-SecondSkeletonArticleDetails.args = {};
-SecondSkeletonArticleDetails.decorators = [ThemeDecorator(Theme.DARK)];
-SecondSkeletonArticleDetails.decorators = [StoreDecorator({})];
+export const DarkSkeletonArticleDetails = Template.bind({});
+DarkSkeletonArticleDetails.args = {};
+DarkSkeletonArticleDetails.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const PinkSkeletonArticleDetails = Template.bind({});
+PinkSkeletonArticleDetails.args = {};
+PinkSkeletonArticleDetails.decorators = [ThemeDecorator(Theme.PINK)];

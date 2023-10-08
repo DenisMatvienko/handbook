@@ -1,7 +1,7 @@
 /**
  *    ArticleRecommendations-component.
- *      - Temporarily stub as recommendations.
- *        Need recommendations entity.
+ *      - Temporarily stub as recommendations - that, temporarily, isn't correct component using as stub.
+ *        While recommendations entity block is not added.
  *        Render titles of article in separately of content block.
  */
 
