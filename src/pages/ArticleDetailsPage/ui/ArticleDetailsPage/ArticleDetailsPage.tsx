@@ -59,10 +59,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <DoubleAdjustableFrame
               widthLeftBlock="69%"
               widthRightBlock="30%"
+              leftBlock={<ArticleDetails id={id} />}
               rightBlock={<ArticleRecommendations id={id} />}
-          >
-              <ArticleDetails id={id} />
-          </DoubleAdjustableFrame>
+          />
       </div>
   );
 };
