@@ -73,14 +73,7 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
     );
   } else if (error) {
     content = (
-        <ErrorPalette
-            className={classes.articleError}
-            theme={ErrorPaletteTheme.DEFAULT}
-            title={t('ArticleErrorTitle')}
-            text={t('ArticleErrorText')}
-            size={ErrorPaletteSize.XXL}
-            refresh
-        />
+        <SkeletonArticleRecommendations />
     );
   } else {
     content = (
