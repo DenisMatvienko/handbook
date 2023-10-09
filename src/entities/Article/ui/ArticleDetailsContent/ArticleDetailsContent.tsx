@@ -21,6 +21,7 @@ import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { CommentList } from 'entities/Comment';
 import {
   ArticleImageBlockComponent,
 } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
@@ -148,6 +149,14 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                   <div className={classes.articleContentBlock}>
                       {data?.blocks.map(renderBlock)}
                   </div>
+              </div>
+              <div className={classes.CommentsSection}>
+                  <Text
+                      theme={TextTheme.BACKGROUND_TEXT}
+                      text={t('Comments')}
+                      align={TextAlign.LEFT}
+                  />
+                  <CommentList />
               </div>
           </div>
       </FullPageBlock>
