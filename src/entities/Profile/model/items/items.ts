@@ -3,18 +3,18 @@ import { getProfileData, Profile } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 
 /**
- *  Profile Items
- *    - List of items, titles for data in Profile
+ *    Profile Items
+ *      - List of items, titles for data in Profile
  *
- *  Profile Data
- *    - List of data, which need to view on Profile card
+ *    Profile Data
+ *      - List of data, which need to view on Profile card
  *
  *
- * Type of sidebar items
- *  @param id
- *  - id of profile properties
- *  @param title
- *  - name of profile properties
+ *    Type of sidebar items
+ *    @param id
+ *      - id of profile properties
+ *    @param title
+ *      - name of profile properties
  */
 
 export interface ProfileItemType {

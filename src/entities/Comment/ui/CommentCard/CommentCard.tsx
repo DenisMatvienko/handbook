@@ -9,15 +9,21 @@ import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
+    comments?: Comment;
+    isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-  const { className } = props;
+  const {
+    className,
+    comments,
+    isLoading,
+  } = props;
 
   return (
       <div className={classNames(classes.CommentCard, {}, [className])}>
           <div>
-              Comment list
+              comment
           </div>
       </div>
   );

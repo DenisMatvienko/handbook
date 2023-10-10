@@ -46,6 +46,16 @@
   }
 }
 
+.translucent {
+  .title {
+    color: var(--text-translucent);
+  }
+
+  .text {
+    color: var(--text-translucent);
+  }
+}
+
 .subtitle {
   .title {
     color: var(--title-subtitle);

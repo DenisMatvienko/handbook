@@ -24,6 +24,7 @@ import {
   ArticleRecommendations,
 } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
+import { CommentList } from 'entities/Comment';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -59,8 +60,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <DoubleAdjustableFrame
               widthLeftBlock="69%"
               widthRightBlock="30%"
-              leftBlock={<ArticleDetails id={id} />}
+              leftBlock={[
+                  <ArticleDetails id={id} />,
+                  <CommentList />,
+              ]}
               rightBlock={<ArticleRecommendations id={id} />}
+
           />
       </div>
   );

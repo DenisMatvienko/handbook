@@ -41,6 +41,7 @@ export enum TextTheme {
   BLOCK_TEXT='blockText',
   SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
+  TRANSLUCENT = 'translucent',
   SUBTITLE='subtitle',
   ERROR = 'error',
 }

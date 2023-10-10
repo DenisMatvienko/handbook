@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getArticleDetails } from 'entities/Article/model/selectors/getArticleDetails';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import {
@@ -22,30 +21,22 @@ import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { CommentList } from 'entities/Comment';
-import {
-  ArticleImageBlockComponent,
-} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
-  ArticleCodeBlockComponent,
-} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-  ArticleTextBlockComponent,
-} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleDetailsContent.module.scss';
 
 interface ArticleDetailsContentProps {
   className?: string;
-  id: string;
 }
 
 export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) => {
   const {
     className,
-    id,
   } = props;
   const { t } = useTranslation('articles');
   const data = useSelector(getArticleDetails);
-  const dispatch = useAppDispatch();
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
@@ -143,6 +134,16 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                               />
                           </div>
                       </div>
+                      <div className={classes.articleHeaderBotStat}>
+                          {
+                              data?.type.map((item) => (
+                                  <Tag
+                                      theme={TagTheme.DEFAULT}
+                                      data={item}
+                                  />
+                              ))
+                              }
+                      </div>
                   </div>
               </div>
               <div className={classes.articleContent}>
@@ -150,13 +151,22 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                       {data?.blocks.map(renderBlock)}
                   </div>
               </div>
-              <div className={classes.CommentsSection}>
+              <div className={classes.articleEndStat}>
                   <Text
-                      theme={TextTheme.BACKGROUND_TEXT}
-                      text={t('Comments')}
+                      className={classes.tagsTitle}
+                      theme={TextTheme.BLOCK_TEXT}
+                      title={`${t('tags')}: `}
                       align={TextAlign.LEFT}
+                      size={TextSize.M}
                   />
-                  <CommentList />
+                  {
+                      data?.type.map((item) => (
+                          <Tag
+                              theme={TagTheme.DEFAULT}
+                              data={item}
+                          />
+                      ))
+                  }
               </div>
           </div>
       </FullPageBlock>

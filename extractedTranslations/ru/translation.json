@@ -28,6 +28,7 @@
   "age": "age",
   "avatar": "avatar",
   "city": "city",
+  "comments": "comments",
   "currency": "currency",
   "data?": {
     "subtitle": "subtitle"
@@ -43,8 +44,10 @@
   "incorrect-user-data": "incorrect-user-data",
   "incorrect-username": "incorrect-username",
   "incr": "incr",
+  "no comments": "no comments",
   "no-data-error": "no-data-error",
   "server-error": "server-error",
+  "tags": "tags",
   "username": "username",
   "wrong-age-range-too-old": "wrong-age-range-too-old",
   "wrong-age-range-too-young": "wrong-age-range-too-young",

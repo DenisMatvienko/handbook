@@ -24,7 +24,7 @@ interface DoubleAdjustableBlockProps {
   className?: string;
   widthLeftBlock?: string | number;
   widthRightBlock?: string | number;
-  leftBlock: ReactNode,
+  leftBlock: Array<ReactNode>,
   rightBlock: ReactNode,
 }
 
@@ -51,7 +51,9 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
               className={classNames(classes.blockContent)}
               style={stylesContent}
           >
-              {leftBlock}
+              {leftBlock.map((item) => (
+                item
+              ))}
           </div>
           <div
               style={stylesRecommendations}

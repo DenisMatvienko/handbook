@@ -20,6 +20,7 @@
   --title-block-main: var(--accent);
   --title-subtitle: #494848;
   --text-subtitle: #494848;
+  --text-translucent: #afafaf;
 
   // Complementary hover
   --main-hover: #548eaa;
@@ -62,4 +63,7 @@
   --scroll: #afafaf;
   --scroll-background: #ececec;
   --scroll-border: #afafaf;
+
+  // Tag color
+  --tag-default: #548eaa;
 }

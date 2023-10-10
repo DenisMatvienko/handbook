@@ -1,0 +1,13 @@
+.Tag {
+  padding: 10px 10px;
+  border-radius: 10px;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.default {
+  background-color: var(--tag-default);
+}
+

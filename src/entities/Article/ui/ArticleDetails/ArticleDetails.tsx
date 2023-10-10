@@ -1,6 +1,7 @@
 /**
  *    ArticleDetails.
- *      - Get article from backend, check on loading and errors, add reducers
+ *      - Get article from backend, check on loading and errors, add reducers;
+ *      - ArticleDetails isolate all inside component. Get just "id" props, from fetch;
  */
 
 import { useTranslation } from 'react-i18next';
@@ -69,7 +70,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
   } else {
     content = (
-        <ArticleDetailsContent id={id} />
+        <ArticleDetailsContent />
     );
   }
 
