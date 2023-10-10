@@ -16,7 +16,9 @@ export const FullPageBlock = (props: FullPageBlockProps) => {
   const { t } = useTranslation();
 
   return (
-      <div className={classNames(classes.blockWrapper, {}, [className])}>
+      <div
+          className={classNames(classes.blockWrapper, {}, [className])}
+      >
           {children}
       </div>
   );

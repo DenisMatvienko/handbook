@@ -34,6 +34,13 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
+  const comment = [
+    {
+      id: '1',
+      text: 'comment',
+      user: { id: '1', username: 'cyberterminator4100' },
+    },
+  ];
 
   if (!id) {
     return (
@@ -62,10 +69,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
               widthRightBlock="30%"
               leftBlock={[
                   <ArticleDetails id={id} />,
-                  <CommentList />,
+                  <CommentList marginTop comments={comment} />,
               ]}
-              rightBlock={<ArticleRecommendations id={id} />}
-
+              rightBlock={[
+                  <ArticleRecommendations id={id} />,
+              ]}
           />
       </div>
   );

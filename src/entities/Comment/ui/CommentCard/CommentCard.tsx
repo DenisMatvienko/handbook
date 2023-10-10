@@ -5,6 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
@@ -23,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
   return (
       <div className={classNames(classes.CommentCard, {}, [className])}>
           <div>
-              comment
+              hello
           </div>
       </div>
   );
