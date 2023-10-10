@@ -29,8 +29,9 @@ import {
   ProfileDataItemReadonly,
 } from 'entities/Profile/ui/ProfileCard/ProfileDataItemReadonly/ProfileDataItemReadonly';
 import { ProfilePageHeader } from 'pages/ProfilePage';
-import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
@@ -141,6 +142,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   title={t('Edit')}
                                   theme={TextTheme.SECONDARY_INVERTED}
                                   align={TextAlign.LEFT}
+                                  size={TextSize.XL}
                               />
                               {validateErrors?.length && validateErrors.map((item) => (
                                   <ErrorPalette

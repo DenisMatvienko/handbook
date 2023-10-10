@@ -1,7 +1,7 @@
 /**
  *    ArticleRecommendations-component.
- *      - Temporarily stub as recommendations.
- *        Need recommendations entity.
+ *      - Temporarily stub as recommendations - that, temporarily, isn't correct component using as stub.
+ *        While recommendations entity block is not added.
  *        Render titles of article in separately of content block.
  */
 
@@ -57,13 +57,6 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
   const data = useSelector(getArticleDetails);
   const isLoading = useSelector(getArticleIsLoading);
   const error = useSelector(getArticleError);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(fetchArticleById(id));
-    }, 3000);
-  }, [dispatch, id]);
 
   let content;
 
@@ -73,37 +66,12 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
     );
   } else if (error) {
     content = (
-        <ErrorPalette
-            className={classes.articleError}
-            theme={ErrorPaletteTheme.DEFAULT}
-            title={t('ArticleErrorTitle')}
-            text={t('ArticleErrorText')}
-            size={ErrorPaletteSize.XXL}
-            refresh
-        />
+        <SkeletonArticleRecommendations />
     );
   } else {
     content = (
         <div className={classes.ArticleRecommendations}>
             <RecommendationsBlock className={classes.ArticlesList}>
-                <Text
-                    className={classes.articleBlockTopTitle}
-                    theme={TextTheme.BLOCK_TEXT}
-                    text={t(data?.title ? data?.title : '-')}
-                    align={TextAlign.LEFT}
-                    size={TextSize.M}
-                />
-            </RecommendationsBlock>
-            <RecommendationsBlock>
-                <Text
-                    className={classes.articleBlockTopTitle}
-                    theme={TextTheme.BLOCK_TEXT}
-                    text={t(data?.title ? data?.title : '-')}
-                    align={TextAlign.LEFT}
-                    size={TextSize.M}
-                />
-            </RecommendationsBlock>
-            <RecommendationsBlock>
                 <Text
                     className={classes.articleBlockTopTitle}
                     theme={TextTheme.BLOCK_TEXT}

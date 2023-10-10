@@ -1,6 +1,8 @@
 /**
  *    Fetch article by id
- *      - Get articles
+ *      - Get articles fetch
+ *
+ *    contain extrareducers for pending, fullfiled
  */
 
 import { createAsyncThunk } from '@reduxjs/toolkit';

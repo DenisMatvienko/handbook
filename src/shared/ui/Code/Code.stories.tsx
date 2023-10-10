@@ -26,7 +26,7 @@ const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const FirstCode = Template.bind({});
 FirstCode.args = {
-  children: 'const person = {\n'
+  text: 'const person = {\n'
     + '  name: \'John\',\n'
     + '  age: 24,\n'
     + '};\n'
