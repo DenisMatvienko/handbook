@@ -1,3 +1,48 @@
 .CommentCard {
-
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
 }
+
+.commentHeader{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.commentIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin-right: 10px;
+  opacity: .3;
+}
+
+.innerIcon {
+  width: 6px;
+  height: 6px;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+.commentTitle {
+  margin: 0px 10px;
+}
+
+.commentText{
+  width: 95%;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+

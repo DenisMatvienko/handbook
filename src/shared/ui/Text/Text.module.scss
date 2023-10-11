@@ -58,10 +58,12 @@
 
 .subtitle {
   .title {
+    opacity: .5;
     color: var(--title-subtitle);
   }
 
   .text {
+    opacity: .5;
     color: var(--text-subtitle);
   }
 }
@@ -86,6 +88,16 @@
 
 .center {
   text-align: center;
+}
+
+.size_xs {
+  .title {
+    font: var(--font-s);
+  }
+
+  .text {
+    font: var(--font-xs);
+  }
 }
 
 .size_s {

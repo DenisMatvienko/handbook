@@ -38,8 +38,9 @@ export const CommentList = memo((props: CommentListProps) => {
       <FullPageBlock className={classNames(classes.pageWrap, mods)}>
           <div className={classNames(classes.CommentsSection)}>
               <Text
-                  theme={TextTheme.SUBTITLE}
-                  title={comments ? `${t('comments')}[${comments?.length}]` : `${t('comments')}[0]`}
+                  className={classes.title}
+                  theme={TextTheme.BLOCK_TEXT}
+                  title={comments ? `${t('comments')}(${comments?.length})` : `${t('comments')}(0)`}
                   align={TextAlign.LEFT}
                   size={TextSize.M}
               />

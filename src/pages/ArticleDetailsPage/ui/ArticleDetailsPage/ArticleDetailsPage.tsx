@@ -45,8 +45,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   ];
 
   const componentsLeftSide: ComponentsObjectType = {
-    articleDetails: <ArticleDetails id={id || '0'} />,
-    commentList: <CommentList marginTop comments={comment} />,
+    articleContent: <ArticleDetails id={id || '0'} />,
+    comments: <CommentList
+        marginTop
+        comments={comment}
+    />,
   };
 
   const componentsRightSide: ComponentsObjectType = {
