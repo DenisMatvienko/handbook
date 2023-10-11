@@ -42,7 +42,7 @@ export const CommentList = memo((props: CommentListProps) => {
                   theme={TextTheme.BLOCK_TEXT}
                   title={comments ? `${t('comments')}(${comments?.length})` : `${t('comments')}(0)`}
                   align={TextAlign.LEFT}
-                  size={TextSize.M}
+                  size={TextSize.S}
               />
               {comments?.length
                 ? comments.map((item) => (

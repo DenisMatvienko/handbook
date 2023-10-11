@@ -158,7 +158,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                       theme={TextTheme.BLOCK_TEXT}
                       title={`${t('tags')}: `}
                       align={TextAlign.LEFT}
-                      size={TextSize.M}
+                      size={TextSize.S}
                   />
                   {
                       data?.type.map((item) => (

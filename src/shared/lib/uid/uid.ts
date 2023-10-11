@@ -1,5 +1,5 @@
 /**
- *      Helper generate Unique id with fixed length
+ *      Helper - generate Unique id with fixed length
  *          - Can use for keys in loops
  *
  *      @param padStart
