@@ -16,14 +16,15 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { createContext, memo } from 'react';
+import React, { memo } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import {
-  ArticleRecommendations,
-} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
-import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
+  ComponentsObjectType,
+  DoubleAdjustableFrame,
+} from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import { CommentList } from 'entities/Comment';
 import classes from './ArticleDetailsPage.module.scss';
 
@@ -34,6 +35,7 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
+
   const comment = [
     {
       id: '1',
@@ -41,6 +43,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       user: { id: '1', username: 'cyberterminator4100' },
     },
   ];
+
+  const componentsLeftSide: ComponentsObjectType = {
+    articleDetails: <ArticleDetails id={id || '0'} />,
+    commentList: <CommentList marginTop comments={comment} />,
+  };
+
+  const componentsRightSide: ComponentsObjectType = {
+    recommendations: <ArticleRecommendations id={id || '0'} />,
+  };
 
   if (!id) {
     return (
@@ -67,13 +78,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <DoubleAdjustableFrame
               widthLeftBlock="69%"
               widthRightBlock="30%"
-              leftBlock={[
-                  <ArticleDetails id={id} />,
-                  <CommentList marginTop comments={comment} />,
-              ]}
-              rightBlock={[
-                  <ArticleRecommendations id={id} />,
-              ]}
+              leftBlock={componentsLeftSide}
+              rightBlock={componentsRightSide}
           />
       </div>
   );
