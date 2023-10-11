@@ -33,6 +33,11 @@
  *   @param no-undef
  *       prevent using global variables. 'off' - because this property will not allow using
  *       global.d.ts types. to all other this property working for designation by 'var'
+ *
+ *   @param no-plusplus
+ *       Disallow the unary operators ++ and --
+ *       Because the unary ++ and -- operators are subject to automatic semicolon insertion,
+ *       differences in whitespace can change semantics of source code.
  */
 
 module.exports = {
@@ -84,6 +89,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-multi-spaces': 'off',
     'no-undef': 'off',
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'i18next/no-literal-string':
       ['error',
         {
