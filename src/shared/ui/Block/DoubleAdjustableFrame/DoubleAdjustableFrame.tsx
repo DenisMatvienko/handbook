@@ -18,6 +18,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { CSSProperties, ReactNode } from 'react';
+import { uid } from 'shared/lib/uid/uid';
 import classes from './DoubleAdjustableFrame.module.scss';
 
 interface DoubleAdjustableBlockProps {
@@ -52,14 +53,18 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
               style={stylesContent}
           >
               {leftBlock.map((item) => (
-                item
+                  <div key={uid()}>
+                      {item}
+                  </div>
               ))}
           </div>
           <div
               style={stylesRecommendations}
           >
               {rightBlock.map((item) => (
-                item
+                  <div key={uid()}>
+                      {item}
+                  </div>
               ))}
           </div>
       </div>

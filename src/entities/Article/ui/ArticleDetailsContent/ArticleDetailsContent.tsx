@@ -138,6 +138,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                           {
                               data?.type.map((item) => (
                                   <Tag
+                                      key={item.toString()}
                                       theme={TagTheme.DEFAULT}
                                       data={item}
                                   />
@@ -162,11 +163,12 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                   {
                       data?.type.map((item) => (
                           <Tag
+                              key={item.toString()}
                               theme={TagTheme.DEFAULT}
                               data={item}
                           />
                       ))
-                  }
+                   }
               </div>
           </div>
       </FullPageBlock>
