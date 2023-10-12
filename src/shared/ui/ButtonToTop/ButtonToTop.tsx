@@ -4,30 +4,34 @@
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { memo, useEffect, useState } from 'react';
+import {
+  CSSProperties, memo, useEffect, useState,
+} from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import classes from './ButtonToTop.module.scss';
 
 export enum ButtonToTopTheme {
-    TRANSPARENT = 'transparent'
+    NONE = 'none',
+    TRANSPARENT = 'transparent',
 }
 
 interface ButtonToTopProps {
     className?: string;
     theme?: ButtonToTopTheme;
+    display?: string;
 }
 
 export const ButtonToTop = memo((props: ButtonToTopProps) => {
-  const { className, theme = ButtonToTopTheme.TRANSPARENT } = props;
+  const { className, theme = ButtonToTopTheme.NONE, display } = props;
 
-  const [isVisible, setIsVisible] = useState(true);
+  const [isDisplay, setIsDisplay] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        setIsVisible(false);
+      if (window.scrollY > 1000) {
+        setIsDisplay(true);
       } else {
-        setIsVisible(true);
+        setIsDisplay(false);
       }
     });
   }, []);
@@ -39,12 +43,15 @@ export const ButtonToTop = memo((props: ButtonToTopProps) => {
     });
   };
 
-  const mods: Mods = {
-    [classes[theme]]: isVisible,
+  const stylesContent: CSSProperties = {
+    display: isDisplay ? 'flex' : 'none',
   };
 
   return (
-      <div className={classNames(classes.ButtonToTop, mods, [className])}>
+      <div
+          className={classNames(classes.ButtonToTop, {}, [className])}
+          style={stylesContent}
+      >
           <Button
               onClick={goTop}
               theme={ButtonTheme.SCROLL_TOP}
