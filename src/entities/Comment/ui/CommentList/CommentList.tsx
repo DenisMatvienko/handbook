@@ -1,6 +1,6 @@
 /**
- *    CommentList-component.
- *      - CommentList
+ *    CommentList-component;
+ *      - List with comment-cards, which contain text with comments.
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';

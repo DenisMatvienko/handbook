@@ -1,0 +1,29 @@
+.ButtonToTop {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  right: 0;
+  width: 15%;
+  height: 100%;
+  z-index: 2;
+}
+
+.arrow {
+  position: fixed;
+  top: 70%;
+  right: 4.5%;
+  width: 100px;
+  height: 100px;
+  border-top: 5px solid var(--main) !important;
+  border-right: 5px solid var(--main) !important;
+  margin: 16px 0 0 10px;
+  transform: rotate(-45deg);
+  display: inline-block;
+  transition: 1s;
+}
+
+.transparent {
+  opacity: .2
+}

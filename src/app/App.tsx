@@ -24,6 +24,7 @@ import { PageLoader } from 'widgets/PageLoader';
 import { getUserInited, userActions } from 'entities/User';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ButtonToTop } from 'shared/ui/ButtonToTop/ButtonToTop';
 import { AppRouter } from './provider/router';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               <Navbar />
               <div className="content-page">
                   <Sidebar />
+                  <ButtonToTop />
                   {inited && <AppRouter />}
               </div>
           </Suspense>

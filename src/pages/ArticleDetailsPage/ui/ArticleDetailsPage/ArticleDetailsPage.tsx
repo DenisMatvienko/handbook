@@ -3,15 +3,16 @@
  *      - ArticleDetailsPage
  *
  *    @param DoubleAdjustableFrame;
- *      - Wrap 2 blocks ArticleRecommendations and ArticleDetails. Allow to add width for both
- *        blocks.
+ *      - Wrap 2 blocks bt left side and by right side of page. Allow to add width for both blocks.
+ *
+ *    @param componentsLeftSide;
+ *      - Object with components which participate in left side of DoubleAdjustableFrame
+ *
+ *    @param componentRightSide;
+ *      - Object with components which participate in right side of DoubleAdjustableFrame
  *
  *    @param ArticleDetails;
  *      - Main article content, should to take most of the place. By default, width - 69%.
- *
- *    @param ArticleRecommendations;
- *      - Article list for, stories and other content in right pallet block for navigation
- *        on article page.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
