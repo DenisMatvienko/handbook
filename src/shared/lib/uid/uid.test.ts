@@ -4,6 +4,10 @@
  *
  *    @param findDuplicates;
  *      - helper func which check how many times match duplicate in array from arg.
+ *
+ *    @param runUid
+ *      - run uid() function
+ *      - arg: times - count of run
  */
 
 import { uid } from 'shared/lib/uid/uid';
@@ -11,6 +15,14 @@ import { uid } from 'shared/lib/uid/uid';
 const findDuplicates = (array: Array<string>) => {
   const duplicate = array.filter((item, index) => array.indexOf(item) !== index);
   return duplicate.length;
+};
+
+const runUid = (times: Number) => {
+  const expected: Array<string> = [];
+  for (let i = 0; i <= times; i++) {
+    expected[i] = uid();
+  }
+  return expected;
 };
 
 describe('uid', () => {
@@ -23,11 +35,7 @@ describe('uid', () => {
   });
 
   test('check on coincidences', () => {
-    const expected = [];
-    for (let i = 0; i <= 500; i++) {
-      expected.push(uid());
-    }
-    expect(findDuplicates(expected)).toBe(0);
+    expect(findDuplicates(runUid(500))).toBe(0);
   });
 
   test('check findDuplicates helper', () => {

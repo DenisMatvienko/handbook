@@ -3,7 +3,7 @@
  *          - Can use for keys in loops
  *
  *      @param padStart
- *        - Fix length, if len enough. Using '0' for filling to 12-len
+ *        - Fix length, if len enough. Using '0' for filling to 18-len
  */
 
 export function uid(): string {
