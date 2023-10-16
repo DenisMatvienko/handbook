@@ -99,7 +99,16 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "admin"
+      "password": "admin",
+      "role": "ADMIN",
+      "avatar": "https://files.vgtimes.ru/download/posts/2017-01/thumbs/1485205515_olphimsk.jpg"
+    },
+    {
+      "id": "2",
+      "username": "admin",
+      "password": "admin",
+      "role": "USER",
+      "avatar": "https://otvet.imgsmail.ru/download/181728987_1307a7339ed9ef172ee1d11c29323f2b_800.jpg"
     }
   ],
   "profile": {

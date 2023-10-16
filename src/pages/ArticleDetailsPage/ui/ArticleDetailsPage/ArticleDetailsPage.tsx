@@ -41,12 +41,20 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     {
       id: '1',
       text: 'comment',
-      user: { id: '1', username: 'cyberterminator4100' },
+      user: {
+        id: '1',
+        username: 'cyberterminator4100',
+        avatar: 'https://otvet.imgsmail.ru/download/181728987_1307a7339ed9ef172ee1d11c29323f2b_800.jpg',
+      },
     },
     {
       id: '2',
       text: 'comment 2',
-      user: { id: '1', username: 'cyberterminator4100' },
+      user: {
+        id: '1',
+        username: 'cyberterminator4100',
+        avatar: 'https://otvet.imgsmail.ru/download/181728987_1307a7339ed9ef172ee1d11c29323f2b_800.jpg',
+      },
     },
   ];
 

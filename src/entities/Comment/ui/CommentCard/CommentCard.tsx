@@ -14,14 +14,14 @@ import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
-    comments?: Comment;
+  comment?: Comment;
     isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
   const {
     className,
-    comments,
+    comment,
     isLoading,
   } = props;
 
@@ -31,16 +31,20 @@ export const CommentCard = memo((props: CommentCardProps) => {
               <div className={classes.commentIcon}>
                   <div className={classes.innerIcon} />
               </div>
-              <Avatar
-                  size={AvatarSize.M}
-                  radius={AvatarRadius.ELLIPSE}
-                  src=""
-                  alt=""
-              />
+              {comment
+                ? (
+                    <Avatar
+                        size={AvatarSize.M}
+                        radius={AvatarRadius.CIRCLE}
+                        src={comment?.user.avatar}
+                        alt={comment?.user.username}
+                    />
+                )
+                : null}
               <Text
                   className={classes.commentTitle}
                   theme={TextTheme.BLOCK_TEXT}
-                  title={comments?.user.username}
+                  title={comment?.user.username}
                   size={TextSize.S}
               />
               <Text
@@ -53,7 +57,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
           <div className={classes.commentText}>
               <Text
                   theme={TextTheme.BLOCK_TEXT}
-                  text={comments?.text}
+                  text={comment?.text}
                   size={TextSize.M}
                   align={TextAlign.LEFT}
               />
