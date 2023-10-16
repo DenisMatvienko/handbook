@@ -43,6 +43,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
       text: 'comment',
       user: { id: '1', username: 'cyberterminator4100' },
     },
+    {
+      id: '2',
+      text: 'comment 2',
+      user: { id: '1', username: 'cyberterminator4100' },
+    },
   ];
 
   const componentsLeftSide: ComponentsObjectType = {

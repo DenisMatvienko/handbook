@@ -46,7 +46,10 @@ export const CommentList = memo((props: CommentListProps) => {
               />
               {comments?.length
                 ? comments.map((item) => (
-                    <CommentCard key={item.id} />
+                    <CommentCard
+                        comments={item}
+                        key={item.id}
+                    />
                 ))
                 : (
                     <Text

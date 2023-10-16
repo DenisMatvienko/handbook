@@ -40,7 +40,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
               <Text
                   className={classes.commentTitle}
                   theme={TextTheme.BLOCK_TEXT}
-                  title="name"
+                  title={comments?.user.username}
                   size={TextSize.S}
               />
               <Text
@@ -53,7 +53,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
           <div className={classes.commentText}>
               <Text
                   theme={TextTheme.BLOCK_TEXT}
-                  text="hello this is message"
+                  text={comments?.text}
                   size={TextSize.M}
                   align={TextAlign.LEFT}
               />
