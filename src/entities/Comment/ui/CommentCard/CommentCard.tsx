@@ -9,13 +9,14 @@ import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
+import { SkeletonComment } from 'shared/ui/Skeleton/SkeletonComment/SkeletonComment';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
   comment?: Comment;
-    isLoading?: boolean;
+  isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
@@ -24,6 +25,12 @@ export const CommentCard = memo((props: CommentCardProps) => {
     comment,
     isLoading,
   } = props;
+
+  if (isLoading) {
+    return (
+        <SkeletonComment />
+    );
+  }
 
   return (
       <div className={classNames(classes.CommentCard, {}, [className])}>
