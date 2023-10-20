@@ -27,21 +27,36 @@ import {
   DoubleAdjustableFrame,
 } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
 import { CommentList } from 'entities/Comment';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useSelector } from 'react-redux';
+import {
+  getArticleCommentsError,
+  getArticleCommentsIsLoading,
+} from '../../model/selectors/comments/GetComments';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
+const reducers: ReducersList = {
+  articleDetailsComments: articleDetailsCommentsReducer,
+};
+
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
+  const comments = useSelector(getArticleComments.selectAll);
+  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const commentsError = useSelector(getArticleCommentsError);
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
     comments: <CommentList
+        isLoading={commentsIsLoading}
         marginTop
-        comments={[]}
+        comments={comments}
     />,
   };
 
@@ -69,15 +84,19 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   return (
-
-      <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-          <DoubleAdjustableFrame
-              widthLeftBlock="69%"
-              widthRightBlock="30%"
-              leftBlock={componentsLeftSide}
-              rightBlock={componentsRightSide}
-          />
-      </div>
+      <DynamicModuleLoader
+          reducers={reducers}
+          removeAfterUnmount
+      >
+          <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+              <DoubleAdjustableFrame
+                  widthLeftBlock="69%"
+                  widthRightBlock="30%"
+                  leftBlock={componentsLeftSide}
+                  rightBlock={componentsRightSide}
+              />
+          </div>
+      </DynamicModuleLoader>
   );
 };
 
