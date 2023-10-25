@@ -50,6 +50,7 @@ export const ButtonToTop = memo((props: ButtonToTopProps) => {
   return (
       <div
           className={classNames(classes.ButtonToTop, {}, [className])}
+          data-testid="ButtonToTop"
           style={stylesContent}
       >
           <Button
