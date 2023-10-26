@@ -19,7 +19,7 @@ const findDuplicates = (array: Array<string>) => {
 
 const runUid = (times: Number) => {
   const expected: Array<string> = [];
-  for (let i = 0; i <= times; i++) {
+  for (let i = 0; i < times; i++) {
     expected[i] = uid();
   }
   return expected;

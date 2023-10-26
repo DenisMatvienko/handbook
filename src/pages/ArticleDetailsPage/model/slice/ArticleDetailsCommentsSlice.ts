@@ -12,6 +12,11 @@
  *        - Can pass adapter functions directly as case reducers.  Because we're passing this
  *          as a value, `createSlice` will auto-generate the `bookAdded` action type / creator;
  *
+ *       @param commentAdapter;
+ *        - function for normalized state
+ *          - setAll - add all comments (in that case). In fulfilled add by 1 arg: state, 2 arg: action data which need
+ *          to add into state. commentAdapter will add it himself (add ids, himself normalize data, add entities)
+ *
  *      @param getInitialState();
  *        - function return default state by selector;
  *
@@ -23,9 +28,12 @@
  *      Need add unique IDs of each item. Must be strings or numbers
  */
 
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Comment } from 'entities/Comment/model/types/comment';
 import { StateSchema } from 'app/provider/StoreProvider';
+import {
+  fetchCommentsByArticleId,
+} from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 
 const commentAdapter = createEntityAdapter<Comment>({
@@ -41,21 +49,28 @@ const articleDetailsCommentsSlice = createSlice({
   initialState: commentAdapter.getInitialState<ArticleDetailsCommentsSchema>({
     isLoading: false,
     error: undefined,
-    ids: ['1', '2'],
-    entities: {
-      1: {
-        id: '1',
-        text: 'comment 1',
-        user: { id: '1', username: '1' },
-      },
-      2: {
-        id: '2',
-        text: 'comment 2',
-        user: { id: '2', username: '2' },
-      },
-    },
+    ids: [],
+    entities: {},
   }),
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCommentsByArticleId.pending, (state, action) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(fetchCommentsByArticleId.fulfilled, (
+        state,
+        action: PayloadAction<Comment[]>,
+      ) => {
+        state.isLoading = false;
+        commentAdapter.setAll(state, action.payload);
+      })
+      .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const { actions: articleDetailsCommentsActions } = articleDetailsCommentsSlice;

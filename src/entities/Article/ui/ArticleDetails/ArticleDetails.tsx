@@ -21,6 +21,7 @@ import {
   ArticleDetailsContent,
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getArticleError, getArticleIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -45,10 +46,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const error = useSelector(getArticleError);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
   }, [dispatch, id]);
 
   let content;

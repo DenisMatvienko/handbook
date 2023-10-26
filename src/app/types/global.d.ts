@@ -7,6 +7,12 @@
  *   @param __IS_API__
  *    - is Instance API variable
  *
+ *    @param __PROJECT__
+ *    - is mode variable, allow using some effect in different modes. Example:
+ *      Storybook throw error, when use em with component which rendering by fetch from model/service.
+ *      for solving this problem. Need add in 'UseEffect' check, that __PROJECT__ != storybook
+ *      - if that true, can add useDispatch.
+ *
  *  @type DeepPartial<T>
  *    - allow to add all fields. Basically using in decorator.
  *      in strict mode some StateSchema fields crash with error (as example Login Schema):
