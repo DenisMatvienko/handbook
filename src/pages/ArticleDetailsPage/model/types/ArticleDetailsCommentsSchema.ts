@@ -10,7 +10,7 @@
  *          - Extend to interface 2 fields:
  *            1) "ids" - is array with number | string
  *            2) entities - is dictionary object, same as Record
- *            without extends its was as:
+ *            without extends it should be 2 fields(ids, entities) in ArticleDetailsCommentsSchema as:
  *              ids?: Array<string|number>,
  *              entities: Record<any, any>
  */
