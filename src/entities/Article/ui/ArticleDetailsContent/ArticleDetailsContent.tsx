@@ -11,7 +11,6 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getArticleDetails } from 'entities/Article/model/selectors/getArticleDetails';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import {
@@ -21,51 +20,44 @@ import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import ViewsIcon from 'shared/assets/icons/eye-show.svg';
 import DateIcon from 'shared/assets/icons/calendar.svg';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import {
-  ArticleImageBlockComponent,
-} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
-  ArticleCodeBlockComponent,
-} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-  ArticleTextBlockComponent,
-} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
+import { uid } from 'shared/lib/uid/uid';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleDetailsContent.module.scss';
 
 interface ArticleDetailsContentProps {
   className?: string;
-  id: string;
 }
 
 export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) => {
   const {
     className,
-    id,
   } = props;
   const { t } = useTranslation('articles');
   const data = useSelector(getArticleDetails);
-  const dispatch = useAppDispatch();
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.TEXT:
         return (
             <ArticleTextBlockComponent
-                key={block.id}
+                key={uid()}
                 block={block}
             />
         );
       case ArticleBlockType.CODE:
         return (
             <ArticleCodeBlockComponent
-                key={block.id}
+                key={uid()}
                 block={block}
             />
         );
       case ArticleBlockType.IMAGE:
         return (
             <ArticleImageBlockComponent
-                key={block.id}
+                key={uid()}
                 block={block}
             />
         );
@@ -142,12 +134,41 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                               />
                           </div>
                       </div>
+                      <div className={classes.articleHeaderBotStat}>
+                          {
+                              data?.type.map((item) => (
+                                  <Tag
+                                      key={uid()}
+                                      theme={TagTheme.DEFAULT}
+                                      data={item}
+                                  />
+                              ))
+                              }
+                      </div>
                   </div>
               </div>
               <div className={classes.articleContent}>
                   <div className={classes.articleContentBlock}>
                       {data?.blocks.map(renderBlock)}
                   </div>
+              </div>
+              <div className={classes.articleEndStat}>
+                  <Text
+                      className={classes.tagsTitle}
+                      theme={TextTheme.BLOCK_TEXT}
+                      title={`${t('tags')}: `}
+                      align={TextAlign.LEFT}
+                      size={TextSize.S}
+                  />
+                  {
+                      data?.type.map((item) => (
+                          <Tag
+                              key={uid()}
+                              theme={TagTheme.DEFAULT}
+                              data={item}
+                          />
+                      ))
+                   }
               </div>
           </div>
       </FullPageBlock>

@@ -3,36 +3,76 @@
  *      - ArticleDetailsPage
  *
  *    @param DoubleAdjustableFrame;
- *      - Wrap 2 blocks ArticleRecommendations and ArticleDetails. Allow to add width for both
- *        blocks.
+ *      - Wrap 2 blocks bt left side and by right side of page. Allow to add width for both blocks.
+ *
+ *    @param componentsLeftSide;
+ *      - Object with components which participate in left side of DoubleAdjustableFrame
+ *
+ *    @param componentRightSide;
+ *      - Object with components which participate in right side of DoubleAdjustableFrame
  *
  *    @param ArticleDetails;
  *      - Main article content, should to take most of the place. By default, width - 69%.
- *
- *    @param ArticleRecommendations;
- *      - Article list for, stories and other content in right pallet block for navigation
- *        on article page.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { createContext, memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import {
-  ArticleRecommendations,
-} from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
-import { DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
+  ComponentsObjectType,
+  DoubleAdjustableFrame,
+} from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
+import { CommentList } from 'entities/Comment';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useSelector } from 'react-redux';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {
+  fetchCommentsByArticleId,
+} from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+  getArticleCommentsError,
+  getArticleCommentsIsLoading,
+} from '../../model/selectors/comments/GetComments';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
+const reducers: ReducersList = {
+  articleDetailsComments: articleDetailsCommentsReducer,
+};
+
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
+  const dispatch = useAppDispatch();
+  const comments = useSelector(getArticleComments.selectAll);
+  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const commentsError = useSelector(getArticleCommentsError);
+
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  }, [id, dispatch]);
+
+  const componentsLeftSide: ComponentsObjectType = {
+    articleContent: <ArticleDetails id={id || '0'} />,
+    comments: <CommentList
+        isLoading={commentsIsLoading}
+        marginTop
+        comments={comments}
+    />,
+  };
+
+  const componentsRightSide: ComponentsObjectType = {
+    recommendations: <ArticleRecommendations id={id || '0'} />,
+  };
 
   if (!id) {
     return (
@@ -54,15 +94,19 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   return (
-
-      <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-          <DoubleAdjustableFrame
-              widthLeftBlock="69%"
-              widthRightBlock="30%"
-              leftBlock={<ArticleDetails id={id} />}
-              rightBlock={<ArticleRecommendations id={id} />}
-          />
-      </div>
+      <DynamicModuleLoader
+          reducers={reducers}
+          removeAfterUnmount
+      >
+          <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+              <DoubleAdjustableFrame
+                  widthLeftBlock="69%"
+                  widthRightBlock="30%"
+                  leftBlock={componentsLeftSide}
+                  rightBlock={componentsRightSide}
+              />
+          </div>
+      </DynamicModuleLoader>
   );
 };
 

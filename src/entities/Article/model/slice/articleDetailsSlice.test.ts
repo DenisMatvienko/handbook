@@ -6,7 +6,7 @@
  *       Test of pending state. from fetchArticleById service.
  *       - in time of pending isLoading change on - true.
  *
- *    @test 'updateProfileData service fulfilled state in extraReducer';
+ *    @test 'fetchArticleById service fulfilled state in extraReducer';
  *      Test in time, when response successfully returned, after loading/pending.
  *
  */
@@ -16,8 +16,6 @@ import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/arti
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from './articleDetailsSlice';
 import { ArticleDetailSchema } from '../types/ArticleDetailSchema';
-
-const InitialState: DeepPartial<ArticleDetailSchema> = {};
 
 const article: Article = {
   id: '1',
@@ -50,7 +48,7 @@ const article: Article = {
   ],
 };
 
-describe('profileSlice', () => {
+describe('ArticleDetailsSlice', () => {
   test('fetchArticleById service pending state in extraReducer', () => {
     const state: DeepPartial<ArticleDetailSchema> = {
       error: undefined,

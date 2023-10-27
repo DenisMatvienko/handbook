@@ -41,6 +41,7 @@ export enum TextTheme {
   BLOCK_TEXT='blockText',
   SECONDARY_INVERTED = 'secondaryInverted',
   TEXT_WHITE = 'textWhite',
+  TRANSLUCENT = 'translucent',
   SUBTITLE='subtitle',
   ERROR = 'error',
 }
@@ -52,6 +53,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  XS = 'size_xs',
   S = 'size_s',
   M = 'size_m',
   L = 'size_l',

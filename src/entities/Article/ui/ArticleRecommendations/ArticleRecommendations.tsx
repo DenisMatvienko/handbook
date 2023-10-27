@@ -57,13 +57,6 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
   const data = useSelector(getArticleDetails);
   const isLoading = useSelector(getArticleIsLoading);
   const error = useSelector(getArticleError);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(fetchArticleById(id));
-    }, 3000);
-  }, [dispatch, id]);
 
   let content;
 
@@ -79,24 +72,6 @@ export const ArticleRecommendations = memo((props: ArticleRecommendationsProps) 
     content = (
         <div className={classes.ArticleRecommendations}>
             <RecommendationsBlock className={classes.ArticlesList}>
-                <Text
-                    className={classes.articleBlockTopTitle}
-                    theme={TextTheme.BLOCK_TEXT}
-                    text={t(data?.title ? data?.title : '-')}
-                    align={TextAlign.LEFT}
-                    size={TextSize.M}
-                />
-            </RecommendationsBlock>
-            <RecommendationsBlock>
-                <Text
-                    className={classes.articleBlockTopTitle}
-                    theme={TextTheme.BLOCK_TEXT}
-                    text={t(data?.title ? data?.title : '-')}
-                    align={TextAlign.LEFT}
-                    size={TextSize.M}
-                />
-            </RecommendationsBlock>
-            <RecommendationsBlock>
                 <Text
                     className={classes.articleBlockTopTitle}
                     theme={TextTheme.BLOCK_TEXT}

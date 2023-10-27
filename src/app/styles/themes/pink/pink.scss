@@ -20,6 +20,7 @@
   --title-block-main: #ff8b9c;
   --title-subtitle: #fbf4f5;
   --text-subtitle: #fbf4f5;
+  --text-translucent: #d57483;
 
   // Complementary hover
   --main-hover: #548eaa;
@@ -35,6 +36,8 @@
   --button-cancel: #de5246;
   --button-dpurple-lwhite: #b578f3;
   --button-dpurple-ldark: #b578f3;
+  --button-scroll-to-top-bgc: var(--secondary);
+  --button-scroll-to-top: var(--accent);
 
   // Complementary border color
   --border-grey: #808080;
@@ -62,4 +65,7 @@
   --scroll: #ff8b9c;
   --scroll-background: #693a5d;
   --scroll-border: #ff8b9c;
+
+  // Tag color
+  --tag-default: #693a5d;
 }

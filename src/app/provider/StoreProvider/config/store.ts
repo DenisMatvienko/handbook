@@ -34,6 +34,7 @@ import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
 import { NavigateOptions } from 'react-router';
 import { To } from 'react-router-dom';
+import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(

@@ -17,15 +17,18 @@
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode, useMemo } from 'react';
+import { uid } from 'shared/lib/uid/uid';
 import classes from './DoubleAdjustableFrame.module.scss';
+
+export type ComponentsObjectType = Record<string, ReactNode>;
 
 interface DoubleAdjustableBlockProps {
   className?: string;
   widthLeftBlock?: string | number;
   widthRightBlock?: string | number;
-  leftBlock: ReactNode,
-  rightBlock: ReactNode,
+  leftBlock: ComponentsObjectType,
+  rightBlock: ComponentsObjectType,
 }
 
 export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
@@ -45,18 +48,30 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
     width: widthRightBlock,
   };
 
+  const leftComponentList = useMemo(() => Object.values(leftBlock).map((item) => (
+      <div key={uid()}>
+          {item}
+      </div>
+  )), [leftBlock]);
+
+  const rightComponentList = useMemo(() => Object.values(rightBlock).map((item) => (
+      <div key={uid()}>
+          {item}
+      </div>
+  )), [rightBlock]);
+
   return (
       <div className={classNames(classes.blockWrapper)}>
           <div
               className={classNames(classes.blockContent)}
               style={stylesContent}
           >
-              {leftBlock}
+              {leftComponentList}
           </div>
           <div
               style={stylesRecommendations}
           >
-              {rightBlock}
+              {rightComponentList}
           </div>
       </div>
   );

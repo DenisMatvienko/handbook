@@ -85,7 +85,7 @@ BackgroundThemeButtonDark.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
+  theme: ButtonTheme.BACKGROUND_BLACK,
 };
 BackgroundThemeButtonDark.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -96,7 +96,7 @@ InvertedBackgroundThemeButton.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_LWHITE_DPURPLE,
+  theme: ButtonTheme.BACKGROUND_BLACK,
 };
 
 export const InvertedBackgroundThemeButtonDark = Template.bind({});
@@ -106,7 +106,7 @@ InvertedBackgroundThemeButtonDark.args = {
   square: true,
   size: ButtonSize.XL,
   radius: ButtonRadius.SUPER_ELLIPSE,
-  theme: ButtonTheme.BACKGROUND_LWHITE_DPURPLE,
+  theme: ButtonTheme.BACKGROUND_LBLACK_DPURPLE,
 };
 InvertedBackgroundThemeButtonDark.decorators = [ThemeDecorator(Theme.DARK)];
 
