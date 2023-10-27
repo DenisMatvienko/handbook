@@ -17,6 +17,7 @@
 
 import { Currency } from 'entities/Currency/model/types/currency';
 import { Country } from 'entities/Country/model/types/country';
+import { User } from 'entities/User';
 
 export enum ValidateProfileError {
   NO_DATA = 'NO_DATA',
@@ -35,6 +36,7 @@ export enum ValidateProfileError {
 
 export interface Profile {
   profileId?: number;
+  user?: User;
   firstName?: string;
   lastName?: string;
   age?: number;

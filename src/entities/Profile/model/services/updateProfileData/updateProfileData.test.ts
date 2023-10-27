@@ -46,7 +46,7 @@ describe('updateProfileData', () => {
       },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.put)
       .toHaveBeenCalled(); // Expect that get request is ok
@@ -58,7 +58,7 @@ describe('updateProfileData', () => {
 
   test('server fall with error', async () => {
     const thunk = new TestAsyncThunk(updateProfileData);
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus)
       .toEqual('rejected');
@@ -71,7 +71,7 @@ describe('updateProfileData', () => {
       },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.payload)
       .toEqual([
@@ -89,7 +89,7 @@ describe('updateProfileData', () => {
         },
       },
     });
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.payload)
       .toEqual([
