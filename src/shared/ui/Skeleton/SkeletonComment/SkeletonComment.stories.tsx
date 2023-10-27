@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { SkeletonComment } from './SkeletonComment';
 
 export default {
-  title: 'enterSlice/SkeletonComment',
+  title: 'shared/SkeletonComment',
   component: SkeletonComment,
   argTypes: {
     backgroundColor: { control: 'color' },

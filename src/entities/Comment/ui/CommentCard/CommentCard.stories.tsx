@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { CommentCard } from './CommentCard';
 
 export default {
-  title: 'enterSlice/CommentCard',
+  title: 'entities/CommentCard',
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: 'color' },

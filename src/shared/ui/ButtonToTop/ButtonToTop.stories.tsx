@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { ButtonToTop } from './ButtonToTop';
 
 export default {
-  title: 'enterSlice/ButtonToTop',
+  title: 'shared/ButtonToTop',
   component: ButtonToTop,
   argTypes: {
     backgroundColor: { control: 'color' },

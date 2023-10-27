@@ -5,7 +5,7 @@
   margin-top: 20px;
 }
 
-.commentHeader{
+.commentHeader {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -13,7 +13,7 @@
   justify-content: flex-start;
 }
 
-.commentIcon{
+.commentIcon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,10 +21,8 @@
   height: 10px;
   background-color: var(--accent);
   border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
   margin-right: 10px;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .innerIcon {
@@ -32,17 +30,14 @@
   height: 6px;
   background-color: var(--secondary);
   border-radius: 50%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
 }
 
 .commentTitle {
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
-.commentText{
+.commentText {
   width: 95%;
   margin-left: 20px;
   margin-top: 10px;
 }
-

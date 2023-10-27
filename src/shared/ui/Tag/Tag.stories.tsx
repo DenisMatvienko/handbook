@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { Tag, TagTheme } from './Tag';
 
 export default {
-  title: 'enterSlice/Tag',
+  title: 'shared/Tag',
   component: Tag,
   argTypes: {
     backgroundColor: { control: 'color' },

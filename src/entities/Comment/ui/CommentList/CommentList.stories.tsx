@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { CommentList } from './CommentList';
 
 export default {
-  title: 'enterSlice/CommentList',
+  title: 'entities/CommentList',
   component: CommentList,
   argTypes: {
     backgroundColor: { control: 'color' },
