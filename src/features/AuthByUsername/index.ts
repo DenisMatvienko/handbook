@@ -1,4 +1,6 @@
-// AuthByUsername public API
+/**
+ *    - AuthByUsername public API
+ */
 
 import { LoginModal } from './ui/LoginModal/LoginModal';
 import { LoginSchema } from './model/types/loginSchema';
@@ -8,5 +10,4 @@ export {
   LoginModal,
   LoginSchema,
   loginActions,
-  // loginReducer,
 };

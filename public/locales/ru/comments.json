@@ -1,4 +1,7 @@
 {
   "comments": "Комментарии",
-  "no comments": "Комментарии отсутствуют"
+  "no comments": "Комментарии отсутствуют",
+  "AddCommentTitle": "Ваш коментарий",
+  "AddCommentPlaceholder": "Введите коментарий",
+  "AddCommentSendBtn": "Отправить комментарий"
 }

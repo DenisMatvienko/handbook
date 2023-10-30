@@ -1,5 +1,6 @@
 .blockWrapper {
   display: flex;
+  align-items: start;
   flex-direction: row;
   width: 100%;
 }
@@ -9,6 +10,11 @@
   flex-direction: column;
   width: 69%;
   margin-right: 1%;
+}
+
+.blockAdditional {
+  top: 10px;
+  position: sticky;
 }
 
 .leftBlockWrapper {

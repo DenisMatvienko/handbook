@@ -31,6 +31,7 @@
   box-shadow: 1px 1px 4px var(--box-shadow) inset;
 
   &::placeholder {
+    font-size: 14px;
     color: #c0c0c0;
   }
 

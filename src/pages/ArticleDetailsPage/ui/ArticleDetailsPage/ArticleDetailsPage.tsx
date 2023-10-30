@@ -34,6 +34,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm';
 import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
@@ -63,6 +64,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
+    addCommentForm: <AddCommentForm />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop

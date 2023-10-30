@@ -33,7 +33,8 @@
 
 .items {
   display: flex;
-  position: fixed;
+  top: -10px;
+  position: sticky;
   justify-content: center;
   flex-flow: column wrap;
   margin-top: 40px;

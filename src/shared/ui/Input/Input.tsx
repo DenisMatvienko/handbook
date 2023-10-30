@@ -78,7 +78,7 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-      <div className={classNames(classes.inputWrapper, wrapperMods)}>
+      <div className={classNames(classes.inputWrapper, wrapperMods, [className])}>
           {label && (
           <div className={classes.labelOnTop}>
               <Text
