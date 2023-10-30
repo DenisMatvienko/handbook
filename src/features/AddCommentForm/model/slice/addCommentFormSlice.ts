@@ -10,7 +10,7 @@ const initialState: AddCommentFormSchema = {
 };
 
 export const addCommentFormSlice = createSlice({
-  name: 'addCommentForm', // имя слайса
+  name: 'addCommentForm',
   initialState,
   reducers: {
     setText: (state, action:PayloadAction<string>) => {
