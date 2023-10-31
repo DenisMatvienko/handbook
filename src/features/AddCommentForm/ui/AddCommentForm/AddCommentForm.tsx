@@ -1,6 +1,11 @@
 /**
  *    AddCommentForm-component.
  *      - AddCommentForm
+ *
+ *      @param sendComment
+ *          - By this props can delegate change comments for any entities (it can be as comments for Article,
+ *          comments for profile, comments for photos, and any other types of comments)
+ *          - You just need to create in entities fetch as addCommentForArticle
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -16,30 +21,32 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
-import {
-  getAddCommentFormError,
-  getAddCommentFormText,
-} from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import classes from './AddCommentForm.module.scss';
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
     className?: string;
+    onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-export const AddCommentForm = memo((props: AddCommentFormProps) => {
-  const { className } = props;
+const AddCommentForm = memo((props: AddCommentFormProps) => {
+  const { className, onSendComment } = props;
   const { t } = useTranslation('comments');
   const text = useSelector(getAddCommentFormText);
-  const error = useSelector(getAddCommentFormError);
   const dispatch = useAppDispatch();
 
   const onCommentTextChange = useCallback((value: string) => {
     dispatch(addCommentFormActions.setText(value));
   }, [dispatch]);
+
+  const onSendHandler = useCallback(() => {
+    onSendComment(text || '');
+    onCommentTextChange('');
+  }, [onCommentTextChange, onSendComment, text]);
 
   return (
       <DynamicModuleLoader
@@ -71,6 +78,7 @@ export const AddCommentForm = memo((props: AddCommentFormProps) => {
                   className={classes.AddCommentButton}
               >
                   <Button
+                      onClick={onSendHandler}
                       theme={ButtonTheme.BACKGROUND_BLACK}
                       radius={ButtonRadius.SEMI_ELLIPSE}
                   >
@@ -82,3 +90,5 @@ export const AddCommentForm = memo((props: AddCommentFormProps) => {
       </DynamicModuleLoader>
   );
 });
+
+export default AddCommentForm;

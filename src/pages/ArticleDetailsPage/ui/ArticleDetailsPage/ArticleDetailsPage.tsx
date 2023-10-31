@@ -17,7 +17,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -34,7 +34,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { AddCommentForm } from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/service/AddCommentForArticle/addCommentForArticle';
 import {
   getArticleCommentsError,
   getArticleCommentsIsLoading,
@@ -58,13 +59,17 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const commentsError = useSelector(getArticleCommentsError);
 
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   }, [id, dispatch]);
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
-    addCommentForm: <AddCommentForm />,
+    addCommentForm: <AddCommentForm onSendComment={onSendComment} />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop

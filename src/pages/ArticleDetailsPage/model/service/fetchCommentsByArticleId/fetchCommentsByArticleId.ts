@@ -1,5 +1,6 @@
 /**
  *    Fetch comments by article id
+ *      - View comments on page
  *      - Get articles fetch
  *        contain comment's in Article
  *
