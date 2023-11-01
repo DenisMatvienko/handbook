@@ -33,13 +33,14 @@
 }
 
 .items {
-  display: flex;
   top: 30px;
   position: sticky;
-  justify-content: center;
+  display: flex;
   flex-flow: column wrap;
-  margin-top: 40px;
-  margin-left: 20px;
+  align-items: start;
+  padding-top: 50px;
+  padding-left: 65px;
+  transition: top .2s ease-in-out;
 }
 
 .switchers {
@@ -59,6 +60,11 @@
     align-items: center;
     flex-direction: column;
     position: fixed;
+  }
+
+  .items {
+    padding-left: 20px;
+    transition: padding-left .2s ease-in-out;
   }
 
   .lang {
