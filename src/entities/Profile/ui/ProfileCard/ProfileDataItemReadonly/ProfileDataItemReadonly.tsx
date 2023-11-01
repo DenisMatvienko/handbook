@@ -16,6 +16,7 @@ import { getUserAuthData } from 'entities/User';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { uid } from 'shared/lib/uid/uid';
 import classes from './ProfileDataItemReadonly.module.scss';
 
 interface ProfileDataItemReadonlyProps {
@@ -36,7 +37,7 @@ export const ProfileDataItemReadonly = ({
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
         <Text
-            key={item.profileId}
+            key={uid()}
             text={`${item.title}: `}
             theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
@@ -61,7 +62,7 @@ export const ProfileDataItemReadonly = ({
                   <div className={classes.blockUser}>
                       <Text
                           title={`${t('hi')}, 
-                          ${formData?.user?.username ? formData?.user.username : `Лунтик #${formData?.profileId}`}`}
+                          ${authDate?.username && `Лунтик #${authDate?.id}`}`}
                           theme={TextTheme.SECONDARY_INVERTED}
                       />
                       <div className={classes.dataAvatar}>

@@ -27,7 +27,6 @@ jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
 
 const data = {
-  profileId: 1,
   firstName: 'den',
   lastName: 'matvienko',
   age: 28,

@@ -22,7 +22,6 @@ const mockedAxios = jest.mocked(axios, true);
 describe('fetchProfileData', () => {
   test('ok request, success status, correct data', async () => {
     const data = {
-      profileId: 1,
       firstName: 'den',
       lastName: 'matvienko',
       age: 28,

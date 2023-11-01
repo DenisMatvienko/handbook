@@ -11,7 +11,7 @@ import { getProfileForm } from './getProfileForm';
 describe('getProfileForm', () => {
   test('selector should return form', () => {
     const form = {
-      profileId: 1,
+
       firstName: 'den',
       lastName: 'matvienko',
       age: 28,

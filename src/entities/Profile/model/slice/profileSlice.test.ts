@@ -37,7 +37,6 @@ import { ProfileSchema } from '../type/profile';
 const InitialState: DeepPartial<ProfileSchema> = {};
 
 const data = {
-  profileId: 1,
   firstName: 'den',
   lastName: 'matvienko',
   age: 28,

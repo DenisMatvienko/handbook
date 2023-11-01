@@ -11,7 +11,6 @@ import { getProfileData } from './getProfileData';
 describe('getProfileData', () => {
   test('selector should return date', () => {
     const data = {
-      profileId: 1,
       firstName: 'den',
       lastName: 'matvienko',
       age: 28,
