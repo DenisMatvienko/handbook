@@ -23,11 +23,11 @@ export const addCommentForArticle = createAsyncThunk<Comment,
       async (text, thunkAPI) => {
         const {
           extra,
+          dispatch,
           rejectWithValue,
           getState,
         } = thunkAPI;
 
-        const dispatch = useAppDispatch();
         const userData = getUserAuthData(getState());
         const article = getArticleDetails(getState());
 

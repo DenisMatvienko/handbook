@@ -21,7 +21,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
-import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import classes from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
@@ -44,6 +44,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
   }, [dispatch]);
 
   const onSendHandler = useCallback(() => {
+    console.log('button click');
     onSendComment(text || '');
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);

@@ -34,12 +34,12 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
               <Skeleton
                   className={classes.commentTitle}
                   border={5}
-                  width={200}
+                  width={150}
                   height={20}
               />
               <Skeleton
                   border={5}
-                  width={100}
+                  width={50}
                   height={20}
               />
           </div>
@@ -47,7 +47,7 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
               <Skeleton
                   border={5}
                   width="95%"
-                  height={200}
+                  height={55}
               />
           </div>
       </div>

@@ -29,11 +29,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .items {
   display: flex;
-  top: -10px;
+  top: 30px;
   position: sticky;
   justify-content: center;
   flex-flow: column wrap;
@@ -46,7 +47,7 @@
   justify-content: space-between;
   align-items: center;
   bottom: 20px;
-  width: 15%;
+  width: 10%;
   position: fixed;
 }
 
