@@ -18,7 +18,6 @@ import { useSelector } from 'react-redux';
  */
 
 export interface ProfileItemType {
-  profileId: number;
   title: string;
 }
 
@@ -29,33 +28,26 @@ export const ProfileItem = () => {
 
   const ProfileItemsList: ProfileItemType[] = [
     {
-      profileId: 1,
       title: t('Firstname'),
     },
     {
-      profileId: 2,
       title: t('Lastname'),
 
     },
     {
-      profileId: 3,
       title: t('age'),
     },
     {
-      profileId: 4,
       title: t('currency'),
     },
     {
-      profileId: 5,
       title: t('country'),
 
     },
     {
-      profileId: 6,
       title: t('city'),
     },
     {
-      profileId: 7,
       title: t('username'),
     },
   ];

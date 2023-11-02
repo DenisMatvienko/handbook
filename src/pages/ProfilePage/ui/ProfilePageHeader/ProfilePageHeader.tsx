@@ -7,7 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
+import {
+  getProfileData, getProfileReadonly, profileActions, updateProfileData,
+} from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
@@ -15,6 +17,8 @@ import Save from 'shared/assets/icons/save-filled.svg';
 import Cancel from 'shared/assets/icons/cancel.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Settings from 'shared/assets/icons/settings.svg';
+import { useParams } from 'react-router-dom';
+import { getUserAuthData } from 'entities/User';
 import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -28,7 +32,11 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
   const { t } = useTranslation('profile');
   const readonly = useSelector(getProfileReadonly);
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -39,12 +47,15 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    if (id) {
+      dispatch(updateProfileData(id));
+    }
+  }, [id, dispatch]);
 
   return (
 
       <div className={classes.headerWrapper}>
+          {canEdit && (
           <FullPageBlock>
               <div className={classes.header}>
                   <Text
@@ -84,6 +95,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     )}
               </div>
           </FullPageBlock>
+          )}
       </div>
   );
 };

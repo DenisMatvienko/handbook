@@ -4,7 +4,7 @@
   align-items: flex-end;
   flex-direction: column;
   right: 0;
-  width: 15%;
+  width: 7%;
   height: 100%;
   transition: 1s;
   z-index: 2;
@@ -13,9 +13,9 @@
 .arrow {
   position: fixed;
   top: 70%;
-  right: 4.5%;
-  width: 100px;
-  height: 100px;
+  right: 1.5%;
+  width: 70px;
+  height: 70px;
   border-top: 5px solid var(--button-scroll-to-top) !important;
   border-right: 5px solid var(--button-scroll-to-top) !important;
   margin: 16px 0 0 10px;

@@ -8,17 +8,17 @@ import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Profile, ValidateProfileError } from '../../type/profile';
 
 export const fetchProfileData = createAsyncThunk<Profile,
-    void,
+    string,
     ThunkConfig<string>>(
       'profile/fetchProfileData',
-      async (_, thunkAPI) => {
+      async (profileId, thunkAPI) => {
         const {
           extra,
           rejectWithValue,
         } = thunkAPI;
 
         try {
-          const response = await extra.api.get<Profile>('/profile');
+          const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
           if (!response.data) {
             throw new Error();

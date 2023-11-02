@@ -10,12 +10,14 @@ import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import { SkeletonComment } from 'shared/ui/Skeleton/SkeletonComment/SkeletonComment';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
-  comment?: Comment;
+  comment: Comment;
   isLoading?: boolean;
 }
 
@@ -32,28 +34,37 @@ export const CommentCard = memo((props: CommentCardProps) => {
     );
   }
 
+  if (!comment) {
+    return null;
+  }
+
   return (
       <div className={classNames(classes.CommentCard, {}, [className])}>
           <div className={classes.commentHeader}>
               <div className={classes.commentIcon}>
                   <div className={classes.innerIcon} />
               </div>
-              {comment
-                ? (
-                    <Avatar
-                        size={AvatarSize.M}
-                        radius={AvatarRadius.CIRCLE}
-                        src={comment?.user.avatar}
-                        alt={comment?.user.username}
-                    />
-                )
-                : null}
-              <Text
-                  className={classes.commentTitle}
-                  theme={TextTheme.BLOCK_TEXT}
-                  title={comment?.user.username}
-                  size={TextSize.S}
-              />
+              <AppLink
+                  className={classes.commentLink}
+                  to={`${RoutePath.profile}${comment?.user.id}`}
+              >
+                  {comment
+                    ? (
+                        <Avatar
+                            size={AvatarSize.M}
+                            radius={AvatarRadius.CIRCLE}
+                            src={comment?.user.avatar}
+                            alt={comment?.user.username}
+                        />
+                    )
+                    : null}
+                  <Text
+                      className={classes.commentTitle}
+                      theme={TextTheme.BLOCK_TEXT}
+                      title={comment?.user.username}
+                      size={TextSize.S}
+                  />
+              </AppLink>
               <Text
                   theme={TextTheme.SUBTITLE}
                   text="11.10.2023"

@@ -2,6 +2,14 @@
  *    Update Profile data;
  *      - return updates users changes to server.
  *
+ *    2 variants to update data:
+ *      @param string
+ *          - in args get string with id, and add in axios as like this: `/profile/${profileId}`.
+ *
+ *      @param void
+ *          - skip args, and get formData selector. from formData add into axios profile ids, as like this:
+ *          `/profile/${formData.id}`
+ *
  *    @param formData;
  *      - getProfileData selector.
  *        In components using useSelector.
@@ -21,10 +29,10 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { Profile, ValidateProfileError } from '../../type/profile';
 
 export const updateProfileData = createAsyncThunk<Profile,
-    void,
+    string,
     ThunkConfig<ValidateProfileError[]>>(
       'profile/updateProfileData',
-      async (_, thunkAPI) => {
+      async (profileId, thunkAPI) => {
         const {
           extra,
           rejectWithValue,
@@ -39,7 +47,7 @@ export const updateProfileData = createAsyncThunk<Profile,
         }
 
         try {
-          const response = await extra.api.put<Profile>('/profile', formData);
+          const response = await extra.api.put<Profile>(`/profile/${profileId}`, formData);
 
           if (!response.data) {
             throw new Error();

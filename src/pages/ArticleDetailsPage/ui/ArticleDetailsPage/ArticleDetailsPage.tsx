@@ -17,7 +17,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -34,10 +34,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import {
-  getArticleCommentsError,
-  getArticleCommentsIsLoading,
-} from '../../model/selectors/comments/GetComments';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/service/AddCommentForArticle/addCommentForArticle';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import classes from './ArticleDetailsPage.module.scss';
 
@@ -55,7 +54,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-  const commentsError = useSelector(getArticleCommentsError);
+
+  const onSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -63,6 +65,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
+    addCommentForm: <AddCommentForm onSendComment={onSendComment} />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop

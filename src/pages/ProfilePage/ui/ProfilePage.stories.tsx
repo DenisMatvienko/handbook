@@ -25,7 +25,7 @@ ProfilePageLight.decorators = [StoreDecorator(
   {
     profile: {
       form: {
-        profileId: 1,
+        id: '1',
         firstName: 'den',
         lastName: 'den',
         age: 28,

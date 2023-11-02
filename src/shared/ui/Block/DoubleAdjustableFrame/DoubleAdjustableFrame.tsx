@@ -69,6 +69,7 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
               {leftComponentList}
           </div>
           <div
+              className={classNames(classes.blockAdditional)}
               style={stylesRecommendations}
           >
               {rightComponentList}

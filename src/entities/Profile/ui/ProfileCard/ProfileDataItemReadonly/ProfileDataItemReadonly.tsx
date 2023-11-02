@@ -7,12 +7,16 @@
 
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useMemo } from 'react';
-import { Profile, ProfileData, ProfileItem } from 'entities/Profile';
+import {
+  getProfileForm, Profile, ProfileData, ProfileItem,
+} from 'entities/Profile';
 import { HalfPageBlock } from 'shared/ui/Block/HalfPageBlock/HalfPageBlock';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { uid } from 'shared/lib/uid/uid';
 import classes from './ProfileDataItemReadonly.module.scss';
 
 interface ProfileDataItemReadonlyProps {
@@ -27,12 +31,13 @@ export const ProfileDataItemReadonly = ({
   const { t } = useTranslation('profile');
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
+  const formData = useSelector(getProfileForm);
   const authDate = useSelector(getUserAuthData);
 
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
         <Text
-            key={item.profileId}
+            key={uid()}
             text={`${item.title}: `}
             theme={TextTheme.SECONDARY_INVERTED}
             align={TextAlign.LEFT}
@@ -52,11 +57,12 @@ export const ProfileDataItemReadonly = ({
 
   return (
       <div className={classes.dataWrapper}>
-          <HalfPageBlock>
+          <FullPageBlock className={classes.blockWrapper}>
               <div className={classes.blockUserWrapper}>
                   <div className={classes.blockUser}>
                       <Text
-                          title={`${t('hi')}, ${authDate?.username}`}
+                          title={`${t('hi')}, 
+                          ${authDate?.username && `Лунтик #${authDate?.id}`}`}
                           theme={TextTheme.SECONDARY_INVERTED}
                       />
                       <div className={classes.dataAvatar}>
@@ -68,15 +74,17 @@ export const ProfileDataItemReadonly = ({
                       </div>
                   </div>
               </div>
-          </HalfPageBlock>
-          <HalfPageBlock>
+          </FullPageBlock>
+          <FullPageBlock
+              className={classes.blockWrapper}
+          >
               <div className={classes.dataReadonly}>
                   <div className={classes.title}>{itemsList}</div>
                   <div className={classes.titleName}>
                       {dataList}
                   </div>
               </div>
-          </HalfPageBlock>
+          </FullPageBlock>
       </div>
   );
 };

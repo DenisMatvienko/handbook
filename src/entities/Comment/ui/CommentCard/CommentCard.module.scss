@@ -32,6 +32,11 @@
   border-radius: 50%;
 }
 
+.commentLink {
+  display: flex;
+  flex-direction: row;
+}
+
 .commentTitle {
   margin: 0 10px;
 }

@@ -29,15 +29,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .items {
+  top: 30px;
+  position: sticky;
   display: flex;
-  position: fixed;
-  justify-content: center;
   flex-flow: column wrap;
-  margin-top: 40px;
-  margin-left: 20px;
+  align-items: start;
+  padding-top: 50px;
+  padding-left: 65px;
+  transition: top 0.2s ease-in-out;
 }
 
 .switchers {
@@ -45,7 +48,7 @@
   justify-content: space-between;
   align-items: center;
   bottom: 20px;
-  width: 15%;
+  width: 10%;
   position: fixed;
 }
 
@@ -57,6 +60,11 @@
     align-items: center;
     flex-direction: column;
     position: fixed;
+  }
+
+  .items {
+    padding-left: 20px;
+    transition: padding-left 0.2s ease-in-out;
   }
 
   .lang {

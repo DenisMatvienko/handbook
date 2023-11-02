@@ -22,7 +22,6 @@ const mockedAxios = jest.mocked(axios, true);
 describe('fetchProfileData', () => {
   test('ok request, success status, correct data', async () => {
     const data = {
-      profileId: 1,
       firstName: 'den',
       lastName: 'matvienko',
       age: 28,
@@ -34,7 +33,7 @@ describe('fetchProfileData', () => {
     };
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ data }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.get)
       .toHaveBeenCalled(); // Expect that get request is ok
@@ -46,7 +45,7 @@ describe('fetchProfileData', () => {
   test('server fall with error', async () => {
     const thunk = new TestAsyncThunk(fetchProfileData);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus)
       .toBe('rejected');
