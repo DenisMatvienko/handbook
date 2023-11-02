@@ -17,7 +17,7 @@ import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
-  comment?: Comment;
+  comment: Comment;
   isLoading?: boolean;
 }
 
@@ -32,6 +32,10 @@ export const CommentCard = memo((props: CommentCardProps) => {
     return (
         <SkeletonComment />
     );
+  }
+
+  if (!comment) {
+    return null;
   }
 
   return (

@@ -25,11 +25,28 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const FirstCommentCard = Template.bind({});
-FirstCommentCard.args = {};
-FirstCommentCard.decorators = [ThemeDecorator(Theme.DARK)];
+FirstCommentCard.args = {
+  comment: {
+    id: '2',
+    text: 'Hello',
+    user: {
+      id: '2',
+      username: 'Danzel',
+    },
+  },
+};
 FirstCommentCard.decorators = [StoreDecorator({})];
 
-export const SecondCommentCard = Template.bind({});
-SecondCommentCard.args = {};
-SecondCommentCard.decorators = [ThemeDecorator(Theme.DARK)];
-SecondCommentCard.decorators = [StoreDecorator({})];
+export const isLoadingCommentCard = Template.bind({});
+isLoadingCommentCard.args = {
+  comment: {
+    id: '2',
+    text: 'Hello',
+    user: {
+      id: '2',
+      username: 'Danzel',
+    },
+  },
+  isLoading: true,
+};
+isLoadingCommentCard.decorators = [StoreDecorator({})];

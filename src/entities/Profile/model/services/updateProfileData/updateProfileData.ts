@@ -2,6 +2,14 @@
  *    Update Profile data;
  *      - return updates users changes to server.
  *
+ *    2 variants to update data:
+ *      @param string
+ *          - in args get string with id, and add in axios as like this: `/profile/${profileId}`.
+ *
+ *      @param void
+ *          - skip args, and get formData selector. from formData add into axios profile ids, as like this:
+ *          `/profile/${formData.id}`
+ *
  *    @param formData;
  *      - getProfileData selector.
  *        In components using useSelector.

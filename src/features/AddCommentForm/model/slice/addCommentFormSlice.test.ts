@@ -1,24 +1,24 @@
-// /**
-//  *    addCommentFormSlice test
-//  *      - test's for addCommentFormSlice
-//  *
-//  *    @test 'add_test_describe'.
-//  *
-//  */
-//
-// import {add_slice_action, add_slice_reduser} from './addCommentFormSlice';
-// import {add_type_schema} from '';
-//
-// const InitialState: DeepPartial<add_type_schema> = {};
-//
-// const data = {
-//     also_can_add_manual_data
-// };
-//
-// describe('addCommentFormSlice', () => {
-//     test('addCommentFormSlice reducer test', () => {
-//     });
-//
-//     test('addCommentFormSlice reducer test', () => {
-//     });
-// });
+/**
+ *    addCommentFormSlice test
+ *      - test's for addCommentFormSlice
+ *
+ *    @test 'setText'.
+ *      - write text in state and check it
+ *
+ */
+
+import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { addCommentFormActions, addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
+
+const InitialState: DeepPartial<AddCommentFormSchema> = {};
+
+describe('addCommentFormSlice', () => {
+  test('setText reducer test', () => {
+    const state: DeepPartial<AddCommentFormSchema> = { text: 'hello' };
+    expect(addCommentFormReducer(
+        state as AddCommentFormSchema,
+        addCommentFormActions.setText('hello'),
+    ))
+      .toEqual({ text: 'hello' });
+  });
+});
