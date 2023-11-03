@@ -33,14 +33,14 @@
 }
 
 .items {
-  top: 30px;
+  top: 20px;
   position: sticky;
   display: flex;
   flex-flow: column wrap;
   align-items: start;
   padding-top: 50px;
   padding-left: 65px;
-  transition: top 0.2s ease-in-out;
+  transition: top 1s ease-in-out;
 }
 
 .switchers {
