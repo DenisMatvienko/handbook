@@ -52,7 +52,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                     ? (
                         <Avatar
                             size={AvatarSize.M}
-                            radius={AvatarRadius.CIRCLE}
+                            radius={AvatarRadius.ELLIPSE}
                             src={comment?.user.avatar}
                             alt={comment?.user.username}
                         />

@@ -34,6 +34,8 @@ export const ProfileDataItemReadonly = ({
   const formData = useSelector(getProfileForm);
   const authDate = useSelector(getUserAuthData);
 
+  console.log(formData?.firstName);
+
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
         <Text
@@ -61,8 +63,7 @@ export const ProfileDataItemReadonly = ({
               <div className={classes.blockUserWrapper}>
                   <div className={classes.blockUser}>
                       <Text
-                          title={`${t('hi')}, 
-                          ${authDate?.username && `Лунтик #${authDate?.id}`}`}
+                          title={`${t('hi')}, ${formData?.firstName}`}
                           theme={TextTheme.SECONDARY_INVERTED}
                       />
                       <div className={classes.dataAvatar}>
