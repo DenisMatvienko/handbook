@@ -18,6 +18,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const isAuth = useSelector(getUserAuthData);
+  const profile = useSelector(getProfileForm);
   const dispatch = useDispatch();
 
   const onCloseModal = useCallback(() => {
@@ -36,7 +37,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
         <div className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.accountBar, {}, [className])}>
-                <div className={classes.usernameAvatar} />
+                <div className={classes.usernameAvatar}>
+                    <Avatar
+                        size={AvatarSize.M}
+                        src={isAuth?.avatar}
+                        alt={profile?.username}
+                    />
+                </div>
                 <div className={classes.usernameLinks}>
                     <Text
                         text={`${isAuth.username},`}

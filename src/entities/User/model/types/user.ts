@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+import { getProfileForm } from 'entities/Profile';
+
 /**
  *    UserSchema
  *    - interface for state.
