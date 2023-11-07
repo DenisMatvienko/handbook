@@ -27,6 +27,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view } = props;
   const { t } = useTranslation();
 
+  const onHoverTagInfo = () => {
+    console.log('move');
+  };
+
   if (view === ArticleView.LIST) {
     return (
         <div className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}>
@@ -50,6 +54,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               </div>
               <div
                   className={classes.ArticleListItemTags}
+                  onClick={onHoverTagInfo}
               >
                   {
                       article?.type.map((item) => (
