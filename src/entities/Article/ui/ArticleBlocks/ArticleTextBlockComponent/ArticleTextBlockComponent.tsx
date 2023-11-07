@@ -9,7 +9,7 @@ import React, { memo } from 'react';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
-import { ArticleTextBlock } from '../../model/types/article';
+import { ArticleTextBlock } from '../../../model/types/article';
 import classes from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {

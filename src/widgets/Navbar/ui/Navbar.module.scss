@@ -7,10 +7,6 @@
   height: var(--navbar-height);
   background-color: var(--secondary-dark);
   box-shadow: 0 3px 5px var(--box-shadow);
-
-  :first-child {
-    justify-content: flex-end;
-  }
 }
 
 .accountBar {
