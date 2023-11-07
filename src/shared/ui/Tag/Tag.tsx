@@ -34,7 +34,7 @@ export const Tag = memo((props: TagProps) => {
   };
 
   return (
-      <div className={classNames(classes.Tag, mods)}>
+      <div className={classNames(classes.Tag, mods, [className])}>
           <Text
               theme={TextTheme.TEXT_WHITE}
               text={data}

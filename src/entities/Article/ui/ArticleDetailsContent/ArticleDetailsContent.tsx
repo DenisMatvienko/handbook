@@ -138,6 +138,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                           {
                               data?.type.map((item) => (
                                   <Tag
+                                      className={classes.articleHeaderBotTag}
                                       key={uid()}
                                       theme={TagTheme.DEFAULT}
                                       data={item}
@@ -163,6 +164,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                   {
                       data?.type.map((item) => (
                           <Tag
+                              className={classes.articleHeaderBotTag}
                               key={uid()}
                               theme={TagTheme.DEFAULT}
                               data={item}

@@ -6,11 +6,11 @@
  *        - content size with - 70%;
  *        - recommendation size should be - 30%;
  *
- *    @param children.
- *      - Only for article's content. Block width 69%;
+ *    @param leftComponentList.
+ *      - Only for main content (articles, cards, etc..). Block width 69%;
  *
  *    @param recommendations.
- *      - Only for any information content (as recommendations, story etc..);
+ *      - Only for any information and other content (as recommendations, stories, filters, etc..);
  *        css property should be:
  *        - with width - 30%;
  *        - margin - 1%;

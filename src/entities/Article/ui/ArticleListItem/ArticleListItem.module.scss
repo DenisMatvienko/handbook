@@ -1,0 +1,35 @@
+.ArticleListItem {
+  width: 350px;
+}
+
+.ArticleListItemCard {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 30px;
+}
+
+.ArticleListItemTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row  wrap;
+}
+
+.ArticleListItemImg {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.ArticleListItemTags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  width: 70%;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.Tag {
+  padding: 5px;
+}
