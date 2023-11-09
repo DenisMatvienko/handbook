@@ -9,11 +9,12 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
 import { uid } from 'shared/lib/uid/uid';
+import { TagsInfo } from 'widgets/TagsInfo/ui/TagsInfo';
 import { Article, ArticleView } from '../../model/types/article';
 import classes from './ArticleListItem.module.scss';
 
@@ -25,11 +26,16 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view } = props;
+  const [isTagModal, setIsTagModal] = useState(false);
   const { t } = useTranslation();
 
-  const onHoverTagInfo = () => {
-    console.log('move');
-  };
+  const onShowTagInfo = useCallback(() => {
+    setIsTagModal(true);
+  }, []);
+
+  const onCloseTagInfo = useCallback(() => {
+    setIsTagModal(false);
+  }, []);
 
   if (view === ArticleView.LIST) {
     return (
@@ -52,21 +58,53 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               <div className={classes.ArticleListItemTitle}>
                   {article.title}
               </div>
-              <div
-                  className={classes.ArticleListItemTags}
-                  onClick={onHoverTagInfo}
-              >
-                  {
-                      article?.type.map((item) => (
-                          <Tag
-                              className={classes.Tag}
-                              key={uid()}
-                              theme={TagTheme.DEFAULT}
-                              data={item}
-                          />
-                      ))
-                  }
-              </div>
+              {
+                  article.type.length > 3
+                    ? (
+                        <div
+                            className={classes.ArticleListItemTags}
+                            onClick={onShowTagInfo}
+                        >
+                            {
+                                article?.type.slice(0, 5).map((item) => (
+                                    <Tag
+                                        className={classes.Tag}
+                                        key={uid()}
+                                        theme={TagTheme.DEFAULT}
+                                        data={item}
+                                    />
+                                ))
+                            }
+                            <TagsInfo
+                                article={article}
+                                isOpen={isTagModal}
+                                onClose={onCloseTagInfo}
+                            />
+                        </div>
+                    )
+                    : (
+                        <div
+                            className={classes.ArticleListItemTags}
+                            onClick={onShowTagInfo}
+                        >
+                            {
+                              article?.type.map((item) => (
+                                  <Tag
+                                      className={classes.Tag}
+                                      key={uid()}
+                                      theme={TagTheme.DEFAULT}
+                                      data={item}
+                                  />
+                              ))
+                          }
+                            <TagsInfo
+                                article={article}
+                                isOpen={isTagModal}
+                                onClose={onCloseTagInfo}
+                            />
+                        </div>
+                    )
+              }
           </FullPageBlock>
       </div>
   );

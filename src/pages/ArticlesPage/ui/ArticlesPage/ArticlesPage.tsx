@@ -25,6 +25,15 @@ const article = {
     'IT',
     'JS',
     'Architecture',
+    'hello',
+    'den',
+    'will',
+    'completely',
+    'complete',
+    'the',
+    'interview',
+    'ok',
+    'boy',
   ],
   blocks: [
     {
