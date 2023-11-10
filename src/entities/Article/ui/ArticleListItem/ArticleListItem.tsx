@@ -9,7 +9,9 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useState } from 'react';
+import React, {
+  memo, useCallback, useMemo, useState,
+} from 'react';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-show.svg';
@@ -98,54 +100,36 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                   />
               </div>
           </div>
-          {
-                  article.type.length > 3
-                    ? (
-                        <div
-                            className={classes.ArticleListItemTags}
-                            onClick={onShowTagInfo}
-                        >
-                            {
-                                  article?.type.slice(0, 5).map((item) => (
-                                      <Tag
-                                          className={classes.Tag}
-                                          key={uid()}
-                                          theme={TagTheme.DEFAULT}
-                                          data={item}
-                                      />
-                                  ))
-                              }
-                            <TagsInfo
-                                className={classes.TagInfo}
-                                article={article}
-                                isOpen={isTagModal}
-                                onClose={onCloseTagInfo}
-                            />
-                        </div>
-                    )
-                    : (
-                        <div
-                            className={classes.ArticleListItemTags}
-                            onClick={onShowTagInfo}
-                        >
-                            {
-                                  article?.type.map((item) => (
-                                      <Tag
-                                          className={classes.Tag}
-                                          key={uid()}
-                                          theme={TagTheme.DEFAULT}
-                                          data={item}
-                                      />
-                                  ))
-                              }
-                            <TagsInfo
-                                article={article}
-                                isOpen={isTagModal}
-                                onClose={onCloseTagInfo}
-                            />
-                        </div>
-                    )
-              }
+          <div
+              className={classes.ArticleListItemTags}
+              onClick={onShowTagInfo}
+          >
+              {article.type.length > 3
+                ? (article?.type.slice(0, 5).map((item) => (
+                    <Tag
+                        className={classes.Tag}
+                        key={uid()}
+                        theme={TagTheme.DEFAULT}
+                        data={item}
+                    />
+                )))
+                : (
+                  article?.type.map((item) => (
+                      <Tag
+                          className={classes.Tag}
+                          key={uid()}
+                          theme={TagTheme.DEFAULT}
+                          data={item}
+                      />
+                  ))
+                )}
+              <TagsInfo
+                  className={classes.TagInfo}
+                  article={article}
+                  isOpen={isTagModal}
+                  onClose={onCloseTagInfo}
+              />
+          </div>
       </Card>
   );
 });
