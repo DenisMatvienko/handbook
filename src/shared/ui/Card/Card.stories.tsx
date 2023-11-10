@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { Card } from './Card';
 
 export default {
-  title: 'enterSlice/Card',
+  title: 'shared/Card',
   component: Card,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -25,11 +25,7 @@ export default {
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const FirstCard = Template.bind({});
-FirstCard.args = {};
+FirstCard.args = {
+  children: 'hello hello',
+};
 FirstCard.decorators = [ThemeDecorator(Theme.DARK)];
-FirstCard.decorators = [StoreDecorator({})];
-
-export const SecondCard = Template.bind({});
-SecondCard.args = {};
-SecondCard.decorators = [ThemeDecorator(Theme.DARK)];
-SecondCard.decorators = [StoreDecorator({})];
