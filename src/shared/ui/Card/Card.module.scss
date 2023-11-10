@@ -1,0 +1,9 @@
+.Card {
+  width: 350px;
+}
+
+.CardItem {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 30px;
+}
