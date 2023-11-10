@@ -97,7 +97,16 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   return (
       <div className={classNames(classes.ArticlesPage, {}, [className])}>
           <ArticleList
-              articles={[article]}
+              articles={
+                  new Array(16)
+                    .fill(0)
+                    .map((item, index) => (
+                      {
+                        ...article,
+                        id: String(index),
+                      }
+                    ))
+              }
           />
       </div>
   );

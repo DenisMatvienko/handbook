@@ -19,9 +19,6 @@ export const Card = memo((props: CardProps) => {
   const { t } = useTranslation();
 
   return (
-      // <div className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}>
-      //
-      // </div>
       <div
           className={classNames(classes.Card, {}, [className])}
           {...otherProps}

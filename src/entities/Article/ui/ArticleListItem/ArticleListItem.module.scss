@@ -1,4 +1,11 @@
+.Card {
+  cursor: pointer;
+  transition: 0.2s;
 
+  &:hover {
+    transform: scale(1.01);
+  }
+}
 
 .ArticleListItemTitle {
   width: 100%;
@@ -30,8 +37,8 @@
 }
 
 .ArticleListItemDate {
-  width: 40%;
   display: flex;
+  width: 40%;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;

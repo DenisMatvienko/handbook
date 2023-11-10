@@ -21,6 +21,7 @@ import {
 } from 'shared/ui/Text/Text';
 import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
 import { Card } from 'shared/ui/Card/Card';
+import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Article, ArticleView } from '../../model/types/article';
 import classes from './ArticleListItem.module.scss';
 
@@ -33,7 +34,10 @@ interface ArticleListItemProps {
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view } = props;
   const [isTagModal, setIsTagModal] = useState(false);
+  const [isHover, bindIsHover] = useHover();
   const { t } = useTranslation();
+
+  console.log(isHover);
 
   const onShowTagInfo = useCallback(() => {
     setIsTagModal(true);
@@ -54,7 +58,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   }
 
   return (
-      <Card>
+      <Card
+          {...bindIsHover}
+          className={classes.Card}
+      >
           <img
               className={classes.ArticleListItemImg}
               src={article.img}
@@ -92,52 +99,53 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               </div>
           </div>
           {
-              article.type.length > 3
-                ? (
-                    <div
-                        className={classes.ArticleListItemTags}
-                        onClick={onShowTagInfo}
-                    >
-                        {
-                              article?.type.slice(0, 5).map((item) => (
-                                  <Tag
-                                      className={classes.Tag}
-                                      key={uid()}
-                                      theme={TagTheme.DEFAULT}
-                                      data={item}
-                                  />
-                              ))
-                          }
-                        <TagsInfo
-                            article={article}
-                            isOpen={isTagModal}
-                            onClose={onCloseTagInfo}
-                        />
-                    </div>
-                )
-                : (
-                    <div
-                        className={classes.ArticleListItemTags}
-                        onClick={onShowTagInfo}
-                    >
-                        {
-                              article?.type.map((item) => (
-                                  <Tag
-                                      className={classes.Tag}
-                                      key={uid()}
-                                      theme={TagTheme.DEFAULT}
-                                      data={item}
-                                  />
-                              ))
-                          }
-                        <TagsInfo
-                            article={article}
-                            isOpen={isTagModal}
-                            onClose={onCloseTagInfo}
-                        />
-                    </div>
-                )
-          }
+                  article.type.length > 3
+                    ? (
+                        <div
+                            className={classes.ArticleListItemTags}
+                            onClick={onShowTagInfo}
+                        >
+                            {
+                                  article?.type.slice(0, 5).map((item) => (
+                                      <Tag
+                                          className={classes.Tag}
+                                          key={uid()}
+                                          theme={TagTheme.DEFAULT}
+                                          data={item}
+                                      />
+                                  ))
+                              }
+                            <TagsInfo
+                                className={classes.TagInfo}
+                                article={article}
+                                isOpen={isTagModal}
+                                onClose={onCloseTagInfo}
+                            />
+                        </div>
+                    )
+                    : (
+                        <div
+                            className={classes.ArticleListItemTags}
+                            onClick={onShowTagInfo}
+                        >
+                            {
+                                  article?.type.map((item) => (
+                                      <Tag
+                                          className={classes.Tag}
+                                          key={uid()}
+                                          theme={TagTheme.DEFAULT}
+                                          data={item}
+                                      />
+                                  ))
+                              }
+                            <TagsInfo
+                                article={article}
+                                isOpen={isTagModal}
+                                onClose={onCloseTagInfo}
+                            />
+                        </div>
+                    )
+              }
       </Card>
   );
 });
