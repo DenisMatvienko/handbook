@@ -46,7 +46,7 @@ export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlo
 
 export enum ArticleView {
   LIST='LIST',
-  TITLE='TITLE',
+  GRID='GRID',
 }
 
 export interface Article {

@@ -39,8 +39,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const [isHover, bindIsHover] = useHover();
   const { t } = useTranslation();
 
-  console.log(isHover);
-
   const onShowTagInfo = useCallback(() => {
     setIsTagModal(true);
   }, []);
@@ -104,32 +102,21 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               className={classes.ArticleListItemTags}
               onClick={onShowTagInfo}
           >
-              {article.type.length > 3
-                ? (article?.type.slice(0, 5).map((item) => (
-                    <Tag
-                        className={classes.Tag}
-                        key={uid()}
-                        theme={TagTheme.DEFAULT}
-                        data={item}
-                    />
-                )))
-                : (
-                  article?.type.map((item) => (
-                      <Tag
-                          className={classes.Tag}
-                          key={uid()}
-                          theme={TagTheme.DEFAULT}
-                          data={item}
-                      />
-                  ))
-                )}
+              {article?.type.slice(0, 5).map((item) => (
+                  <Tag
+                      className={classes.Tag}
+                      key={uid()}
+                      theme={TagTheme.DEFAULT}
+                      data={item}
+                  />
+              ))}
               <TagsInfo
-                  className={classes.TagInfo}
                   article={article}
                   isOpen={isTagModal}
                   onClose={onCloseTagInfo}
               />
           </div>
+
       </Card>
   );
 });
