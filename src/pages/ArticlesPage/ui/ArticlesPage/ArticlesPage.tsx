@@ -7,7 +7,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { Article } from 'entities/Article';
+import { Article, ArticleDetails } from 'entities/Article';
+import { ComponentsObjectType, DoubleAdjustableFrame } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { CommentList } from 'entities/Comment';
+import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -94,19 +99,32 @@ const article = {
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation();
 
+  const componentsLeftSide: ComponentsObjectType = {
+    articleList: <ArticleList
+        articles={
+          new Array(16)
+            .fill(0)
+            .map((item, index) => (
+              {
+                ...article,
+                id: String(index),
+              }
+            ))
+        }
+    />,
+  };
+
+  const componentsRightSide: ComponentsObjectType = {
+    recommendations: <FullPageBlock>{article.title}</FullPageBlock>,
+  };
+
   return (
       <div className={classNames(classes.ArticlesPage, {}, [className])}>
-          <ArticleList
-              articles={
-                  new Array(16)
-                    .fill(0)
-                    .map((item, index) => (
-                      {
-                        ...article,
-                        id: String(index),
-                      }
-                    ))
-              }
+          <DoubleAdjustableFrame
+              widthLeftBlock="69%"
+              widthRightBlock="30%"
+              leftBlock={componentsLeftSide}
+              rightBlock={componentsRightSide}
           />
       </div>
   );

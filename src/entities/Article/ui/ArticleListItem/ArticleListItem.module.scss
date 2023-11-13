@@ -88,3 +88,9 @@
 .Tag {
   padding: 5px;
 }
+
+.ArticleListItemListView {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+}

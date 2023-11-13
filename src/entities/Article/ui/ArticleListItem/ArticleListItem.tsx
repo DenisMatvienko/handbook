@@ -49,11 +49,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   if (view === ArticleView.LIST) {
     return (
-        <div className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}>
-            <div>
+        <FullPageBlock className={classNames(classes.ArticleListItemListView, {}, [className, classes[view]])}>
+            <div className={classes.ArticleListItemWrapperListView}>
                 {article.title}
             </div>
-        </div>
+        </FullPageBlock>
     );
   }
 
@@ -71,8 +71,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               <Text
                   theme={TextTheme.BLOCK_TEXT}
                   title={stringCutter(article.title, 28)}
-                  size={TextSize.M}
-                  align={TextAlign.CENTER}
+                  size={TextSize.S}
+                  align={TextAlign.LEFT}
               />
 
           </div>
@@ -116,7 +116,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                   onClose={onCloseTagInfo}
               />
           </div>
-
       </Card>
   );
 });
