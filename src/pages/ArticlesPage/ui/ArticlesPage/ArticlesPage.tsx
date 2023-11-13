@@ -26,6 +26,10 @@ const article = {
   img: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
   views: 1022,
   createdAt: '19.09.2023',
+  user: {
+    id: '1',
+    username: 'JLebowski',
+  },
   type: [
     'IT',
     'JS',

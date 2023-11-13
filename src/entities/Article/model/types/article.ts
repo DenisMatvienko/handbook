@@ -6,7 +6,7 @@
  *      - In each of "blocks" interfaces (code, image, text) extending ArticleBlockBase with field "type".
  *      Despite this, we still explicitly indicate the "type" - field in each interface.
  *      This made for autocomplete.
- */
+ */ import { User } from 'entities/User';
 
 export enum ArticleBlockType {
   CODE = 'CODE',
@@ -56,6 +56,7 @@ export interface Article {
   img: string,
   views: number,
   createdAt: string,
+  user: User;
   type: ArticleType[],
   blocks: ArticleBlock[],
 }

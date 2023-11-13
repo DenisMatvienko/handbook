@@ -22,6 +22,7 @@ import {
 import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
 import { Card } from 'shared/ui/Card/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
+import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Article, ArticleView } from '../../model/types/article';
 import classes from './ArticleListItem.module.scss';
 
@@ -48,6 +49,25 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   if (view === ArticleView.LIST) {
     return (
         <Card className={classNames(classes.ArticleListItemListView, {}, [className, classes[view]])}>
+            <div className={classes.ArticleListItemListViewHeader}>
+                <Avatar
+                    size={AvatarSize.M}
+                    radius={AvatarRadius.ELLIPSE}
+                    src={article.user.avatar}
+                    alt={article.user.avatar}
+                />
+                <Text
+                    className={classes.commentTitle}
+                    theme={TextTheme.BLOCK_TEXT}
+                    title={article.user.username}
+                    size={TextSize.S}
+                />
+                <Text
+                    theme={TextTheme.SUBTITLE}
+                    text="27.10.2017"
+                    size={TextSize.S}
+                />
+            </div>
             <Text
                 theme={TextTheme.BLOCK_TEXT}
                 title={stringCutter(article.title, 50)}
