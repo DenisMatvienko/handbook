@@ -9,9 +9,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, {
-  memo, useCallback, useMemo, useState,
-} from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-show.svg';
@@ -49,18 +47,37 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   if (view === ArticleView.LIST) {
     return (
-        <FullPageBlock className={classNames(classes.ArticleListItemListView, {}, [className, classes[view]])}>
-            <div className={classes.ArticleListItemWrapperListView}>
-                {article.title}
+        <Card className={classNames(classes.ArticleListItemListView, {}, [className, classes[view]])}>
+            <Text
+                theme={TextTheme.BLOCK_TEXT}
+                title={stringCutter(article.title, 50)}
+                size={TextSize.M}
+                align={TextAlign.LEFT}
+            />
+            <div
+                className={classes.ArticleListItemListViewTags}
+            >
+                {article?.type.slice(0, 5).map((item, index) => (
+                    <Text
+                        theme={TextTheme.SUBTITLE}
+                        text={index < 4 ? `${item}, ` : `${item}.`}
+                        size={TextSize.S}
+                    />
+                ))}
             </div>
-        </FullPageBlock>
+            <img
+                className={classNames(classes.ArticleListItemImg, {}, [classes.ListViewIndent])}
+                src={article.img}
+                alt={article.title}
+            />
+        </Card>
     );
   }
 
   return (
       <Card
           {...bindIsHover}
-          className={classes.Card}
+          className={classes.CardGrid}
       >
           <img
               className={classes.ArticleListItemImg}

@@ -3,7 +3,7 @@
  *      - Component view articles
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
@@ -36,8 +36,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
       />
   );
 
+  const mods: Mods = {
+    [classes.row]: view === 'GRID',
+  };
+
   return (
-      <div className={classNames(classes.ArticleList, {}, [className])}>
+      <div className={classNames(classes.ArticleList, mods, [className])}>
           {
               articles.length > 0
                 ? articles?.map(renderArticle)

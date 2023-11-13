@@ -1,6 +1,10 @@
 .ArticleList {
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
-  gap: 50px;
+  flex-flow: column wrap;
+  gap: 20px;
+}
+
+.row {
+  flex-flow: row wrap;
 }
