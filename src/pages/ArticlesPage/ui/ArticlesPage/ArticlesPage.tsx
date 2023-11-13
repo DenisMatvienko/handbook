@@ -29,6 +29,7 @@ const article = {
   user: {
     id: '1',
     username: 'JLebowski',
+    avatar: 'https://media.gq-magazine.co.uk/photos/5d13a04bb744d364a425653b/master/pass/The-Big-Lebowski-hp-GQ-25Feb16_rex_b.jpg',
   },
   type: [
     'IT',

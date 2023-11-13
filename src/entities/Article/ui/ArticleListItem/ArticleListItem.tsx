@@ -52,12 +52,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <div className={classes.ArticleListItemListViewHeader}>
                 <Avatar
                     size={AvatarSize.M}
-                    radius={AvatarRadius.ELLIPSE}
+                    radius={AvatarRadius.CIRCLE}
                     src={article.user.avatar}
                     alt={article.user.avatar}
                 />
                 <Text
-                    className={classes.commentTitle}
                     theme={TextTheme.BLOCK_TEXT}
                     title={article.user.username}
                     size={TextSize.S}
@@ -69,6 +68,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 />
             </div>
             <Text
+                className={classes.ArticleTitle}
                 theme={TextTheme.BLOCK_TEXT}
                 title={stringCutter(article.title, 50)}
                 size={TextSize.M}
@@ -79,6 +79,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             >
                 {article?.type.slice(0, 5).map((item, index) => (
                     <Text
+                        className={classes.ArticleSubtitle}
                         theme={TextTheme.SUBTITLE}
                         text={index < 4 ? `${item}, ` : `${item}.`}
                         size={TextSize.S}

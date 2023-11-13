@@ -112,8 +112,20 @@
   align-items: center;
   flex-flow: row wrap;
   width: 40%;
+  cursor: pointer;
+}
 
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
+.ArticleListItemListViewHeader div {
+  margin-right: 10px;
+}
+
+.ArticleTitle {
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.ArticleSubtitle {
+  margin-top: 5px;
+  margin-right: 5px;
 }
