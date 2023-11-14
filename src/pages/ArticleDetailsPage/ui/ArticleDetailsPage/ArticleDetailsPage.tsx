@@ -31,11 +31,14 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Icon } from 'shared/ui/Icon/Icon';
+import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
 import {
   fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/service/AddCommentForArticle/addCommentForArticle';
+} from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import classes from './ArticleDetailsPage.module.scss';
@@ -102,6 +105,17 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           removeAfterUnmount
       >
           <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+              <div className={classes.ArticleDetailsPageBackButtonWrapper}>
+                  <Button
+                      className={classes.ArticleDetailsPageBackButton}
+                      theme={ButtonTheme.CANCEL}
+                  >
+                      <Icon
+                          className={classes.ArticleDetailsPageIcon}
+                          Svg={ArrowLeftIcon}
+                      />
+                  </Button>
+              </div>
               <DoubleAdjustableFrame
                   widthLeftBlock="69%"
                   widthRightBlock="30%"
