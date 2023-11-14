@@ -162,6 +162,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       >
           <img
               onClick={onOpenArticles}
+              aria-hidden="true"
               className={classes.ArticleListItemImg}
               src={article.img}
               alt={article.title}
