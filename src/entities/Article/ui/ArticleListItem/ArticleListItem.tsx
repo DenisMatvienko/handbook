@@ -10,7 +10,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback, useState } from 'react';
-import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-show.svg';
 import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
@@ -23,7 +22,12 @@ import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
 import { Card } from 'shared/ui/Card/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
-import { Article, ArticleView } from '../../model/types/article';
+import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import {
+  Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+} from '../../model/types/article';
 import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -36,7 +40,38 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { className, article, view } = props;
   const [isTagModal, setIsTagModal] = useState(false);
   const [isHover, bindIsHover] = useHover();
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
+  const navigate = useNavigate();
+  const views = (
+      <div className={classes.ArticleListItemViews}>
+          <Icon
+              className={classes.ArticleListItemIcon}
+              Svg={EyeIcon}
+          />
+          <Text
+              theme={TextTheme.BLOCK_TEXT}
+              text="1024"
+              size={TextSize.S}
+          />
+      </div>
+  );
+
+  const textBlock = (
+    article.blocks.find((item) => (item.type === ArticleBlockType.TEXT))
+  ) as ArticleTextBlock;
+
+  const paragraph = textBlock.paragraphs.map((item) => (
+      <Text
+          theme={TextTheme.BLOCK_TEXT}
+          text={item}
+          size={TextSize.M}
+          align={TextAlign.LEFT}
+      />
+  ));
+
+  const onOpenArticles = useCallback(() => {
+    navigate(RoutePath.article_details + article.id);
+  }, [article.id, navigate]);
 
   const onShowTagInfo = useCallback(() => {
     setIsTagModal(true);
@@ -51,21 +86,33 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         <Card className={classNames(classes.ArticleListItemListView, {}, [className, classes[view]])}>
             <div className={classes.ArticleListItemListViewHeader}>
                 <Avatar
-                    size={AvatarSize.M}
-                    radius={AvatarRadius.CIRCLE}
+                    size={AvatarSize.L}
+                    radius={AvatarRadius.ELLIPSE}
                     src={article.user.avatar}
                     alt={article.user.avatar}
                 />
-                <Text
-                    theme={TextTheme.BLOCK_TEXT}
-                    title={article.user.username}
-                    size={TextSize.S}
-                />
-                <Text
-                    theme={TextTheme.SUBTITLE}
-                    text="27.10.2017"
-                    size={TextSize.S}
-                />
+                <div className={classes.ArticleListItemListViewHeaderInfo}>
+                    <div className={classes.ArticleListItemListViewHeaderInfoTop}>
+                        <Text
+                            theme={TextTheme.BLOCK_TEXT}
+                            title={article.user.username}
+                            size={TextSize.S}
+                        />
+                        <Text
+                            theme={TextTheme.SUBTITLE}
+                            text="27.10.2017"
+                            size={TextSize.S}
+                        />
+                    </div>
+                    <div className={classes.ArticleListItemListViewHeaderInfoBot}>
+                        <Text
+                            theme={TextTheme.SUBTITLE}
+                            text={t('22 часа назад')}
+                            size={TextSize.S}
+                        />
+                        {views}
+                    </div>
+                </div>
             </div>
             <Text
                 className={classes.ArticleTitle}
@@ -91,6 +138,19 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 src={article.img}
                 alt={article.title}
             />
+            <div />
+            <div className={classes.ArticleListItemListViewDescription}>
+                {paragraph}
+            </div>
+            <div className={classes.ArticleListItemListViewFooter}>
+                <Button
+                    onClick={onOpenArticles}
+                    theme={ButtonTheme.BACKGROUND_BLACK}
+                    radius={ButtonRadius.SEMI_ELLIPSE}
+                >
+                    {t('ReadMore')}
+                </Button>
+            </div>
         </Card>
     );
   }
@@ -98,6 +158,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
       <Card
           {...bindIsHover}
+          onClick={onOpenArticles}
           className={classes.CardGrid}
       >
           <img
@@ -124,17 +185,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                       size={TextSize.S}
                   />
               </div>
-              <div className={classes.ArticleListItemViews}>
-                  <Icon
-                      className={classes.ArticleListItemIcon}
-                      Svg={EyeIcon}
-                  />
-                  <Text
-                      theme={TextTheme.BLOCK_TEXT}
-                      text="1024"
-                      size={TextSize.S}
-                  />
-              </div>
+              {views}
           </div>
           <div
               className={classes.ArticleListItemTags}

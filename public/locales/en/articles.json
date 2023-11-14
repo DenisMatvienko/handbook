@@ -1,5 +1,7 @@
 {
   "ArticleErrorTitle": "Ooops... error with loading article",
   "ArticleErrorText": "Article not found. Try to open new article or refresh page",
-  "tags": "Tags"
+  "tags": "Tags",
+  "ArticleList": "List of articles",
+  "ReadMore": "Read more..."
 }

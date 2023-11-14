@@ -13,6 +13,9 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
 import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -102,7 +105,7 @@ const article = {
 } as Article;
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
 
   const componentsLeftSide: ComponentsObjectType = {
     articleList: <ArticleList
@@ -125,6 +128,16 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   return (
       <div className={classNames(classes.ArticlesPage, {}, [className])}>
+          <FullPageBlock
+              className={classes.ArticlesPageHeader}
+          >
+              <Text
+                  theme={TextTheme.BLOCK_TEXT}
+                  title={t('ArticleList')}
+                  size={TextSize.L}
+                  align={TextAlign.LEFT}
+              />
+          </FullPageBlock>
           <DoubleAdjustableFrame
               widthLeftBlock="69%"
               widthRightBlock="30%"

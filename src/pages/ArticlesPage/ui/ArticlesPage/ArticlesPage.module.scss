@@ -1,4 +1,10 @@
 .ArticlesPage {
   display: flex;
+  flex-flow: column wrap;
   width: 100%;
+}
+
+.ArticlesPageHeader {
+  padding: 20px;
+  margin-bottom: 10px;
 }
