@@ -20,7 +20,7 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import {
   ComponentsObjectType,
@@ -35,6 +35,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import {
   fetchCommentsByArticleId,
 } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -54,9 +55,14 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
 
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -107,6 +113,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
               <div className={classes.ArticleDetailsPageBackButtonWrapper}>
                   <Button
+                      onClick={onBackToList}
                       className={classes.ArticleDetailsPageBackButton}
                       theme={ButtonTheme.CANCEL}
                   >

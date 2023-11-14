@@ -1,8 +1,9 @@
 .ArticleList {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-flow: column wrap;
-  gap: 10px;
+  gap: 20px;
+  margin-left: 0px;
 }
 
 .row {

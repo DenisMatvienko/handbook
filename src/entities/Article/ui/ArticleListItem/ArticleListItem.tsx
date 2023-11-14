@@ -7,7 +7,7 @@
  *         - Else it will be gridded cards
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback, useState } from 'react';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -158,15 +158,18 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
       <Card
           {...bindIsHover}
-          onClick={onOpenArticles}
           className={classes.CardGrid}
       >
           <img
+              onClick={onOpenArticles}
               className={classes.ArticleListItemImg}
               src={article.img}
               alt={article.title}
           />
-          <div className={classes.ArticleListItemTitle}>
+          <div
+              onClick={onOpenArticles}
+              className={classes.ArticleListItemTitle}
+          >
               <Text
                   theme={TextTheme.BLOCK_TEXT}
                   title={stringCutter(article.title, 28)}
