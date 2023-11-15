@@ -8,6 +8,7 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { getProfileForm } from 'entities/Profile';
+import LogoIcon from 'shared/assets/logo/handbook-logos_white.png';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -36,6 +37,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (isAuth) {
     return (
         <div className={classNames(classes.Navbar, {}, [className])}>
+            <img
+                className={classes.logo}
+                src={LogoIcon}
+                alt="logo"
+            />
             <div className={classNames(classes.accountBar, {}, [className])}>
                 <div className={classes.usernameAvatar}>
                     <Avatar
@@ -65,6 +71,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
       <div className={classNames(classes.Navbar, {}, [className])}>
+          <img
+              className={classes.logo}
+              src={LogoIcon}
+              alt="logo"
+          />
           <Button
               theme={ButtonTheme.BACKGROUND_BLACK}
               radius={ButtonRadius.SEMI_ELLIPSE}
