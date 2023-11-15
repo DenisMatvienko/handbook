@@ -1,17 +1,24 @@
 .SkeletonArticleListItem {
   display: flex;
   justify-content: space-between;
-  flex-flow: column wrap;
   gap: 20px;
   margin-left: 0px;
+}
+
+.col {
+  flex-flow: column wrap;
 }
 
 .row {
   flex-flow: row wrap;
 }
 
-.SkeletonArticleListItemWrapper {
+.SkeletonArticleListGridWrapper {
   padding: 20px;
+}
+
+.SkeletonArticleListItemWrapper {
+  padding: 30px;
 }
 
 .CardGrid {
@@ -45,7 +52,6 @@
   max-height: 250px;
   overflow: hidden;
   backdrop-filter: blur(5px);
-  background: var(--border-grey);
   object-fit: cover;
 }
 
@@ -106,12 +112,19 @@
   width: 100%;
 }
 
+.SkeletonArticleListItemListViewTitle {
+  margin-top: 20px;
+}
+
 .ArticleListItemListViewTags {
   display: flex;
   flex-flow: row wrap;
+  width: 30%;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-.ArticleListItemListViewHeader {
+.SkeletonArticleListItemListViewHeader {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -120,7 +133,7 @@
   cursor: pointer;
 }
 
-.ArticleListItemListViewHeader div {
+.SkeletonArticleListItemListViewHeader div {
   margin-right: 10px;
 }
 
@@ -144,26 +157,14 @@
   justify-content: flex-start;
   width: 70%;
   height: 20px;
+  margin-top: 10px;
 }
 
 .ArticleListItemListViewDescription {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   width: 100%;
-  height: 100px;
-  overflow: hidden;
-  background-color: var(--block-color);
-}
-
-.ArticleListItemListViewDescription::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  background: linear-gradient(180deg, transparent, var(--block-color) 70%);
-  z-index: 1;
 }
 
 .ArticleListItemListViewFooter {

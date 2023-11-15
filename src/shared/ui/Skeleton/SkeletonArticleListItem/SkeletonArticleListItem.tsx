@@ -20,12 +20,109 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
   const { t } = useTranslation();
 
   const mods: Mods = {
-    [classes.row]: view === 'GRID',
+    [classes.row]: view === ArticleView.GRID,
+    [classes.col]: view === ArticleView.LIST,
   };
 
   if (view === ArticleView.LIST) {
     return (
-        <div><p>hello</p></div>
+        <div
+            className={classNames(classes.SkeletonArticleListItem, mods, [className])}
+        >
+            <Skeleton
+                width="100%"
+                height="auto"
+                border={5}
+                theme={SkeletonTheme.BLOCKS}
+                className={classes.SkeletonArticleListItemWrapper}
+                block
+            >
+                <div className={classes.SkeletonArticleListItemListViewHeader}>
+                    <Skeleton
+                        border={15}
+                        width={50}
+                        height={50}
+                    />
+                    <div className={classes.ArticleListItemListViewHeaderInfo}>
+                        <div className={classes.ArticleListItemListViewHeaderInfoTop}>
+                            <Skeleton
+                                border={5}
+                                width={150}
+                                height={20}
+                            />
+                            <Skeleton
+                                border={5}
+                                width={70}
+                                height={15}
+                            />
+                        </div>
+                        <div className={classes.ArticleListItemListViewHeaderInfoBot}>
+                            <Skeleton
+                                border={5}
+                                width={70}
+                                height={15}
+                            />
+                            <Skeleton
+                                border={5}
+                                width={30}
+                                height={15}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <Skeleton
+                    className={classes.SkeletonArticleListItemListViewTitle}
+                    border={5}
+                    width="60%"
+                    height={30}
+                />
+                <div
+                    className={classes.ArticleListItemListViewTags}
+                >
+                    <Skeleton
+                        border={10}
+                        width={50}
+                        height={15}
+                    />
+                    <Skeleton
+                        border={10}
+                        width={30}
+                        height={15}
+                    />
+                    <Skeleton
+                        border={10}
+                        width={40}
+                        height={15}
+                    />
+                    <Skeleton
+                        border={10}
+                        width={70}
+                        height={15}
+                    />
+                </div>
+                <Skeleton
+                    className={classNames(classes.ArticleListItemImg, {}, [classes.ListViewIndent])}
+                    border={5}
+                    width="100%"
+                    height={250}
+                />
+                <div />
+                <div className={classes.ArticleListItemListViewDescription}>
+                    <Skeleton
+                        border={5}
+                        width="100%"
+                        height={60}
+                    />
+                </div>
+                <div className={classes.ArticleListItemListViewFooter}>
+                    <Skeleton
+                        border={5}
+                        width={115}
+                        height={35}
+                    />
+                </div>
+            </Skeleton>
+        </div>
     );
   }
 
@@ -36,7 +133,7 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
               height="auto"
               border={5}
               theme={SkeletonTheme.BLOCKS}
-              className={classes.SkeletonArticleListItemWrapper}
+              className={classes.SkeletonArticleListGridWrapper}
               block
           >
               <Skeleton
@@ -50,7 +147,7 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
                   <Skeleton
                       border={5}
                       width="100%"
-                      height={40}
+                      height={20}
                   />
 
               </div>
