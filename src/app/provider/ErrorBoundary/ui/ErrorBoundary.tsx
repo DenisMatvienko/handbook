@@ -19,8 +19,8 @@ export class ErrorBoundary
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error) {
-    // Update state so the next render will show the fallback UI.
+  static getDerivedStateFromError() {
+    // Update state so the next render will show the fallback UI. error: Error
     return { hasError: true };
   }
 

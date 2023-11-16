@@ -13,13 +13,11 @@
   margin-top: 15px;
   position: sticky;
   top: 15px;
-  opacity: .1;
+  opacity: 0.1;
 
   &:hover {
-    transition: opacity .5s ease-in-out;
-    opacity: .8;
-    -webkit-box-shadow: -15px -14px 28px -4px var(--secondary) inset;
-    -moz-box-shadow: -15px -14px 28px -4px var(--secondary) inset;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0.8;
     box-shadow: -15px -14px 28px -4px var(--secondary) inset;
   }
 }

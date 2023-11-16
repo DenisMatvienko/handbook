@@ -20,11 +20,16 @@ interface ArticleListProps {
     view?: ArticleView;
 }
 
+const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 6 : 3)
+  .fill(0).map(() => (
+      <SkeletonArticleListItem key={uid()} view={view} />
+  ));
+
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
     articles,
-    isLoading,
+    isLoading = true,
     view = ArticleView.LIST,
   } = props;
   const { t } = useTranslation();
@@ -46,12 +51,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <div
             className={classNames(classes.ArticleList, mods, [className])}
         >
-            <SkeletonArticleListItem view={view} />
-            <SkeletonArticleListItem view={view} />
-            <SkeletonArticleListItem view={view} />
-            <SkeletonArticleListItem view={view} />
-            <SkeletonArticleListItem view={view} />
-            <SkeletonArticleListItem view={view} />
+            {getSkeletons(view)}
         </div>
     );
   }
