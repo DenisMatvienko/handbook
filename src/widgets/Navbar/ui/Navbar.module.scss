@@ -9,8 +9,36 @@
   box-shadow: 0 3px 5px var(--box-shadow);
 }
 
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+}
+
 .logo {
   margin-left: 50px;
+}
+
+.plank {
+  width: 15px;
+  height: 5px;
+  color: #fff;
+  background-color: #fff;
+  margin-top: 25px;
+  margin-left: 2px;
+  animation: blinking 1.2s cubic-bezier(0.1, 0, 0.1, 0.1) infinite;
+}
+
+@keyframes blinking {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .accountBar {
