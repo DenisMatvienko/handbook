@@ -2,6 +2,7 @@
   cursor: pointer;
   transition: 0.2s;
   width: 295px;
+  min-height: 200px;
 
   &:hover {
     transform: scale(1.01);
@@ -18,14 +19,13 @@
 .ArticleListItemImg {
   display: flex;
   justify-content: center;
-  height: 100%;
   margin: 0 auto;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 5px;
   width: 100%;
-  max-height: 250px;
+  min-height: 200px;
   overflow: hidden;
   backdrop-filter: blur(5px);
   object-fit: cover;

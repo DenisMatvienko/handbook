@@ -5,9 +5,8 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, Reducer, useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { Article } from 'entities/Article';
 import {
   ComponentsObjectType,
   DoubleAdjustableFrame,
@@ -24,7 +23,6 @@ import { useSelector } from 'react-redux';
 import {
   getArticlePageError,
   getArticlesPageIsLoading,
-  getArticleView,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
@@ -50,8 +48,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   });
 
   const articlesList = useMemo(() => (
-    articles.map((item) => <FullPageBlock>{item}</FullPageBlock>)
-  ), []);
+    articles.map((item) => <FullPageBlock>{item.title}</FullPageBlock>)
+  ), [articles]);
 
   const componentsLeftSide: ComponentsObjectType = {
     articleList: <ArticleList
