@@ -74,7 +74,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
-    addCommentForm: <AddCommentForm onSendComment={onSendComment} />,
+    addCommentForm: <AddCommentForm
+        isLoading={commentsIsLoading}
+        onSendComment={onSendComment}
+    />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop
