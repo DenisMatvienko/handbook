@@ -60,8 +60,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     article.blocks.find((item) => (item.type === ArticleBlockType.TEXT))
   ) as ArticleTextBlock;
 
-  const paragraph = textBlock.paragraphs.map((item) => (
+  const paragraph = textBlock.paragraphs.map((item, index) => (
       <Text
+          key={uid()}
           theme={TextTheme.BLOCK_TEXT}
           text={item}
           size={TextSize.M}
@@ -173,7 +174,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           >
               <Text
                   theme={TextTheme.BLOCK_TEXT}
-                  title={stringCutter(article.title, 28)}
+                  title={stringCutter(article.title, 23)}
                   size={TextSize.S}
                   align={TextAlign.LEFT}
               />

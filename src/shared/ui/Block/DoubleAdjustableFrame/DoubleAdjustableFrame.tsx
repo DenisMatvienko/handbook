@@ -61,15 +61,15 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
   )), [rightBlock]);
 
   return (
-      <div className={classNames(classes.blockWrapper)}>
+      <div className={classNames(classes.blocksWrapper)}>
           <div
-              className={classNames(classes.blockContent)}
+              className={classNames(classes.leftBlockContent)}
               style={stylesContent}
           >
               {leftComponentList}
           </div>
           <div
-              className={classNames(classes.blockAdditional)}
+              className={classNames(classes.rightBlockAdditional)}
               style={stylesRecommendations}
           >
               {rightComponentList}

@@ -30,7 +30,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     className,
     articles,
     isLoading,
-    view = ArticleView.GRID,
+    view = ArticleView.LIST,
   } = props;
   const { t } = useTranslation();
 

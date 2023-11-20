@@ -18,7 +18,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
@@ -36,6 +38,8 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { uid } from 'shared/lib/uid/uid';
 import {
   fetchCommentsByArticleId,
 } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -86,7 +90,29 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   };
 
   const componentsRightSide: ComponentsObjectType = {
-    recommendations: <ArticleRecommendations id={id || '0'} />,
+    recommendations: <FullPageBlock key={uid()}>
+        <Text
+            className={classes.recommendationsMock}
+            key={uid()}
+            theme={TextTheme.BLOCK_TEXT}
+            text="=Temporary recommendations layout="
+            size={TextSize.M}
+            align={TextAlign.LEFT}
+        />
+    </FullPageBlock>,
+    Histories: <FullPageBlock
+        className={classes.recommendationsMockWrapper}
+        key={uid()}
+    >
+        <Text
+            className={classes.recommendationsMock}
+            key={uid()}
+            theme={TextTheme.BLOCK_TEXT}
+            text="=Temporary histories layout="
+            size={TextSize.M}
+            align={TextAlign.LEFT}
+        />
+    </FullPageBlock>,
   };
 
   if (!id) {
