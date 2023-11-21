@@ -5,7 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -21,11 +21,12 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
-  getArticlePageError,
+  getArticlePageError, getArticlePageView,
   getArticlesPageIsLoading,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
-import { articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { ArticleView, ArticleViewSelector } from 'entities/Article';
+import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -42,43 +43,44 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlePageError);
-  const views = useSelector(getArticlePageError);
+  const views = useSelector(getArticlePageView);
 
   useInitialEffect(() => {
     dispatch(fetchArticlesList());
+    dispatch(articlePageSliceActions.initView());
   });
+
+  const onChangeView = useCallback((view: ArticleView) => {
+    dispatch(articlePageSliceActions.setView(view));
+  }, [dispatch]);
+
+  const blockMock = useCallback((text: string, indent?: string) => (
+      <FullPageBlock
+          className={indent}
+          key={uid()}
+      >
+          <Text
+              className={classes.recommendationsMock}
+              key={uid()}
+              theme={TextTheme.BLOCK_TEXT}
+              text={text}
+              size={TextSize.M}
+              align={TextAlign.LEFT}
+          />
+      </FullPageBlock>
+  ), []);
 
   const componentsLeftSide: ComponentsObjectType = {
     articleList: <ArticleList
+        view={views}
         isLoading={isLoading}
         articles={articles}
     />,
   };
 
   const componentsRightSide: ComponentsObjectType = {
-    recommendations: <FullPageBlock key={uid()}>
-        <Text
-            className={classes.recommendationsMock}
-            key={uid()}
-            theme={TextTheme.BLOCK_TEXT}
-            text="=Temporary recommendations layout="
-            size={TextSize.M}
-            align={TextAlign.LEFT}
-        />
-    </FullPageBlock>,
-    Histories: <FullPageBlock
-        className={classes.recommendationsMockWrapper}
-        key={uid()}
-    >
-        <Text
-            className={classes.recommendationsMock}
-            key={uid()}
-            theme={TextTheme.BLOCK_TEXT}
-            text="=Temporary histories layout="
-            size={TextSize.M}
-            align={TextAlign.LEFT}
-        />
-    </FullPageBlock>,
+    recommendations: blockMock('=Temporary recommendations layout='),
+    histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
   };
 
   return (
@@ -96,6 +98,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                       size={TextSize.L}
                       align={TextAlign.LEFT}
                   />
+                  <ArticleViewSelector view={views} onViewClick={onChangeView} />
               </FullPageBlock>
               <DoubleAdjustableFrame
                   widthLeftBlock="69%"

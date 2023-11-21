@@ -5,8 +5,11 @@
 }
 
 .ArticlesPageHeader {
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .recommendationsMockWrapper {

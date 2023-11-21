@@ -127,6 +127,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             >
                 {article?.type.slice(0, 5).map((item, index) => (
                     <Text
+                        key={uid()}
                         className={classes.ArticleSubtitle}
                         theme={TextTheme.SUBTITLE}
                         text={index < 4 ? `${item}, ` : `${item}.`}

@@ -1,10 +1,18 @@
 /**
  *      - articlePageSlice reducers slice
+ *
+ *      @param setView
+ *        - Set article view, from pool of views: LIST or GRID
+ *          When article view is selected, reducer set em into local storage, for remember user view
+ *
+ *      @param initView
+ *        - Get selected article view from local storage
  */
 
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Article, ArticleView } from 'entities/Article';
 import { StateSchema } from 'app/provider/StoreProvider';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList';
 
@@ -28,6 +36,10 @@ export const articlePageSlice = createSlice({
   reducers: {
     setView: (state, action:PayloadAction<ArticleView>) => {
       state.view = action.payload;
+      localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
+    },
+    initView: (state) => {
+      state.view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
     },
   },
   extraReducers: (builder) => {

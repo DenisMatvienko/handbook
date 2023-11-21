@@ -23,7 +23,6 @@ import {
 } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
 import {
   ComponentsObjectType,
   DoubleAdjustableFrame,
@@ -40,9 +39,7 @@ import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { uid } from 'shared/lib/uid/uid';
-import {
-  fetchCommentsByArticleId,
-} from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
@@ -72,6 +69,22 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
 
+  const blockMock = useCallback((text: string, indent?: string) => (
+      <FullPageBlock
+          className={indent}
+          key={uid()}
+      >
+          <Text
+              className={classes.recommendationsMock}
+              key={uid()}
+              theme={TextTheme.BLOCK_TEXT}
+              text={text}
+              size={TextSize.M}
+              align={TextAlign.LEFT}
+          />
+      </FullPageBlock>
+  ), []);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   }, [id, dispatch]);
@@ -90,29 +103,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   };
 
   const componentsRightSide: ComponentsObjectType = {
-    recommendations: <FullPageBlock key={uid()}>
-        <Text
-            className={classes.recommendationsMock}
-            key={uid()}
-            theme={TextTheme.BLOCK_TEXT}
-            text="=Temporary recommendations layout="
-            size={TextSize.M}
-            align={TextAlign.LEFT}
-        />
-    </FullPageBlock>,
-    Histories: <FullPageBlock
-        className={classes.recommendationsMockWrapper}
-        key={uid()}
-    >
-        <Text
-            className={classes.recommendationsMock}
-            key={uid()}
-            theme={TextTheme.BLOCK_TEXT}
-            text="=Temporary histories layout="
-            size={TextSize.M}
-            align={TextAlign.LEFT}
-        />
-    </FullPageBlock>,
+    recommendations: blockMock('=Temporary recommendations layout='),
+    histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
   };
 
   if (!id) {
