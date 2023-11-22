@@ -92,12 +92,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
               <FullPageBlock
                   className={classes.ArticlesPageHeader}
               >
-                  <Text
-                      theme={TextTheme.BLOCK_TEXT}
-                      title={t('ArticleList')}
-                      size={TextSize.L}
-                      align={TextAlign.LEFT}
-                  />
                   <ArticleViewSelector view={views} onViewClick={onChangeView} />
               </FullPageBlock>
               <DoubleAdjustableFrame

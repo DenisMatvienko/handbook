@@ -46,15 +46,15 @@ export const getSidebarItems = createSelector(
     if (userData) {
       sidebarItemsList.push(
         {
-          path: RoutePath.profile + userData.id,
-          text: 'Profile',
-          Icon: ProfilePageIcon,
-          authOnly: true,
-        },
-        {
           path: RoutePath.articles,
           text: 'Articles',
           Icon: ArticlesPageIcon,
+          authOnly: true,
+        },
+        {
+          path: RoutePath.profile + userData.id,
+          text: 'Profile',
+          Icon: ProfilePageIcon,
           authOnly: true,
         },
       );
