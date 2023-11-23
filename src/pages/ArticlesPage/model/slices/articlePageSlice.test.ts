@@ -11,6 +11,7 @@ import { Article, ArticleView } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { articlePageSliceActions, articlePageSliceReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 
 const InitialState: DeepPartial<ArticlesPageSchema> = {};
 
@@ -44,7 +45,7 @@ const articles: Article[] = new Array(16)
   .map((item, index) => (
     {
       ...article,
-      id: String(index),
+      id: String(index + 1),
     }
   ));
 
@@ -58,13 +59,26 @@ describe('articlePageSlice', () => {
       .toEqual({ view: ArticleView.LIST });
   });
   test('setReadonly storage test', () => {
-    // const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.GRID };
     expect(localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView)
       .toEqual('LIST');
   });
-  // test('articlePageSlice reducer test', () => {
-  // });
-  //
-  // test('articlePageSlice reducer test', () => {
+
+  // test('fetchArticlesList service fulfilled state in extraReducer', () => {
+  //   const state: DeepPartial<ArticlesPageSchema> = {
+  //     isLoading: true,
+  //   };
+  //   expect(articlePageSliceReducer(
+  //       state as ArticlesPageSchema,
+  //       fetchArticlesList.fulfilled(articles, ''),
+  //   ))
+  //     .toEqual({
+  //       isLoading: false,
+  //       error: 'error',
+  //       view: ArticleView.GRID,
+  //       ids: new Array(16).fill(0).map((_, i) => String(i)),
+  //       entities: {
+  //         articles,
+  //       },
+  //     });
   // });
 });
