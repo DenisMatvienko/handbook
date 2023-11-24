@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {
-  title: 'enterSlice/ArticleViewSelector',
+  title: 'entities/ArticleViewSelector',
   component: ArticleViewSelector,
   argTypes: {
     backgroundColor: { control: 'color' },
