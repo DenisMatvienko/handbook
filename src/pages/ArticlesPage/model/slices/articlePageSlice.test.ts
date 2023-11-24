@@ -2,7 +2,20 @@
  *    articlePageSlice test
  *      - test's for articlePageSlice
  *
- *    @test 'add_test_describe'.
+ *    @param 'articles'.
+ *      - Mock which multiplying articles
+ *
+ *    @param 'entities'.
+ *      - Mock which emulate "entities" property in ArticlesPageSchema which extends EntityState<Article>
+ *          - entities function create object with key @const 'key', and property @const 'value'
+ *          as result entities equal:
+ *            entities: {
+ *                '0': {
+ *                    id: ...
+ *                    blocks: ...
+ *                    etc..
+ *                }
+ *            }
  *
  */
 
@@ -13,21 +26,9 @@ import { articlePageSliceActions, articlePageSliceReducer } from 'pages/Articles
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 
-const InitialState: DeepPartial<ArticlesPageSchema> = {};
+type articlesEntitiesType = Record<string, object>;
 
 const article: Article = {
-  id: '1',
-  title: 'Управление памятью в JavaScript',
-  subtitle: 'Управление памятью и принципах работы сборщика мусора',
-  img: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
-  views: 1022,
-  createdAt: '19.09.2023',
-  user: {
-    id: '1',
-    username: 'JLebowski',
-    avatar: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
-  },
-  type: [ArticleType.IT, ArticleType.ARCHITECTURE, ArticleType.JS],
   blocks: [
     {
       id: '1',
@@ -38,6 +39,18 @@ const article: Article = {
       ],
     },
   ],
+  createdAt: '19.09.2023',
+  id: '1',
+  img: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
+  subtitle: 'Управление памятью и принципах работы сборщика мусора',
+  title: 'Управление памятью в JavaScript',
+  type: [ArticleType.IT, ArticleType.ARCHITECTURE, ArticleType.JS],
+  user: {
+    id: '1',
+    username: 'JLebowski',
+    avatar: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
+  },
+  views: 1022,
 };
 
 const articles: Article[] = new Array(16)
@@ -45,9 +58,22 @@ const articles: Article[] = new Array(16)
   .map((item, index) => (
     {
       ...article,
-      id: String(index + 1),
+      id: String(index),
     }
   ));
+
+const entities = ():articlesEntitiesType => {
+  const entity: articlesEntitiesType = {};
+  for (let i = 0; i < 16; i++) {
+    const key = new Array(16).fill(0).map((_, i) => String(i))[i];
+    const value = {
+      ...article,
+      id: String(key),
+    };
+    entity[key] = value;
+  }
+  return entity;
+};
 
 describe('articlePageSlice', () => {
   test('setReadonly reducer test', () => {
@@ -63,22 +89,32 @@ describe('articlePageSlice', () => {
       .toEqual('LIST');
   });
 
-  // test('fetchArticlesList service fulfilled state in extraReducer', () => {
-  //   const state: DeepPartial<ArticlesPageSchema> = {
-  //     isLoading: true,
-  //   };
-  //   expect(articlePageSliceReducer(
-  //       state as ArticlesPageSchema,
-  //       fetchArticlesList.fulfilled(articles, ''),
-  //   ))
-  //     .toEqual({
-  //       isLoading: false,
-  //       error: 'error',
-  //       view: ArticleView.GRID,
-  //       ids: new Array(16).fill(0).map((_, i) => String(i)),
-  //       entities: {
-  //         articles,
-  //       },
-  //     });
-  // });
+  test('fetchArticlesList service fulfilled state in extraReducer', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      isLoading: true,
+    };
+    expect(articlePageSliceReducer(
+        state as ArticlesPageSchema,
+        fetchArticlesList.fulfilled(articles, ''),
+    ))
+      .toEqual({
+        isLoading: false,
+        ids: new Array(16).fill(0).map((_, i) => String(i)),
+        entities: entities(),
+      });
+  });
+  test('fetchArticlesList service pending state in extraReducer', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {
+      error: undefined,
+      isLoading: true,
+    };
+    expect(articlePageSliceReducer(
+        state as ArticlesPageSchema,
+        fetchArticlesList.pending,
+    ))
+      .toEqual({
+        isLoading: true,
+        error: undefined,
+      });
+  });
 });
