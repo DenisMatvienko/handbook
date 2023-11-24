@@ -1,6 +1,5 @@
 /**
  *    SkeletonArticleDetails-story.
- *      - SkeletonArticleDetails
  */
 
 import React from 'react';

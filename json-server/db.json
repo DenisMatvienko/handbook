@@ -14,6 +14,7 @@
       "img": "https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg",
       "views": 1022,
       "createdAt": "19.09.2023",
+      "userId": "1",
       "type": [
         "IT",
         "JS",
@@ -71,6 +72,76 @@
           "type": "IMAGE",
           "src": "https://webformyself.com/wp-content/uploads/2018/96/1.jpg",
           "title": "Рис. 3 - Распределение памяти во взаимодействии с Event Loop"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Мемоизация React.js",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
+      "views": 1022,
+      "createdAt": "19.09.2023",
+      "userId": "2",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ],
+      "blocks": [
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Ссылки в JavaScript",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://webformyself.com/wp-content/uploads/2018/96/1.jpg",
+          "title": "Рис. 1 - Распределение памяти во взаимодействии с Event Loop"
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "\nconst person = {\n  name: 'John',\n  age: 24,\n};\n\n// JavaScript выделяет память под этот объект в куче. \n// Сами же значения являются примитивными, поэтому храниться они будут в стеке.\n\nconst hobbies = ['hiking', 'reading'];\n\n// Массивы – тоже объекты, значит, они сохраняются в куче.\n\nlet name = 'John'; // выделяет память для строки\nconst age = 24; // выделяет память для числа\nname = 'John Doe'; // выделяет память для новой строки\nconst firstName = name.slice(0,4); // выделяет память для новой строки\n\n// Примитивные значения по своей природе иммутабельны: вместо того, чтобы изменить начальное значение,\n// JavaScript создает еще одно."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Сложность алгоритмов",
+      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
+      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
+      "views": 1022,
+      "createdAt": "19.09.2023",
+      "userId": "2",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ],
+      "blocks": [
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Ссылки в JavaScript",
+          "paragraphs": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://webformyself.com/wp-content/uploads/2018/96/1.jpg",
+          "title": "Рис. 1 - Распределение памяти во взаимодействии с Event Loop"
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "\nconst person = {\n  name: 'John',\n  age: 24,\n};\n\n// JavaScript выделяет память под этот объект в куче. \n// Сами же значения являются примитивными, поэтому храниться они будут в стеке.\n\nconst hobbies = ['hiking', 'reading'];\n\n// Массивы – тоже объекты, значит, они сохраняются в куче.\n\nlet name = 'John'; // выделяет память для строки\nconst age = 24; // выделяет память для числа\nname = 'John Doe'; // выделяет память для новой строки\nconst firstName = name.slice(0,4); // выделяет память для новой строки\n\n// Примитивные значения по своей природе иммутабельны: вместо того, чтобы изменить начальное значение,\n// JavaScript создает еще одно."
         }
       ]
     }
@@ -261,6 +332,24 @@
       "userId": "1",
       "text": "asds",
       "id": "GYFFnj7"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "ykmf!",
+      "id": "HUJ4kBt"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "log(n)",
+      "id": "c9MOAAk"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12",
+      "id": "XtTSQIW"
     }
   ],
   "users": [

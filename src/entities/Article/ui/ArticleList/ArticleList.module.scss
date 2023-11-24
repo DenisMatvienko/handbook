@@ -1,0 +1,11 @@
+.ArticleList {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 0;
+}
+
+.row {
+  flex-flow: row wrap;
+}

@@ -26,6 +26,7 @@ import classes from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
+    isLoading?: boolean
     onSendComment: (text: string) => void;
 }
 
@@ -34,7 +35,7 @@ const reducers: ReducersList = {
 };
 
 const AddCommentForm = memo((props: AddCommentFormProps) => {
-  const { className, onSendComment } = props;
+  const { className, onSendComment, isLoading } = props;
   const { t } = useTranslation('comments');
   const text = useSelector(getAddCommentFormText);
   const dispatch = useAppDispatch();
@@ -47,6 +48,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     onSendComment(text || '');
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);
+
+  if (isLoading) {
+    return (
+        <div className={classes.NoneDisplayed} />
+    );
+  }
 
   return (
       <DynamicModuleLoader

@@ -34,8 +34,6 @@ export const ProfileDataItemReadonly = ({
   const formData = useSelector(getProfileForm);
   const authDate = useSelector(getUserAuthData);
 
-  console.log(formData?.firstName);
-
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
         <Text

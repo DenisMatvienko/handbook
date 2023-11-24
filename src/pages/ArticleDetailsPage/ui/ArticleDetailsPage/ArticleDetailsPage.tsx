@@ -18,10 +18,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
-import { ArticleRecommendations } from 'entities/Article/ui/ArticleRecommendations/ArticleRecommendations';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   ComponentsObjectType,
   DoubleAdjustableFrame,
@@ -31,11 +32,15 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-  fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/service/AddCommentForArticle/addCommentForArticle';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Icon } from 'shared/ui/Icon/Icon';
+import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { uid } from 'shared/lib/uid/uid';
+import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import classes from './ArticleDetailsPage.module.scss';
@@ -51,13 +56,34 @@ const reducers: ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { t } = useTranslation('articles');
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   const onSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
+
+  const blockMock = useCallback((text: string, indent?: string) => (
+      <FullPageBlock
+          className={indent}
+          key={uid()}
+      >
+          <Text
+              className={classes.recommendationsMock}
+              key={uid()}
+              theme={TextTheme.BLOCK_TEXT}
+              text={text}
+              size={TextSize.M}
+              align={TextAlign.LEFT}
+          />
+      </FullPageBlock>
+  ), []);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -65,7 +91,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
-    addCommentForm: <AddCommentForm onSendComment={onSendComment} />,
+    addCommentForm: <AddCommentForm
+        isLoading={commentsIsLoading}
+        onSendComment={onSendComment}
+    />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop
@@ -74,7 +103,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   };
 
   const componentsRightSide: ComponentsObjectType = {
-    recommendations: <ArticleRecommendations id={id || '0'} />,
+    recommendations: blockMock('=Temporary recommendations layout='),
+    histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
   };
 
   if (!id) {
@@ -102,6 +132,18 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
           removeAfterUnmount
       >
           <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+              <div className={classes.ArticleDetailsPageBackButtonWrapper}>
+                  <Button
+                      onClick={onBackToList}
+                      className={classes.ArticleDetailsPageBackButton}
+                      theme={ButtonTheme.CANCEL}
+                  >
+                      <Icon
+                          className={classes.ArticleDetailsPageIcon}
+                          Svg={ArrowLeftIcon}
+                      />
+                  </Button>
+              </div>
               <DoubleAdjustableFrame
                   widthLeftBlock="69%"
                   widthRightBlock="30%"

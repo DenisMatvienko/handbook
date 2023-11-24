@@ -1,13 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
-import { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { getProfileForm } from 'entities/Profile';
+import LogoIcon from 'shared/assets/logo/logo_3.svg';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -36,6 +38,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (isAuth) {
     return (
         <div className={classNames(classes.Navbar, {}, [className])}>
+            <div className={classes.logoWrapper}>
+                <Icon
+                    className={classes.logo}
+                    Svg={LogoIcon}
+                    theme={IconTheme.BLOCK_ICON}
+                />
+                <div className={classes.plank} />
+            </div>
             <div className={classNames(classes.accountBar, {}, [className])}>
                 <div className={classes.usernameAvatar}>
                     <Avatar

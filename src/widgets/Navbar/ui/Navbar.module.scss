@@ -1,15 +1,43 @@
 .Navbar {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px;
   width: 100%;
   height: var(--navbar-height);
   background-color: var(--secondary-dark);
   box-shadow: 0 3px 5px var(--box-shadow);
+}
 
-  :first-child {
-    justify-content: flex-end;
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+}
+
+.logo {
+  margin-left: 50px;
+}
+
+.plank {
+  width: 15px;
+  height: 5px;
+  color: #fff;
+  background-color: #fff;
+  margin-top: 25px;
+  margin-left: 2px;
+  animation: blinking 1.2s cubic-bezier(0.1, 0, 0.1, 0.1) infinite;
+}
+
+@keyframes blinking {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 

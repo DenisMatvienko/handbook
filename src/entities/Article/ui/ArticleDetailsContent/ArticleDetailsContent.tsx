@@ -22,9 +22,9 @@ import DateIcon from 'shared/assets/icons/calendar.svg';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
 import { uid } from 'shared/lib/uid/uid';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleBlocks/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleBlocks/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleBlocks/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleDetailsContent.module.scss';
 
 interface ArticleDetailsContentProps {
@@ -138,6 +138,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                           {
                               data?.type.map((item) => (
                                   <Tag
+                                      className={classes.articleHeaderBotTag}
                                       key={uid()}
                                       theme={TagTheme.DEFAULT}
                                       data={item}
@@ -163,6 +164,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                   {
                       data?.type.map((item) => (
                           <Tag
+                              className={classes.articleHeaderBotTag}
                               key={uid()}
                               theme={TagTheme.DEFAULT}
                               data={item}

@@ -1,0 +1,186 @@
+.SkeletonArticleListItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-left: 0;
+}
+
+.col {
+  flex-flow: column wrap;
+}
+
+.row {
+  flex-flow: row wrap;
+}
+
+.SkeletonArticleListGridWrapper {
+  padding: 20px;
+}
+
+.SkeletonArticleListItemWrapper {
+  padding: 30px;
+}
+
+.CardGrid {
+  cursor: pointer;
+  transition: 0.2s;
+  width: 295px;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.SkeletonArticleListItemTitle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: row  wrap;
+  margin-top: 10px;
+}
+
+.SkeletonArticleListItemImg {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  width: 100%;
+  max-height: 250px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  object-fit: cover;
+}
+
+.SkeletonArticleListItemStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.SkeletonArticleListItemDate {
+  display: flex;
+  width: 40%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.SkeletonArticleListItemViews {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
+.ArticleListItemIcon {
+  fill: var(--text-block-main);
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.SkeletonArticleListItemTags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  width: 70%;
+  height: 60px;
+  margin-top: 30px;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.Tag {
+  padding: 5px;
+}
+
+.ListViewIndent {
+  margin-top: 15px;
+}
+
+.ArticleListItemListView {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
+.SkeletonArticleListItemListViewTitle {
+  margin-top: 20px;
+}
+
+.ArticleListItemListViewTags {
+  display: flex;
+  flex-flow: row wrap;
+  width: 30%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.SkeletonArticleListItemListViewHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 60%;
+  cursor: pointer;
+}
+
+.SkeletonArticleListItemListViewHeader div {
+  margin-right: 10px;
+}
+
+.ArticleListItemListViewHeaderInfo {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 70%;
+}
+
+.ArticleListItemListViewHeaderInfoTop {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ArticleListItemListViewHeaderInfoBot {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 70%;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.ArticleListItemListViewDescription {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.ArticleListItemListViewFooter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.ArticleTitle {
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.ArticleSubtitle {
+  margin-top: 5px;
+  margin-right: 5px;
+}

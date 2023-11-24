@@ -28,8 +28,3 @@ export const FirstSkeletonComment = Template.bind({});
 FirstSkeletonComment.args = {};
 FirstSkeletonComment.decorators = [ThemeDecorator(Theme.DARK)];
 FirstSkeletonComment.decorators = [StoreDecorator({})];
-
-export const SecondSkeletonComment = Template.bind({});
-SecondSkeletonComment.args = {};
-SecondSkeletonComment.decorators = [ThemeDecorator(Theme.DARK)];
-SecondSkeletonComment.decorators = [StoreDecorator({})];

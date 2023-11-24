@@ -6,11 +6,11 @@
  *        - content size with - 70%;
  *        - recommendation size should be - 30%;
  *
- *    @param children.
- *      - Only for article's content. Block width 69%;
+ *    @param leftComponentList.
+ *      - Only for main content (articles, cards, etc..). Block width 69%;
  *
  *    @param recommendations.
- *      - Only for any information content (as recommendations, story etc..);
+ *      - Only for any information and other content (as recommendations, stories, filters, etc..);
  *        css property should be:
  *        - with width - 30%;
  *        - margin - 1%;
@@ -61,15 +61,15 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
   )), [rightBlock]);
 
   return (
-      <div className={classNames(classes.blockWrapper)}>
+      <div className={classNames(classes.blocksWrapper)}>
           <div
-              className={classNames(classes.blockContent)}
+              className={classNames(classes.leftBlockContent)}
               style={stylesContent}
           >
               {leftComponentList}
           </div>
           <div
-              className={classNames(classes.blockAdditional)}
+              className={classNames(classes.rightBlockAdditional)}
               style={stylesRecommendations}
           >
               {rightComponentList}

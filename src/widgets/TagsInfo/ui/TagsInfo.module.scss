@@ -1,0 +1,16 @@
+.TagsInfo {
+  display: flex;
+}
+
+.TagsWrapper {
+  display: flex;
+  flex-flow: wrap row;
+  width: 200px;
+  gap: 5px;
+}
+
+.Tag {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
