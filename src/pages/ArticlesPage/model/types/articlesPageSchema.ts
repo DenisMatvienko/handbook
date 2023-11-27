@@ -16,6 +16,9 @@
  *
  *       @param view;
  *          - Is articles view. By grid or list of cards
+ *
+ *       @param limit;
+ *          - Quantity of objects on page;
  */
 import { EntityState } from '@reduxjs/toolkit';
 import { Article, ArticleView } from 'entities/Article';
@@ -23,5 +26,10 @@ import { Article, ArticleView } from 'entities/Article';
 export interface ArticlesPageSchema extends EntityState<Article> {
     isLoading?: boolean,
     error?: string,
+
     view: ArticleView
+
+    page: number,
+    limit?: number,
+    hasMore: boolean,
 }

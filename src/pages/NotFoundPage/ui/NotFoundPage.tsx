@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
 import classes from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
@@ -9,13 +10,15 @@ interface NotFoundPageProps {
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
   const { t } = useTranslation();
   return (
-      <div className={classNames(
-        classes.NotFoundPage,
-        {},
-        [className],
-      )}
-      >
-          {t('Страница отсутствует')}
-      </div>
+      <Page>
+          <div className={classNames(
+            classes.NotFoundPage,
+            {},
+            [className],
+          )}
+          >
+              {t('Страница отсутствует')}
+          </div>
+      </Page>
   );
 };

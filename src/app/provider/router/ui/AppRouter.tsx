@@ -17,14 +17,13 @@ import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from 'widgets/PageLoader';
 
 import { RequireAuth } from 'app/provider/router/ui/RequireAuth';
+import { Page } from 'shared/ui/Page/Page';
 
 const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
         <Suspense fallback={<PageLoader />}>
-            <div className="page-wrapper">
-                {route.element}
-            </div>
+            {route.element}
         </Suspense>
     );
     return (

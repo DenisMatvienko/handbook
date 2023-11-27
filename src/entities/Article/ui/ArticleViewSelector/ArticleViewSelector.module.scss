@@ -4,6 +4,13 @@
   align-items: center;
   flex-flow: row wrap;
   width: 7%;
+
+  &:hover {
+    & .ArticleViewSelectorIcon {
+      fill: var(--block-color);
+      stroke: var(--block-color);
+    }
+  }
 }
 
 .ArticleViewSelectorIcon {

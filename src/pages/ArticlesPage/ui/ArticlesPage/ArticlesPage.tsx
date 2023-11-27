@@ -26,6 +26,7 @@ import {
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
+import { Page } from 'shared/ui/Page/Page';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -46,8 +47,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const views = useSelector(getArticlePageView);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlePageSliceActions.initView());
+    dispatch(fetchArticlesList({
+      page: 1,
+    }));
   });
 
   const onChangeView = useCallback((view: ArticleView) => {
@@ -84,24 +87,26 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   };
 
   return (
-      <DynamicModuleLoader
-          reducers={reducers}
-          removeAfterUnmount
-      >
-          <div className={classNames(classes.ArticlesPage, {}, [className])}>
-              <FullPageBlock
-                  className={classes.ArticlesPageHeader}
-              >
-                  <ArticleViewSelector view={views} onViewClick={onChangeView} />
-              </FullPageBlock>
-              <DoubleAdjustableFrame
-                  widthLeftBlock="69%"
-                  widthRightBlock="30%"
-                  leftBlock={componentsLeftSide}
-                  rightBlock={componentsRightSide}
-              />
-          </div>
-      </DynamicModuleLoader>
+      <Page>
+          <DynamicModuleLoader
+              reducers={reducers}
+              removeAfterUnmount
+          >
+              <div className={classNames(classes.ArticlesPage, {}, [className])}>
+                  <FullPageBlock
+                      className={classes.ArticlesPageHeader}
+                  >
+                      <ArticleViewSelector view={views} onViewClick={onChangeView} />
+                  </FullPageBlock>
+                  <DoubleAdjustableFrame
+                      widthLeftBlock="69%"
+                      widthRightBlock="30%"
+                      leftBlock={componentsLeftSide}
+                      rightBlock={componentsRightSide}
+                  />
+              </div>
+          </DynamicModuleLoader>
+      </Page>
   );
 };
 

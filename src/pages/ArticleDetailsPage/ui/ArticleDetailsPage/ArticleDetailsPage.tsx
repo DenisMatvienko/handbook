@@ -39,6 +39,7 @@ import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { uid } from 'shared/lib/uid/uid';
+import { Page } from 'shared/ui/Page/Page';
 import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
@@ -127,31 +128,33 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   return (
-      <DynamicModuleLoader
-          reducers={reducers}
-          removeAfterUnmount
-      >
-          <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-              <div className={classes.ArticleDetailsPageBackButtonWrapper}>
-                  <Button
-                      onClick={onBackToList}
-                      className={classes.ArticleDetailsPageBackButton}
-                      theme={ButtonTheme.CANCEL}
-                  >
-                      <Icon
-                          className={classes.ArticleDetailsPageIcon}
-                          Svg={ArrowLeftIcon}
-                      />
-                  </Button>
+      <Page>
+          <DynamicModuleLoader
+              reducers={reducers}
+              removeAfterUnmount
+          >
+              <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+                  <div className={classes.ArticleDetailsPageBackButtonWrapper}>
+                      <Button
+                          onClick={onBackToList}
+                          className={classes.ArticleDetailsPageBackButton}
+                          theme={ButtonTheme.CANCEL}
+                      >
+                          <Icon
+                              className={classes.ArticleDetailsPageIcon}
+                              Svg={ArrowLeftIcon}
+                          />
+                      </Button>
+                  </div>
+                  <DoubleAdjustableFrame
+                      widthLeftBlock="69%"
+                      widthRightBlock="30%"
+                      leftBlock={componentsLeftSide}
+                      rightBlock={componentsRightSide}
+                  />
               </div>
-              <DoubleAdjustableFrame
-                  widthLeftBlock="69%"
-                  widthRightBlock="30%"
-                  leftBlock={componentsLeftSide}
-                  rightBlock={componentsRightSide}
-              />
-          </div>
-      </DynamicModuleLoader>
+          </DynamicModuleLoader>
+      </Page>
   );
 };
 
