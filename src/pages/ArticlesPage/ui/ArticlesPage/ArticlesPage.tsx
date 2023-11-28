@@ -46,6 +46,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const error = useSelector(getArticlePageError);
   const views = useSelector(getArticlePageView);
 
+  const onLoadPage = () => {
+    console.log('adsasdadas');
+  };
+
   useInitialEffect(() => {
     dispatch(articlePageSliceActions.initView());
     dispatch(fetchArticlesList({
@@ -87,7 +91,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   };
 
   return (
-      <Page>
+      <Page
+          onScrollEnd={onLoadPage}
+      >
           <DynamicModuleLoader
               reducers={reducers}
               removeAfterUnmount
