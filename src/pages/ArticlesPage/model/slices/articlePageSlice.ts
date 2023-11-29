@@ -23,7 +23,7 @@ import { Article, ArticleView } from 'entities/Article';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
-import { fetchArticlesList } from '../services/fetchArticlesList';
+import { fetchArticlesList } from '../services/fetchArticleList/fetchArticlesList';
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article: Article) => article.id,

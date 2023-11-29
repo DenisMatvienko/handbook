@@ -18,7 +18,7 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
   getArticlePageError, getArticlePageHasMore, getArticlePageView,
@@ -27,6 +27,7 @@ import {
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -49,13 +50,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const hasMore = useSelector(getArticlePageHasMore);
 
   const onLoadNextPart = useCallback(() => {
-    if (hasMore && !isLoading) {
-      dispatch(articlePageSliceActions.setPage(page + 1));
-      dispatch(fetchArticlesList({
-        page: page + 1,
-      }));
-    }
-  }, [dispatch, hasMore, isLoading, page]);
+    dispatch(fetchNextArticlePage());
+  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(articlePageSliceActions.initView());
