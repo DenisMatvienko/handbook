@@ -1,6 +1,12 @@
 /**
  *    ArticleList-component.
  *      - Component view articles
+ *
+ *    @param isLoading
+ *      - remove structure isLoading from block 'if' to 'render' block, because:
+ *        1) observer change all cards on skeletons from 'map'. For every new card add list of skeletons.
+ *        2) Need map of skeletons for every new update, for that use 'map' callback in 'render'
+ *
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -46,16 +52,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     [classes.row]: view === 'GRID',
   };
 
-  if (isLoading) {
-    return (
-        <div
-            className={classNames(classes.ArticleList, mods, [className])}
-        >
-            {getSkeletons(view)}
-        </div>
-    );
-  }
-
   return (
       <div className={classNames(classes.ArticleList, mods, [className])}>
           {
@@ -63,6 +59,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 ? articles?.map(renderArticle)
                 : null
           }
+          { isLoading && getSkeletons(view)}
       </div>
   );
 });

@@ -21,8 +21,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
-  getArticlePageError, getArticlePageView,
-  getArticlesPageIsLoading,
+  getArticlePageError, getArticlePageHasMore, getArticlePageView,
+  getArticlesPageIsLoading, getArticlesPageNum,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
@@ -45,10 +45,17 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlePageError);
   const views = useSelector(getArticlePageView);
+  const page = useSelector(getArticlesPageNum);
+  const hasMore = useSelector(getArticlePageHasMore);
 
-  const onLoadPage = () => {
-    console.log('adsasdadas');
-  };
+  const onLoadNextPart = useCallback(() => {
+    if (hasMore && !isLoading) {
+      dispatch(articlePageSliceActions.setPage(page + 1));
+      dispatch(fetchArticlesList({
+        page: page + 1,
+      }));
+    }
+  }, [dispatch, hasMore, isLoading, page]);
 
   useInitialEffect(() => {
     dispatch(articlePageSliceActions.initView());
@@ -92,7 +99,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   return (
       <Page
-          onScrollEnd={onLoadPage}
+          onScrollEnd={onLoadNextPart}
       >
           <DynamicModuleLoader
               reducers={reducers}

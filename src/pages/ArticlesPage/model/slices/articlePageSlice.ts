@@ -7,6 +7,15 @@
  *
  *      @param initView
  *        - Get selected article view from local storage
+ *
+ *      @param articlesAdapter
+ *        setAll:
+ *        - Fully change all list, when data in state is change
+ *
+ *        addMany:
+ *        - Add new data from state in end of list
+ *
+ *
  */
 
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -61,7 +70,8 @@ export const articlePageSlice = createSlice({
         action: PayloadAction<Article[]>,
       ) => {
         state.isLoading = false;
-        articlesAdapter.setAll(state, action.payload);
+        articlesAdapter.addMany(state, action.payload);
+        state.hasMore = action.payload.length > 0;
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
