@@ -1,11 +1,18 @@
 /**
  *    ArticlesPage-component.
- *      - ArticlesPage
+ *      - Load articles on page. Have view options;
+ *
+ *      @param useInitialEffect;
+ *          - First render, on page = 1.
+ *
+ *      @param onLoadNextPart;
+ *          - Next render, when scroll move to 'triggerRef' in 'Page' component. Trigger new articles by inited limits,
+ *            while 'hasMore' property in state - true.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -20,10 +27,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
-import {
-  getArticlePageError, getArticlePageHasMore, getArticlePageView,
-  getArticlesPageIsLoading, getArticlesPageNum,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { getArticlePageView, getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'shared/ui/Page/Page';
@@ -44,10 +48,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlePageError);
   const views = useSelector(getArticlePageView);
-  const page = useSelector(getArticlesPageNum);
-  const hasMore = useSelector(getArticlePageHasMore);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());

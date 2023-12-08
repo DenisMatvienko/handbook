@@ -1,6 +1,10 @@
 /**
  *    Page-component.
- *      - Page
+ *      - Page wrapper using indentations for all pages.
+ *
+ *      Recommended wrap all pages in this component.
+ *
+ *      also import useInfiniteScroll
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';

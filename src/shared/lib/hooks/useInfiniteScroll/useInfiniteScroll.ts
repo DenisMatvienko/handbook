@@ -54,11 +54,11 @@ export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfin
       observer.current.observe(triggerRef.current);
     }
 
-    return () => {
-      if (observer.current) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        observer.current.unobserve(triggerRef.current);
-      }
-    };
+    // return () => {
+    //   if (observer.current) {
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    //     observer.current.unobserve(triggerRef.current);
+    //   }
+    // };
   }, [callback, observer, triggerRef, wrapperRef]);
 }

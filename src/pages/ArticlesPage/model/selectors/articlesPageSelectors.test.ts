@@ -4,9 +4,9 @@
 
 import { StateSchema } from 'app/provider/StoreProvider';
 import {
-  getArticlePageError,
+  getArticlePageError, getArticlePageHasMore, getArticlePageLimit,
   getArticlePageView,
-  getArticlesPageIsLoading,
+  getArticlesPageIsLoading, getArticlesPageNum,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { ArticleView } from 'entities/Article';
 
@@ -52,5 +52,47 @@ describe('articlePageSelector', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getArticlePageView(state as StateSchema))
       .toEqual(ArticleView.LIST);
+  });
+  test('selector should return date of getArticlesPageNum', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlesPage: {
+        page: 1,
+      },
+    };
+    expect(getArticlesPageNum(state as StateSchema))
+      .toEqual(1);
+  });
+  test('selector get empty data of getArticlesPageNum', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getArticlesPageNum(state as StateSchema))
+      .toEqual(1);
+  });
+  test('selector should return date of getArticlePageLimit', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlesPage: {
+        limit: 4,
+      },
+    };
+    expect(getArticlePageLimit(state as StateSchema))
+      .toEqual(4);
+  });
+  test('selector get empty data of getArticlePageLimit', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getArticlePageLimit(state as StateSchema))
+      .toEqual(9);
+  });
+  test('selector should return date of getArticlePageHasMore', () => {
+    const state: DeepPartial<StateSchema> = {
+      articlesPage: {
+        hasMore: true,
+      },
+    };
+    expect(getArticlePageHasMore(state as StateSchema))
+      .toEqual(true);
+  });
+  test('selector get empty data of getArticlePageHasMore', () => {
+    const state: DeepPartial<StateSchema> = {};
+    expect(getArticlePageHasMore(state as StateSchema))
+      .toEqual(undefined);
   });
 });

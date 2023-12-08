@@ -19,6 +19,9 @@
  *
  *       @param limit;
  *          - Quantity of objects on page;
+ *
+ *       @param hasMore;
+ *          - Shows whether we have downloaded all the articles or whether there are still some undownloaded articles
  */
 import { EntityState } from '@reduxjs/toolkit';
 import { Article, ArticleView } from 'entities/Article';
