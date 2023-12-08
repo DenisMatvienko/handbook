@@ -1,6 +1,11 @@
 /**
  *      useInfiniteScroll
  *       - hook which allow use infinite scroll in lists
+ *       Intersection_Observer_API - allow to watch for elements advent. Allow to create images lazy-loding,
+ *       infinite scroll etc..
+ *
+ *       @param callback;
+ *          - Callback which should be called, when crossed 'triggerRef'
  *
  *       @param triggerRef
  *          - Indicates what we will monitor
@@ -20,6 +25,7 @@
  *       @param observer
  *          - callback, contains 2 args:
  *          entry: array of elements by which observing
+ *          options: observer options
  *
  *        @note Suppress when unmount observer
  *          - Eslint didn't understand that triggerRef is object, link on which never change
@@ -31,8 +37,8 @@ import { MutableRefObject, useEffect, useRef } from 'react';
 
 export interface UseInfiniteScrollOptions {
     callback?: () => void;
-    triggerRef: MutableRefObject<HTMLElement>
-    wrapperRef: MutableRefObject<HTMLElement>
+    triggerRef: MutableRefObject<HTMLElement>;
+    wrapperRef: MutableRefObject<HTMLElement>;
 }
 
 export function useInfiniteScroll({ callback, triggerRef, wrapperRef }: UseInfiniteScrollOptions) {

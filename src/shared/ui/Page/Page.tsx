@@ -5,6 +5,15 @@
  *      Recommended wrap all pages in this component.
  *
  *      also import useInfiniteScroll
+ *
+ *      @param onScrollEnd;
+ *          - Callback which called when scroll end.
+ *
+ *      @param triggerRef;
+ *          - When cross triggerRef, after that trigger callback named 'onScrollEnd'.
+ *
+ *      @param wrapperRef;
+ *          - Wrapper which should contain scroll
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
