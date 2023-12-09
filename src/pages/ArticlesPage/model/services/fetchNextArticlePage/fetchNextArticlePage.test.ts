@@ -10,7 +10,6 @@
  *        return 2 (pending, fulfilled or pending, error) Instead of 4 (pending, fulfilled + 2 dispatch).
  */
 
-import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchArticlesList } from '../fetchArticleList/fetchArticlesList';
 import { fetchNextArticlePage } from './fetchNextArticlePage';
