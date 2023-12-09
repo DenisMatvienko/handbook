@@ -1,8 +1,10 @@
 /**
  *      useInfiniteScroll
  *       - hook which allow use infinite scroll in lists
- *       Intersection_Observer_API - allow to watch for elements advent. Allow to create images lazy-loding,
- *       infinite scroll etc..
+ *       Intersection_Observer_API - allow to watch for elements advent. Allow to create images
+ *       lazy-loading, infinite scroll etc...
+ *
+ *       Observer will be mounted when callback != undefined
  *
  *       @param callback;
  *          - Callback which should be called, when crossed 'triggerRef'
@@ -15,7 +17,16 @@
  *          - root: the element it contains scroll
  *
  *       @param IntersectionObserver
- *          - Allow to observe at behavior of elements, realise lazy-loading of images, infinite scroll's, etc..
+ *          - In this hook, call when display(viewport) contact with triggerRef. When we are add
+ *          'IntersectionObserver' in 'observer.current' it works callback, which will added
+ *          in this hook as args
+ *
+ *          Example:
+ *            If in IntersectionObserver add, 'console.log('hello')', when on page viewport
+ *            contact with triggerRef in console will show 'hello'
+ *
+ *          - Allow to observe at behavior of elements, realise lazy-loading of images,
+ *          infinite scroll's, etc..
  *          options object see more by link:
  *          https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
  *

@@ -27,11 +27,20 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
-import { getArticlePageView, getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import {
+  getArticlePageError,
+  getArticlePageView,
+  getArticlesPageIsLoading,
+} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import {
+  ErrorPalette,
+  ErrorPaletteSize,
+  ErrorPaletteTheme,
+} from 'shared/ui/ErrorPalette/ErrorPalette';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -49,6 +58,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const views = useSelector(getArticlePageView);
+  const error = useSelector(getArticlePageError);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
@@ -93,6 +103,21 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     recommendations: blockMock('=Temporary recommendations layout='),
     histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
   };
+
+  if (error) {
+    return (
+        <Page>
+            <ErrorPalette
+                className={classes.articleError}
+                theme={ErrorPaletteTheme.DEFAULT}
+                title={t('ArticlePageErrorTitle')}
+                text={t('ArticlePageErrorText')}
+                size={ErrorPaletteSize.XXL}
+                refresh
+            />
+        </Page>
+    );
+  }
 
   return (
       <Page
