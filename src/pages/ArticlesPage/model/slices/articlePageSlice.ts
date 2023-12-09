@@ -7,6 +7,9 @@
  *
  *      @param initView
  *        - Get selected article view from local storage
+ *        Init for list view limit:
+ *        LIST = 4
+ *        GRID = 9
  *
  *      @param articlesAdapter
  *        setAll:

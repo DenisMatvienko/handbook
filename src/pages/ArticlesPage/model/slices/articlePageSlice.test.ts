@@ -89,14 +89,17 @@ describe('articlePageSlice', () => {
       .toEqual('LIST');
   });
 
-  // test('initView reducer test', () => {
-  //   const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.GRID };
-  //   expect(articlePageSliceReducer(
-  //     state as ArticlesPageSchema,
-  //     articlePageSliceActions.initView(),
-  //   ))
-  //     .toEqual({ view: ArticleView.GRID });
-  // });
+  test('initView reducer test', () => {
+    const state: DeepPartial<ArticlesPageSchema> = {};
+    expect(articlePageSliceReducer(
+      state as ArticlesPageSchema,
+      articlePageSliceActions.initView(),
+    ))
+      .toEqual({
+        limit: 4,
+        view: ArticleView.LIST,
+      });
+  });
 
   test('fetchArticlesList service fulfilled state in extraReducer', () => {
     const state: DeepPartial<ArticlesPageSchema> = {

@@ -6,6 +6,10 @@ import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import {
+  fetchNextArticlePage,
+} from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import articlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
 import { fetchArticlesList } from './fetchArticlesList';
 
 jest.mock('axios');
@@ -46,9 +50,22 @@ describe('fetchArticlesList', () => {
         }
       ));
 
-    const thunk = new TestAsyncThunk(fetchArticlesList);
-    thunk.api.get.mockReturnValue(Promise.resolve({ data: articleFilled }));
+    // const thunk = new TestAsyncThunk(fetchArticlesList);
+    // thunk.api.get.mockReturnValue(Promise.resolve({ data: articleFilled }));
+    // const result = await thunk.callThunk({ page: 1 });
+
+    const thunk = new TestAsyncThunk(fetchArticlesList, {
+      articlesPage: {
+        page: 1,
+        ids: [1],
+        entities: { article },
+        limit: 5,
+        isLoading: false,
+        hasMore: true,
+      },
+    });
     const result = await thunk.callThunk({ page: 1 });
+    console.log(result);
 
     expect(thunk.api.get)
       .toHaveBeenCalled(); // Expect that get request is ok
@@ -57,6 +74,7 @@ describe('fetchArticlesList', () => {
     expect(result.payload)
       .toEqual(articleFilled); // Expect that server data response as payload - 'data'
   });
+
   test('server fall with error', async () => {
     const thunk = new TestAsyncThunk(fetchArticlesList);
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
