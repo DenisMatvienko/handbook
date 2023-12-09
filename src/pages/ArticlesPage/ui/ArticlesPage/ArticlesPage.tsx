@@ -3,11 +3,13 @@
  *      - Load articles on page. Have view options;
  *
  *      @param useInitialEffect;
+ *          View initView got by set view with SetView
  *          - First render, on page = 1.
  *
  *      @param onLoadNextPart;
- *          - Next render, when scroll move to 'triggerRef' in 'Page' component. Trigger new articles by inited limits,
- *            while 'hasMore' property in state - true.
+ *          - Next render, when scroll move to 'triggerRef' in 'Page' component. Trigger new
+ *          articles by inited limits,
+ *          while 'hasMore' property in state - true.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';

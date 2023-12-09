@@ -62,10 +62,10 @@ const articles: Article[] = new Array(16)
     }
   ));
 
-const entities = ():articlesEntitiesType => {
+const entities = (count: number):articlesEntitiesType => {
   const entity: articlesEntitiesType = {};
-  for (let i = 0; i < 16; i++) {
-    const key = new Array(16).fill(0).map((_, i) => String(i))[i];
+  for (let i = 0; i < count; i++) {
+    const key = new Array(count).fill(0).map((_, i) => String(i))[i];
     const value = {
       ...article,
       id: String(key),
@@ -76,7 +76,7 @@ const entities = ():articlesEntitiesType => {
 };
 
 describe('articlePageSlice', () => {
-  test('setReadonly reducer test', () => {
+  test('setView reducer test', () => {
     const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.GRID };
     expect(articlePageSliceReducer(
         state as ArticlesPageSchema,
@@ -84,23 +84,38 @@ describe('articlePageSlice', () => {
     ))
       .toEqual({ view: ArticleView.LIST });
   });
-  test('setReadonly storage test', () => {
+  test('setView storage test', () => {
     expect(localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView)
       .toEqual('LIST');
   });
 
+  // test('initView reducer test', () => {
+  //   const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.GRID };
+  //   expect(articlePageSliceReducer(
+  //     state as ArticlesPageSchema,
+  //     articlePageSliceActions.initView(),
+  //   ))
+  //     .toEqual({ view: ArticleView.GRID });
+  // });
+
   test('fetchArticlesList service fulfilled state in extraReducer', () => {
     const state: DeepPartial<ArticlesPageSchema> = {
       isLoading: true,
+      hasMore: true,
+      view: ArticleView.LIST,
+      ids: new Array(16).fill(0).map((_, i) => String(i)),
+      entities: entities(16),
     };
     expect(articlePageSliceReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(articles, '', { page: 1 }),
+        fetchArticlesList.fulfilled(articles, '', { page: 2 }),
     ))
       .toEqual({
+        hasMore: true,
         isLoading: false,
+        view: ArticleView.LIST,
         ids: new Array(16).fill(0).map((_, i) => String(i)),
-        entities: entities(),
+        entities: entities(16),
       });
   });
   test('fetchArticlesList service pending state in extraReducer', () => {
