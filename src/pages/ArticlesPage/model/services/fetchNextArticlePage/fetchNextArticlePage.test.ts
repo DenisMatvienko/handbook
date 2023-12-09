@@ -1,37 +1,72 @@
-// /**
-//  *    fetchNextArticlePage test.
-//  *
-//  *    @test 'enter_test_name'
-//  *      - enter describe
-//  */
-//
-// import axios from 'axios';
-// import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-// import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
-// import { fetchNextArticlePage } from './fetchNextArticlePage';
-//
-// jest.mock('axios');
-// const mockedAxios = jest.mocked(axios, true);
-//
-// describe('fetchNextArticlePage', () => {
-//   test('ok request, success status, correct data', async () => {
-//     const thunk = new TestAsyncThunk(fetchNextArticlePage);
-//     thunk.api.get.mockReturnValue(Promise.resolve());
-//     const result = await thunk.callThunk();
-//
-//     expect(thunk.api.get)
-//       .toHaveBeenCalled(); // Expect that get request is ok
-//     expect(result.meta.requestStatus)
-//       .toBe('fulfilled'); // Expect that get request is ok - with fulfilled status
-//     expect(result.payload)
-//       .toEqual(4); // Expect that server data response as payload - 'data'
-//   });
-//   test('server fall with error', async () => {
-//     const thunk = new TestAsyncThunk(fetchNextArticlePage);
-//     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-//     const result = await thunk.callThunk();
-//
-//     expect(result.meta.requestStatus)
-//       .toBe('rejected');
-//   });
-// });
+/**
+ *    fetchNextArticlePage test.
+ *
+ *    @test 'ok request, success status, correct data';
+ *      - toBeCalledTimes - 4 times: pending, fulfilled + 2 dispatch from fetchNextArticlePage.
+ *
+ *    @test 'error';
+ *      - toBeCalledTimes - 2 times cause fetchNextArticlePage arg hasMore - false:
+ *        according this, requirement with hasMore didn't work, 2 dispatch didn't called.
+ *        return 2 (pending, fulfilled or pending, error) Instead of 4 (pending, fulfilled + 2 dispatch).
+ */
+
+import axios from 'axios';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchArticlesList } from '../fetchArticleList/fetchArticlesList';
+import { fetchNextArticlePage } from './fetchNextArticlePage';
+
+jest.mock('../fetchArticleList/fetchArticlesList');
+
+describe('fetchNextArticlePage', () => {
+  test('ok request, success status, correct data', async () => {
+    const thunk = new TestAsyncThunk(fetchNextArticlePage, {
+      articlesPage: {
+        page: 2,
+        ids: [],
+        entities: {},
+        limit: 5,
+        isLoading: false,
+        hasMore: true,
+      },
+    });
+
+    await thunk.callThunk();
+
+    expect(thunk.dispatch).toBeCalledTimes(4);
+    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+  });
+  test('error', async () => {
+    const thunk = new TestAsyncThunk(fetchNextArticlePage, {
+      articlesPage: {
+        page: 2,
+        ids: [],
+        entities: {},
+        limit: 5,
+        isLoading: false,
+        hasMore: false,
+      },
+    });
+
+    await thunk.callThunk();
+
+    expect(thunk.dispatch).toBeCalledTimes(2);
+    expect(fetchArticlesList).not.toHaveBeenCalledWith();
+  });
+  test('isLoading', async () => {
+    const thunk = new TestAsyncThunk(fetchNextArticlePage, {
+      articlesPage: {
+        page: 2,
+        ids: [],
+        entities: {},
+        limit: 5,
+        isLoading: true,
+        hasMore: true,
+      },
+    });
+
+    await thunk.callThunk();
+
+    expect(thunk.dispatch).toBeCalledTimes(2);
+    expect(fetchArticlesList).not.toHaveBeenCalledWith();
+  });
+});
