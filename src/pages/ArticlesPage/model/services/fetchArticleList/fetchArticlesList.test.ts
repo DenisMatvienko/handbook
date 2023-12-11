@@ -4,16 +4,14 @@
 
 import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Article } from 'entities/Article';
+import { Article, ArticleView } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import {
-  fetchNextArticlePage,
-} from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import articlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
 import { fetchArticlesList } from './fetchArticlesList';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
+
+type articlesEntitiesType = Record<string, object>;
 
 describe('fetchArticlesList', () => {
   test('ok request, success status, correct data', async () => {
@@ -41,7 +39,31 @@ describe('fetchArticlesList', () => {
         },
       ],
     };
-    const articleFilled = new Array(16)
+
+    const entities = (count: number):articlesEntitiesType => {
+      const entity: articlesEntitiesType = {};
+      for (let i = 0; i < count; i++) {
+        const key = new Array(count).fill(0).map((_, i) => String(i))[i];
+        const value = {
+          ...article,
+          id: String(key),
+        };
+        entity[key] = value;
+      }
+      return entity;
+    };
+
+    const articlesPage = {
+      page: 2,
+      limit: 4,
+      isLoading: false,
+      view: ArticleView.LIST,
+      hasMore: true,
+      ids: new Array(4).fill(0).map((_, i) => String(i)),
+      entities: entities(4),
+    };
+
+    const articleFilled: Article[] = new Array(16)
       .fill(0)
       .map((item, index) => (
         {
@@ -50,22 +72,17 @@ describe('fetchArticlesList', () => {
         }
       ));
 
-    // const thunk = new TestAsyncThunk(fetchArticlesList);
-    // thunk.api.get.mockReturnValue(Promise.resolve({ data: articleFilled }));
-    // const result = await thunk.callThunk({ page: 1 });
-
-    const thunk = new TestAsyncThunk(fetchArticlesList, {
-      articlesPage: {
-        page: 1,
-        ids: [1],
-        entities: { article },
-        limit: 5,
-        isLoading: false,
-        hasMore: true,
-      },
-    });
+    const thunk = new TestAsyncThunk(fetchArticlesList);
+    thunk.api.get.mockReturnValue(Promise.resolve({
+      page: 2,
+      limit: 4,
+      isLoading: false,
+      view: ArticleView.LIST,
+      hasMore: true,
+      ids: new Array(4).fill(0).map((_, i) => String(i)),
+      entities: entities(4),
+    }));
     const result = await thunk.callThunk({ page: 1 });
-    console.log(result);
 
     expect(thunk.api.get)
       .toHaveBeenCalled(); // Expect that get request is ok
