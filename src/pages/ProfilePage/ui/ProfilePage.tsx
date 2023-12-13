@@ -40,6 +40,7 @@ import {
 } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import classes from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -109,28 +110,30 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   };
 
   return (
-      <DynamicModuleLoader
-          reducers={reducers}
-          removeAfterUnmount
-      >
-          <div>
-              <ProfileCard
-                  className={classNames(classes.ProfileCard, mods)}
-                  data={formData}
-                  isLoading={isLoading}
-                  error={error}
-                  readonly={readonly}
-                  onChangeFirstname={onChangeFirstname}
-                  onChangeLastname={onChangeLastname}
-                  onChangeAge={onChangeAge}
-                  onChangeCity={onChangeCity}
-                  onChangeUsername={onChangeUsername}
-                  onChangeAvatar={onChangeAvatar}
-                  onChangeCurrency={onChangeCurrency}
-                  onChangeCountry={onChangeCountry}
-              />
-          </div>
-      </DynamicModuleLoader>
+      <Page>
+          <DynamicModuleLoader
+              reducers={reducers}
+              removeAfterUnmount
+          >
+              <div>
+                  <ProfileCard
+                      className={classNames(classes.ProfileCard, mods)}
+                      data={formData}
+                      isLoading={isLoading}
+                      error={error}
+                      readonly={readonly}
+                      onChangeFirstname={onChangeFirstname}
+                      onChangeLastname={onChangeLastname}
+                      onChangeAge={onChangeAge}
+                      onChangeCity={onChangeCity}
+                      onChangeUsername={onChangeUsername}
+                      onChangeAvatar={onChangeAvatar}
+                      onChangeCurrency={onChangeCurrency}
+                      onChangeCountry={onChangeCountry}
+                  />
+              </div>
+          </DynamicModuleLoader>
+      </Page>
   );
 };
 

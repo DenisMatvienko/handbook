@@ -2,12 +2,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/provider/ErrorBoundary';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Page } from 'shared/ui/Page/Page';
 
 const MainPage = () => {
   const { t } = useTranslation();
 
   return (
-      <div>
+      <Page>
           <BugButton />
           <Text
               title={t('Edit')}
@@ -19,7 +20,7 @@ const MainPage = () => {
               text={t('Главная страница')}
               align={TextAlign.LEFT}
           />
-      </div>
+      </Page>
   );
 };
 

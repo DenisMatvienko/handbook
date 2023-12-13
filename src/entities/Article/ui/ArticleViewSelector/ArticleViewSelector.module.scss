@@ -1,16 +1,23 @@
+.ArticleViewSelectorIcon {
+  width: 20px;
+  height: 20px;
+  fill: var(--block-color);
+  stroke: var(--block-color);
+}
+
 .ArticleViewSelector {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-flow: row wrap;
   width: 7%;
-}
 
-.ArticleViewSelectorIcon {
-  width: 20px;
-  height: 20px;
-  fill: var(--block-color);
-  stroke: var(--block-color);
+  &:hover {
+    & .ArticleViewSelectorIcon {
+      fill: var(--block-color);
+      stroke: var(--block-color);
+    }
+  }
 }
 
 .ViewSwitcher {

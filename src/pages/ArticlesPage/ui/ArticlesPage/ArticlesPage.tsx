@@ -1,11 +1,20 @@
 /**
  *    ArticlesPage-component.
- *      - ArticlesPage
+ *      - Load articles on page. Have view options;
+ *
+ *      @param useInitialEffect;
+ *          View initView got by set view with SetView
+ *          - First render, on page = 1.
+ *
+ *      @param onLoadNextPart;
+ *          - Next render, when scroll move to 'triggerRef' in 'Page' component. Trigger new
+ *          articles by inited limits,
+ *          while 'hasMore' property in state - true.
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -18,14 +27,22 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
-  getArticlePageError, getArticlePageView,
+  getArticlePageError,
+  getArticlePageView,
   getArticlesPageIsLoading,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import {
+  ErrorPalette,
+  ErrorPaletteSize,
+  ErrorPaletteTheme,
+} from 'shared/ui/ErrorPalette/ErrorPalette';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -42,12 +59,18 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const error = useSelector(getArticlePageError);
   const views = useSelector(getArticlePageView);
+  const error = useSelector(getArticlePageError);
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextArticlePage());
+  }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlePageSliceActions.initView());
+    dispatch(fetchArticlesList({
+      page: 1,
+    }));
   });
 
   const onChangeView = useCallback((view: ArticleView) => {
@@ -83,25 +106,44 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
   };
 
+  if (error) {
+    return (
+        <Page>
+            <ErrorPalette
+                className={classes.articleError}
+                theme={ErrorPaletteTheme.DEFAULT}
+                title={t('ArticlePageErrorTitle')}
+                text={t('ArticlePageErrorText')}
+                size={ErrorPaletteSize.XXL}
+                refresh
+            />
+        </Page>
+    );
+  }
+
   return (
-      <DynamicModuleLoader
-          reducers={reducers}
-          removeAfterUnmount
+      <Page
+          onScrollEnd={onLoadNextPart}
       >
-          <div className={classNames(classes.ArticlesPage, {}, [className])}>
-              <FullPageBlock
-                  className={classes.ArticlesPageHeader}
-              >
-                  <ArticleViewSelector view={views} onViewClick={onChangeView} />
-              </FullPageBlock>
-              <DoubleAdjustableFrame
-                  widthLeftBlock="69%"
-                  widthRightBlock="30%"
-                  leftBlock={componentsLeftSide}
-                  rightBlock={componentsRightSide}
-              />
-          </div>
-      </DynamicModuleLoader>
+          <DynamicModuleLoader
+              reducers={reducers}
+              removeAfterUnmount
+          >
+              <div className={classNames(classes.ArticlesPage, {}, [className])}>
+                  <FullPageBlock
+                      className={classes.ArticlesPageHeader}
+                  >
+                      <ArticleViewSelector view={views} onViewClick={onChangeView} />
+                  </FullPageBlock>
+                  <DoubleAdjustableFrame
+                      widthLeftBlock="69%"
+                      widthRightBlock="30%"
+                      leftBlock={componentsLeftSide}
+                      rightBlock={componentsRightSide}
+                  />
+              </div>
+          </DynamicModuleLoader>
+      </Page>
   );
 };
 
