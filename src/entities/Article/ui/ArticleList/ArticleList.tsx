@@ -7,6 +7,11 @@
  *        1) observer change all cards on skeletons from 'map'. For every new card add list of skeletons.
  *        2) Need map of skeletons for every new update, for that use 'map' callback in 'render'
  *
+ *
+ *    @param getSkeletons
+ *      -  different with return isLoading in 'if block' and in final return, that:
+ *          - 'if block' return content earlier
+ *
  */
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';

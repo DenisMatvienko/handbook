@@ -47,6 +47,5 @@ export const fetchArticlesList = createAsyncThunk<Article[],
           console.log(e);
           return rejectWithValue('error');
         }
-      }
-      ,
+      },
     );
