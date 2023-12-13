@@ -1,6 +1,9 @@
 /**
  *    Page-story.
- *      - Page
+ *      - Page wrapper, add paddings, grid layout, and page width.
+ *
+ *    @param FullPageBlock;
+ *      - Page sets indents (padding) for this block.
  */
 
 import React from 'react';
@@ -9,10 +12,11 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Page } from './Page';
 
 export default {
-  title: 'enterSlice/Page',
+  title: 'shared/Page',
   component: Page,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -25,11 +29,12 @@ export default {
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const FirstPage = Template.bind({});
-FirstPage.args = {};
+FirstPage.args = {
+  children: <FullPageBlock>hello</FullPageBlock>,
+};
 FirstPage.decorators = [ThemeDecorator(Theme.DARK)];
-FirstPage.decorators = [StoreDecorator({})];
 
 export const SecondPage = Template.bind({});
-SecondPage.args = {};
-SecondPage.decorators = [ThemeDecorator(Theme.DARK)];
-SecondPage.decorators = [StoreDecorator({})];
+SecondPage.args = {
+  children: <FullPageBlock>hello</FullPageBlock>,
+};
