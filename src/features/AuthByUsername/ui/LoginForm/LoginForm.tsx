@@ -18,15 +18,20 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
-import { memo, useCallback } from 'react';
+import React, {
+  memo, MutableRefObject, useCallback, useRef, useState,
+} from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import EyeIconOn from 'shared/assets/icons/eye.svg';
+import EyeIconOff from 'shared/assets/icons/eye-off.svg';
 import {
   ErrorPalette,
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { Icon } from 'shared/ui/Icon/Icon';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -50,6 +55,11 @@ const LoginForm = memo(({
   const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const onShowPasswordVisibility = useCallback(() => {
+    setShowPassword((prev) => !prev);
+  }, []);
 
   const initialReducers: ReducersList = {
     loginForm: loginReducer,
@@ -98,14 +108,37 @@ const LoginForm = memo(({
                   onChange={onChangeUsername}
                   value={username}
               />
-              <Input
-                  type="text"
-                  theme={InputTheme.SIMPLE}
-                  className={classes.input}
-                  placeholderTemplate={t('Введите пароль')}
-                  onChange={onChangePassword}
-                  value={password}
-              />
+              <div className={classes.passwordWrapper}>
+                  <Input
+                      type={showPassword ? 'text' : 'password'}
+                      theme={InputTheme.SIMPLE}
+                      className={classes.inputPassword}
+                      placeholderTemplate={t('Введите пароль')}
+                      onChange={onChangePassword}
+                      value={password}
+                  />
+                  <Button
+                      className={classes.showPasswordBtn}
+                      theme={ButtonTheme.CLEAR}
+                      radius={ButtonRadius.CIRCLE}
+                      onClick={onShowPasswordVisibility}
+                      disabled={isLoading}
+                  >
+                      { showPassword
+                        ? (
+                            <Icon
+                                className={classes.inputIcon}
+                                Svg={EyeIconOff}
+                            />
+                        )
+                        : (
+                            <Icon
+                                className={classes.inputIcon}
+                                Svg={EyeIconOn}
+                            />
+                        )}
+                  </Button>
+              </div>
               <div className={classNames(classes.signInWrapper, {}, [])}>
                   <Button
                       className={classes.loginBtn}
