@@ -10,6 +10,10 @@
  *          - Next render, when scroll move to 'triggerRef' in 'Page' component. Trigger new
  *          articles by inited limits,
  *          while 'hasMore' property in state - true.
+ *
+ *      @param inited;
+ *          - If data's not inited: inited and load data from server;
+ *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -30,7 +34,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
-  getArticlePageError,
+  getArticlePageError, getArticlePageInited,
   getArticlePageView,
   getArticlesPageIsLoading,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
@@ -61,16 +65,19 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
+  const inited = useSelector(getArticlePageInited);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlePageSliceActions.initView());
-    dispatch(fetchArticlesList({
-      page: 1,
-    }));
+    if (!inited) {
+      dispatch(articlePageSliceActions.initView());
+      dispatch(fetchArticlesList({
+        page: 1,
+      }));
+    }
   });
 
   const onChangeView = useCallback((view: ArticleView) => {
@@ -127,7 +134,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       >
           <DynamicModuleLoader
               reducers={reducers}
-              removeAfterUnmount
+              removeAfterUnmount={false}
           >
               <div className={classNames(classes.ArticlesPage, {}, [className])}>
                   <FullPageBlock

@@ -22,6 +22,10 @@
  *
  *       @param hasMore;
  *          - Shows whether we have downloaded all the articles or whether there are still some undownloaded articles
+ *
+ *       @param inited;
+ *          - If data's not inited: will be inited and load data from server;
+ *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
  */
 import { EntityState } from '@reduxjs/toolkit';
 import { Article, ArticleView } from 'entities/Article';
@@ -35,4 +39,6 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     page: number,
     limit?: number,
     hasMore: boolean,
+
+    _inited: boolean,
 }
