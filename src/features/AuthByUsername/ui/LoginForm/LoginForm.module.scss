@@ -13,6 +13,35 @@
 
 .input {
   margin-top: 10px;
+  padding-right: 45px;
+  padding-left: 45px;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.inputPassword {
+  padding-right: 45px;
+  padding-left: 45px;
+}
+
+.showPasswordBtn {
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 40%;
+  right: 15%;
+  width: 30px;
+  height: 30px;
+}
+
+.inputIcon {
+  width: 25px;
+  height: 25px;
+  fill: var(--main-hover);
 }
 
 .signInWrapper {
