@@ -128,13 +128,13 @@ const LoginForm = memo(({
                         ? (
                             <Icon
                                 className={classes.inputIcon}
-                                Svg={EyeIconOn}
+                                Svg={EyeIconOff}
                             />
                         )
                         : (
                             <Icon
                                 className={classes.inputIcon}
-                                Svg={EyeIconOff}
+                                Svg={EyeIconOn}
                             />
                         )}
                   </Button>
