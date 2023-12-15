@@ -7,7 +7,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-  memo, useEffect, useMemo, useRef, useState,
+  memo, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
@@ -21,6 +21,12 @@ import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
+export enum SidebarPosition {
+    OFF = 'off',
+    COLLAPSED = 'collapsed',
+    ON = 'on',
+}
+
 interface SidebarProps {
   className?: string;
 }
@@ -28,10 +34,23 @@ interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(true);
   const SidebarItemsList = useSelector(getSidebarItems);
+  const [newPosition, setNewPosition] = useState(SidebarPosition.OFF);
 
-  const onToggle = () => {
-    setCollapsed((prev) => !prev);
-  };
+  const onToggle = useCallback(() => {
+    switch (newPosition) {
+      case SidebarPosition.OFF:
+        setNewPosition(SidebarPosition.COLLAPSED);
+        break;
+      case SidebarPosition.COLLAPSED:
+        setNewPosition(SidebarPosition.ON);
+        break;
+      case SidebarPosition.ON:
+        setNewPosition(SidebarPosition.OFF);
+        break;
+      default:
+        setNewPosition(SidebarPosition.OFF);
+    }
+  }, [newPosition]);
 
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
       <SidebarItem
@@ -42,14 +61,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   )), [SidebarItemsList, collapsed]);
 
   return (
-      <aside
-          data-testid="sidebar"
-          className={classNames(
-            classes.Sidebar,
-            { [classes.collapsed]: collapsed },
-            [className],
-          )}
-      >
+      <div className={classes.wrapper}>
           <Button
               data-testid="sidebar-toggle"
               className={classNames(classes.button, {}, [])}
@@ -66,15 +78,24 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               )}
               />
           </Button>
-          <div className={classNames(classes.items)}>
-              {itemsList}
-          </div>
-          <div className={classes.sidebarWrapper}>
-              <div className={classNames(classes.switchers, {}, [])}>
-                  <ThemeSwitcher />
-                  <LangSwitcher short={collapsed} className={classes.lang} />
+          <aside
+              data-testid="sidebar"
+              className={classNames(
+                classes.Sidebar,
+                {},
+                [classes[newPosition]],
+              )}
+          >
+              <div className={classNames(classes.items)}>
+                  {itemsList}
               </div>
-          </div>
-      </aside>
+              <div className={classes.sidebarWrapper}>
+                  <div className={classNames(classes.switchers, {}, [])}>
+                      <ThemeSwitcher />
+                      <LangSwitcher short={collapsed} className={classes.lang} />
+                  </div>
+              </div>
+          </aside>
+      </div>
   );
 });
