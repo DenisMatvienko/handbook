@@ -9,7 +9,7 @@ import { getArticlePageInited } from 'pages/ArticlesPage/model/selectors/article
 import { articlePageSliceActions } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 
-export const initArticlePage = createAsyncThunk<void,
+export const initArticlesPage = createAsyncThunk<void,
     void,
     ThunkConfig<string>>(
       'pages/initArticlePage',

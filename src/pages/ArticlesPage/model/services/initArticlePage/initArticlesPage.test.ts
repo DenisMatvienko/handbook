@@ -7,7 +7,7 @@
 
 import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { initArticlePage } from './initArticlePage';
+import { initArticlesPage } from './initArticlesPage';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);

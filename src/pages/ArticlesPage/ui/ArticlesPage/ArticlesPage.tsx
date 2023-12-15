@@ -47,7 +47,7 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { initArticlePage } from 'pages/ArticlesPage/model/services/initArticlePage/initArticlePage';
+import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlePage/initArticlesPage';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -76,7 +76,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlePage());
+    dispatch(initArticlesPage());
   });
 
   const blockMock = useCallback((text: string, indent?: string) => (
