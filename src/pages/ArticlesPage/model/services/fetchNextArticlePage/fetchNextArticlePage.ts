@@ -19,7 +19,7 @@ export const fetchNextArticlePage = createAsyncThunk<
     void,
     void,
     ThunkConfig<string>>(
-      'entity_name/fetchNextArticlePage',
+      'page/fetchNextArticlePage',
       async (_, thunkAPI) => {
         const {
           dispatch,

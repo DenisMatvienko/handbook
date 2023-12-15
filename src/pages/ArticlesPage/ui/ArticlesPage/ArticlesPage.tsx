@@ -47,6 +47,7 @@ import {
   ErrorPaletteSize,
   ErrorPaletteTheme,
 } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { initArticlePage } from 'pages/ArticlesPage/model/services/initArticlePage/initArticlePage';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -65,24 +66,18 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
-  const inited = useSelector(getArticlePageInited);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
-  useInitialEffect(() => {
-    if (!inited) {
-      dispatch(articlePageSliceActions.initView());
-      dispatch(fetchArticlesList({
-        page: 1,
-      }));
-    }
-  });
-
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageSliceActions.setView(view));
   }, [dispatch]);
+
+  useInitialEffect(() => {
+    dispatch(initArticlePage());
+  });
 
   const blockMock = useCallback((text: string, indent?: string) => (
       <FullPageBlock
