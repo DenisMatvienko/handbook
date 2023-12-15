@@ -31,23 +31,18 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
-import {
-  getArticlePageError, getArticlePageInited,
-  getArticlePageView,
-  getArticlesPageIsLoading,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
-  ErrorPalette,
-  ErrorPaletteSize,
-  ErrorPaletteTheme,
-} from 'shared/ui/ErrorPalette/ErrorPalette';
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlePage/initArticlesPage';
+  getArticlePageError,
+  getArticlePageView,
+  getArticlesPageIsLoading,
+} from '../../model/selectors/articlesPageSelectors';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
