@@ -1,10 +1,10 @@
 /**
  *  Global exporting modules and types, which use in all app
  *
- *  @param __IS_DEV__
+ *    @param __IS_DEV__
  *    - is DefinePlugin variable
  *
- *   @param __IS_API__
+ *    @param __IS_API__
  *    - is Instance API variable
  *
  *    @param __PROJECT__
@@ -13,13 +13,17 @@
  *      for solving this problem. Need add in 'UseEffect' check, that __PROJECT__ != storybook
  *      - if that true, can add useDispatch.
  *
- *  @type DeepPartial<T>
+ *    @type DeepPartial<T>
  *    - allow to add all fields. Basically using in decorator.
  *      in strict mode some StateSchema fields crash with error (as example Login Schema):
  *      TS2739: Type '{ password: string; }' is missing the following properties from
  *      type 'LoginSchema': username, isLoading;
  *      Which means, that in this place needed to add all fields, as already added password field
  *      https://stackoverflow.com/questions/61132262/typescript-deep-partial
+ *
+ *     @type OptionalRecord<>
+ *     - Is different of Record utility type:
+ *       differs only due to the fact that the keys are optional parameters
  */
 
 declare module '*.scss' {
@@ -48,3 +52,7 @@ declare const __PROJECT__: 'storybook' | 'frontend' | 'jest';
 type DeepPartial<T> = T extends object ? {
   [P in keyof T]?: DeepPartial<T[P]>;
 } : T;
+
+type OptionalRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+};

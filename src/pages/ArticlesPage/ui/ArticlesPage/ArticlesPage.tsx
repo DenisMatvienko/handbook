@@ -10,6 +10,10 @@
  *          - Next render, when scroll move to 'triggerRef' in 'Page' component. Trigger new
  *          articles by inited limits,
  *          while 'hasMore' property in state - true.
+ *
+ *      @param inited;
+ *          - If data's not inited: inited and load data from server;
+ *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -27,22 +31,18 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useSelector } from 'react-redux';
+import { uid } from 'shared/lib/uid/uid';
+import { ArticleView, ArticleViewSelector } from 'entities/Article';
+import { Page } from 'shared/ui/Page/Page';
+import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
   getArticlePageError,
   getArticlePageView,
   getArticlesPageIsLoading,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { uid } from 'shared/lib/uid/uid';
-import { ArticleView, ArticleViewSelector } from 'entities/Article';
-import { Page } from 'shared/ui/Page/Page';
-import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import {
-  ErrorPalette,
-  ErrorPaletteSize,
-  ErrorPaletteTheme,
-} from 'shared/ui/ErrorPalette/ErrorPalette';
+} from '../../model/selectors/articlesPageSelectors';
 import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
@@ -66,16 +66,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
-  useInitialEffect(() => {
-    dispatch(articlePageSliceActions.initView());
-    dispatch(fetchArticlesList({
-      page: 1,
-    }));
-  });
-
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageSliceActions.setView(view));
   }, [dispatch]);
+
+  useInitialEffect(() => {
+    dispatch(initArticlesPage());
+  });
 
   const blockMock = useCallback((text: string, indent?: string) => (
       <FullPageBlock
@@ -127,7 +124,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       >
           <DynamicModuleLoader
               reducers={reducers}
-              removeAfterUnmount
+              removeAfterUnmount={false}
           >
               <div className={classNames(classes.ArticlesPage, {}, [className])}>
                   <FullPageBlock
