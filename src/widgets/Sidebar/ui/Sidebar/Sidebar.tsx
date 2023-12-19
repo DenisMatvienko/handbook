@@ -6,7 +6,7 @@
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
+import React, {
   memo, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -15,9 +15,11 @@ import {
   Button, ButtonRadius, ButtonSize, ButtonTheme,
 } from 'shared/ui/Button/Button';
 
-import BarsIcon from 'shared/assets/icons/bars-Yt.svg';
+import Cursor from 'shared/assets/icons/cursor-rays.svg';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import LogoIcon from 'shared/assets/logo/logo_3.svg';
 import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
@@ -71,13 +73,20 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               size={ButtonSize.XXL}
               radius={ButtonRadius.CIRCLE}
           >
-              <BarsIcon className={classNames(
-                classes.BarsIcon,
-                {},
-                [],
-              )}
+              <Icon
+                  className={classes.BarsIcon}
+                  Svg={Cursor}
+                  theme={IconTheme.BLOCK_ICON}
               />
           </Button>
+          <div className={classes.logoWrapper}>
+              <Icon
+                  className={classes.logo}
+                  Svg={LogoIcon}
+                  theme={IconTheme.BLOCK_ICON}
+              />
+              <div className={classes.plank} />
+          </div>
           <aside
               data-testid="sidebar"
               className={classNames(
@@ -91,7 +100,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               </div>
               <div className={classes.sidebarWrapper}>
                   <div className={classNames(classes.switchers, {}, [])}>
-                      <ThemeSwitcher />
                       <LangSwitcher short={collapsed} className={classes.lang} />
                   </div>
               </div>

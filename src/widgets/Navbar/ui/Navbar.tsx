@@ -10,6 +10,7 @@ import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { getProfileForm } from 'entities/Profile';
 import LogoIcon from 'shared/assets/logo/logo_3.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -38,15 +39,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   if (isAuth) {
     return (
         <header className={classNames(classes.Navbar, {}, [className])}>
-            <div className={classes.logoWrapper}>
-                <Icon
-                    className={classes.logo}
-                    Svg={LogoIcon}
-                    theme={IconTheme.BLOCK_ICON}
-                />
-                <div className={classes.plank} />
-            </div>
             <div className={classNames(classes.accountBar, {}, [className])}>
+                <ThemeSwitcher
+                    className={classes.theme}
+                />
                 <div className={classes.usernameAvatar}>
                     <Avatar
                         size={AvatarSize.M}
@@ -75,6 +71,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
       <header className={classNames(classes.Navbar, {}, [className])}>
+          <ThemeSwitcher
+              className={classes.theme}
+          />
           <Button
               theme={ButtonTheme.BACKGROUND_BLACK}
               radius={ButtonRadius.SEMI_ELLIPSE}

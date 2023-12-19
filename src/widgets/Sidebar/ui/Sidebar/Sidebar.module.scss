@@ -87,15 +87,23 @@
 //}
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
   padding: 0;
-  margin: 0;
+  margin-top: 20px;
 }
 
 .Sidebar {
-  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  height: calc(100vh - 40px);
   background-color: var(--secondary-dark);
   box-shadow: 2px 3px 3px var(--box-shadow);
-  position: relative;
+  position: sticky;
+  top: 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .on {
@@ -117,18 +125,50 @@
 
 .button {
   position: absolute;
-  top: -48px;
+  top: -45px;
   left: 10px;
   cursor: pointer;
 }
 
-.BarsIcon {
-  width: 25px;
-  height: 25px;
-  fill: var(--secondary-light);
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -48px;
+  left: 70px;
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+}
 
-  &:hover {
-    fill: var(--secondary-light);
+.plank {
+  width: 15px;
+  height: 5px;
+  color: #fff;
+  background-color: #fff;
+  margin-top: 25px;
+  margin-left: 2px;
+  animation: blinking 1.2s cubic-bezier(0.1, 0, 0.1, 0.1) infinite;
+}
+
+@keyframes blinking {
+  from {
+    opacity: 0;
+  }
+
+  to {
     opacity: 1;
+  }
+}
+
+.BarsIcon {
+  width: 30px;
+  height: 30px;
+  fill: var(--secondary-light);
+}
+
+.button > .BarsIcon {
+  &:hover {
+    fill: var(--title-main);
   }
 }
