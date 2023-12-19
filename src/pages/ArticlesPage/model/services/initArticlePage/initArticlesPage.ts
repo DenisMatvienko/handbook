@@ -1,6 +1,7 @@
 /**
  *    initArticlePage fetching
- *      -
+ *          - If data's not inited: inited and load data from server;
+ *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
  */
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
