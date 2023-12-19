@@ -96,6 +96,7 @@ describe('articlePageSlice', () => {
       articlePageSliceActions.initView(),
     ))
       .toEqual({
+        _inited: true,
         limit: 4,
         view: ArticleView.LIST,
       });
