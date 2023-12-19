@@ -58,13 +58,16 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    /**
-     * In moment when component did mount we are add reducer
-     */
+    /** In moment when component did mount we are add reducer */
+    const mountedReducers = store.reducerManager.getReducerMap();
     Object.entries(reducers)
       .forEach(([name, reducer]) => {
-        store.reducerManager?.add(name as StateSchemaKey, reducer);
-        dispatch({ type: `@INIT ${name} reducer` });
+        const mounted = mountedReducers[name as StateSchemaKey];
+        /** If reducer didn't mount in reducerManager, add em, when render */
+        if (!mounted) {
+          store.reducerManager.add(name as StateSchemaKey, reducer);
+          dispatch({ type: `@INIT ${name} reducer` });
+        }
       }, []);
 
     return () => {
@@ -81,7 +84,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
       if (removeAfterUnmount) {
         Object.entries(reducers)
           .forEach(([name, reducer]) => {
-            store.reducerManager?.remove(name as StateSchemaKey);
+            store.reducerManager.remove(name as StateSchemaKey);
             dispatch({ type: `@DESTROY ${name} reducer` });
           });
       }

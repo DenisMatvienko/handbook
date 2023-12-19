@@ -20,6 +20,12 @@
  *     For example see: 'updateProfileData.test.ts'
  *
  *   @param callThunk():
+ *      action:
+ *        - Is like create createAsyncThunk<Returned, ThunkArg, AsyncThunkConfig>
+ *            ex: const action = loginByUsername({ username: 'admin', password: 'admin' })
+ *            const result = await action(dispatch, getState, undefined)
+ *
+ *   @param callThunk():
  *    actionCreator(LoginByUsername) - is createAsyncThunk function - which create async thunk(action);
  *    result = action() - after that we are call this action and add into 'result' var;
  *
