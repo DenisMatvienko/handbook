@@ -89,15 +89,15 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 0;
   margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .Sidebar {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  max-height: 50vh;
+  height: calc(100vh - 50vh);
   background-color: var(--secondary-dark);
   box-shadow: 2px 3px 3px var(--box-shadow);
   position: sticky;
