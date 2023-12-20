@@ -19,7 +19,7 @@ import Cursor from 'shared/assets/icons/cursor-rays.svg';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import LogoIcon from 'shared/assets/logo/logo4.svg';
+import LogoIcon from 'shared/assets/logo/logo5.svg';
 import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
