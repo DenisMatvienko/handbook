@@ -141,11 +141,17 @@
   cursor: pointer;
 }
 
+.logo {
+  width: 150px;
+  height: 63px;
+  fill: var(--text-main);
+}
+
 .plank {
   width: 15px;
   height: 5px;
-  color: #fff;
-  background-color: #fff;
+  color: var(--text-main);
+  background-color: var(--text-main);
   margin-top: 25px;
   margin-left: 2px;
   animation: blinking 1.2s cubic-bezier(0.1, 0, 0.1, 0.1) infinite;
@@ -164,11 +170,27 @@
 .BarsIcon {
   width: 30px;
   height: 30px;
-  fill: var(--secondary-light);
+  fill: var(--text-main);
+  transform: rotate(-.10turn);
 }
 
 .button > .BarsIcon {
   &:hover {
     fill: var(--title-main);
+    animation: spin 1s infinite;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(0turn);
+  }
+
+  0% {
+    transform: rotate(.10turn);
   }
 }

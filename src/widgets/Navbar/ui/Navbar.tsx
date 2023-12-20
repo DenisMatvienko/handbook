@@ -8,8 +8,6 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { getProfileForm } from 'entities/Profile';
-import LogoIcon from 'shared/assets/logo/logo_3.svg';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import classes from './Navbar.module.scss';
 
@@ -49,12 +47,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         src={isAuth?.avatar}
                         alt={profile?.username}
                     />
-                </div>
-                <div className={classes.usernameLinks}>
-                    <Text
-                        text={`${isAuth.username},`}
-                        theme={TextTheme.TEXT_WHITE}
-                    />
+                    <div className={classes.usernameLinks}>
+                        <Text
+                            text={`${isAuth.username},`}
+                            theme={TextTheme.BACKGROUND_TEXT}
+                        />
+                    </div>
                 </div>
                 <Button
                     theme={ButtonTheme.BACKGROUND_BLACK}
@@ -71,23 +69,25 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
       <header className={classNames(classes.Navbar, {}, [className])}>
-          <ThemeSwitcher
-              className={classes.theme}
-          />
-          <Button
-              theme={ButtonTheme.BACKGROUND_BLACK}
-              radius={ButtonRadius.SEMI_ELLIPSE}
-              className={classes.links}
-              onClick={onShowModal}
-          >
-              {t('Войти')}
-          </Button>
-          {isAuthModal && (
-          <LoginModal
-              isOpen={isAuthModal}
-              onClose={onCloseModal}
-          />
-          )}
+          <div className={classNames(classes.accountBar, {}, [className])}>
+              <ThemeSwitcher
+                  className={classes.theme}
+              />
+              <Button
+                  theme={ButtonTheme.BACKGROUND_BLACK}
+                  radius={ButtonRadius.SEMI_ELLIPSE}
+                  className={classes.links}
+                  onClick={onShowModal}
+              >
+                  {t('Войти')}
+              </Button>
+              {isAuthModal && (
+              <LoginModal
+                  isOpen={isAuthModal}
+                  onClose={onCloseModal}
+              />
+              )}
+          </div>
       </header>
   );
 });

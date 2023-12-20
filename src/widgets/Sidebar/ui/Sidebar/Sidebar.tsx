@@ -9,7 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
   memo, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import {
   Button, ButtonRadius, ButtonSize, ButtonTheme,
@@ -19,7 +19,7 @@ import Cursor from 'shared/assets/icons/cursor-rays.svg';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import LogoIcon from 'shared/assets/logo/logo_3.svg';
+import LogoIcon from 'shared/assets/logo/logo3.svg';
 import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
@@ -53,6 +53,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         setNewPosition(SidebarPosition.OFF);
     }
   }, [newPosition]);
+
+  // mods if newPosition === SidebarPosition.ON : set classes blur background
 
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
       <SidebarItem
