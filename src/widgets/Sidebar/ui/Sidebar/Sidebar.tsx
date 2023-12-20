@@ -5,7 +5,7 @@
  *    - Component in which loop SidebarItemsList items
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
   memo, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
@@ -19,7 +19,7 @@ import Cursor from 'shared/assets/icons/cursor-rays.svg';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import LogoIcon from 'shared/assets/logo/logo3.svg';
+import LogoIcon from 'shared/assets/logo/logo4.svg';
 import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
@@ -54,7 +54,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     }
   }, [newPosition]);
 
-  // mods if newPosition === SidebarPosition.ON : set classes blur background
+  const mods: Mods = {
+    [classes.onBlure]: newPosition === SidebarPosition.ON,
+  };
 
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
       <SidebarItem
@@ -93,7 +95,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               data-testid="sidebar"
               className={classNames(
                 classes.Sidebar,
-                {},
+                mods,
                 [classes[newPosition]],
               )}
           >

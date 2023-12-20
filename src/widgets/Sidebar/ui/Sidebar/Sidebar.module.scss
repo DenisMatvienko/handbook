@@ -106,6 +106,12 @@
   border-bottom-right-radius: 5px;
 }
 
+.onBlure {
+  backdrop-filter: blur(1px);
+  background: var(--secondary-dark);
+  transition: 3s ease-in-out;
+}
+
 .on {
   width: var(--sidebar-width);
   min-height: calc(100vh - var(--navbar-height));

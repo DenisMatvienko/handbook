@@ -86,7 +86,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
               >
                   <Button
                       onClick={onSendHandler}
-                      theme={ButtonTheme.BACKGROUND_BLACK}
+                      theme={ButtonTheme.BACKGROUND_BLOCK}
                       radius={ButtonRadius.SEMI_ELLIPSE}
                   >
                       {t('AddCommentSendBtn')}

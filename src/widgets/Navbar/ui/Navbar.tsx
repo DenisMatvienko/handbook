@@ -38,9 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
         <header className={classNames(classes.Navbar, {}, [className])}>
             <div className={classNames(classes.accountBar, {}, [className])}>
-                <ThemeSwitcher
-                    className={classes.theme}
-                />
+                <ThemeSwitcher />
                 <div className={classes.usernameAvatar}>
                     <Avatar
                         size={AvatarSize.M}
@@ -55,7 +53,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     </div>
                 </div>
                 <Button
-                    theme={ButtonTheme.BACKGROUND_BLACK}
+                    theme={ButtonTheme.BACKGROUND}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                     className={classes.links}
                     onClick={onLogout}
@@ -70,11 +68,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   return (
       <header className={classNames(classes.Navbar, {}, [className])}>
           <div className={classNames(classes.accountBar, {}, [className])}>
-              <ThemeSwitcher
-                  className={classes.theme}
-              />
+              <div className={classes.theme}>
+                  <ThemeSwitcher />
+              </div>
               <Button
-                  theme={ButtonTheme.BACKGROUND_BLACK}
+                  theme={ButtonTheme.BACKGROUND}
                   radius={ButtonRadius.SEMI_ELLIPSE}
                   className={classes.links}
                   onClick={onShowModal}
