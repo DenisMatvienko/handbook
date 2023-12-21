@@ -1,69 +1,45 @@
 .Navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 20px;
   width: 100%;
   height: var(--navbar-height);
-  background-color: var(--secondary-dark);
-  box-shadow: 0 3px 5px var(--box-shadow);
+  position: sticky;
+  top: 5px;
+  z-index: 1;
 }
 
-.logoWrapper {
-  display: flex;
-  align-items: center;
-  width: 30%;
-  height: 50px;
-  cursor: pointer;
-}
-
-.logo {
-  margin-left: 50px;
-}
-
-.plank {
-  width: 15px;
-  height: 5px;
-  color: #fff;
-  background-color: #fff;
-  margin-top: 25px;
-  margin-left: 2px;
-  animation: blinking 1.2s cubic-bezier(0.1, 0, 0.1, 0.1) infinite;
-}
-
-@keyframes blinking {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.showNav {
+  width: 89.2%;
+  margin-left: 5%;
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 3px 3px var(--box-shadow);
+  border-radius: 10px;
 }
 
 .accountBar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  width: 25%;
+}
 
-  :not(:last-child):not(:first-child) {
-    margin-right: 15px;
-  }
-
-  :first-child {
-    margin-right: 1px;
-  }
+.theme {
+  margin-right: 20px;
 }
 
 .usernameLinks {
-  height: 40px;
-  padding: 5px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  color: var(--text-main);
 }
 
-.links {
-  margin-left: auto;
-}
-
-.mainLink {
-  margin-right: 15px;
+.usernameAvatar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+  align-items: center;
+  cursor: pointer;
 }

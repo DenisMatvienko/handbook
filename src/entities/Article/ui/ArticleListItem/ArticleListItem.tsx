@@ -147,7 +147,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <div className={classes.ArticleListItemListViewFooter}>
                 <Button
                     onClick={onOpenArticles}
-                    theme={ButtonTheme.BACKGROUND_BLACK}
+                    theme={ButtonTheme.BACKGROUND_BLOCK}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                 >
                     {t('ReadMore')}
