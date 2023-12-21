@@ -34,7 +34,6 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-  const [collapsed, setCollapsed] = useState(true);
   const SidebarItemsList = useSelector(getSidebarItems);
   const [newPosition, setNewPosition] = useState(SidebarPosition.OFF);
 
@@ -61,10 +60,10 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
       <SidebarItem
           item={item}
-          collapsed={collapsed}
+          collapsed={newPosition === SidebarPosition.COLLAPSED}
           key={item.path}
       />
-  )), [SidebarItemsList, collapsed]);
+  )), [SidebarItemsList, newPosition]);
 
   return (
       <div className={classes.wrapper}>
@@ -104,7 +103,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
               </div>
               <div className={classes.sidebarWrapper}>
                   <div className={classNames(classes.switchers, {}, [])}>
-                      <LangSwitcher short={collapsed} className={classes.lang} />
+                      <LangSwitcher short={newPosition === SidebarPosition.COLLAPSED} className={classes.lang} />
                   </div>
               </div>
           </aside>
