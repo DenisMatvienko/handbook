@@ -93,11 +93,12 @@
   margin-bottom: 50px;
 }
 
+// rewrite sidebar height!!!!!
 .Sidebar {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  height: calc(100vh - 50vh);
+  //height: calc(100vh - 60px);
   background-color: var(--secondary-dark);
   box-shadow: 2px 3px 3px var(--box-shadow);
   position: sticky;
@@ -114,13 +115,13 @@
 
 .on {
   width: var(--sidebar-width);
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - 15vh);
   transition: width 0.2s;
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
-  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100vh - 15vh);
   transition: width 0.2s;
 }
 
