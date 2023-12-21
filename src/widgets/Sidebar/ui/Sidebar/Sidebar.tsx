@@ -31,11 +31,16 @@ export enum SidebarPosition {
 
 interface SidebarProps {
   className?: string;
+  startedPosition?: SidebarPosition;
 }
 
-export const Sidebar = memo(({ className }: SidebarProps) => {
+export const Sidebar = memo((props: SidebarProps) => {
+  const {
+    className,
+    startedPosition = SidebarPosition.OFF,
+  } = props;
   const SidebarItemsList = useSelector(getSidebarItems);
-  const [newPosition, setNewPosition] = useState(SidebarPosition.OFF);
+  const [newPosition, setNewPosition] = useState(startedPosition);
 
   const onToggle = useCallback(() => {
     switch (newPosition) {
@@ -49,7 +54,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         setNewPosition(SidebarPosition.OFF);
         break;
       default:
-        setNewPosition(SidebarPosition.OFF);
+        setNewPosition(SidebarPosition.COLLAPSED);
     }
   }, [newPosition]);
 
