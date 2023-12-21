@@ -67,7 +67,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
             <div className={classNames(classes.RefreshButton)}>
                 <Button
                     onClick={reloadPage}
-                    theme={ButtonTheme.BACKGROUND_BLACK}
+                    theme={ButtonTheme.BACKGROUND_BLOCK}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                 >
                     {t('RefreshPage')}

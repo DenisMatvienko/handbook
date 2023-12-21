@@ -32,7 +32,8 @@ export enum ButtonTheme {
   CANCEL = 'cancel',
   SAVE = 'save',
   SCROLL_TOP = 'scrollTop',
-  BACKGROUND_BLACK = 'backgroundBlack',
+  BACKGROUND = 'background',
+  BACKGROUND_BLOCK = 'backgroundBlock',
   BACKGROUND_LBLACK_DPURPLE = 'backgroundBlackPurple',
 }
 

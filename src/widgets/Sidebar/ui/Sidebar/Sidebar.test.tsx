@@ -24,9 +24,15 @@ describe('Sidebar', () => {
     componentRender(<Sidebar />);
     const toggleBtn = screen.getByTestId('sidebar-toggle');
     expect(screen.getByTestId('sidebar'))
-      .toHaveClass('collapsed');
+      .toHaveClass('Sidebar off');
     fireEvent.click(toggleBtn);
     expect(screen.getByTestId('sidebar'))
-      .toBeInTheDocument();
+      .toHaveClass('Sidebar collapsed');
+    fireEvent.click(toggleBtn);
+    expect(screen.getByTestId('sidebar'))
+      .toHaveClass('Sidebar on');
+    fireEvent.click(toggleBtn);
+    expect(screen.getByTestId('sidebar'))
+      .toHaveClass('Sidebar off');
   });
 });

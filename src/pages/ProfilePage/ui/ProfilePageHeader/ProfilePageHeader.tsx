@@ -67,7 +67,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     ? (
                         <Button
                             className={classes.toEditButton}
-                            theme={ButtonTheme.BACKGROUND_BLACK}
+                            theme={ButtonTheme.BACKGROUND_BLOCK}
                             radius={ButtonRadius.SEMI_ELLIPSE}
                             onClick={onEdit}
                         >
@@ -77,7 +77,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                         <div className={classes.editButtons}>
                             <Button
                                 className={classes.editButton}
-                                theme={ButtonTheme.BACKGROUND_BLACK}
+                                theme={ButtonTheme.BACKGROUND_BLOCK}
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onSave}
                             >
@@ -85,7 +85,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                             </Button>
                             <Button
                                 className={classes.editButton}
-                                theme={ButtonTheme.BACKGROUND_BLACK}
+                                theme={ButtonTheme.BACKGROUND_BLOCK}
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onCancelEdit}
                             >

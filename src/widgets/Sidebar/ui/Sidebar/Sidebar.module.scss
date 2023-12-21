@@ -1,87 +1,112 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
 .Sidebar {
-  min-height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--secondary-dark);
   box-shadow: 2px 3px 3px var(--box-shadow);
-  position: relative;
+  position: sticky;
+  top: 65px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.lang {
+  margin-bottom: 10px;
+}
+
+.onBlure {
+  backdrop-filter: blur(1px);
+  background: var(--secondary-dark);
+  transition: 3s ease-in-out;
+}
+
+.on {
+  width: var(--sidebar-width);
+  min-height: calc(100vh - 15vh);
+  transition: width 0.2s;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+  min-height: calc(100vh - 15vh);
+  transition: width 0.2s;
+}
+
+.off {
+  display: none;
   transition: width 0.2s;
 }
 
 .button {
   position: absolute;
-  top: -40px;
+  top: -45px;
   left: 10px;
   cursor: pointer;
+  z-index: 2;
 }
 
-.BarsIcon {
-  width: 25px;
-  height: 25px;
-  fill: var(--secondary-light);
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -48px;
+  left: 70px;
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+  z-index: 2;
+}
 
-  &:hover {
-    fill: var(--secondary-light);
+.logo {
+  width: 150px;
+  height: 63px;
+  fill: var(--text-main);
+}
+
+.plank {
+  width: 15px;
+  height: 5px;
+  color: var(--text-main);
+  background-color: var(--text-main);
+  margin-top: 25px;
+  margin-left: 2px;
+  animation: blinking 1.2s cubic-bezier(0.1, 0, 0.1, 0.1) infinite;
+}
+
+@keyframes blinking {
+  from {
+    opacity: 0;
+  }
+
+  to {
     opacity: 1;
   }
 }
 
-.sidebarWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.BarsIcon {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-main);
+  transform: rotate(-0.1turn);
 }
 
-.items {
-  top: 20px;
-  position: sticky;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: start;
-  padding-top: 50px;
-  padding-left: 65px;
-  transition: top 1s ease-in-out;
+.button > .BarsIcon {
+  &:hover {
+    fill: var(--title-main);
+    animation: spin 2s;
+  }
 }
 
-.switchers {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  bottom: 20px;
-  width: 10%;
-  position: fixed;
-}
-
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-
-  .switchers {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-  }
-
-  .items {
-    padding-left: 20px;
-    transition: padding-left 0.2s ease-in-out;
-  }
-
-  .lang {
-    margin-top: 10px;
-  }
-
-  .link {
-    display: none;
-    flex-wrap: nowrap;
-    width: 0;
-  }
-
-  .icon {
-    transition: margin-top 0.5s ease-in-out;
-  }
-
-  .roll {
-    rotate: 180deg;
+@keyframes spin {
+  100% {
+    transform: rotate(325deg);
   }
 }

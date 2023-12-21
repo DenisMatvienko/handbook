@@ -4,7 +4,7 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Sidebar } from './Sidebar';
+import { Sidebar, SidebarPosition } from './Sidebar';
 
 export default {
   title: 'widgets/Sidebar',
@@ -16,23 +16,20 @@ export default {
 
 const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {};
-Light.decorators = [StoreDecorator(
-  {
-    user: {
-      authData: {},
-    },
-  },
-)];
+export const SidebarOn = Template.bind({});
+SidebarOn.args = {
+  startedPosition: SidebarPosition.ON,
+};
+SidebarOn.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-Dark.decorators = [StoreDecorator(
-  {
-    user: {
-      authData: {},
-    },
-  },
-)];
+export const SidebarCollapsed = Template.bind({});
+SidebarCollapsed.args = {
+  startedPosition: SidebarPosition.COLLAPSED,
+};
+SidebarCollapsed.decorators = [StoreDecorator({})];
+
+export const SidebarOff = Template.bind({});
+SidebarOff.args = {
+  startedPosition: SidebarPosition.OFF,
+};
+SidebarOff.decorators = [StoreDecorator({})];

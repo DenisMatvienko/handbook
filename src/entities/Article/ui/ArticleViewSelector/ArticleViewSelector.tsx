@@ -48,7 +48,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
               <Button
                   key={uid()}
                   className={classes.ArticleViewSelectorButton}
-                  theme={ButtonTheme.BACKGROUND_BLACK}
+                  theme={ButtonTheme.BACKGROUND_BLOCK}
                   radius={ButtonRadius.SEMI_ELLIPSE}
                   onClick={onClick(item.view)}
               >

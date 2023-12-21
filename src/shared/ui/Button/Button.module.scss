@@ -93,7 +93,26 @@
   }
 }
 
-.backgroundBlack {
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background: var(--button-background);
+  color: var(--text-white);
+  fill: var(--text-white);
+
+  &:hover {
+    background: var(--login-hover);
+    color: var(--secondary);
+    fill: var(--secondary);
+    box-shadow: 1px 1px 3px var(--accent-dark);
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.backgroundBlock {
   display: flex;
   justify-content: center;
   align-items: center;
