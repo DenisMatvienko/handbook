@@ -5,6 +5,9 @@
  *    - Root state type
  *    - When reducers async - fields should be unnecessary
  *
+ *  @param scrollRestoration
+ *    - non async schema
+ *
  *  @param StateSchemaKey
  *    - add keys of StateSchema, in this type can be just items, which same
  *      as keys of StateSchema. Example:
@@ -51,10 +54,12 @@ import { ArticleDetailSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollRestoration: ScrollRestorationSchema;
 
   /**
    *   Async reducer's
