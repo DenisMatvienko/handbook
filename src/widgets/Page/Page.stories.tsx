@@ -10,7 +10,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { Page } from './Page';

@@ -39,7 +39,7 @@ import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { uid } from 'shared/lib/uid/uid';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
