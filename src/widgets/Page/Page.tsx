@@ -25,13 +25,23 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
-  memo, MutableRefObject, UIEvent, ReactNode, useRef, useState,
+  memo, MutableRefObject, UIEvent, ReactNode, useRef, useState, useEffect,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { ButtonToTop } from 'shared/ui/ButtonToTop/ButtonToTop';
+import { ScrollRestorationActions } from 'features/ScrollRestoration';
+import { useLocation } from 'react-router-dom';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import {
+  getScrollRestoration,
+  getScrollRestorationBypath,
+} from 'features/ScrollRestoration/model/selectors/GetScrollRestoration';
+import { useSelector } from 'react-redux';
+import { StateSchema } from 'app/provider/StoreProvider';
+import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import classes from './Page.module.scss';
 
 interface PageProps {
@@ -47,6 +57,10 @@ export const Page = (props: PageProps) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
+  const scrollPosition = useSelector(
+    (state: StateSchema) => getScrollRestorationBypath(state, pathname),
+  );
 
   useInfiniteScroll({
     triggerRef,
@@ -54,19 +68,24 @@ export const Page = (props: PageProps) => {
     callback: onScrollEnd,
   });
 
-  const onScroll = (e: UIEvent<HTMLDivElement>) => {
-    if (e.currentTarget.scrollTop > 10) {
-      setShowNav(true);
-    } else {
-      setShowNav(false);
-    }
+  useInitialEffect(() => {
+    wrapperRef.current.scrollTop = scrollPosition;
 
-    console.log('scroll', e.currentTarget.scrollTop);
-    // dispatch(ScrollRestorationActions.setScrollPosition({
-    //   position: e.currentTarget.scrollTop,
-    //   path: 'asdasd',
-    // }));
-  };
+    wrapperRef.current.addEventListener('scroll', () => {
+      if (wrapperRef.current.scrollTop > 10) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+    });
+  });
+
+  const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
+    dispatch(ScrollRestorationActions.setScrollPosition({
+      position: e.currentTarget.scrollTop,
+      path: pathname,
+    }));
+  }, 500);
 
   return (
       <section
