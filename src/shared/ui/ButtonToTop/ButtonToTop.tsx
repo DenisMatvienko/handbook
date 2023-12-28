@@ -18,11 +18,10 @@ export enum ButtonToTopTheme {
 interface ButtonToTopProps {
     className?: string;
     theme?: ButtonToTopTheme;
-    display?: string;
 }
 
 export const ButtonToTop = memo((props: ButtonToTopProps) => {
-  const { className, theme = ButtonToTopTheme.NONE, display } = props;
+  const { className, theme = ButtonToTopTheme.NONE } = props;
 
   const [isDisplay, setIsDisplay] = useState(false);
 

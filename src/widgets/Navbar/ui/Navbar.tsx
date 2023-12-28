@@ -15,25 +15,26 @@ import classes from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
+    isDisplay?: boolean;
 }
 
-export const Navbar = memo(({ className }: NavbarProps) => {
+export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const isAuth = useSelector(getUserAuthData);
   const profile = useSelector(getProfileForm);
   const dispatch = useDispatch();
-  const [isDisplay, setIsDisplay] = useState(false);
+  // const [isDisplay, setIsDisplay] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        setIsDisplay(true);
-      } else {
-        setIsDisplay(false);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', () => {
+  //     if (window.scrollY > 10) {
+  //       setIsDisplay(true);
+  //     } else {
+  //       setIsDisplay(false);
+  //     }
+  //   });
+  // }, []);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);

@@ -6,6 +6,8 @@
 
 body {
   font: var(--font-m);
+  height: auto;
+  overflow: hidden;
 }
 
 .app,
@@ -13,11 +15,6 @@ body {
   color: var(--accent);
   background: var(--background);
   min-height: 100vh;
-}
-
-.content-page {
-  display: flex;
-  position: relative;
 }
 
 /* Works on Firefox */

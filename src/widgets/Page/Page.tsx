@@ -6,6 +6,12 @@
  *
  *      also import useInfiniteScroll
  *
+ *      @param onScroll;
+ *          - All components as "Navbar", "Sidebar", "ButtonToTop" added into "Page".
+ *          Because on page need control scroll for useThrottle.
+ *          On body scrollbar not needed anymore.
+ *          https://qna.habr.com/q/923999
+ *
  *      @param onScrollEnd;
  *          - Callback which called when scroll end.
  *
@@ -16,12 +22,16 @@
  *          - Wrapper which should contain scroll
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
-  memo, MutableRefObject, UIEvent, ReactNode, useRef, useEffect, useState,
+  memo, MutableRefObject, UIEvent, ReactNode, useRef, useState,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+import { ButtonToTop } from 'shared/ui/ButtonToTop/ButtonToTop';
 import classes from './Page.module.scss';
 
 interface PageProps {
@@ -33,8 +43,10 @@ interface PageProps {
 export const Page = (props: PageProps) => {
   const { className, children, onScrollEnd } = props;
   const { t } = useTranslation();
+  const [showNav, setShowNav] = useState(false);
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const dispatch = useAppDispatch();
 
   useInfiniteScroll({
     triggerRef,
@@ -43,7 +55,17 @@ export const Page = (props: PageProps) => {
   });
 
   const onScroll = (e: UIEvent<HTMLDivElement>) => {
+    if (e.currentTarget.scrollTop > 10) {
+      setShowNav(true);
+    } else {
+      setShowNav(false);
+    }
+
     console.log('scroll', e.currentTarget.scrollTop);
+    // dispatch(ScrollRestorationActions.setScrollPosition({
+    //   position: e.currentTarget.scrollTop,
+    //   path: 'asdasd',
+    // }));
   };
 
   return (
@@ -52,8 +74,16 @@ export const Page = (props: PageProps) => {
           className={classNames(classes.Page, {}, [className])}
           onScroll={onScroll}
       >
-          { children }
-          <div ref={triggerRef} />
+          <Navbar isDisplay={showNav} />
+          <div className={classes.contentPage}>
+              <Sidebar />
+              <div
+                  className={classNames(classes.content, {}, [className])}
+              >
+                  { children }
+                  <div ref={triggerRef} />
+              </div>
+          </div>
       </section>
   );
 };

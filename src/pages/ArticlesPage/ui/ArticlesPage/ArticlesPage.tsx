@@ -119,12 +119,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   }
 
   return (
-      <Page
-          onScrollEnd={onLoadNextPart}
+      <DynamicModuleLoader
+          reducers={reducers}
+          removeAfterUnmount={false}
       >
-          <DynamicModuleLoader
-              reducers={reducers}
-              removeAfterUnmount={false}
+          <Page
+              onScrollEnd={onLoadNextPart}
           >
               <div className={classNames(classes.ArticlesPage, {}, [className])}>
                   <FullPageBlock
@@ -139,8 +139,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                       rightBlock={componentsRightSide}
                   />
               </div>
-          </DynamicModuleLoader>
-      </Page>
+          </Page>
+      </DynamicModuleLoader>
   );
 };
 
