@@ -21,7 +21,7 @@ describe('GetComments', () => {
   test('selector get empty data of getAddCommentFormText', () => {
     const state: DeepPartial<StateSchema> = {};
     expect(getAddCommentFormText(state as StateSchema))
-      .toEqual(undefined);
+      .toEqual('');
   });
   test('selector should return date of getAddCommentFormError', () => {
     const state: DeepPartial<StateSchema> = {
