@@ -35,6 +35,7 @@ import { $api } from 'shared/api/api';
 import { NavigateOptions } from 'react-router';
 import { To } from 'react-router-dom';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
+import { ScrollRestorationReducer } from 'features/ScrollRestoration/model/slices/ScrollRestoration';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
@@ -42,9 +43,12 @@ export function createReduxStore(
   asyncReducers?: ReducersMapObject<StateSchema>,
 ) {
   const RootReducers: ReducersMapObject<StateSchema> = {
+    /** Async reducers */
     ...asyncReducers,
+    /** Static reducer's */
     counter: counterReducer,
     user: userReducer,
+    scrollRestoration: ScrollRestorationReducer,
   };
 
   const reducerManager = createReducerManager(RootReducers);

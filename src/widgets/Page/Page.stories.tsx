@@ -10,13 +10,13 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Page } from './Page';
 
 export default {
-  title: 'shared/Page',
+  title: 'widgets/Page',
   component: Page,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -32,9 +32,4 @@ export const FirstPage = Template.bind({});
 FirstPage.args = {
   children: <FullPageBlock>hello</FullPageBlock>,
 };
-FirstPage.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const SecondPage = Template.bind({});
-SecondPage.args = {
-  children: <FullPageBlock>hello</FullPageBlock>,
-};
+FirstPage.decorators = [StoreDecorator({})];

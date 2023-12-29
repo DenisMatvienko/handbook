@@ -2,8 +2,11 @@
  *  Root state type's
  *
  *  @param StateSchema
- *    - Root state type
- *    - When reducers async - fields should be unnecessary
+ *    - Async reducers: optional (because load as it need)
+ *    - Static reducers: required (because load always)
+ *
+ *  @param scrollRestoration
+ *    - non async schema
  *
  *  @param StateSchemaKey
  *    - add keys of StateSchema, in this type can be just items, which same
@@ -51,14 +54,15 @@ import { ArticleDetailSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 
 export interface StateSchema {
+  /** Static reducer's */
   counter: CounterSchema;
   user: UserSchema;
+  scrollRestoration: ScrollRestorationSchema;
 
-  /**
-   *   Async reducer's
-   */
+  /** Async reducer's */
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailSchema;

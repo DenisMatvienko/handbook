@@ -34,7 +34,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
@@ -119,12 +119,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   }
 
   return (
-      <Page
-          onScrollEnd={onLoadNextPart}
+      <DynamicModuleLoader
+          reducers={reducers}
+          removeAfterUnmount={false}
       >
-          <DynamicModuleLoader
-              reducers={reducers}
-              removeAfterUnmount={false}
+          <Page
+              onScrollEnd={onLoadNextPart}
           >
               <div className={classNames(classes.ArticlesPage, {}, [className])}>
                   <FullPageBlock
@@ -139,8 +139,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                       rightBlock={componentsRightSide}
                   />
               </div>
-          </DynamicModuleLoader>
-      </Page>
+          </Page>
+      </DynamicModuleLoader>
   );
 };
 

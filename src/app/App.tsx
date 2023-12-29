@@ -39,12 +39,7 @@ function App() {
   return (
       <div className={`app ${classNames('app', {}, [theme])}`}>
           <Suspense fallback={<PageLoader />}>
-              <Navbar />
-              <div className="content-page">
-                  <Sidebar />
-                  <ButtonToTop />
-                  {inited && <AppRouter />}
-              </div>
+              {inited && <AppRouter />}
           </Suspense>
       </div>
   );
