@@ -36,8 +36,8 @@
       "title": "Мемоизация React.js",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "views": 500,
+      "createdAt": "20.01.2022",
       "userId": "2",
       "type": [
         "IT",
@@ -60,8 +60,8 @@
       "title": "Сложность алгоритмов",
       "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
       "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "views": 10,
+      "createdAt": "27.10.1994",
       "userId": "2",
       "type": [
         "IT",
@@ -81,12 +81,12 @@
     },
     {
       "id": "4",
-      "title": "Управление памятью в JavaScript",
-      "subtitle": "Управление памятью и принципах работы сборщика мусора, а также о том, как избежать самых распространенных видов утечек памяти.",
-      "img": "https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
-      "userId": "1",
+      "title": "Цикл событий в JavaScript",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--2ssYbxDc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ca3pgjj89ewbq012l1zh.gif",
+      "views": 631,
+      "createdAt": "10.15.2018",
+      "userId": "2",
       "type": [
         "IT",
         "JS",
@@ -105,11 +105,11 @@
     },
     {
       "id": "5",
-      "title": "Мемоизация React.js",
+      "title": "Движок v8",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "img": "https://webmobtuts.com/wp-content/uploads/2018/10/1gZq22sBm1y3eq1NfhEaXeg-800x400.png?fcff47&fcff47",
+      "views": 120,
+      "createdAt": "05.12.2016",
       "userId": "2",
       "type": [
         "IT",
@@ -129,10 +129,10 @@
     },
     {
       "id": "6",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "Модель ветвления Git flow",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--LiD1QJP6--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/ehlef9pp6xym7d80g3np.png",
+      "views": 200,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
@@ -152,18 +152,18 @@
           "type": "TEXT",
           "title": "Ссылки в JavaScript",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Источник: https://bitworks.software/2019-03-12-gitflow-workflow.html \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           ]
         }
       ]
     },
     {
       "id": "7",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
+      "title": "Паттерны ООП",
+      "subtitle": "Привести в пример паттерн проектирования – один из самых популярных запросов на собеседованиях. Объясняем порождающие паттерны простыми словами.",
       "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "views": 10,
+      "createdAt": "29.11.2016",
       "userId": "2",
       "type": [
         "IT",

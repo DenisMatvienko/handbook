@@ -50,7 +50,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           />
           <Text
               theme={TextTheme.BLOCK_TEXT}
-              text="1024"
+              text={t(String(article?.views))}
               size={TextSize.S}
           />
       </div>
@@ -101,7 +101,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         />
                         <Text
                             theme={TextTheme.SUBTITLE}
-                            text="27.10.2017"
+                            text={t(String(article?.createdAt))}
                             size={TextSize.S}
                         />
                     </div>
