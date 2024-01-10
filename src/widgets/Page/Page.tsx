@@ -22,23 +22,19 @@
  *          - Wrapper which should contain scroll
  */
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
-  memo, MutableRefObject, UIEvent, ReactNode, useRef, useState, useEffect,
+  MutableRefObject, ReactNode, UIEvent, useRef, useState,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { ButtonToTop } from 'shared/ui/ButtonToTop/ButtonToTop';
 import { ScrollRestorationActions } from 'features/ScrollRestoration';
 import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import {
-  getScrollRestoration,
-  getScrollRestorationBypath,
-} from 'features/ScrollRestoration/model/selectors/GetScrollRestoration';
+import { getScrollRestorationBypath } from 'features/ScrollRestoration/model/selectors/GetScrollRestoration';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
@@ -100,7 +96,7 @@ export const Page = (props: PageProps) => {
                   className={classNames(classes.content, {}, [className])}
               >
                   { children }
-                  <div ref={triggerRef} />
+                  {onScrollEnd ? <div className={classes.trigger} ref={triggerRef} /> : null}
               </div>
           </div>
       </section>
