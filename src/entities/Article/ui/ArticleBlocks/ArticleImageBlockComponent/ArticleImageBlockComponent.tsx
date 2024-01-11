@@ -22,16 +22,16 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
   const { t } = useTranslation();
 
   return (
-      <div className={classNames(classes.ArticleImageBlockComponent, {}, [className])}>
+      <div className={classNames(classes.articleImageBlockComponent, {}, [className])}>
           <img
-              className={classes.img}
+              className={classes.articleImageBlockComponent__img}
               src={block.src}
               alt={block.title}
           />
           {block.title
               && (
               <Text
-                  className={classes.imgTitle}
+                  className={classes.articleImageBlockComponent__title}
                   theme={TextTheme.SUBTITLE}
                   text={t(block.title)}
                   align={TextAlign.CENTER}

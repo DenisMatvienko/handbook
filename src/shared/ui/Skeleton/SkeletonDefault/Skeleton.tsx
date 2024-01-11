@@ -18,10 +18,10 @@
  *      - use only with 'blocks' theme
  *
  *    Themes:
- *    @param element
+ *    @param ELEMENTS
  *      - add only in blocks
  *
- *    @param block
+ *    @param BLOCKS
  *      - could contain element
  *      - use only with 'block' param
  */
@@ -31,8 +31,8 @@ import { CSSProperties, memo, ReactNode } from 'react';
 import classes from './Skeleton.module.scss';
 
 export enum SkeletonTheme {
-  ELEMENTS = 'elements',
-  BLOCKS = 'blocks',
+  ELEMENTS = 'skeleton__element',
+  BLOCKS = 'skeleton__block',
 }
 
 interface SkeletonProps {
@@ -69,7 +69,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
   if (block) {
     return (
         <div
-            className={classNames(classes.Skeleton, mods, [className])}
+            className={classNames(classes.skeleton, mods, [className])}
             style={styles}
         >
             {children}
@@ -79,7 +79,7 @@ export const Skeleton = memo((props: SkeletonProps) => {
 
   return (
       <div
-          className={classNames(classes.Skeleton, mods, [className])}
+          className={classNames(classes.skeleton, mods, [className])}
           style={styles}
       />
   );

@@ -1,18 +1,15 @@
-.ErrorPalette {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.ErrorPaletteWrapper {
+.errorPallet {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
 }
 
-.RefreshButton {
+.errorPallet__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-top: 20px;
   border: 1px solid var(--main-hover);
   border-radius: 10px;

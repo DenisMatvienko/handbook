@@ -68,17 +68,17 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
 
   return (
       <FullPageBlock>
-          <div className={classes.articleBlock}>
-              <div className={classes.articleBlockHeader}>
-                  <div className={classes.articleBlockHeaderTop}>
-                      <div className={classes.articleBlockHeaderTopAvatar}>
+          <div className={classes.articleDetailsContent}>
+              <div className={classes.articleDetailsContent__header}>
+                  <div className={classes.articleDetailsContent__headerTop}>
+                      <div className={classes.articleDetailsContent__avatar}>
                           <Avatar
                               size={AvatarSize.L}
                               src={data?.img}
                               alt={data?.title}
                           />
                           <Text
-                              className={classes.articleBlockTopTitle}
+                              className={classes.articleDetailsContent__title}
                               theme={TextTheme.BLOCK_TEXT}
                               title={t(data?.title ? data?.title : '-')}
                               align={TextAlign.LEFT}
@@ -88,7 +88,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                       {
                 data?.subtitle
                   ? (
-                      <div className={classes.articleBlockHeaderArticleSubtitle}>
+                      <div className={classes.articleDetailsContent__subtitle}>
                           <Text
                               theme={TextTheme.SUBTITLE}
                               text={t(data?.subtitle)}
@@ -106,10 +106,10 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                       />
                   )
               }
-                      <div className={classes.articleHeaderTopStat}>
-                          <div className={classes.articleHeaderTopStatViews}>
+                      <div className={classes.articleDetailsContent__statistic}>
+                          <div className={classes.articleDetailsContent__views}>
                               <Icon
-                                  className={classes.viewsIcon}
+                                  className={classes.articleDetailsContent__viewIcon}
                                   Svg={ViewsIcon}
                                   theme={IconTheme.BLOCK_ICON}
                               />
@@ -120,9 +120,9 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                                   size={TextSize.S}
                               />
                           </div>
-                          <div className={classes.articleHeaderTopStatData}>
+                          <div className={classes.articleDetailsContent__date}>
                               <Icon
-                                  className={classes.dateIcon}
+                                  className={classes.articleDetailsContent__dateIcon}
                                   Svg={DateIcon}
                                   theme={IconTheme.BLOCK_ICON}
                               />
@@ -134,11 +134,11 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                               />
                           </div>
                       </div>
-                      <div className={classes.articleHeaderBotStat}>
+                      <div className={classes.articleDetailsContent__statisticBottom}>
                           {
                               data?.type.map((item) => (
                                   <Tag
-                                      className={classes.articleHeaderBotTag}
+                                      className={classes.articleDetailsContent__tag}
                                       key={uid()}
                                       theme={TagTheme.DEFAULT}
                                       data={item}
@@ -148,14 +148,14 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                       </div>
                   </div>
               </div>
-              <div className={classes.articleContent}>
-                  <div className={classes.articleContentBlock}>
+              <div className={classes.articleDetailsContent__content}>
+                  <div className={classes.articleDetailsContent__contentWrapper}>
                       {data?.blocks.map(renderBlock)}
                   </div>
               </div>
-              <div className={classes.articleEndStat}>
+              <div className={classes.articleDetailsContent__BottomPart}>
                   <Text
-                      className={classes.tagsTitle}
+                      className={classes.articleDetailsContent__tagsTitle}
                       theme={TextTheme.BLOCK_TEXT}
                       title={`${t('tags')}: `}
                       align={TextAlign.LEFT}
@@ -164,7 +164,7 @@ export const ArticleDetailsContent = memo((props: ArticleDetailsContentProps) =>
                   {
                       data?.type.map((item) => (
                           <Tag
-                              className={classes.articleHeaderBotTag}
+                              className={classes.articleDetailsContent__tag}
                               key={uid()}
                               theme={TagTheme.DEFAULT}
                               data={item}

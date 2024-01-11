@@ -52,9 +52,9 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
 
   if (refresh) {
     return (
-        <div className={classNames(classes.ErrorPaletteWrapper)}>
+        <div className={classNames(classes.errorPallet)}>
             <div
-                className={classNames(classes.ErrorPalette, mods, [])}
+                className={classNames(classes.errorPallet__wrapper, mods, [])}
                 {...otherProps}
             >
                 <Text
@@ -64,7 +64,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
                     align={TextAlign.CENTER}
                 />
             </div>
-            <div className={classNames(classes.RefreshButton)}>
+            <div className={classNames(classes.errorPallet__refreshButton)}>
                 <Button
                     onClick={reloadPage}
                     theme={ButtonTheme.BACKGROUND_BLOCK}
@@ -78,9 +78,9 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
   }
 
   return (
-      <div className={classNames(classes.ErrorPaletteWrapper)}>
+      <div className={classNames(classes.errorPallet)}>
           <div
-              className={classNames(classes.ErrorPalette, mods, [])}
+              className={classNames(classes.errorPallet__wrapper, mods, [])}
               {...otherProps}
           >
               <Text
