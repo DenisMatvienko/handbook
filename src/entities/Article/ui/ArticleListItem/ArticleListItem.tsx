@@ -136,7 +136,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 ))}
             </div>
             <img
-                className={classNames(classes.ArticleListItemImg, {}, [classes.ListViewIndent])}
+                className={classNames(
+                  `${classes.ArticleListItemImg} ${classes.ArticleListItemImg_list}`,
+                  {},
+                  [classes.ListViewIndent],
+                )}
                 src={article.img}
                 alt={article.title}
             />
@@ -165,7 +169,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           <img
               onClick={onOpenArticles}
               aria-hidden="true"
-              className={classes.ArticleListItemImg}
+              className={`${classes.ArticleListItemImg} ${classes.ArticleListItemImg_grid}`}
               src={article.img}
               alt={article.title}
           />
