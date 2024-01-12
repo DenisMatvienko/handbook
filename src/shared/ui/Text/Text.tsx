@@ -37,27 +37,27 @@ import { memo } from 'react';
 import classes from './Text.module.scss';
 
 export enum TextTheme {
-  BACKGROUND_TEXT = 'backgroundText',
-  BLOCK_TEXT='blockText',
-  SECONDARY_INVERTED = 'secondaryInverted',
-  TEXT_WHITE = 'textWhite',
-  TRANSLUCENT = 'translucent',
-  SUBTITLE='subtitle',
-  ERROR = 'error',
+  BACKGROUND_TEXT = 'text_background',
+  BLOCK_TEXT='text_block',
+  SECONDARY_INVERTED = 'text_secondary_inverted',
+  TEXT_WHITE = 'text_white',
+  TRANSLUCENT = 'text_translucent',
+  SUBTITLE='text_subtitle',
+  ERROR = 'text_error',
 }
 
 export enum TextAlign {
-  RIGHT = 'right',
-  LEFT = 'left',
-  CENTER = 'center',
+  RIGHT = 'text_right',
+  LEFT = 'text_left',
+  CENTER = 'text_center',
 }
 
 export enum TextSize {
-  XS = 'size_xs',
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
+  XS = 'text_size_xs',
+  S = 'text_size_s',
+  M = 'text_size_m',
+  L = 'text_size_l',
+  XL = 'text_size_xl',
 }
 
 interface TextProps {
@@ -90,9 +90,9 @@ export const Text = memo((props: TextProps) => {
   };
 
   return (
-      <div className={classNames(classes.Text, mods, [className])}>
-          {title && <p className={classes.title}>{title}</p>}
-          {text && <p className={classes.text}>{text}</p>}
+      <div className={classNames(classes.text, mods, [className])}>
+          {title && <h1 className={classes.text__title}>{title}</h1>}
+          {text && <p className={classes.text__paragraph}>{text}</p>}
       </div>
   );
 });
