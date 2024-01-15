@@ -86,16 +86,21 @@
   margin-right: 5px;
 }
 
-.skeletonArticleListItem__tags {
+.skeletonArticleListItem__tags_grid {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-flow: row wrap;
-  width: 20%;
-  height: 60px;
+  width: 70%;
   margin-top: 30px;
   gap: 5px;
   cursor: pointer;
+}
+
+.skeletonArticleListItem__tags {
+  display: flex;
+  flex-flow: row wrap;
+  width: 30%;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .skeletonArticleListItem__tag {
@@ -108,14 +113,6 @@
 
 .skeletonArticleListItem__title {
   margin-top: 20px;
-}
-
-.skeletonArticleListItem__tags {
-  display: flex;
-  flex-flow: row wrap;
-  width: 30%;
-  justify-content: space-between;
-  margin-top: 10px;
 }
 
 .skeletonArticleListItem__header {

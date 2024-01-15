@@ -170,29 +170,29 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
                   </div>
               </div>
               <div
-                  className={classes.skeletonArticleListItem__tags}
+                  className={classes.skeletonArticleListItem__tags_grid}
               >
                   <Skeleton
                       className={classes.skeletonArticleListItem__tag}
-                      border={20}
+                      border={10}
                       width={50}
                       height={30}
                   />
                   <Skeleton
                       className={classes.skeletonArticleListItem__tag}
-                      border={20}
+                      border={10}
                       width={50}
                       height={30}
                   />
                   <Skeleton
                       className={classes.skeletonArticleListItem__tag}
-                      border={20}
+                      border={10}
                       width={50}
                       height={30}
                   />
                   <Skeleton
                       className={classes.skeletonArticleListItem__tag}
-                      border={20}
+                      border={10}
                       width={50}
                       height={30}
                   />
