@@ -60,10 +60,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           reducers={reducers}
       >
           <FullPageBlock
-              className={classNames(classes.AddCommentForm, {}, [className])}
+              className={classNames(classes.addCommentForm, {}, [className])}
           >
               <div
-                  className={classes.AddCommentTitle}
+                  className={classes.addCommentForm__title}
               >
                   <Text
                       theme={TextTheme.BLOCK_TEXT}
@@ -73,16 +73,16 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                   />
               </div>
               <div
-                  className={classes.AddCommentInputWrapper}
+                  className={classes.addCommentForm__inputWrapper}
               >
                   <Input
                       onChange={onCommentTextChange}
-                      className={classes.AddCommentInput}
+                      className={classes.addCommentForm__input}
                       placeholderTemplate={t('AddCommentPlaceholder')}
                   />
               </div>
               <div
-                  className={classes.AddCommentButton}
+                  className={classes.addCommentForm__btn}
               >
                   <Button
                       onClick={onSendHandler}
@@ -92,7 +92,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                       {t('AddCommentSendBtn')}
                   </Button>
               </div>
-
           </FullPageBlock>
       </DynamicModuleLoader>
   );

@@ -17,7 +17,7 @@ export const FullPageBlock = (props: FullPageBlockProps) => {
 
   return (
       <div
-          className={classNames(classes.blockWrapper, {}, [className])}
+          className={classNames(classes.fullPageBlock__wrapper, {}, [className])}
       >
           {children}
       </div>

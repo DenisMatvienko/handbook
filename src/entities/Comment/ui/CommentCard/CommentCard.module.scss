@@ -1,11 +1,11 @@
-.CommentCard {
+.commentCard {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 20px;
 }
 
-.commentHeader {
+.commentCard__header {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -13,7 +13,7 @@
   justify-content: flex-start;
 }
 
-.commentIcon {
+.commentCard__icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,23 +25,23 @@
   opacity: 0.3;
 }
 
-.innerIcon {
+.commentCard__innerIcon {
   width: 6px;
   height: 6px;
   background-color: var(--secondary);
   border-radius: 50%;
 }
 
-.commentLink {
+.commentCard__link {
   display: flex;
   flex-direction: row;
 }
 
-.commentTitle {
+.commentCard__title {
   margin: 0 10px;
 }
 
-.commentText {
+.commentCard__text {
   width: 95%;
   margin-left: 20px;
   margin-top: 10px;

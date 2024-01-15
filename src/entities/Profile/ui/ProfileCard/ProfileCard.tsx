@@ -98,7 +98,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-        <div className={classNames(classes.ProfileCard, mods, [className])}>
+        <div className={classNames(classes.profileCard, mods, [className])}>
             <PageLoader />
         </div>
     );
@@ -106,7 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error) {
     return (
-        <div className={classNames(classes.ProfileCard, {}, [className])}>
+        <div className={classNames(classes.profileCard, {}, [className])}>
             <ErrorPalette
                 theme={ErrorPaletteTheme.DEFAULT}
                 title={t('ProfileErrorTitle')}
@@ -122,22 +122,26 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div>
             <ProfilePageHeader />
-            <ProfileDataItemReadonly
-                data={data}
-                className={classes.data}
-            />
+            <div
+                className={classes.profileCard__readonlyWrapper}
+            >
+                <ProfileDataItemReadonly
+                    data={data}
+                />
+            </div>
+
         </div>
     );
   }
 
   return (
-      <div className={classNames(classes.ProfileCard, {}, [className])}>
+      <div className={classNames(classes.profileCard, {}, [className])}>
           <div>
               <ProfilePageHeader />
-              <div className={classes.dataWrapper}>
+              <div className={classes.profileCard__wrapper}>
                   <FullPageBlock>
-                      <div className={classes.content}>
-                          <div className={classes.textWrapper}>
+                      <div className={classes.profileCard__content}>
+                          <div className={classes.profileCard__textWrapper}>
                               <Text
                                   title={t('Edit')}
                                   theme={TextTheme.SECONDARY_INVERTED}
@@ -153,11 +157,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   />
                               ))}
                           </div>
-                          <div className={classes.data}>
-                              <div className={classes.dataInputs}>
+                          <div className={classes.profileCard__inputs}>
+                              <div className={classes.profileCard__inputsWrapper}>
                                   <Input
                                       label={t('Firstname')}
-                                      className={classes.input}
+                                      className={classes.profileCard__input}
                                       value={data?.firstName}
                                       theme={InputTheme.SIMPLE}
                                       placeholder={t('Firstname')}
@@ -166,7 +170,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   />
                                   <Input
                                       label={t('Lastname')}
-                                      className={classes.input}
+                                      className={classes.profileCard__input}
                                       value={data?.lastName}
                                       theme={InputTheme.SIMPLE}
                                       placeholder={t('Lastname')}
@@ -175,7 +179,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   />
                                   <Input
                                       label={t('age')}
-                                      className={classes.input}
+                                      className={classes.profileCard__input}
                                       value={data?.age}
                                       theme={InputTheme.SIMPLE}
                                       placeholder={t('age')}
@@ -184,7 +188,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   />
                                   <Input
                                       label={t('username')}
-                                      className={classes.input}
+                                      className={classes.profileCard__input}
                                       value={data?.username}
                                       theme={InputTheme.SIMPLE}
                                       placeholder={t('username')}
@@ -193,14 +197,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   />
                                   <Input
                                       label={t('avatar')}
-                                      className={classes.input}
+                                      className={classes.profileCard__input}
                                       value={data?.avatar}
                                       theme={InputTheme.SIMPLE}
                                       placeholder={t('avatar')}
                                       onChange={onChangeAvatar}
                                       readonly={readonly}
                                   />
-                                  <div className={classes.selectWrapper}>
+                                  <div className={classes.profileCard__select}>
                                       <CountrySelect
                                           value={data?.country}
                                           onChange={onChangeCountry}
@@ -209,14 +213,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
                                   </div>
                                   <Input
                                       label={t('city')}
-                                      className={classes.input}
+                                      className={classes.profileCard__input}
                                       value={data?.city}
                                       theme={InputTheme.SIMPLE}
                                       placeholder={t('city')}
                                       onChange={onChangeCity}
                                       readonly={readonly}
                                   />
-                                  <div className={classes.selectWrapper}>
+                                  <div className={classes.profileCard__select}>
                                       <CurrencySelect
                                           value={data?.currency}
                                           onChange={onChangeCurrency}
