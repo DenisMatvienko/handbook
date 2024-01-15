@@ -30,7 +30,7 @@ export function buildCssLoader(isDev : boolean) {
           modules: {
             auto: (resPath: string) => Boolean(resPath.includes('.module.')),
             localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:5]'
+              ? '[path][name]--[local]--[hash:base64:5]'
               : '[local]--[hash:base64:8]',
           },
         },
