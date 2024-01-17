@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-.skeleton__element {
+.skeleton_element {
   background: var(--skeleton-element-from);
   box-shadow: 0 2px 10px 0 var(--accent-dark);
 
@@ -32,7 +32,7 @@
   }
 }
 
-.skeleton__block {
+.skeleton_block {
   box-shadow: 0 3px 5px var(--accent-dark);
   background:
     linear-gradient(

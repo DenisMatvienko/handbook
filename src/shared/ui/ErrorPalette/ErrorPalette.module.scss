@@ -11,44 +11,46 @@
   align-items: center;
   text-align: center;
   margin-top: 20px;
-  border: 1px solid var(--main-hover);
   border-radius: 10px;
 }
 
-.default {
+.errorPallet__refreshButton {
+  margin-top: 20px;
+}
+
+.errorPallet_default {
   border-radius: 10px;
-  border: 1px solid var(--main-hover);
-  background: var(--accent-dark);
+  background: var(--main-hover);
   color: var(--secondary);
   fill: var(--secondary);
 }
 
-.size_none {
+.errorPallet_size-none {
   width: 100px;
   padding: 5px;
 }
 
-.size_auto {
+.errorPallet_size-auto {
   width: auto;
   padding: 5px;
 }
 
-.size_m {
+.errorPallet_size-m {
   width: 200px;
   padding: 10px;
 }
 
-.size_l {
+.errorPallet_size-l {
   width: 300px;
   padding: 10px;
 }
 
-.size_xl {
+.errorPallet_size-xl {
   width: 500px;
   padding: 20px;
 }
 
-.size_xxl {
+.errorPallet_size-xxl {
   width: 700px;
   padding: 40px;
 }

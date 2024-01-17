@@ -13,11 +13,11 @@ import {
 import classes from './AppLink.module.scss';
 
 export enum AppLinkTheme {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  DARK_TITLE = 'dark-title',
-  DARK_TEXT = 'dark-text',
-  LIGHT = 'light',
+  PRIMARY = 'appLink_primary',
+  SECONDARY = 'appLink_secondary',
+  DARK_TITLE = 'appLink_dark-title',
+  DARK_TEXT = 'appLink_dark-text',
+  LIGHT = 'appLink_light',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -39,7 +39,7 @@ export const AppLink = memo((props: AppLinkProps) => {
       <Link
           to={to}
           className={classNames(
-            classes.AppLink,
+            classes.appLink,
             {},
             [className, classes[theme]],
           )}

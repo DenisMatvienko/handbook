@@ -6,16 +6,16 @@ import { useTranslation } from 'react-i18next';
 import classes from './ErrorPalette.module.scss';
 
 export enum ErrorPaletteTheme {
-  DEFAULT = 'default',
+  DEFAULT = 'errorPallet_default',
 }
 
 export enum ErrorPaletteSize {
-  NN = 'size_none',
-  AUTO = 'size_auto',
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
-  XXL = 'size_xxl',
+  NN = 'errorPallet_size-none',
+  AUTO = 'errorPallet_size-auto',
+  M = 'errorPallet_size-m',
+  L = 'errorPallet_size-l',
+  XL = 'errorPallet_size-xl',
+  XXL = 'errorPallet_size-xxl',
 }
 
 interface ErrorPaletteProps {
@@ -67,7 +67,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
             <div className={classNames(classes.errorPallet__refreshButton)}>
                 <Button
                     onClick={reloadPage}
-                    theme={ButtonTheme.BACKGROUND_BLOCK}
+                    theme={ButtonTheme.BACKGROUND}
                     radius={ButtonRadius.SEMI_ELLIPSE}
                 >
                     {t('RefreshPage')}

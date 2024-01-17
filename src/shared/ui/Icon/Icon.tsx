@@ -15,8 +15,8 @@ import React, { memo } from 'react';
 import classes from './Icon.module.scss';
 
 export enum IconTheme {
-  BLOCK_ICON = 'blockIcon',
-  WHITE_ICON = 'whiteIcon',
+  BLOCK_ICON = 'icon_color-for-block',
+  WHITE_ICON = 'icon_color-white',
 }
 
 interface IconProps {
@@ -37,6 +37,6 @@ export const Icon = memo((props: IconProps) => {
   };
 
   return (
-      <Svg className={classNames(classes.Icon, mods, [className])} />
+      <Svg className={classNames(classes.icon, mods, [className])} />
   );
 });

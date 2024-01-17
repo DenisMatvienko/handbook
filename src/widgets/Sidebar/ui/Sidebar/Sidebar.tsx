@@ -24,9 +24,9 @@ import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
 export enum SidebarPosition {
-    OFF = 'off',
-    COLLAPSED = 'collapsed',
-    ON = 'on',
+    OFF = 'sidebar_off',
+    COLLAPSED = 'sidebar_collapsed',
+    ON = 'sidebar_on',
 }
 
 interface SidebarProps {
@@ -59,7 +59,7 @@ export const Sidebar = memo((props: SidebarProps) => {
   }, [newPosition]);
 
   const mods: Mods = {
-    [classes.onBlure]: newPosition === SidebarPosition.ON,
+    [classes.sidebar_onBlure]: newPosition === SidebarPosition.ON,
   };
 
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
@@ -71,10 +71,10 @@ export const Sidebar = memo((props: SidebarProps) => {
   )), [SidebarItemsList, newPosition]);
 
   return (
-      <div className={classes.wrapper}>
+      <aside className={classes.sidebar}>
           <Button
               data-testid="sidebar-toggle"
-              className={classNames(classes.button, {}, [])}
+              className={classNames(classes.sidebar__button, {}, [])}
               onClick={onToggle}
               theme={ButtonTheme.CLEAR}
               square
@@ -95,10 +95,10 @@ export const Sidebar = memo((props: SidebarProps) => {
               />
               <div className={classes.plank} />
           </div>
-          <aside
+          <div
               data-testid="sidebar"
               className={classNames(
-                classes.Sidebar,
+                classes.sidebar__aside,
                 mods,
                 [classes[newPosition]],
               )}
@@ -111,7 +111,7 @@ export const Sidebar = memo((props: SidebarProps) => {
                       <LangSwitcher short={newPosition === SidebarPosition.COLLAPSED} className={classes.lang} />
                   </div>
               </div>
-          </aside>
-      </div>
+          </div>
+      </aside>
   );
 });

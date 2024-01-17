@@ -105,12 +105,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsRightSide: ComponentsObjectType = {
     recommendations: blockMock('=Temporary recommendations layout='),
-    histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
+    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
   if (!id) {
     return (
-        <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+        <div className={classNames(classes.articleDetailsPage, {}, [className])}>
             <div>
                 <Text
                     title={t('Oopps...')}
@@ -133,15 +133,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
               reducers={reducers}
               removeAfterUnmount
           >
-              <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-                  <div className={classes.ArticleDetailsPageBackButtonWrapper}>
+              <div className={classNames(classes.articleDetailsPage, {}, [className])}>
+                  <div className={classes.articleDetailsPage__wrapper}>
                       <Button
                           onClick={onBackToList}
-                          className={classes.ArticleDetailsPageBackButton}
+                          className={classes.articleDetailsPage__backBtn}
                           theme={ButtonTheme.CANCEL}
                       >
                           <Icon
-                              className={classes.ArticleDetailsPageIcon}
+                              className={classes.articleDetailsPage__backIcon}
                               Svg={ArrowLeftIcon}
                           />
                       </Button>

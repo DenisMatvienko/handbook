@@ -40,11 +40,11 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
     rightBlock,
   } = props;
 
-  const stylesContent: CSSProperties = {
+  const stylesLeftSide: CSSProperties = {
     width: widthLeftBlock,
   };
 
-  const stylesRecommendations: CSSProperties = {
+  const stylesRightSide: CSSProperties = {
     width: widthRightBlock,
   };
 
@@ -61,16 +61,16 @@ export const DoubleAdjustableFrame = (props: DoubleAdjustableBlockProps) => {
   )), [rightBlock]);
 
   return (
-      <div className={classNames(classes.blocksWrapper)}>
+      <div className={classNames(classes.doubleFrame)}>
           <div
-              className={classNames(classes.leftBlockContent)}
-              style={stylesContent}
+              className={classNames(classes.doubleFrame__leftBlockContent)}
+              style={stylesLeftSide}
           >
               {leftComponentList}
           </div>
           <div
-              className={classNames(classes.rightBlockAdditional)}
-              style={stylesRecommendations}
+              className={classNames(classes.doubleFrame__rightBlockContent)}
+              style={stylesRightSide}
           >
               {rightComponentList}
           </div>

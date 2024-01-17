@@ -22,6 +22,7 @@ import {
 } from 'entities/Article/ui/ArticleDetailsContent/ArticleDetailsContent';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { getArticleError, getArticleIsLoading } from '../../model/selectors/getArticleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
@@ -58,14 +59,17 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     );
   } else if (error) {
     content = (
-        <ErrorPalette
-            className={classes.articleError}
-            theme={ErrorPaletteTheme.DEFAULT}
-            title={t('ArticleErrorTitle')}
-            text={t('ArticleErrorText')}
-            size={ErrorPaletteSize.XXL}
-            refresh
-        />
+        <FullPageBlock
+            className={classes.articleDetails__error}
+        >
+            <ErrorPalette
+                theme={ErrorPaletteTheme.DEFAULT}
+                title={t('ArticleErrorTitle')}
+                text={t('ArticleErrorText')}
+                size={ErrorPaletteSize.XXL}
+                refresh
+            />
+        </FullPageBlock>
     );
   } else {
     content = (

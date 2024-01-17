@@ -100,14 +100,14 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   const componentsRightSide: ComponentsObjectType = {
     recommendations: blockMock('=Temporary recommendations layout='),
-    histories: blockMock('=Temporary histories layout=', classes.recommendationsMockWrapper),
+    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
   if (error) {
     return (
         <Page>
             <ErrorPalette
-                className={classes.articleError}
+                className={classes.articlesPage__error}
                 theme={ErrorPaletteTheme.DEFAULT}
                 title={t('ArticlePageErrorTitle')}
                 text={t('ArticlePageErrorText')}
@@ -126,9 +126,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           <Page
               onScrollEnd={onLoadNextPart}
           >
-              <div className={classNames(classes.ArticlesPage, {}, [className])}>
+              <div className={classNames(classes.articlesPage, {}, [className])}>
                   <FullPageBlock
-                      className={classes.ArticlesPageHeader}
+                      className={classes.articlesPage__header}
                   >
                       <ArticleViewSelector view={views} onViewClick={onChangeView} />
                   </FullPageBlock>

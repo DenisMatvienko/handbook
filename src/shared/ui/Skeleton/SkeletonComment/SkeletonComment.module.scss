@@ -1,11 +1,11 @@
-.SkeletonComment {
+.skeletonComment {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 20px;
 }
 
-.commentHeader {
+.skeletonComment__header {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -13,7 +13,7 @@
   justify-content: flex-start;
 }
 
-.commentIcon {
+.skeletonComment__iconWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,18 +25,18 @@
   opacity: 0.3;
 }
 
-.innerIcon {
+.skeletonComment__icon {
   width: 6px;
   height: 6px;
   background-color: var(--secondary);
   border-radius: 50%;
 }
 
-.commentTitle {
+.skeletonComment__title {
   margin: 0 10px;
 }
 
-.commentText {
+.skeletonComment__text {
   width: 95%;
   margin-left: 20px;
   margin-top: 10px;

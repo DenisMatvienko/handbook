@@ -21,10 +21,10 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
   const { className } = props;
 
   return (
-      <div className={classNames(classes.SkeletonComment, {}, [className])}>
-          <div className={classes.commentHeader}>
-              <div className={classes.commentIcon}>
-                  <div className={classes.innerIcon} />
+      <div className={classNames(classes.skeletonComment, {}, [className])}>
+          <div className={classes.skeletonComment__header}>
+              <div className={classes.skeletonComment__iconWrapper}>
+                  <div className={classes.skeletonComment__icon} />
               </div>
               <Skeleton
                   border="50%"
@@ -32,7 +32,7 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
                   height={50}
               />
               <Skeleton
-                  className={classes.commentTitle}
+                  className={classes.skeletonComment__title}
                   border={5}
                   width={150}
                   height={20}
@@ -43,7 +43,7 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
                   height={20}
               />
           </div>
-          <div className={classes.commentText}>
+          <div className={classes.skeletonComment__text}>
               <Skeleton
                   border={5}
                   width="95%"

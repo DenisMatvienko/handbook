@@ -106,7 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   if (error) {
     return (
-        <div className={classNames(classes.profileCard, {}, [className])}>
+        <div className={classNames(`${classes.profileCard} ${classes.profileCard_error}`, {}, [className])}>
             <ErrorPalette
                 theme={ErrorPaletteTheme.DEFAULT}
                 title={t('ProfileErrorTitle')}

@@ -18,12 +18,12 @@ import classes from './Input.module.scss';
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 export enum InputTheme {
-  SIMPLE = 'simpleInput',
+  SIMPLE = 'label__default',
 }
 
 export enum LabelPosition {
-  TOP = 'labelTopPos',
-  LEFT = 'labelLeftPos',
+  TOP = 'input__label_top',
+  LEFT = 'input__label_left',
 }
 
 interface InputProps extends HTMLInputProps {
@@ -74,13 +74,13 @@ export const Input = memo((props: InputProps) => {
 
   const mods: Mods = {
     [classes[theme]]: true,
-    [classes.readonly]: readonly,
+    [classes.input_readonly]: readonly,
   };
 
   return (
-      <div className={classNames(classes.inputWrapper, wrapperMods, [className])}>
+      <div className={classNames(classes.input, wrapperMods, [className])}>
           {label && (
-          <div className={classes.labelOnTop}>
+          <div className={classes.input__label}>
               <Text
                   text={label}
                   theme={TextTheme.SECONDARY_INVERTED}
@@ -88,7 +88,7 @@ export const Input = memo((props: InputProps) => {
           </div>
           )}
           <input
-              className={classNames(classes.Input, mods, [className])}
+              className={classNames(classes.input__wrapper, mods, [className])}
               ref={ref}
               type={type}
               value={value}

@@ -88,10 +88,10 @@ const LoginForm = memo(({
           removeAfterUnmount
           reducers={initialReducers}
       >
-          <div className={classNames(classes.LoginForm, {}, [className])}>
+          <div className={classNames(classes.loginForm, {}, [className])}>
               <Text text={t('Вход')} theme={TextTheme.BLOCK_TEXT} />
               {error && (
-              <div className={classes.ErrorPaletteWrapper}>
+              <div className={classes.loginForm__error}>
                   <ErrorPalette
                       theme={ErrorPaletteTheme.DEFAULT}
                       text={t('Некорректные данные')}
@@ -103,22 +103,22 @@ const LoginForm = memo(({
                   type="text"
                   autofocus
                   theme={InputTheme.SIMPLE}
-                  className={classes.input}
+                  className={classes.loginForm__input}
                   placeholderTemplate={t('Введите логин')}
                   onChange={onChangeUsername}
                   value={username}
               />
-              <div className={classes.passwordWrapper}>
+              <div className={classes.loginForm__passwordWrapper}>
                   <Input
                       type={showPassword ? 'text' : 'password'}
                       theme={InputTheme.SIMPLE}
-                      className={classes.inputPassword}
+                      className={classes.loginForm__password}
                       placeholderTemplate={t('Введите пароль')}
                       onChange={onChangePassword}
                       value={password}
                   />
                   <Button
-                      className={classes.showPasswordBtn}
+                      className={classes.loginForm__showPasswordBtn}
                       theme={ButtonTheme.CLEAR}
                       radius={ButtonRadius.CIRCLE}
                       onClick={onShowPasswordVisibility}
@@ -127,21 +127,21 @@ const LoginForm = memo(({
                       { showPassword
                         ? (
                             <Icon
-                                className={classes.inputIcon}
+                                className={classes.loginForm__showPasswordBtnIcon}
                                 Svg={EyeIconOff}
                             />
                         )
                         : (
                             <Icon
-                                className={classes.inputIcon}
+                                className={classes.loginForm__showPasswordBtnIcon}
                                 Svg={EyeIconOn}
                             />
                         )}
                   </Button>
               </div>
-              <div className={classNames(classes.signInWrapper, {}, [])}>
+              <div className={classNames(classes.loginForm__login, {}, [])}>
                   <Button
-                      className={classes.loginBtn}
+                      className={classes.loginForm__loginBtn}
                       theme={ButtonTheme.BACKGROUND_BLOCK}
                       radius={ButtonRadius.SEMI_ELLIPSE}
                       onClick={onLoginClick}

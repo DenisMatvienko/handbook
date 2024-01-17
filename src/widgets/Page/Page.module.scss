@@ -1,4 +1,4 @@
-.Page {
+.page {
   width: 100%;
   margin: 0 auto;
   flex-shrink: 100;
@@ -6,14 +6,14 @@
   overflow-y: auto;
 }
 
-.content {
+.page__wrapper {
+  display: flex;
+  position: relative;
+}
+
+.page__content {
   width: 75%;
   margin: 0 auto;
   padding: 20px;
   flex-shrink: 100;
-}
-
-.contentPage {
-  display: flex;
-  position: relative;
 }

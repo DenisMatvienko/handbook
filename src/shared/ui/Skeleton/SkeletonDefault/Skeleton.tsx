@@ -31,8 +31,8 @@ import { CSSProperties, memo, ReactNode } from 'react';
 import classes from './Skeleton.module.scss';
 
 export enum SkeletonTheme {
-  ELEMENTS = 'skeleton__element',
-  BLOCKS = 'skeleton__block',
+  ELEMENTS = 'skeleton_element',
+  BLOCKS = 'skeleton_block',
 }
 
 interface SkeletonProps {

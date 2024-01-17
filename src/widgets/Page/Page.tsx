@@ -90,14 +90,14 @@ export const Page = (props: PageProps) => {
   return (
       <section
           ref={wrapperRef}
-          className={classNames(classes.Page, {}, [className])}
+          className={classNames(classes.page, {}, [className])}
           onScroll={onScroll}
       >
           <Navbar isDisplay={showNav} />
-          <div className={classes.contentPage}>
+          <div className={classes.page__wrapper}>
               <Sidebar />
               <div
-                  className={classNames(classes.content, {}, [className])}
+                  className={classNames(classes.page__content, {}, [className])}
               >
                   { children }
                   <div ref={triggerRef} />
