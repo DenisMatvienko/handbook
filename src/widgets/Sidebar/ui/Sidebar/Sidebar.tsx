@@ -24,9 +24,9 @@ import { getSidebarItems } from '../../models/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 
 export enum SidebarPosition {
-    OFF = 'off',
-    COLLAPSED = 'collapsed',
-    ON = 'on',
+    OFF = 'sidebar_off',
+    COLLAPSED = 'sidebar_collapsed',
+    ON = 'sidebar_on',
 }
 
 interface SidebarProps {
@@ -59,7 +59,7 @@ export const Sidebar = memo((props: SidebarProps) => {
   }, [newPosition]);
 
   const mods: Mods = {
-    [classes.onBlure]: newPosition === SidebarPosition.ON,
+    [classes.sidebar_onBlure]: newPosition === SidebarPosition.ON,
   };
 
   const itemsList = useMemo(() => SidebarItemsList.map((item) => (
@@ -71,10 +71,10 @@ export const Sidebar = memo((props: SidebarProps) => {
   )), [SidebarItemsList, newPosition]);
 
   return (
-      <div className={classes.wrapper}>
+      <aside className={classes.sidebar}>
           <Button
               data-testid="sidebar-toggle"
-              className={classNames(classes.button, {}, [])}
+              className={classNames(classes.sidebar__button, {}, [])}
               onClick={onToggle}
               theme={ButtonTheme.CLEAR}
               square
@@ -82,36 +82,35 @@ export const Sidebar = memo((props: SidebarProps) => {
               radius={ButtonRadius.CIRCLE}
           >
               <Icon
-                  className={classes.BarsIcon}
+                  className={classes.sidebar__cursorIcon}
                   Svg={Cursor}
                   theme={IconTheme.BLOCK_ICON}
               />
           </Button>
-          <div className={classes.logoWrapper}>
+          <div className={classes.sidebar__logo}>
               <Icon
-                  className={classes.logo}
+                  className={classes.sidebar__logoIcon}
                   Svg={LogoIcon}
                   theme={IconTheme.BLOCK_ICON}
               />
-              <div className={classes.plank} />
+              <div className={classes.sidebar__plank} />
           </div>
-          <aside
+          <div
               data-testid="sidebar"
               className={classNames(
-                classes.Sidebar,
+                classes.sidebar__aside,
                 mods,
                 [classes[newPosition]],
               )}
           >
-              <div className={classNames(classes.items)}>
+              <div className={classNames(classes.sidebar__items)}>
                   {itemsList}
               </div>
-              <div className={classes.sidebarWrapper}>
-                  <div className={classNames(classes.switchers, {}, [])}>
-                      <LangSwitcher short={newPosition === SidebarPosition.COLLAPSED} className={classes.lang} />
-                  </div>
-              </div>
-          </aside>
-      </div>
+              <LangSwitcher
+                  short={newPosition === SidebarPosition.COLLAPSED}
+                  className={classes.sidebar__langSwitcher}
+              />
+          </div>
+      </aside>
   );
 });

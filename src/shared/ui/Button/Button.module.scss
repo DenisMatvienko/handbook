@@ -1,11 +1,11 @@
-.Button {
+.button {
   cursor: pointer;
   background: var(--secondary);
   border: 1px solid var(--secondary);
   color: var(--secondary);
 }
 
-.clear {
+.button_clear {
   padding: 0;
   border: none;
   background: none;
@@ -26,7 +26,7 @@
   }
 }
 
-.outline {
+.button_outline {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
   background: none;
 }
 
-.cancel {
+.button_cancel {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +56,7 @@
   }
 }
 
-.save {
+.button_save {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +75,7 @@
   }
 }
 
-.scrollTop {
+.button_scroll-top {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +93,7 @@
   }
 }
 
-.background {
+.button_background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,7 +112,7 @@
   }
 }
 
-.backgroundBlock {
+.button_background-block {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,26 +131,7 @@
   }
 }
 
-.backgroundWhitePurple {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border: none;
-  background: var(--button-dpurple-lwhite);
-  color: var(--secondary-inverted);
-  fill: var(--secondary-inverted);
-
-  &:hover {
-    background: var(--main-hover);
-    color: var(--secondary);
-    fill: var(--secondary);
-    box-shadow: 1px 1px 3px var(--box-shadow);
-    transition: 0.2s ease-in-out;
-  }
-}
-
-.backgroundBlackPurple {
+.button_background-black-purple {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,52 +150,52 @@
   }
 }
 
-.disabled {
+.button_disabled {
   opacity: 0.5;
 }
 
-.square.size_none {
+.button_square.button_size-none {
   width: 0;
   height: 0;
 }
 
-.square.size_m {
+.button_square.button_size-m {
   width: var(--font-line-m);
   height: var(--font-line-m);
 }
 
-.square.size_l {
+.button_square.button_size-l {
   width: var(--font-line-l);
   height: var(--font-line-l);
   font-size: var(--font-l);
 }
 
-.square.size_xl {
+.button_square.button_size-xl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
 }
 
-.square.size_xxl {
+.button_square.button_size-xxl {
   width: var(--font-line-xxl);
   height: var(--font-line-xxl);
 }
 
-.radius_square {
+.button_radius-square {
   border-radius: 0;
 }
 
-.radius_semi_super_ellipse {
+.button_radius-semi-super-ellipse {
   border-radius: 25%;
 }
 
-.radius_semi_ellipse {
+.button_radius-semi-ellipse {
   border-radius: 10px;
 }
 
-.radius_ellipse {
+.button_radius-ellipse {
   border-radius: 100px;
 }
 
-.radius_circle {
+.button_radius-circle {
   border-radius: 50%;
 }

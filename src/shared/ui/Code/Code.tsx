@@ -26,21 +26,21 @@ export const Code = memo((props: CodeProps) => {
   }, [text]);
 
   return (
-      <div className={classes.codeWrapper}>
+      <div className={classes.code}>
           <pre>
               <Button
                   onClick={onCopy}
                   theme={ButtonTheme.CLEAR}
                   size={ButtonSize.XXL}
-                  className={classes.copyButton}
+                  className={classes.code__copyBtn}
               >
                   <Icon
-                      className={classes.copyIcon}
+                      className={classes.code__copyIcon}
                       theme={IconTheme.BLOCK_ICON}
                       Svg={CopyIcon}
                   />
               </Button>
-              <code className={classNames(classes.Code, {}, [className])}>
+              <code className={classNames(classes.code__wrapper, {}, [className])}>
                   {text}
               </code>
           </pre>

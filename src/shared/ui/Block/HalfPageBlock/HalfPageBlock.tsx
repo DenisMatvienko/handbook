@@ -20,7 +20,7 @@ export const HalfPageBlock = ({
   const { t } = useTranslation();
 
   return (
-      <div className={classNames(classes.HalfPageBlock)}>
+      <div className={classNames(classes.halfPageBlock)}>
           {children}
       </div>
   );

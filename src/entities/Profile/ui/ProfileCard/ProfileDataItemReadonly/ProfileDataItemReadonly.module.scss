@@ -1,12 +1,11 @@
-.dataWrapper {
+.profileDataItemReadonly {
   display: flex;
   width: 100%;
   flex-flow: column wrap;
   justify-content: space-between;
-  margin-top: 10px;
 }
 
-.blockWrapper {
+.profileDataItemReadonly__wrapper {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -18,7 +17,7 @@
   }
 }
 
-.dataReadonly {
+.profileDataItemReadonly__readonly {
   display: flex;
   justify-content: center;
   overflow: scroll;
@@ -31,7 +30,7 @@
   }
 }
 
-.blockUserWrapper {
+.profileDataItemReadonly__user {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -39,7 +38,7 @@
   width: 100%;
 }
 
-.blockUser {
+.profileDataItemReadonly__data {
   display: flex;
   flex-direction: column;
 }

@@ -1,19 +1,15 @@
-.ArticlesPage {
+.articlesPage {
   display: flex;
   flex-flow: column wrap;
   width: 100%;
 }
 
-.ArticlesPageHeader {
+.articlesPage__header {
   display: flex;
   justify-content: flex-end;
   padding: 20px;
   margin-bottom: 10px;
   width: 100%;
-}
-
-.recommendationsMockWrapper {
-  margin-top: 10px;
 }
 
 .recommendationsMock {
@@ -22,4 +18,8 @@
   align-items: flex-start;
   flex-flow: column wrap;
   padding: 50px;
+}
+
+.recommendationsMock_wrapper {
+  margin-top: 10px;
 }

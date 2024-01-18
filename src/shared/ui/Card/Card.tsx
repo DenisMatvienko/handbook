@@ -20,10 +20,10 @@ export const Card = memo((props: CardProps) => {
 
   return (
       <div
-          className={classNames(classes.Card, {}, [className])}
+          className={classNames(classes.card, {}, [className])}
           {...otherProps}
       >
-          <FullPageBlock className={classes.CardItem}>
+          <FullPageBlock className={classes.card__item}>
               {children}
           </FullPageBlock>
       </div>

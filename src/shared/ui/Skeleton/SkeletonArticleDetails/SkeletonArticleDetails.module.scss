@@ -1,4 +1,4 @@
-.skeletonBlock {
+.skeletonArticleDetails {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,14 +7,14 @@
   padding: 15px 55px;
 }
 
-.skeletonHeader {
+.skeletonArticleDetails__header {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
   width: 100%;
 }
 
-.skeletonHeaderTop {
+.skeletonArticleDetails__headerTop {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -22,28 +22,28 @@
   width: 65%;
 }
 
-.skeletonHeaderTopTitle {
-  margin-left: 10px;
-}
-
-.skeletonHeaderTopAvatar {
+.skeletonArticleDetails__userInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.skeletonHeaderArticleTitle {
+.skeletonArticleDetails__avatar {
+  margin-right: 15px;
+}
+
+.skeletonArticleDetails__title {
   margin-top: 10px;
 }
 
-.skeletonHeaderTopStats {
+.skeletonArticleDetails__statistic {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
 
-.skeletonContent {
+.skeletonArticleDetails__contentBlock {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
@@ -52,7 +52,7 @@
   margin-top: 60px;
 }
 
-.skeletonContentBlock {
+.skeletonArticleDetails__content {
   margin-top: 10px;
   width: 100%;
 }

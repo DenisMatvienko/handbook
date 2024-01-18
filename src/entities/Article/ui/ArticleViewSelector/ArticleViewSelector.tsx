@@ -43,7 +43,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
   const onClick = (newView: ArticleView) => () => onViewClick?.(newView);
 
   return (
-      <div className={classNames(classes.ArticleViewSelector, {}, [className])}>
+      <div className={classNames(classes.articleViewSelector, {}, [className])}>
           {viewTypes.map((item) => (
               <Button
                   key={uid()}
@@ -55,8 +55,8 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                   <Icon
                       className={
                       classNames(
-                        classes.ArticleViewSelectorIcon,
-                        { [classes.ViewSwitcher]: item.view === view },
+                        classes.articleViewSelector__icon,
+                        { [classes.articleViewSelector_viewSwitcher]: item.view === view },
                         [],
                       )
 }

@@ -36,7 +36,7 @@ export const Select = memo((props: SelectProps) => {
 
   const optionsList = useMemo(() => options?.map((item) => (
       <option
-          className={classes.option}
+          className={classes.select__option}
           value={item.value}
           key={item.value}
       >
@@ -47,9 +47,9 @@ export const Select = memo((props: SelectProps) => {
   const mods: Mods = {};
 
   return (
-      <div className={classNames(classes.SelectWrapper, mods)}>
+      <div className={classNames(classes.select, mods)}>
           {label && (
-          <div className={classes.label}>
+          <div className={classes.select__label}>
               <Text
                   title={label}
                   theme={TextTheme.SECONDARY_INVERTED}
@@ -58,7 +58,7 @@ export const Select = memo((props: SelectProps) => {
           )}
           <select
               value={value}
-              className={classes.select}
+              className={classes.select__wrapper}
               onChange={onChangeHandler}
           >
               {optionsList}

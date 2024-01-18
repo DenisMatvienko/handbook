@@ -1,20 +1,20 @@
-.inputWrapper {
+.input {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
 }
 
-.labelTopPos {
+.input__label_top {
   margin-top: 15px;
   flex-direction: column;
 }
 
-.labelLeftPos {
+.input__label_left {
   flex-direction: row;
 }
 
-.simpleInput {
+.label__default {
   display: flex;
   align-items: center;
   text-align: center;
@@ -43,6 +43,6 @@
   }
 }
 
-.readonly {
+.input_readonly {
   display: none;
 }

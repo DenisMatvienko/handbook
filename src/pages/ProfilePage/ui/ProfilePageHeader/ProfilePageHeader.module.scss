@@ -1,8 +1,8 @@
-.headerWrapper {
+.profilePageHeader {
   margin-top: 5px;
 }
 
-.header {
+.profilePageHeader__header {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -10,22 +10,22 @@
   height: auto;
   padding: 15px;
 
-  .toEditButton {
+  .profilePageHeader__readonlyBtn {
     margin-left: auto;
     width: 50px;
   }
 }
 
-.titleText {
+.profilePageHeader__title {
   color: var(--white);
 }
 
-.editButtons {
+.profilePageHeader__editNav {
   display: flex;
   filter: drop-shadow(-1px 6px 3px var(--accent-dark));
 }
 
-.editButton {
+.profilePageHeader__editBtn {
   margin-left: auto;
   width: 50px;
 
@@ -34,19 +34,19 @@
   }
 }
 
-.SettingsIcon {
+.profilePageHeader__readonlyIcons {
   width: 20px;
   height: 20px;
   fill: var(--white);
 }
 
-.SaveIcon {
+.profilePageHeader__saveIcon {
   width: 20px;
   height: 20px;
   fill: var(--white);
 }
 
-.CancelIcon {
+.profilePageHeader__cancelIcon {
   width: 20px;
   height: 20px;
   fill: var(--white);

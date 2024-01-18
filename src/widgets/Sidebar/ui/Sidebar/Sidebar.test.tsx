@@ -24,15 +24,15 @@ describe('Sidebar', () => {
     componentRender(<Sidebar />);
     const toggleBtn = screen.getByTestId('sidebar-toggle');
     expect(screen.getByTestId('sidebar'))
-      .toHaveClass('Sidebar off');
+      .toHaveClass('sidebar__aside sidebar_off');
     fireEvent.click(toggleBtn);
     expect(screen.getByTestId('sidebar'))
-      .toHaveClass('Sidebar collapsed');
+      .toHaveClass('sidebar__aside sidebar_collapsed');
     fireEvent.click(toggleBtn);
     expect(screen.getByTestId('sidebar'))
-      .toHaveClass('Sidebar on');
+      .toHaveClass('sidebar__aside sidebar_on');
     fireEvent.click(toggleBtn);
     expect(screen.getByTestId('sidebar'))
-      .toHaveClass('Sidebar off');
+      .toHaveClass('sidebar__aside sidebar_off');
   });
 });

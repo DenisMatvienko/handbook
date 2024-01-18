@@ -39,13 +39,13 @@ export const CommentCard = memo((props: CommentCardProps) => {
   }
 
   return (
-      <div className={classNames(classes.CommentCard, {}, [className])}>
-          <div className={classes.commentHeader}>
-              <div className={classes.commentIcon}>
-                  <div className={classes.innerIcon} />
+      <div className={classNames(classes.commentCard, {}, [className])}>
+          <div className={classes.commentCard__header}>
+              <div className={classes.commentCard__icon}>
+                  <div className={classes.commentCard__innerIcon} />
               </div>
               <AppLink
-                  className={classes.commentLink}
+                  className={classes.commentCard__link}
                   to={`${RoutePath.profile}${comment?.user.id}`}
               >
                   {comment
@@ -59,7 +59,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                     )
                     : null}
                   <Text
-                      className={classes.commentTitle}
+                      className={classes.commentCard__title}
                       theme={TextTheme.BLOCK_TEXT}
                       title={comment?.user.username}
                       size={TextSize.S}
@@ -72,7 +72,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                   align={TextAlign.LEFT}
               />
           </div>
-          <div className={classes.commentText}>
+          <div className={classes.commentCard__text}>
               <Text
                   theme={TextTheme.BLOCK_TEXT}
                   text={comment?.text}

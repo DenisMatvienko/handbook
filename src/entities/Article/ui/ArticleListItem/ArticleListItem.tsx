@@ -84,16 +84,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   if (view === ArticleView.LIST) {
     return (
-        <Card className={classNames(classes.ArticleListItemListView, {}, [className, classes[view]])}>
-            <div className={classes.ArticleListItemListViewHeader}>
+        <Card className={classNames(classes.articleListView, {}, [className, classes[view]])}>
+            <div className={classes.articleListView__header}>
                 <Avatar
                     size={AvatarSize.L}
                     radius={AvatarRadius.ELLIPSE}
                     src={article.user.avatar}
                     alt={article.user.avatar}
                 />
-                <div className={classes.ArticleListItemListViewHeaderInfo}>
-                    <div className={classes.ArticleListItemListViewHeaderInfoTop}>
+                <div className={classes.articleListView__info}>
+                    <div className={classes.articleListView__topSide}>
                         <Text
                             theme={TextTheme.BLOCK_TEXT}
                             title={article.user.username}
@@ -105,7 +105,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             size={TextSize.S}
                         />
                     </div>
-                    <div className={classes.ArticleListItemListViewHeaderInfoBot}>
+                    <div className={classes.articleListView__botSide}>
                         <Text
                             theme={TextTheme.SUBTITLE}
                             text={t('22 часа назад')}
@@ -116,28 +116,28 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 </div>
             </div>
             <Text
-                className={classes.ArticleTitle}
+                className={classes.articleListView__title}
                 theme={TextTheme.BLOCK_TEXT}
                 title={stringCutter(article.title, 50)}
                 size={TextSize.M}
                 align={TextAlign.LEFT}
             />
             <div
-                className={classes.ArticleListItemListViewTags}
+                className={classes.articleListView__tags}
             >
                 {article?.type.slice(0, 5).map((item, index) => (
                     <Text
                         key={uid()}
-                        className={classes.ArticleSubtitle}
+                        className={classes.articleListView__subtitle}
                         theme={TextTheme.SUBTITLE}
-                        text={index < 4 ? `${item}, ` : `${item}.`}
+                        text={index < article.type.slice(0, 5).length - 1 ? `${item}, ` : `${item}.`}
                         size={TextSize.S}
                     />
                 ))}
             </div>
             <img
                 className={classNames(
-                  `${classes.ArticleListItemImg} ${classes.ArticleListItemImg_list}`,
+                  `${classes.articleImage} ${classes.articleImage_list}`,
                   {},
                   [classes.ListViewIndent],
                 )}
@@ -145,10 +145,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 alt={article.title}
             />
             <div />
-            <div className={classes.ArticleListItemListViewDescription}>
+            <div className={classes.articleListView__description}>
                 {paragraph}
             </div>
-            <div className={classes.ArticleListItemListViewFooter}>
+            <div className={classes.articleListView__footer}>
                 <Button
                     onClick={onOpenArticles}
                     theme={ButtonTheme.BACKGROUND_BLOCK}
@@ -164,18 +164,18 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
       <Card
           {...bindIsHover}
-          className={classes.CardGrid}
+          className={classes.articleGridView}
       >
           <img
               onClick={onOpenArticles}
               aria-hidden="true"
-              className={`${classes.ArticleListItemImg} ${classes.ArticleListItemImg_grid}`}
+              className={`${classes.articleImage} ${classes.articleImage_grid}`}
               src={article.img}
               alt={article.title}
           />
           <div
               onClick={onOpenArticles}
-              className={classes.ArticleListItemTitle}
+              className={classes.articleGridView__title}
           >
               <Text
                   theme={TextTheme.BLOCK_TEXT}
@@ -186,9 +186,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
           </div>
           <div
-              className={classes.ArticleListItemStats}
+              className={classes.articleGridView__statistic}
           >
-              <div className={classes.ArticleListItemDate}>
+              <div className={classes.articleGridView__date}>
                   <Text
                       theme={TextTheme.SUBTITLE}
                       text="27.10.2017"
@@ -198,7 +198,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
               {views}
           </div>
           <div
-              className={classes.ArticleListItemTags}
+              className={classes.articleGridView__tags}
               onClick={onShowTagInfo}
           >
               {article?.type.slice(0, 5).map((item) => (

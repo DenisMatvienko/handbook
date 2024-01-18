@@ -24,7 +24,6 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   const isAuth = useSelector(getUserAuthData);
   const profile = useSelector(getProfileForm);
   const dispatch = useDispatch();
-  // const [isDisplay, setIsDisplay] = useState(false);
 
   const onCloseModal = useCallback(() => {
     setIsAuthModal(false);
@@ -39,21 +38,21 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   }, [dispatch]);
 
   const mods: Mods = {
-    [classes.showNav]: isDisplay,
+    [classes.navbar_show]: isDisplay,
   };
 
   if (isAuth) {
     return (
-        <header className={classNames(classes.Navbar, mods, [className])}>
-            <div className={classNames(classes.accountBar, {}, [className])}>
+        <header className={classNames(classes.navbar, mods, [className])}>
+            <div className={classNames(classes.navbar__accountBar, {}, [className])}>
                 <ThemeSwitcher />
-                <div className={classes.usernameAvatar}>
+                <div className={classes.navbar__avatar}>
                     <Avatar
                         size={AvatarSize.M}
                         src={isAuth?.avatar}
                         alt={profile?.username}
                     />
-                    <div className={classes.usernameLinks}>
+                    <div className={classes.navbar__username}>
                         <Text
                             text={`${isAuth.username},`}
                             theme={TextTheme.BACKGROUND_TEXT}
@@ -74,9 +73,9 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   }
 
   return (
-      <header className={classNames(classes.Navbar, {}, [className])}>
-          <div className={classNames(classes.accountBar, {}, [className])}>
-              <div className={classes.theme}>
+      <header className={classNames(classes.navbar, {}, [className])}>
+          <div className={classNames(classes.navbar__accountBar, {}, [className])}>
+              <div className={classes.navbar__theme}>
                   <ThemeSwitcher />
               </div>
               <Button

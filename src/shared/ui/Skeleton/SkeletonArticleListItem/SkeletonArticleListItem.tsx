@@ -20,31 +20,31 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
   const { t } = useTranslation();
 
   const mods: Mods = {
-    [classes.row]: view === ArticleView.GRID,
-    [classes.col]: view === ArticleView.LIST,
+    [classes.skeletonArticleListItem_row]: view === ArticleView.GRID,
+    [classes.skeletonArticleListItem_col]: view === ArticleView.LIST,
   };
 
   if (view === ArticleView.LIST) {
     return (
         <div
-            className={classNames(classes.SkeletonArticleListItem, mods, [className])}
+            className={classNames(classes.skeletonArticleListItem, mods, [className])}
         >
             <Skeleton
                 width="100%"
                 height="auto"
                 border={5}
                 theme={SkeletonTheme.BLOCKS}
-                className={classes.SkeletonArticleListItemWrapper}
+                className={classes.skeletonArticleListItem__wrapper_list}
                 block
             >
-                <div className={classes.SkeletonArticleListItemListViewHeader}>
+                <div className={classes.skeletonArticleListItem__header}>
                     <Skeleton
                         border={15}
                         width={50}
                         height={50}
                     />
-                    <div className={classes.ArticleListItemListViewHeaderInfo}>
-                        <div className={classes.ArticleListItemListViewHeaderInfoTop}>
+                    <div className={classes.skeletonArticleListItem__info}>
+                        <div className={classes.skeletonArticleListItem__infoTop}>
                             <Skeleton
                                 border={5}
                                 width={150}
@@ -56,7 +56,7 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
                                 height={15}
                             />
                         </div>
-                        <div className={classes.ArticleListItemListViewHeaderInfoBot}>
+                        <div className={classes.skeletonArticleListItem__infoBot}>
                             <Skeleton
                                 border={5}
                                 width={70}
@@ -71,13 +71,13 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
                     </div>
                 </div>
                 <Skeleton
-                    className={classes.SkeletonArticleListItemListViewTitle}
+                    className={classes.skeletonArticleListItem__title}
                     border={5}
                     width="60%"
                     height={30}
                 />
                 <div
-                    className={classes.ArticleListItemListViewTags}
+                    className={classes.skeletonArticleListItem__tags}
                 >
                     <Skeleton
                         border={10}
@@ -101,20 +101,20 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
                     />
                 </div>
                 <Skeleton
-                    className={classNames(classes.ArticleListItemImg, {}, [classes.ListViewIndent])}
+                    className={classNames(classes.skeletonArticleListItem__img, {}, [classes.listViewIndent])}
                     border={5}
                     width="100%"
                     height={250}
                 />
                 <div />
-                <div className={classes.ArticleListItemListViewDescription}>
+                <div className={classes.skeletonArticleListItem__description}>
                     <Skeleton
                         border={5}
                         width="100%"
                         height={60}
                     />
                 </div>
-                <div className={classes.ArticleListItemListViewFooter}>
+                <div className={classes.skeletonArticleListItem__footer}>
                     <Skeleton
                         border={5}
                         width={115}
@@ -127,22 +127,22 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
   }
 
   return (
-      <div className={classNames(classes.SkeletonArticleListItem, mods, [className])}>
+      <div className={classNames(classes.skeletonArticleListItem, mods, [className])}>
           <Skeleton
               width={295}
               height="auto"
               border={5}
               theme={SkeletonTheme.BLOCKS}
-              className={classes.SkeletonArticleListGridWrapper}
+              className={classes.skeletonArticleListItem__wrapper_grid}
               block
           >
               <Skeleton
-                  className={classes.SkeletonArticleListItemImg}
+                  className={classes.skeletonArticleListItem__img}
                   border={5}
                   height={150}
               />
               <div
-                  className={classes.SkeletonArticleListItemTitle}
+                  className={classes.skeletonArticleListItem__title}
               >
                   <Skeleton
                       border={5}
@@ -152,16 +152,16 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
 
               </div>
               <div
-                  className={classes.SkeletonArticleListItemStats}
+                  className={classes.skeletonArticleListItem__statistic}
               >
-                  <div className={classes.SkeletonArticleListItemDate}>
+                  <div className={classes.skeletonArticleListItem__date}>
                       <Skeleton
                           border={5}
                           width={80}
                           height={20}
                       />
                   </div>
-                  <div className={classes.SkeletonArticleListItemViews}>
+                  <div className={classes.skeletonArticleListItem__views}>
                       <Skeleton
                           border={5}
                           width={50}
@@ -170,29 +170,29 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
                   </div>
               </div>
               <div
-                  className={classes.SkeletonArticleListItemTags}
+                  className={classes.skeletonArticleListItem__tags_grid}
               >
                   <Skeleton
-                      className={classes.Tag}
-                      border={20}
+                      className={classes.skeletonArticleListItem__tag}
+                      border={10}
                       width={50}
                       height={30}
                   />
                   <Skeleton
-                      className={classes.Tag}
-                      border={20}
+                      className={classes.skeletonArticleListItem__tag}
+                      border={10}
                       width={50}
                       height={30}
                   />
                   <Skeleton
-                      className={classes.Tag}
-                      border={20}
+                      className={classes.skeletonArticleListItem__tag}
+                      border={10}
                       width={50}
                       height={30}
                   />
                   <Skeleton
-                      className={classes.Tag}
-                      border={20}
+                      className={classes.skeletonArticleListItem__tag}
+                      border={10}
                       width={50}
                       height={30}
                   />

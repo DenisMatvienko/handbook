@@ -1,141 +1,141 @@
-.title {
+.text__title {
   color: var(--accent);
 }
 
-.text {
+.text__paragraph {
   color: var(--accent);
 }
 
-.backgroundText {
-  .title {
+.text_background {
+  .text__title {
     color: var(--title-main);
   }
 
-  .text {
+  .text__paragraph {
     color: var(--text-main);
   }
 }
 
-.blockText {
-  .title {
+.text_block {
+  .text__title {
     color: var(--title-block-main);
   }
 
-  .text {
+  .text__paragraph {
     color: var(--text-block-main);
   }
 }
 
-.secondaryInverted {
-  .title {
+.text_secondary_inverted {
+  .text__title {
     color: var(--accent);
   }
 
-  .text {
+  .text__paragraph {
     color: var(--secondary-inverted);
   }
 }
 
-.textWhite {
-  .title {
+.text_white {
+  .text__title {
     color: var(--text-white);
   }
 
-  .text {
+  .text__paragraph {
     color: var(--text-white);
   }
 }
 
-.translucent {
-  .title {
+.text_translucent {
+  .text__title {
     color: var(--text-translucent);
   }
 
-  .text {
+  .text__paragraph {
     color: var(--text-translucent);
   }
 }
 
-.subtitle {
-  .title {
+.text_subtitle {
+  .text__title {
     opacity: 0.5;
     color: var(--title-subtitle);
   }
 
-  .text {
+  .text__paragraph {
     opacity: 0.5;
     color: var(--text-subtitle);
   }
 }
 
-.error {
-  .title {
+.text_error {
+  .text__title {
     color: var(--error);
   }
 
-  .text {
+  .text__paragraph {
     color: var(--error);
   }
 }
 
-.right {
+.text_right {
   text-align: right;
 }
 
-.left {
+.text_left {
   text-align: left;
 }
 
-.center {
+.text_center {
   text-align: center;
 }
 
-.size_xs {
-  .title {
+.text_size_xs {
+  .text__title {
     font: var(--font-s);
   }
 
-  .text {
+  .text__paragraph {
     font: var(--font-xs);
   }
 }
 
-.size_s {
-  .title {
+.text_size_s {
+  .text__title {
     font: var(--font-m);
   }
 
-  .text {
+  .text__paragraph {
     font: 13px var(--font-family-main);
   }
 }
 
-.size_m {
-  .title {
+.text_size_m {
+  .text__title {
     font: var(--font-l);
   }
 
-  .text {
+  .text__paragraph {
     font: var(--font-m);
   }
 }
 
-.size_l {
-  .title {
+.text_size_l {
+  .text__title {
     font: var(--font-xl);
   }
 
-  .text {
+  .text__paragraph {
     font: var(--font-l);
   }
 }
 
-.size_xl {
-  .title {
+.text_size_xl {
+  .text__title {
     font: var(--font-xxl);
   }
 
-  .text {
+  .text__paragraph {
     font: var(--font-xl);
   }
 }

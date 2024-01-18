@@ -1,23 +1,18 @@
-.blocksWrapper {
+.doubleFrame {
   display: flex;
   align-items: start;
   flex-direction: row;
   width: 100%;
 }
 
-.leftBlockContent {
+.doubleFrame__leftBlockContent {
   display: flex;
   flex-direction: column;
   width: 69%;
   margin-right: 1%;
 }
 
-.rightBlockAdditional {
+.doubleFrame__rightBlockContent {
   top: 65px;
   position: sticky;
-}
-
-.leftBlockWrapper {
-  display: flex;
-  flex-direction: column;
 }

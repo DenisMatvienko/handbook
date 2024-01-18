@@ -1,5 +1,89 @@
-.CardGrid {
+.articleListView {
   display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+}
+
+.articleListView__tags {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 10px 0;
+}
+
+.articleListView__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 60%;
+  cursor: pointer;
+}
+
+.articleListView__header div {
+  margin-right: 10px;
+}
+
+.articleListView__info {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 70%;
+}
+
+.articleListView__topSide {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.articleListView__botSide {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 70%;
+  height: 20px;
+}
+
+.articleListView__description {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: var(--block-color);
+}
+
+.articleListView__description::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(180deg, transparent, var(--block-color) 70%);
+}
+
+.articleListView__footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.articleListView__title {
+  margin-top: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.articleListView__subtitle {
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.articleGridView {
   cursor: pointer;
   transition: 0.2s;
   width: 31.3%;
@@ -10,36 +94,14 @@
   }
 }
 
-.ArticleListItemImg {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  width: 100%;
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-  object-fit: cover;
-}
-
-.ArticleListItemImg_list {
-  height: 400px;
-}
-
-.ArticleListItemImg_grid {
-  height: 200px;
-}
-
-.ArticleListItemTitle {
+.articleGridView__title {
   width: 100%;
   display: flex;
   align-items: center;
   flex-flow: row  wrap;
 }
 
-.ArticleListItemStats {
+.articleGridView__statistic {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,7 +109,7 @@
   margin-top: 5px;
 }
 
-.ArticleListItemDate {
+.articleGridView__date {
   display: flex;
   width: 40%;
   justify-content: flex-start;
@@ -55,22 +117,7 @@
   flex-direction: row;
 }
 
-.ArticleListItemViews {
-  width: 30%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: row;
-}
-
-.ArticleListItemIcon {
-  fill: var(--text-block-main);
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.ArticleListItemTags {
+.articleGridView__tags {
   display: flex;
   position: relative;
   justify-content: flex-start;
@@ -85,7 +132,7 @@
   background-color: var(--block-color);
 }
 
-.ArticleListItemTags::after {
+.articleGridView__tags::after {
   content: "";
   position: absolute;
   left: 0;
@@ -99,89 +146,43 @@
   padding: 5px;
 }
 
+.ArticleListItemViews {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
 .ListViewIndent {
   margin-top: 15px;
 }
 
-.ArticleListItemListView {
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-}
-
-.ArticleListItemListViewTags {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.ArticleListItemListViewHeader {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-flow: row wrap;
-  width: 60%;
-  cursor: pointer;
-}
-
-.ArticleListItemListViewHeader div {
-  margin-right: 10px;
-}
-
-.ArticleListItemListViewHeaderInfo {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  width: 70%;
-}
-
-.ArticleListItemListViewHeaderInfoTop {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.ArticleListItemListViewHeaderInfoBot {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  width: 70%;
+.ArticleListItemIcon {
+  fill: var(--text-block-main);
+  width: 20px;
   height: 20px;
-}
-
-.ArticleListItemListViewDescription {
-  position: relative;
-  margin-top: 20px;
-  width: 100%;
-  height: 100px;
-  overflow: hidden;
-  background-color: var(--block-color);
-}
-
-.ArticleListItemListViewDescription::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  background: linear-gradient(180deg, transparent, var(--block-color) 70%);
-}
-
-.ArticleListItemListViewFooter {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 20px;
-}
-
-.ArticleTitle {
-  margin-top: 20px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.ArticleSubtitle {
-  margin-top: 5px;
   margin-right: 5px;
+}
+
+.articleImage {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  object-fit: cover;
+}
+
+.articleImage_list {
+  height: 400px;
+}
+
+.articleImage_grid {
+  height: 200px;
 }
