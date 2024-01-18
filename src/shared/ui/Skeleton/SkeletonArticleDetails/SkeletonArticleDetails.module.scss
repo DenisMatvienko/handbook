@@ -22,11 +22,15 @@
   width: 65%;
 }
 
-.skeletonArticleDetails__avatar {
+.skeletonArticleDetails__userInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.skeletonArticleDetails__avatar {
+  margin-right: 15px;
 }
 
 .skeletonArticleDetails__title {
