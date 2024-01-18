@@ -26,12 +26,12 @@ export const SidebarItem = (props: SidebarItemProps) => {
   return (
       <AppLink
           theme={AppLinkTheme.LIGHT}
-          className={classNames(classes.item, { [classes.collapsed]: collapsed })}
+          className={classNames(classes.sidebarItem, { [classes.sidebarItem_collapsed]: collapsed })}
           to={item.path}
       >
-          <item.Icon className={classNames(classes.icon)} />
+          <item.Icon className={classNames(classes.sidebarItem__icon)} />
           <span
-              className={classNames(classes.link, { [classes.collapsed]: collapsed })}
+              className={classNames(classes.sidebarItem__link, { [classes.sidebarItem_collapsed]: collapsed })}
           >
               {t(item.text)}
           </span>

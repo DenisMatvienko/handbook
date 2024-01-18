@@ -82,18 +82,18 @@ export const Sidebar = memo((props: SidebarProps) => {
               radius={ButtonRadius.CIRCLE}
           >
               <Icon
-                  className={classes.BarsIcon}
+                  className={classes.sidebar__cursorIcon}
                   Svg={Cursor}
                   theme={IconTheme.BLOCK_ICON}
               />
           </Button>
-          <div className={classes.logoWrapper}>
+          <div className={classes.sidebar__logo}>
               <Icon
-                  className={classes.logo}
+                  className={classes.sidebar__logoIcon}
                   Svg={LogoIcon}
                   theme={IconTheme.BLOCK_ICON}
               />
-              <div className={classes.plank} />
+              <div className={classes.sidebar__plank} />
           </div>
           <div
               data-testid="sidebar"
@@ -103,14 +103,13 @@ export const Sidebar = memo((props: SidebarProps) => {
                 [classes[newPosition]],
               )}
           >
-              <div className={classNames(classes.items)}>
+              <div className={classNames(classes.sidebar__items)}>
                   {itemsList}
               </div>
-              <div className={classes.sidebarWrapper}>
-                  <div className={classNames(classes.switchers, {}, [])}>
-                      <LangSwitcher short={newPosition === SidebarPosition.COLLAPSED} className={classes.lang} />
-                  </div>
-              </div>
+              <LangSwitcher
+                  short={newPosition === SidebarPosition.COLLAPSED}
+                  className={classes.sidebar__langSwitcher}
+              />
           </div>
       </aside>
   );

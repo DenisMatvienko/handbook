@@ -26,7 +26,27 @@
   z-index: 2;
 }
 
-.lang {
+.sidebar__cursorIcon {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-main);
+  transform: rotate(-0.1turn);
+}
+
+.sidebar__button > .sidebar__cursorIcon {
+  &:hover {
+    fill: var(--title-main);
+    animation: spin 2s;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(325deg);
+  }
+}
+
+.sidebar__langSwitcher {
   margin-bottom: 10px;
 }
 
@@ -53,7 +73,7 @@
   transition: width 0.2s;
 }
 
-.logoWrapper {
+.sidebar__logo {
   display: flex;
   align-items: center;
   position: absolute;
@@ -65,13 +85,13 @@
   z-index: 2;
 }
 
-.logo {
+.sidebar__logoIcon {
   width: 150px;
   height: 63px;
   fill: var(--text-main);
 }
 
-.plank {
+.sidebar__plank {
   width: 15px;
   height: 5px;
   color: var(--text-main);
@@ -88,25 +108,5 @@
 
   to {
     opacity: 1;
-  }
-}
-
-.BarsIcon {
-  width: 30px;
-  height: 30px;
-  fill: var(--text-main);
-  transform: rotate(-0.1turn);
-}
-
-.button > .BarsIcon {
-  &:hover {
-    fill: var(--title-main);
-    animation: spin 2s;
-  }
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(325deg);
   }
 }
