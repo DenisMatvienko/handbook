@@ -1,3 +1,10 @@
+.articleViewSelector__icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--block-color);
+  stroke: var(--block-color);
+}
+
 .articleViewSelector {
   display: flex;
   justify-content: space-between;
@@ -12,14 +19,6 @@
     }
   }
 }
-
-.articleViewSelector__icon {
-  width: 20px;
-  height: 20px;
-  fill: var(--block-color);
-  stroke: var(--block-color);
-}
-
 
 .articleViewSelector_viewSwitcher {
   fill: var(--main-hover);

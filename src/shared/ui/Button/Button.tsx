@@ -31,26 +31,26 @@ export enum ButtonTheme {
   OUTLINE = 'button_outline',
   CANCEL = 'button_cancel',
   SAVE = 'button_save',
-  SCROLL_TOP = 'button_scrollTop',
+  SCROLL_TOP = 'button_scroll-top',
   BACKGROUND = 'button_background',
-  BACKGROUND_BLOCK = 'button_backgroundBlock',
-  BACKGROUND_LBLACK_DPURPLE = 'button_backgroundBlackPurple',
+  BACKGROUND_BLOCK = 'button_background-block',
+  BACKGROUND_LBLACK_DPURPLE = 'button_background-black-purple',
 }
 
 export enum ButtonSize {
-  NN = 'button_size_none',
-  M = 'button_size_m',
-  L = 'button_size_l',
-  XL = 'button_size_xl',
-  XXL = 'button_size_xxl',
+  NN = 'button_size-none',
+  M = 'button_size-m',
+  L = 'button_size-l',
+  XL = 'button_size-xl',
+  XXL = 'button_size-xxl',
 }
 
 export enum ButtonRadius {
-  SQUARE = 'button_radius_square',
-  SUPER_ELLIPSE = 'button_radius_semi_super_ellipse',
-  CIRCLE = 'button_radius_circle',
-  SEMI_ELLIPSE = 'button_radius_semi_ellipse',
-  ELLIPSE = 'button_radius_ellipse',
+  SQUARE = 'button_radius-square',
+  SUPER_ELLIPSE = 'button_radius-semi-super-ellipse',
+  CIRCLE = 'button_radius-circle',
+  SEMI_ELLIPSE = 'button_radius-semi-ellipse',
+  ELLIPSE = 'button_radius-ellipse',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

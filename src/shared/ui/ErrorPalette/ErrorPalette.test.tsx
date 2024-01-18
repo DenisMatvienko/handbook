@@ -20,7 +20,7 @@ describe('ErrorPalette', () => {
         refresh
     />);
     expect(container
-      .getElementsByClassName('RefreshButton').length)
+      .getElementsByClassName('errorPallet__refreshButton').length)
       .toBe(1);
   });
 });
