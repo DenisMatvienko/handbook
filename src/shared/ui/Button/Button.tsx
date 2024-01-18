@@ -27,30 +27,30 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  OUTLINE = 'outline',
-  CANCEL = 'cancel',
-  SAVE = 'save',
-  SCROLL_TOP = 'scrollTop',
-  BACKGROUND = 'background',
-  BACKGROUND_BLOCK = 'backgroundBlock',
-  BACKGROUND_LBLACK_DPURPLE = 'backgroundBlackPurple',
+  CLEAR = 'button_clear',
+  OUTLINE = 'button_outline',
+  CANCEL = 'button_cancel',
+  SAVE = 'button_save',
+  SCROLL_TOP = 'button_scroll-top',
+  BACKGROUND = 'button_background',
+  BACKGROUND_BLOCK = 'button_background-block',
+  BACKGROUND_LBLACK_DPURPLE = 'button_background-black-purple',
 }
 
 export enum ButtonSize {
-  NN = 'size_none',
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
-  XXL = 'size_xxl',
+  NN = 'button_size-none',
+  M = 'button_size-m',
+  L = 'button_size-l',
+  XL = 'button_size-xl',
+  XXL = 'button_size-xxl',
 }
 
 export enum ButtonRadius {
-  SQUARE = 'radius_square',
-  SUPER_ELLIPSE = 'radius_semi_super_ellipse',
-  CIRCLE = 'radius_circle',
-  SEMI_ELLIPSE = 'radius_semi_ellipse',
-  ELLIPSE = 'radius_ellipse',
+  SQUARE = 'button_radius-square',
+  SUPER_ELLIPSE = 'button_radius-semi-super-ellipse',
+  CIRCLE = 'button_radius-circle',
+  SEMI_ELLIPSE = 'button_radius-semi-ellipse',
+  ELLIPSE = 'button_radius-ellipse',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -76,17 +76,17 @@ export const Button = memo((props: ButtonProps) => {
 
   const mods: Mods = {
     [classes[theme]]: true,
-    [classes.square]: square,
+    [classes.button_square]: square,
     [classes[size]]: true,
     [classes[radius]]: true,
-    [classes.disabled]: disabled,
+    [classes.button_disabled]: disabled,
   };
 
   return (
       <button
           type="button"
           className={classNames(
-            classes.Button,
+            classes.button,
             mods,
             [className],
           )}

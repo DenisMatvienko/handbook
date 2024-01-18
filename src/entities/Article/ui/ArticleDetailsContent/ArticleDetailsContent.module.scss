@@ -1,4 +1,4 @@
-.articleBlock {
+.articleDetailsContent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,14 +7,14 @@
   width: 100%;
 }
 
-.articleBlockHeader {
+.articleDetailsContent__header {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
   width: 100%;
 }
 
-.articleBlockHeaderTop {
+.articleDetailsContent__headerTop {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -22,18 +22,18 @@
   width: 100%;
 }
 
-.articleBlockHeaderTopAvatar {
+.articleDetailsContent__avatar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.articleBlockTopTitle {
+.articleDetailsContent__title {
   margin-left: 10px;
 }
 
-.articleBlockHeaderArticleSubtitle {
+.articleDetailsContent__subtitle {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -41,28 +41,28 @@
   margin-top: 10px;
 }
 
-.articleHeaderTopStat {
+.articleDetailsContent__statistic {
   display: flex;
   flex-direction: row;
   margin-top: 15px;
   width: 35%;
 }
 
-.articleHeaderTopStatViews {
+.articleDetailsContent__views {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 50%;
 }
 
-.articleHeaderTopStatData {
+.articleDetailsContent__date {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 80%;
 }
 
-.articleHeaderBotStat {
+.articleDetailsContent__statisticBottom {
   display: flex;
   flex-flow: row wrap;
   width: 45%;
@@ -71,23 +71,23 @@
   gap: 5px;
 }
 
-.articleHeaderBotTag {
+.articleDetailsContent__tag {
   padding: 10px;
 }
 
-.viewsIcon {
+.articleDetailsContent__viewIcon {
   width: 25px;
   height: 25px;
   margin-right: 5px;
 }
 
-.dateIcon {
+.articleDetailsContent__dateIcon {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
 
-.articleContent {
+.articleDetailsContent__content {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -95,11 +95,11 @@
   margin-top: 50px;
 }
 
-.articleContentBlock {
+.articleDetailsContent__contentWrapper {
   margin-top: 10px;
 }
 
-.articleEndStat {
+.articleDetailsContent__BottomPart {
   display: flex;
   width: 100%;
   justify-content: flex-start;
@@ -112,6 +112,6 @@
   }
 }
 
-.tagsTitle {
+.articleDetailsContent__tagsTitle {
   margin-right: 10px;
 }

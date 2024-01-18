@@ -54,42 +54,42 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
   return (
 
-      <div className={classes.headerWrapper}>
+      <div className={classes.profilePageHeader}>
           {canEdit && (
           <FullPageBlock>
-              <div className={classes.header}>
+              <div className={classes.profilePageHeader__header}>
                   <Text
-                      className={classes.titleText}
+                      className={classes.profilePageHeader__title}
                       title={t('UserProfile')}
                       theme={TextTheme.BLOCK_TEXT}
                   />
                   {readonly
                     ? (
                         <Button
-                            className={classes.toEditButton}
+                            className={classes.profilePageHeader__readonlyBtn}
                             theme={ButtonTheme.BACKGROUND_BLOCK}
                             radius={ButtonRadius.SEMI_ELLIPSE}
                             onClick={onEdit}
                         >
-                            <Settings className={classNames(classes.SettingsIcon, {}, [])} />
+                            <Settings className={classNames(classes.profilePageHeader__readonlyIcons, {}, [])} />
                         </Button>
                     ) : (
-                        <div className={classes.editButtons}>
+                        <div className={classes.profilePageHeader__editNav}>
                             <Button
-                                className={classes.editButton}
+                                className={classes.profilePageHeader__editBtn}
                                 theme={ButtonTheme.BACKGROUND_BLOCK}
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onSave}
                             >
-                                <Save className={classNames(classes.SaveIcon, {}, [])} />
+                                <Save className={classNames(classes.profilePageHeader__saveIcon, {}, [])} />
                             </Button>
                             <Button
-                                className={classes.editButton}
+                                className={classes.profilePageHeader__editBtn}
                                 theme={ButtonTheme.BACKGROUND_BLOCK}
                                 radius={ButtonRadius.SEMI_ELLIPSE}
                                 onClick={onCancelEdit}
                             >
-                                <Cancel className={classNames(classes.CancelIcon, {}, [])} />
+                                <Cancel className={classNames(classes.profilePageHeader__cancelIcon, {}, [])} />
                             </Button>
                         </div>
                     )}

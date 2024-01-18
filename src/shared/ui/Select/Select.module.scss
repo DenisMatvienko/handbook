@@ -1,14 +1,14 @@
-.SelectWrapper {
+.select {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.label {
+.select__label {
   margin-right: 10px;
 }
 
-.select {
+.select__wrapper {
   cursor: pointer;
   padding: 2px 10px 2px 2px;
   background-color: var(--secondary);
@@ -21,7 +21,7 @@
   line-height: 30px;
 }
 
-.option {
+.select__option {
   width: 70px;
   height: 34px;
   line-height: 30px;

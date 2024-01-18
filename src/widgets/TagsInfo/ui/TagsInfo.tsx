@@ -29,16 +29,16 @@ export const TagsInfo = memo((props: TagsInfoProps) => {
 
   return (
       <Modal
-          className={classNames(classes.TagsInfo, {}, [className])}
+          className={classNames(classes.tagsInfo, {}, [className])}
           isOpen={isOpen}
           onClose={onClose}
           lazy
       >
-          <div className={classes.TagsWrapper}>
+          <div className={classes.tagsInfo__wrapper}>
               {
                   article?.type.map((item) => (
                       <Tag
-                          className={classNames(classes.Tag, {}, [className])}
+                          className={classNames(classes.tagsInfo__tag, {}, [className])}
                           key={uid()}
                           theme={TagTheme.DEFAULT}
                           data={item}

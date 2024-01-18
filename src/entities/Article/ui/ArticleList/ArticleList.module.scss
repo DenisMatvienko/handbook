@@ -1,4 +1,4 @@
-.ArticleList {
+.articleList {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -6,6 +6,6 @@
   margin-left: 0;
 }
 
-.row {
+.articleList_row {
   flex-flow: row wrap;
 }

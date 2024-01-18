@@ -1,4 +1,4 @@
-.Navbar {
+.navbar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -10,36 +10,36 @@
   z-index: 1;
 }
 
-.showNav {
-  width: 89.2%;
-  margin-left: 5%;
-  backdrop-filter: blur(10px);
-  box-shadow: 2px 3px 3px var(--box-shadow);
-  border-radius: 10px;
-}
-
-.accountBar {
+.navbar__accountBar {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 25%;
 }
 
-.theme {
+.navbar__avatar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar__theme {
   margin-right: 20px;
 }
 
-.usernameLinks {
+.navbar__username {
   padding: 0 10px;
   display: flex;
   align-items: center;
   color: var(--text-main);
 }
 
-.usernameAvatar {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 20px;
-  align-items: center;
-  cursor: pointer;
+.navbar_show {
+  width: 89.2%;
+  margin-left: 5%;
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 3px 3px var(--box-shadow);
+  border-radius: 10px;
 }

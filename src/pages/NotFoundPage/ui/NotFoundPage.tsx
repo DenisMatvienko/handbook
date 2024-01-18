@@ -12,7 +12,7 @@ export const NotFoundPage = ({ className }: NotFoundPageProps) => {
   return (
       <Page>
           <div className={classNames(
-            classes.NotFoundPage,
+            classes.notFoundPage,
             {},
             [className],
           )}

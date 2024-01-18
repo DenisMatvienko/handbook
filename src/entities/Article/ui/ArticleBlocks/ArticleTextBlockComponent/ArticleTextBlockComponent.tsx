@@ -25,10 +25,10 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
   const { t } = useTranslation();
 
   return (
-      <div className={classNames(classes.ArticleTextBlockComponent, {}, [className])}>
+      <div className={classNames(classes.articleTextBlockComponent, {}, [className])}>
           {block.title && (
           <Text
-              className={classes.ArticleTextBlockComponentTitle}
+              className={classes.articleTextBlockComponent__title}
               theme={TextTheme.BLOCK_TEXT}
               title={t(block.title)}
               size={TextSize.M}
@@ -37,7 +37,7 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
           )}
           {block.paragraphs.map((paragraph, index) => (
               <Text
-                  className={classes.ArticleTextBlockComponentParagraph}
+                  className={classes.articleTextBlockComponent__paragraph}
                   theme={TextTheme.BLOCK_TEXT}
                   key={paragraph}
                   text={t(paragraph)}

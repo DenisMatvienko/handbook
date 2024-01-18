@@ -54,11 +54,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
   );
 
   const mods: Mods = {
-    [classes.row]: view === 'GRID',
+    [classes.articleList_row]: view === 'GRID',
   };
 
   return (
-      <div className={classNames(classes.ArticleList, mods, [className])}>
+      <div className={classNames(classes.articleList, mods, [className])}>
           {
               articles.length > 0
                 ? articles?.map(renderArticle)

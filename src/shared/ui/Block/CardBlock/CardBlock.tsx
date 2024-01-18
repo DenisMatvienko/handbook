@@ -18,7 +18,7 @@ export const CardBlock = memo((props: CardBlockProps) => {
   const { t } = useTranslation();
 
   return (
-      <div className={classNames(classes.CardBlock, {}, [className])}>
+      <div className={classNames(classes.cardBlock, {}, [className])}>
           {children}
       </div>
   );

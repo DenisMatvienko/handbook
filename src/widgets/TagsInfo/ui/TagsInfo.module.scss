@@ -1,15 +1,15 @@
-.TagsInfo {
+.tagsInfo {
   display: flex;
 }
 
-.TagsWrapper {
+.tagsInfo__wrapper {
   display: flex;
   flex-flow: wrap row;
   width: 200px;
   gap: 5px;
 }
 
-.Tag {
+.tagsInfo__tag {
   display: flex;
   justify-content: center;
   padding: 5px;

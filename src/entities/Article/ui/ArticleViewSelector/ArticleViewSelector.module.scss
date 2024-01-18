@@ -1,11 +1,11 @@
-.ArticleViewSelectorIcon {
+.articleViewSelector__icon {
   width: 20px;
   height: 20px;
   fill: var(--block-color);
   stroke: var(--block-color);
 }
 
-.ArticleViewSelector {
+.articleViewSelector {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,14 +13,14 @@
   width: 7%;
 
   &:hover {
-    & .ArticleViewSelectorIcon {
+    .articleViewSelector__icon {
       fill: var(--block-color);
       stroke: var(--block-color);
     }
   }
 }
 
-.ViewSwitcher {
+.articleViewSelector_viewSwitcher {
   fill: var(--main-hover);
   stroke: var(--main-hover);
 }

@@ -1,4 +1,4 @@
-.Modal {
+.modal {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -9,7 +9,7 @@
   z-index: -1;
 }
 
-.overlay {
+.modal__overlay {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@
   background: var(--modal-background-blur);
 }
 
-.content {
+.modal__content {
   padding: 20px;
   border-radius: 12px;
   background: var(--block-color);
@@ -30,18 +30,18 @@
   max-width: 60%;
 }
 
-.opened {
+.modal_opened {
   pointer-events: auto;
   opacity: 1;
   z-index: var(--modal-z-index);
 
-  .content {
+  .modal__content {
     transform: scale(1);
   }
 }
 
-.isClosing {
-  .content {
+.modal_closed {
+  .modal__content {
     transform: scale(0.6);
     opacity: 0.3;
   }

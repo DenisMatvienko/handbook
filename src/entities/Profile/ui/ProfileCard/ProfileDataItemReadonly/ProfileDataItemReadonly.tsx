@@ -20,7 +20,7 @@ import { uid } from 'shared/lib/uid/uid';
 import classes from './ProfileDataItemReadonly.module.scss';
 
 interface ProfileDataItemReadonlyProps {
-  className: string;
+  className?: string;
   data?: Profile;
 }
 
@@ -32,7 +32,6 @@ export const ProfileDataItemReadonly = ({
   const profileItemList = ProfileItem();
   const profileDataList = ProfileData();
   const formData = useSelector(getProfileForm);
-  const authDate = useSelector(getUserAuthData);
 
   const itemsList = useMemo(() => profileItemList
     .map((item) => (
@@ -56,15 +55,15 @@ export const ProfileDataItemReadonly = ({
   ), [profileDataList]);
 
   return (
-      <div className={classes.dataWrapper}>
-          <FullPageBlock className={classes.blockWrapper}>
-              <div className={classes.blockUserWrapper}>
-                  <div className={classes.blockUser}>
+      <div className={classes.profileDataItemReadonly}>
+          <FullPageBlock className={classes.profileDataItemReadonly__wrapper}>
+              <div className={classes.profileDataItemReadonly__user}>
+                  <div className={classes.profileDataItemReadonly__data}>
                       <Text
                           title={`${t('hi')}, ${formData?.firstName}`}
                           theme={TextTheme.SECONDARY_INVERTED}
                       />
-                      <div className={classes.dataAvatar}>
+                      <div className={classes.profileDataItemReadonly__avatar}>
                           <Avatar
                               size={AvatarSize.XL}
                               src={data?.avatar}
@@ -75,11 +74,11 @@ export const ProfileDataItemReadonly = ({
               </div>
           </FullPageBlock>
           <FullPageBlock
-              className={classes.blockWrapper}
+              className={classes.profileDataItemReadonly__wrapper}
           >
-              <div className={classes.dataReadonly}>
-                  <div className={classes.title}>{itemsList}</div>
-                  <div className={classes.titleName}>
+              <div className={classes.profileDataItemReadonly__readonly}>
+                  <div className={classes.profileDataItemReadonly__title}>{itemsList}</div>
+                  <div className={classes.profileDataItemReadonly__name}>
                       {dataList}
                   </div>
               </div>

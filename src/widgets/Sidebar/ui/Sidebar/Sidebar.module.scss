@@ -1,11 +1,11 @@
-.wrapper {
+.sidebar {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   margin-bottom: 50px;
 }
 
-.Sidebar {
+.sidebar__aside {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -18,34 +18,7 @@
   border-bottom-right-radius: 5px;
 }
 
-.lang {
-  margin-bottom: 10px;
-}
-
-.onBlure {
-  backdrop-filter: blur(1px);
-  background: var(--secondary-dark);
-  transition: 3s ease-in-out;
-}
-
-.on {
-  width: var(--sidebar-width);
-  min-height: calc(100vh - 15vh);
-  transition: width 0.2s;
-}
-
-.collapsed {
-  width: var(--sidebar-width-collapsed);
-  min-height: calc(100vh - 15vh);
-  transition: width 0.2s;
-}
-
-.off {
-  display: none;
-  transition: width 0.2s;
-}
-
-.button {
+.sidebar__button {
   position: absolute;
   top: -45px;
   left: 10px;
@@ -53,7 +26,54 @@
   z-index: 2;
 }
 
-.logoWrapper {
+.sidebar__cursorIcon {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-main);
+  transform: rotate(-0.1turn);
+}
+
+.sidebar__button > .sidebar__cursorIcon {
+  &:hover {
+    fill: var(--title-main);
+    animation: spin 2s;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(325deg);
+  }
+}
+
+.sidebar__langSwitcher {
+  margin-bottom: 10px;
+}
+
+.sidebar_onBlure {
+  backdrop-filter: blur(1px);
+  background: var(--secondary-dark);
+  transition: 3s ease-in-out;
+}
+
+.sidebar_on {
+  width: var(--sidebar-width);
+  min-height: calc(100vh - 15vh);
+  transition: width 0.2s;
+}
+
+.sidebar_collapsed {
+  width: var(--sidebar-width-collapsed);
+  min-height: calc(100vh - 15vh);
+  transition: width 0.2s;
+}
+
+.sidebar_off {
+  display: none;
+  transition: width 0.2s;
+}
+
+.sidebar__logo {
   display: flex;
   align-items: center;
   position: absolute;
@@ -65,13 +85,13 @@
   z-index: 2;
 }
 
-.logo {
+.sidebar__logoIcon {
   width: 150px;
   height: 63px;
   fill: var(--text-main);
 }
 
-.plank {
+.sidebar__plank {
   width: 15px;
   height: 5px;
   color: var(--text-main);
@@ -88,25 +108,5 @@
 
   to {
     opacity: 1;
-  }
-}
-
-.BarsIcon {
-  width: 30px;
-  height: 30px;
-  fill: var(--text-main);
-  transform: rotate(-0.1turn);
-}
-
-.button > .BarsIcon {
-  &:hover {
-    fill: var(--title-main);
-    animation: spin 2s;
-  }
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(325deg);
   }
 }
