@@ -115,13 +115,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                 </div>
             </div>
-            <Text
-                className={classes.articleListView__title}
-                theme={TextTheme.BLOCK_TEXT}
-                title={stringCutter(article.title, 50)}
-                size={TextSize.M}
-                align={TextAlign.LEFT}
-            />
+            <div
+                onClick={onOpenArticles}
+            >
+                <Text
+                    className={classes.articleListView__title}
+                    theme={TextTheme.BLOCK_TEXT}
+                    title={stringCutter(article.title, 50)}
+                    size={TextSize.M}
+                    align={TextAlign.LEFT}
+                />
+            </div>
             <div
                 className={classes.articleListView__tags}
             >
@@ -135,15 +139,20 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     />
                 ))}
             </div>
-            <img
-                className={classNames(
-                  `${classes.articleImage} ${classes.articleImage_list}`,
-                  {},
-                  [classes.ListViewIndent],
-                )}
-                src={article.img}
-                alt={article.title}
-            />
+            <div
+                onClick={onOpenArticles}
+            >
+                <img
+                    className={classNames(
+                      `${classes.articleImage} ${classes.articleImage_list}`,
+                      {},
+                      [classes.ListViewIndent],
+                    )}
+                    src={article.img}
+                    alt={article.title}
+                />
+            </div>
+
             <div />
             <div className={classes.articleListView__description}>
                 {paragraph}
@@ -166,13 +175,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           {...bindIsHover}
           className={classes.articleGridView}
       >
-          <img
-              onClick={onOpenArticles}
-              aria-hidden="true"
-              className={`${classes.articleImage} ${classes.articleImage_grid}`}
-              src={article.img}
-              alt={article.title}
-          />
+          <div
+              className={`${classes.articleImage__wrapper}`}
+          >
+              <img
+                  onClick={onOpenArticles}
+                  aria-hidden="true"
+                  className={`${classes.articleImage} ${classes.articleImage_grid}`}
+                  src={article.img}
+                  alt={article.title}
+              />
+          </div>
           <div
               onClick={onOpenArticles}
               className={classes.articleGridView__title}
