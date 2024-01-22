@@ -95,7 +95,7 @@
 
   & img {
     width: 100%;
-    transition: 0.3s;
+    transition: 0.1s;
   }
 }
 
@@ -134,9 +134,12 @@
 
 .articleGridView__title {
   width: 100%;
+  height: 45px;
   display: flex;
   align-items: center;
   flex-flow: row  wrap;
+  overflow: hidden;
+  margin-top: 5px;
 }
 
 .articleGridView__statistic {

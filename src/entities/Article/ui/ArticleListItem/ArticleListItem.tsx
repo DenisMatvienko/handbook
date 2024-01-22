@@ -192,7 +192,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           >
               <Text
                   theme={TextTheme.BLOCK_TEXT}
-                  title={stringCutter(article.title, 20)}
+                  title={stringCutter(article.title, 40)}
                   size={TextSize.S}
                   align={TextAlign.LEFT}
               />
