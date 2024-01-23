@@ -36,6 +36,7 @@ import { uid } from 'shared/lib/uid/uid';
 import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { ArticlePageFilters } from 'pages/ArticlesPage/ui/ArticlePageFilters';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
@@ -64,10 +65,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
-  }, [dispatch]);
-
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlePageSliceActions.setView(view));
   }, [dispatch]);
 
   useInitialEffect(() => {
@@ -127,11 +124,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
               onScrollEnd={onLoadNextPart}
           >
               <div className={classNames(classes.articlesPage, {}, [className])}>
-                  <FullPageBlock
-                      className={classes.articlesPage__header}
-                  >
-                      <ArticleViewSelector view={views} onViewClick={onChangeView} />
-                  </FullPageBlock>
+                  <ArticlePageFilters />
                   <DoubleAdjustableFrame
                       widthLeftBlock="69%"
                       widthRightBlock="30%"
