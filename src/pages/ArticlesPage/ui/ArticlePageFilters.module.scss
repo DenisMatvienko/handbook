@@ -1,6 +1,6 @@
 .articlePageFilters {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   margin-bottom: 10px;
@@ -10,8 +10,6 @@
 .articlePageFilters__widgets {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-flow: row wrap;
-  width: 35%;
-  margin-right: 10px;
+  width: 40%;
 }

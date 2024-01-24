@@ -51,7 +51,7 @@ export const Select = memo((props: SelectProps) => {
           {label && (
           <div className={classes.select__label}>
               <Text
-                  title={label}
+                  text={label}
                   theme={TextTheme.SECONDARY_INVERTED}
               />
           </div>

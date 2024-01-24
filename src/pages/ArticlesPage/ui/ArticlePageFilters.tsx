@@ -22,7 +22,7 @@ interface ArticlePageFiltersProps {
 
 export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('filters');
   const dispatch = useAppDispatch();
   const views = useSelector(getArticlePageView);
 
@@ -33,8 +33,10 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   return (
       <FullPageBlock className={classNames(classes.articlePageFilters, {}, [className])}>
           <div className={classes.articlePageFilters__widgets}>
-              <Select />
               <Input placeholder={t('Search')} />
+              <Select
+                  label={t('Sort')}
+              />
           </div>
           <ArticleViewSelector view={views} onViewClick={onChangeView} />
       </FullPageBlock>
