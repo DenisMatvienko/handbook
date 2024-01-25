@@ -26,6 +26,7 @@
       }
     }
   },
+  "Order": "Order",
   "Profile page": "Profile page",
   "ProfileErrorText": "ProfileErrorText",
   "ProfileErrorTitle": "ProfileErrorTitle",
@@ -38,7 +39,15 @@
   "Will be Articles": "Will be Articles",
   "Will be Articles Detail": "Will be Articles Detail",
   "age": "age",
+  "asc": "asc",
   "avatar": "avatar",
+  "by created": "by created",
+  "by last add": "by last add",
+  "by title": "by title",
+  "by views": "by views",
+  "byCreated": "byCreated",
+  "byTitle": "byTitle",
+  "byViews": "byViews",
   "city": "city",
   "comments": "comments",
   "currency": "currency",
@@ -46,6 +55,7 @@
     "subtitle": "subtitle"
   },
   "decr": "decr",
+  "desc": "desc",
   "hi": "hi",
   "incorrect-age": "incorrect-age",
   "incorrect-city": "incorrect-city",

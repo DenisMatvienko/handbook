@@ -1,4 +1,10 @@
 {
   "Search": "Search",
-  "Sort": "Sorted by:"
+  "Sort": "Sorted by:",
+  "Order": "Order by:",
+  "asc": "Ascending",
+  "desc": "Descending",
+  "byTitle": "By title",
+  "byCreated": "By created",
+  "byViews": "By views"
 }

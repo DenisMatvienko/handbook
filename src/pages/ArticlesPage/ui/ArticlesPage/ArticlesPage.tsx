@@ -33,10 +33,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
-import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { ArticlePageFilters } from 'pages/ArticlesPage/ui/ArticlePageFilters';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
@@ -44,7 +43,7 @@ import {
   getArticlePageView,
   getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
-import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
+import { articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {

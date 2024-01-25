@@ -16,10 +16,11 @@
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { uid } from 'shared/lib/uid/uid';
 import { SkeletonArticleListItem } from 'shared/ui/Skeleton/SkeletonArticleListItem/SkeletonArticleListItem';
+import { ArticleSortSelector } from 'features/ArticleSortSelector/ui/ArticleSortSelector';
 import { Article, ArticleView } from '../../model/types/article';
 
 import classes from './ArticleList.module.scss';

@@ -10,10 +10,17 @@ import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { Select } from 'shared/ui/Select/Select';
 import { Input } from 'shared/ui/Input/Input';
-import { articlePageSliceActions } from '../model/slices/articlePageSlice';
-import { getArticlePageView } from '../model/selectors/articlesPageSelectors';
+import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
+import { ArticleSortField } from 'entities/Article/model/types/article';
+import { articlePageSliceActions, articlePageSliceReducer } from '../../model/slices/articlePageSlice';
+import {
+  getArticlePageOrder,
+  getArticlePageSearch,
+  getArticlePageSort,
+  getArticlePageView,
+} from '../../model/selectors/articlesPageSelectors';
 import classes from './ArticlePageFilters.module.scss';
 
 interface ArticlePageFiltersProps {
@@ -25,17 +32,35 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   const { t } = useTranslation('filters');
   const dispatch = useAppDispatch();
   const views = useSelector(getArticlePageView);
+  const sort = useSelector(getArticlePageSort);
+  const order = useSelector(getArticlePageOrder);
+  const search = useSelector(getArticlePageSearch);
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageSliceActions.setView(view));
   }, [dispatch]);
 
+  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
+    dispatch(articlePageSliceActions.setOrder(newOrder));
+  }, [dispatch]);
+
+  const onChangeSort = useCallback((newSort: ArticleSortField) => {
+    dispatch(articlePageSliceActions.setSort(newSort));
+  }, [dispatch]);
+
   return (
       <FullPageBlock className={classNames(classes.articlePageFilters, {}, [className])}>
           <div className={classes.articlePageFilters__widgets}>
-              <Input placeholder={t('Search')} />
-              <Select
-                  label={t('Sort')}
+              <ArticleSortSelector
+                  className={classes.articlePageFilters__selectors}
+                  order={order}
+                  sort={sort}
+                  onChangeOrder={onChangeOrder}
+                  onChangeSort={onChangeSort}
+              />
+              <Input
+                  value={search}
+                  placeholder={t('Search')}
               />
           </div>
           <ArticleViewSelector view={views} onViewClick={onChangeView} />
