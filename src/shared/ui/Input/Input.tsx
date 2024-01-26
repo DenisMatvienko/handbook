@@ -19,6 +19,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 export enum InputTheme {
   SIMPLE = 'label__default',
+  SEARCH_NAV = 'input__search-nav'
 }
 
 export enum LabelPosition {

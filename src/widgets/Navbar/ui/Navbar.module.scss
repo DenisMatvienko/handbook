@@ -10,6 +10,35 @@
   z-index: 1;
 }
 
+.navbar__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  padding: 10px 15px;
+  width: 40%;
+}
+
+.navbar__searchIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.navbar__searchText {
+  margin-right: 5px;
+}
+
+.navbar__ctrlIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.navbar__kIcon {
+  width: 30px;
+  height: 30px;
+}
+
 .navbar__accountBar {
   display: flex;
   justify-content: flex-end;

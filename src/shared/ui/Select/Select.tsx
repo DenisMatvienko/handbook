@@ -1,26 +1,38 @@
+/**
+ *      Select
+ *          - Select ui component
+ *
+ *       @param T
+ *          Generic props for property 'value', that they could have multiple type.
+ *          early value used to have type 'string'.
+ *
+ */
+
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ChangeEvent, memo, useMemo } from 'react';
 import classes from './Select.module.scss';
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string,
   label?: string,
-  options?: SelectOption[];
-  value?: string;
-  onChange?: (value: string) => void;
+  name?: string,
+  options?: SelectOption<T>[];
+  value?: T;
+  onChange?: (value: T) => void;
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     label,
+    name,
     options,
     value,
     onChange,
@@ -30,7 +42,7 @@ export const Select = memo((props: SelectProps) => {
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     if (onChange) {
-      onChange(e.target.value);
+      onChange(e.target.value as T);
     }
   };
 
@@ -61,8 +73,9 @@ export const Select = memo((props: SelectProps) => {
               className={classes.select__wrapper}
               onChange={onChangeHandler}
           >
+              <option selected disabled>{name}</option>
               {optionsList}
           </select>
       </div>
   );
-});
+};

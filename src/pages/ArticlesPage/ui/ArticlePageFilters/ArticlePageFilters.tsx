@@ -34,7 +34,6 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   const views = useSelector(getArticlePageView);
   const sort = useSelector(getArticlePageSort);
   const order = useSelector(getArticlePageOrder);
-  const search = useSelector(getArticlePageSearch);
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageSliceActions.setView(view));
@@ -57,10 +56,6 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
                   sort={sort}
                   onChangeOrder={onChangeOrder}
                   onChangeSort={onChangeSort}
-              />
-              <Input
-                  value={search}
-                  placeholder={t('Search')}
               />
           </div>
           <ArticleViewSelector view={views} onViewClick={onChangeView} />

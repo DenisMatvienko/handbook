@@ -2,7 +2,8 @@
  *    ArticleSortSelector-component.
  *      - ArticleSortSelector with selector to filters widget
  *
- *    note:
+ *    @note:
+ *     problem:
  *      if add onChangeOrder or onChangeSort to Select component. Will throw error
  *      Type 'string' is not assignable to type 'ArticleSortField'.
  *      That  solve by type conversion:
@@ -12,8 +13,10 @@
  *      }, [onChangeOrder]);
  *
  *      BUT THIS conversions IS BAD PRACTICE,
- *      Because: Select awaits one type (string), can receive another type (SortOrderType). Cause that can be errors;
- *      Should solve type error by GENERIC components
+ *      Because: Select awaits one type (string), can receive another type (SortOrderType). Cause that, could be errors;
+ *     solve:
+ *      Should solve type error by GENERIC components.
+ *      generic props don't work well with React.memo components
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -42,11 +45,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   } = props;
   const { t } = useTranslation('filters');
 
-  const onChangeSortHandler = useCallback((newSort: string) => {
-    onChangeSort(newSort as ArticleSortField);
-  }, [onChangeSort]);
-
-  const orderOptions = useMemo<SelectOption[]>(() => [
+  const orderOptions = useMemo<SelectOption<SortOrderType>[]>(() => [
     {
       value: 'asc',
       content: t('asc'),
@@ -57,7 +56,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     },
   ], [t]);
 
-  const sortFieldOptions = useMemo<SelectOption[]>(() => [
+  const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
     {
       value: ArticleSortField.TITLE,
       content: t('byTitle'),
@@ -76,15 +75,15 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
       <div className={classNames(classes.ArticleSortSelector, {}, [className])}>
           <Select
               options={sortFieldOptions}
-              label={t('Sort')}
+              name={t('Sort')}
               value={sort}
-              // onChange={onChangeSort}
+              onChange={onChangeSort}
           />
           <Select
               options={orderOptions}
-              label={t('Order')}
+              name={t('Order')}
               value={order}
-              // onChange={onChangeSort}
+              onChange={onChangeOrder}
           />
       </div>
   );

@@ -49,7 +49,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
 
   return (
       <Select
-          label={t('Country')}
+          name={t('Country')}
           options={options}
           onChange={onChangeHandler}
       />

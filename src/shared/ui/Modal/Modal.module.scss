@@ -35,14 +35,16 @@
   opacity: 1;
   z-index: var(--modal-z-index);
 
-  .modal__content {
-    transform: scale(1);
-  }
+  // animation effect opened
+  //.modal__content {
+  //  transform: scale(1);
+  //}
 }
 
 .modal_closed {
   .modal__content {
-    transform: scale(0.6);
+    // animation effect closed
+    //transform: scale(0.6);
     opacity: 0.3;
   }
 }

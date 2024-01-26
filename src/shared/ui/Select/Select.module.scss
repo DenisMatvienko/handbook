@@ -8,9 +8,8 @@
   margin-right: 10px;
 }
 
-.select__wrapper {
+select {
   cursor: pointer;
-  padding: 2px 10px 2px 2px;
   background-color: var(--secondary);
   outline: none;
   color: var(--secondary-inverted);
@@ -19,6 +18,9 @@
   width: auto;
   height: 34px;
   line-height: 30px;
+  text-align: center;
+  appearance: none;
+  padding: 0px 5px
 }
 
 .select__option {

@@ -49,7 +49,7 @@ export const articlePageSlice = createSlice({
     limit: 10,
     order: 'asc',
     sort: ArticleSortField.TITLE,
-    search: 'hello',
+    search: '',
     page: 1,
     hasMore: true,
     _inited: false,
