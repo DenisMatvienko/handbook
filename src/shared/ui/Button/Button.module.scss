@@ -170,13 +170,13 @@
 
   &:hover {
     color: var(--secondary-light);
-    border: 1px solid var(--main-hover);
+    border: 2px solid var(--main-hover);
   }
 
   &:focus {
     color: var(--secondary-light);
     background-color: var(--accent-dark);
-    border: 1px solid var(--main-hover);
+    border: 2px solid var(--main-hover);
   }
 }
 

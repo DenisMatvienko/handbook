@@ -12,17 +12,17 @@
 
 .navbar__search {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-right: 10px;
-  padding: 10px 15px;
+  padding: 10px 10px;
   width: 40%;
 }
 
 .navbar__searchIcon {
   width: 20px;
   height: 20px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 .navbar__searchText {
@@ -37,6 +37,10 @@
 .navbar__kIcon {
   width: 30px;
   height: 30px;
+}
+
+.navbar__searchWindow {
+
 }
 
 .navbar__accountBar {

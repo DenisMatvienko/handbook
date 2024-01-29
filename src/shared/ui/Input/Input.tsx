@@ -18,8 +18,8 @@ import classes from './Input.module.scss';
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 export enum InputTheme {
-  SIMPLE = 'label__default',
-  SEARCH_NAV = 'input__search-nav'
+  SIMPLE = 'input_default',
+  NAVBAR_SEARCH = 'input_navbar-search'
 }
 
 export enum LabelPosition {

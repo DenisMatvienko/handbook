@@ -32,15 +32,22 @@ import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/provider/ThemeProvider';
 import classes from './Modal.module.scss';
 
+export enum ModalTheme {
+    DEFAULT = 'modal_default',
+    NAVBAR_SEARCH = 'modal_navbar-search',
+}
+
 interface ModalProps {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    modalTheme: ModalTheme;
+    upperPosition?: boolean;
     lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 0;
+const ANIMATION_DELAY = 200;
 
 export const Modal = (props: ModalProps) => {
   const {
@@ -48,6 +55,8 @@ export const Modal = (props: ModalProps) => {
     children,
     isOpen,
     onClose,
+    modalTheme = ModalTheme.DEFAULT,
+    upperPosition,
     lazy,
   } = props;
 
@@ -98,6 +107,10 @@ export const Modal = (props: ModalProps) => {
     [classes.modal_closed]: isClosing,
   };
 
+  const themeMods: Mods = {
+    [classes[modalTheme]]: true,
+  };
+
   if (lazy && !isMounted) {
     return null;
   }
@@ -107,7 +120,7 @@ export const Modal = (props: ModalProps) => {
           <div className={classNames(classes.modal, mods, [className, theme])}>
               <div className={classes.modal__overlay} onClick={closeHandler}>
                   <div
-                      className={classes.modal__content}
+                      className={classNames(classes.modal__content, themeMods, [theme])}
                       onClick={onContentClick}
                   >
                       {children}

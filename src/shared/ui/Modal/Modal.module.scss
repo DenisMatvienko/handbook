@@ -9,6 +9,26 @@
   z-index: -1;
 }
 
+.modal_navbar-search {
+  position: absolute;
+  bottom: 500px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--block-color);
+  color: var(--modal-color);
+  box-shadow: 2px 3px 3px var(--box-shadow);
+  width: 40%;
+  height: 25vh;
+}
+
+.modal_default {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--block-color);
+  color: var(--modal-color);
+  box-shadow: 2px 3px 3px var(--box-shadow);
+}
+
 .modal__overlay {
   display: flex;
   justify-content: center;
@@ -20,11 +40,6 @@
 }
 
 .modal__content {
-  padding: 20px;
-  border-radius: 12px;
-  background: var(--block-color);
-  color: var(--modal-color);
-  box-shadow: 2px 3px 3px var(--box-shadow);
   transition: 0.3s transform;
   transform: scale(0.9);
   max-width: 60%;
@@ -44,7 +59,7 @@
 .modal_closed {
   .modal__content {
     // animation effect closed
-    //transform: scale(0.6);
-    opacity: 0.3;
+    transform: scale(4.2);
+    opacity: 0.1;
   }
 }
