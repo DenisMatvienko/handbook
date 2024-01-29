@@ -5,13 +5,15 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { getArticlePageSearch } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { articlePageSliceActions } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import SearchIcon from 'shared/assets/icons/search/search.svg';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -26,7 +28,7 @@ export const NavbarSearch = memo((props: NavbarSearchProps) => {
     isOpen,
     onClose,
   } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('filters');
   const search = useSelector(getArticlePageSearch);
   const dispatch = useAppDispatch();
 
@@ -43,6 +45,11 @@ export const NavbarSearch = memo((props: NavbarSearchProps) => {
           upperPosition
           lazy
       >
+          <Icon
+              className={classes.navbarSearch__searchIcon}
+              Svg={SearchIcon}
+              theme={IconTheme.BLOCK_ICON}
+          />
           <Input
               className={classes.navbarSearch__search}
               theme={InputTheme.NAVBAR_SEARCH}
@@ -50,6 +57,7 @@ export const NavbarSearch = memo((props: NavbarSearchProps) => {
               value={search}
               placeholder={t('Search')}
           />
+          <div className={classes.navbarSearch__bottom}>text</div>
       </Modal>
   );
 });

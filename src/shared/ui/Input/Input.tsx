@@ -13,6 +13,8 @@ import React, {
   InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import SearchIcon from 'shared/assets/icons/search/search.svg';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -23,8 +25,8 @@ export enum InputTheme {
 }
 
 export enum LabelPosition {
-  TOP = 'input__label_top',
-  LEFT = 'input__label_left',
+  TOP = 'input_label-top',
+  LEFT = 'input_label-left',
 }
 
 interface InputProps extends HTMLInputProps {
