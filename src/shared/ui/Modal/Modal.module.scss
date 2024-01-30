@@ -10,14 +10,12 @@
 }
 
 .modal_navbar-search {
-  position: absolute;
-  bottom: 500px;
   padding: 10px;
-  border-radius: 8px;
-  background: var(--block-color);
+  border-radius: 8px 8px 0px 0px;
+  background: var(--modal-search); //search bgc color
   color: var(--modal-color);
-  box-shadow: 2px 3px 3px var(--box-shadow);
-  width: 40%;
+  //box-shadow: 2px 3px 3px var(--box-shadow);
+  width: 100%;
   height: 25vh;
 }
 
@@ -32,17 +30,50 @@
 .modal__overlay {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
   backdrop-filter: blur(5px);
   background: var(--modal-background-blur);
 }
 
+.modal__contentWrapper {
+  margin-top: 100px;
+  width: 35%;
+}
+
 .modal__content {
-  transition: 0.3s transform;
-  transform: scale(0.9);
-  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__contentDefault {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  margin-top: 250px;
+}
+
+.modal__bottom {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  background-color: var(--block-color);
+  border-radius: 0px 0px 6px 6px;
+  box-shadow: 0px -5px 10px -5px var(--box-shadow);
+}
+
+.modal__escIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 .modal_opened {

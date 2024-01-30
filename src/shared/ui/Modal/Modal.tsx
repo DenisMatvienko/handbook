@@ -26,10 +26,14 @@
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
-  ReactNode, useState, useRef, useEffect, useCallback, MutableRefObject,
+  MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/provider/ThemeProvider';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import EscIcon from 'shared/assets/icons/search/key-esc.svg';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import classes from './Modal.module.scss';
 
 export enum ModalTheme {
@@ -43,7 +47,6 @@ interface ModalProps {
     isOpen?: boolean;
     onClose?: () => void;
     modalTheme: ModalTheme;
-    upperPosition?: boolean;
     lazy?: boolean;
 }
 
@@ -56,13 +59,13 @@ export const Modal = (props: ModalProps) => {
     isOpen,
     onClose,
     modalTheme = ModalTheme.DEFAULT,
-    upperPosition,
     lazy,
   } = props;
 
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef() as MutableRefObject<ReturnType< typeof setTimeout>>;
+  const { t } = useTranslation('filters');
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -115,12 +118,43 @@ export const Modal = (props: ModalProps) => {
     return null;
   }
 
+  if (modalTheme === ModalTheme.NAVBAR_SEARCH) {
+    return (
+        <Portal>
+            <div className={classNames(classes.modal, mods, [className, theme])}>
+                <div className={classes.modal__overlay} onClick={closeHandler}>
+                    <div className={classes.modal__contentWrapper}>
+                        <div
+                            className={classNames(classes.modal__content, themeMods, [theme])}
+                            onClick={onContentClick}
+                        >
+                            {children}
+                        </div>
+                        <div className={classes.modal__bottom}>
+                            <Icon
+                                className={classes.modal__escIcon}
+                                Svg={EscIcon}
+                                theme={IconTheme.BLOCK_ICON}
+                            />
+                            <Text
+                                text={t('to close')}
+                                theme={TextTheme.SUBTITLE}
+                                size={TextSize.M}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </Portal>
+    );
+  }
+
   return (
       <Portal>
           <div className={classNames(classes.modal, mods, [className, theme])}>
               <div className={classes.modal__overlay} onClick={closeHandler}>
                   <div
-                      className={classNames(classes.modal__content, themeMods, [theme])}
+                      className={classNames(classes.modal__contentDefault, themeMods, [theme])}
                       onClick={onContentClick}
                   >
                       {children}

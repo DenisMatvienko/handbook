@@ -42,22 +42,22 @@ export const NavbarSearch = memo((props: NavbarSearchProps) => {
           isOpen={isOpen}
           onClose={onClose}
           modalTheme={ModalTheme.NAVBAR_SEARCH}
-          upperPosition
           lazy
       >
-          <Icon
-              className={classes.navbarSearch__searchIcon}
-              Svg={SearchIcon}
-              theme={IconTheme.BLOCK_ICON}
-          />
-          <Input
-              className={classes.navbarSearch__search}
-              theme={InputTheme.NAVBAR_SEARCH}
-              onChange={onChangeSearch}
-              value={search}
-              placeholder={t('Search')}
-          />
-          <div className={classes.navbarSearch__bottom}>text</div>
+          <div className={classes.navbarSearch__wrapper}>
+              <Icon
+                  className={classes.navbarSearch__searchIcon}
+                  Svg={SearchIcon}
+                  theme={IconTheme.BLOCK_ICON}
+              />
+              <Input
+                  className={classes.navbarSearch__search}
+                  theme={InputTheme.NAVBAR_SEARCH}
+                  onChange={onChangeSearch}
+                  value={search}
+                  placeholder={t('Search')}
+              />
+          </div>
       </Modal>
   );
 });

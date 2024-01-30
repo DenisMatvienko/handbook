@@ -24,9 +24,7 @@ export const initArticlesPage = createAsyncThunk<void,
 
         if (!inited) {
           dispatch(articlePageSliceActions.initView());
-          dispatch(fetchArticlesList({
-            page: 1,
-          }));
+          dispatch(fetchArticlesList({}));
         }
       },
     );
