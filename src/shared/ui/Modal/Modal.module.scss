@@ -88,7 +88,7 @@
 }
 
 .modal_closed {
-  .modal__content {
+  .modal__disappearance {
     // animation effect closed
     animation-duration: 3s;
     animation-name: disappearance;
@@ -97,7 +97,12 @@
   @keyframes disappearance {
     0% {
       transform: scale(1.2);
-      opacity: 0.5;
+      opacity: 0.1;
+    }
+
+    50% {
+      transform: scale(2.2);
+      opacity: 0.1;
     }
 
     100% {

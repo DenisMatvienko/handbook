@@ -74,10 +74,6 @@ export const Input = memo((props: InputProps) => {
   };
 
   const onClearHandler = () => {
-    /**
-     *  REWRITE TYPE 'ANY'
-     */
-    // e.preventDefault();
     if (ref.current != null) {
       ref.current.value = '';
     }

@@ -123,7 +123,14 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(classes.modal, mods, [className, theme])}>
                 <div className={classes.modal__overlay} onClick={closeHandler}>
-                    <div className={classes.modal__contentWrapper}>
+                    <div className={
+                      classNames(
+                        classes.modal__contentWrapper,
+                        {},
+                        [classes.modal__disappearance],
+                      )
+}
+                    >
                         <div
                             className={classNames(classes.modal__content, themeMods, [theme])}
                             onClick={onContentClick}
@@ -131,11 +138,7 @@ export const Modal = (props: ModalProps) => {
                             {children}
                         </div>
                         <div
-                            className={classNames(
-                              classes.modal__bottom,
-                              {},
-                              [classes.modal__content],
-                            )}
+                            className={classes.modal__bottom}
                         >
                             <Icon
                                 className={classes.modal__escIcon}
@@ -161,13 +164,19 @@ export const Modal = (props: ModalProps) => {
             classNames(
               classes.modal,
               mods,
-              [className, theme, classes.modal__content],
+              [className, theme],
             )
 }
           >
               <div className={classes.modal__overlay} onClick={closeHandler}>
                   <div
-                      className={classNames(classes.modal__contentDefault, themeMods, [theme])}
+                      className={
+                    classNames(
+                      classes.modal__contentDefault,
+                      themeMods,
+                      [theme, classes.modal__disappearance],
+                    )
+}
                       onClick={onContentClick}
                   >
                       {children}
