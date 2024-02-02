@@ -90,7 +90,19 @@
 .modal_closed {
   .modal__content {
     // animation effect closed
-    transform: scale(2.2);
-    opacity: 0.1;
+    animation-duration: 3s;
+    animation-name: disappearance;
+  }
+
+  @keyframes disappearance {
+    0% {
+      transform: scale(1.2);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: scale(3.2);
+      opacity: 0.1;
+    }
   }
 }

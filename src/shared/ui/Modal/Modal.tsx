@@ -130,7 +130,13 @@ export const Modal = (props: ModalProps) => {
                         >
                             {children}
                         </div>
-                        <div className={classes.modal__bottom}>
+                        <div
+                            className={classNames(
+                              classes.modal__bottom,
+                              {},
+                              [classes.modal__content],
+                            )}
+                        >
                             <Icon
                                 className={classes.modal__escIcon}
                                 Svg={EscIcon}
@@ -151,7 +157,14 @@ export const Modal = (props: ModalProps) => {
 
   return (
       <Portal>
-          <div className={classNames(classes.modal, mods, [className, theme])}>
+          <div className={
+            classNames(
+              classes.modal,
+              mods,
+              [className, theme, classes.modal__content],
+            )
+}
+          >
               <div className={classes.modal__overlay} onClick={closeHandler}>
                   <div
                       className={classNames(classes.modal__contentDefault, themeMods, [theme])}
