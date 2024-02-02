@@ -5,7 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useRef } from 'react';
 import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { getArticlePageSearch } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
@@ -15,6 +15,7 @@ import { Input, InputTheme } from 'shared/ui/Input/Input';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
 import classes from './NavbarSearch.module.scss';
+import IntrinsicAttributes = React.JSX.IntrinsicAttributes;
 
 interface NavbarSearchProps {
     className?: string;
@@ -22,7 +23,7 @@ interface NavbarSearchProps {
     onClose?: () => void;
 }
 
-export const NavbarSearch = memo((props: NavbarSearchProps) => {
+export const NavbarSearch = (props: NavbarSearchProps) => {
   const {
     className,
     isOpen,
@@ -45,11 +46,6 @@ export const NavbarSearch = memo((props: NavbarSearchProps) => {
           lazy
       >
           <div className={classes.navbarSearch__wrapper}>
-              <Icon
-                  className={classes.navbarSearch__searchIcon}
-                  Svg={SearchIcon}
-                  theme={IconTheme.BLOCK_ICON}
-              />
               <Input
                   className={classes.navbarSearch__search}
                   theme={InputTheme.NAVBAR_SEARCH}
@@ -60,4 +56,4 @@ export const NavbarSearch = memo((props: NavbarSearchProps) => {
           </div>
       </Modal>
   );
-});
+};

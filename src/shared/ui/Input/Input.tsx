@@ -14,7 +14,9 @@ import React, {
 } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
+import ClearIcon from 'shared/assets/icons/search/clear.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
@@ -71,6 +73,16 @@ export const Input = memo((props: InputProps) => {
     onChange?.(e.target.value);
   };
 
+  const onClearHandler = () => {
+    /**
+     *  REWRITE TYPE 'ANY'
+     */
+    // e.preventDefault();
+    if (ref.current != null) {
+      ref.current.value = '';
+    }
+  };
+
   const wrapperMods: Mods = {
     [classes[labelPosition]]: true,
   };
@@ -99,6 +111,30 @@ export const Input = memo((props: InputProps) => {
               onChange={onChangeHandler}
               {...otherProps}
           />
+          { theme === InputTheme.NAVBAR_SEARCH
+            && (
+            <div>
+                <Icon
+                    className={classes.input__searchIcon}
+                    Svg={SearchIcon}
+                    theme={IconTheme.BLOCK_ICON}
+                />
+                { value
+                  && (
+                  <Button
+                      theme={ButtonTheme.CLEAR}
+                      radius={ButtonRadius.ELLIPSE}
+                      onClick={onClearHandler}
+                  >
+                      <Icon
+                          className={classes.input__clearIcon}
+                          Svg={ClearIcon}
+                          theme={IconTheme.BLOCK_ICON}
+                      />
+                  </Button>
+                  )}
+            </div>
+            )}
       </div>
   );
 });

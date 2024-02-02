@@ -73,6 +73,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   return (
       <div className={classNames(classes.ArticleSortSelector, {}, [className])}>
+          {/* THROW ERROR IN CONSOLE, **SOLVE */}
           <Select
               options={sortFieldOptions}
               name={t('Sort')}

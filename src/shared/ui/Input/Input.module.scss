@@ -4,6 +4,25 @@
   justify-content: space-between;
 }
 
+.input__searchIcon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  fill: var(--border-input);
+}
+
+.input__clearIcon {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  fill: var(--border-input);
+}
+
 .input_label-top {
   flex-direction: column;
 }
