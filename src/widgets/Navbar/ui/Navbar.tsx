@@ -16,7 +16,7 @@ import SearchIcon from 'shared/assets/icons/search/search.svg';
 import CtrlIcon from 'shared/assets/icons/search/key-ctrl.svg';
 import KIcon from 'shared/assets/icons/search/key-k.svg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { NavbarSearch } from 'features/NavbarSearch/NavbarSearch';
+import { NavbarSearch } from 'features/NavbarSearch/ui/NavbarSearch';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {

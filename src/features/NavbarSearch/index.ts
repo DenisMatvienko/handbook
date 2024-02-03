@@ -1,0 +1,3 @@
+/**
+ *    Navbar Search PUBLIC API
+ */
