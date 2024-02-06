@@ -11,4 +11,3 @@ export const getArticlePageHasMore = (state: StateSchema) => state.articlesPage?
 export const getArticlePageInited = (state: StateSchema) => state.articlesPage?._inited;
 export const getArticlePageSort = (state: StateSchema) => state.articlesPage?.sort || ArticleSortField.TITLE;
 export const getArticlePageOrder = (state: StateSchema) => state.articlesPage?.order || 'asc';
-export const getArticlePageSearch = (state: StateSchema) => state.articlesPage?.search || '';

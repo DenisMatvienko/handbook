@@ -5,17 +5,14 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { useSelector } from 'react-redux';
-import { getArticlePageSearch } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { articlePageSliceActions } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import SearchIcon from 'shared/assets/icons/search/search.svg';
+import { navbarSearchSliceActions } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
+import { getNavbarSearchSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
-import IntrinsicAttributes = React.JSX.IntrinsicAttributes;
 
 interface NavbarSearchProps {
     className?: string;
@@ -30,11 +27,11 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
     onClose,
   } = props;
   const { t } = useTranslation('filters');
-  const search = useSelector(getArticlePageSearch);
+  const search = useSelector(getNavbarSearchSelector);
   const dispatch = useAppDispatch();
 
   const onChangeSearch = useCallback((newSearch: string) => {
-    dispatch(articlePageSliceActions.setSearch(newSearch));
+    dispatch(navbarSearchSliceActions.setSearch(newSearch));
   }, [dispatch]);
 
   return (

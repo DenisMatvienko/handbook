@@ -49,7 +49,6 @@ export const articlePageSlice = createSlice({
     limit: 10,
     order: 'asc',
     sort: ArticleSortField.TITLE,
-    search: '',
     page: 1,
     hasMore: true,
     _inited: false,
@@ -73,9 +72,6 @@ export const articlePageSlice = createSlice({
     },
     setSort: (state, action: PayloadAction<ArticleSortField>) => {
       state.sort = action.payload;
-    },
-    setSearch: (state, action: PayloadAction<string>) => {
-      state.search = action.payload;
     },
   },
   extraReducers: (builder) => {

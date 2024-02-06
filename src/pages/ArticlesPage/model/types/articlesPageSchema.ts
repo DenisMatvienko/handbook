@@ -44,7 +44,6 @@ export interface ArticlesPageSchema extends EntityState<Article> {
 
     order: SortOrderType,
     sort: ArticleSortField,
-    search: string,
 
     _inited: boolean,
 }
