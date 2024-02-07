@@ -6,29 +6,8 @@ Hello! There will be a guide here, it will be called Handbook. Here you create a
 
 ## Live demo
 
-![](./src/shared/assets/readme-preview/preview-github@dark.png#gh-light-mode-only)![](./src/shared/assets/readme-preview/preview-github@light.png#gh-light-mode-only)
+![light](https://github.com/DenisMatvienko/production-dynamic-line/blob/9e3d68fe472fca4a9633795c8412923eca2acb33/src/shared/assets/readme-preview/preview-github@light.png.png)
 
-## Features
-
-- Build by (*webpack*), create dev or prod build, use BundleAnalyzerPlugin
-- Lazy loading, code splitting components
-- Dark, Light, Pink theme
-- Async reducers by custom DynamicModuleLoader
-- Authorization
-- Profile options
-- Validation
-- Posts and tags
-- Comments
-- Sort filters, order filters, search
-- Infinite scroll
-- Scroll restoration
-- I18n mode
-- Error boundary
-- GH Actions, lint, unit, ui tests
-
-
-> [!NOTE]
-> Adaptive layout is unavailable now. Use with desktop view.
 
 ## Development
 
@@ -53,6 +32,29 @@ nvm use 17.4.0
 # deps install
 npm install
 ```
+
+
+## Features
+
+- Build by (*webpack*), create dev or prod build, use BundleAnalyzerPlugin
+- Lazy loading, code splitting components
+- Dark, Light, Pink theme
+- Async reducers by custom DynamicModuleLoader
+- Authorization
+- Profile options
+- Validation
+- Posts and tags
+- Comments
+- Sort filters, order filters, search
+- Infinite scroll
+- Scroll restoration
+- I18n mode
+- Error boundary
+- GH Actions, lint, unit, ui tests
+
+> [!NOTE]
+> Adaptive layout is unavailable now. Use with desktop view.
+
 
 ## Using and hot keys
 
@@ -87,6 +89,7 @@ npm run test:ui:report
 # pre-commit check
 npm run prepare
 ```
+
 
 ## License
 
