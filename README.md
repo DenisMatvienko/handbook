@@ -37,9 +37,8 @@ Hello! There will be a guide here, it will be called Handbook. Here you create a
 
 > [!TIP]  
 > You can use `nvm` for sharing between node versions. That short guid how it uses.
-
-[**_nvm docs_**](https://github.com/coreybutler/nvm-windows),
-[**_nvm windows install_**](https://github.com/coreybutler/nvm-windows/releases)
+> [**_nvm docs_**](https://github.com/coreybutler/nvm-windows),
+> [**_nvm windows install_**](https://github.com/coreybutler/nvm-windows/releases)
 
 ```bash
 # installing node 17.4.0 by nvm
