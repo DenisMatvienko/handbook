@@ -1,6 +1,8 @@
 /**
  *      Search types
  *
+ *      @param articleList;
+ *          - Data for search request;
  */
 
 export interface NavbarSearchSchema {

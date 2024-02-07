@@ -1,12 +1,15 @@
 /**
+ *    navbarSearchSlice
  *
+ *      @param setSearch;
+ *        - reducer, set to state data which input while searching;
  *
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Article } from 'entities/Article';
 import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSearchSchema';
-import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchArticlesSearch';
+import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 
 const initialState: NavbarSearchSchema = {
   isLoading: false,

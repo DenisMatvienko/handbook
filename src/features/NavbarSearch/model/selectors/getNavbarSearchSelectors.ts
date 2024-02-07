@@ -1,6 +1,8 @@
 /**
  *     getNavbarSearchSelector
- *      - get state of navbarSearch
+ *
+ *      @param articleList;
+ *          - Get list of article when searched;
  */
 
 import { StateSchema } from 'app/provider/StoreProvider';

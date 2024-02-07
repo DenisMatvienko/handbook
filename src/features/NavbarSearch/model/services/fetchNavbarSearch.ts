@@ -1,8 +1,6 @@
 /**
- *    fetchArticlesList fetching
- *
- *      @param _expand
- *          - Need for view user avatar in ArticleView.LIST
+ *    fetchNavbarSearch fetching.
+ *      - Fetching list of articles, when searching;
  */
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
