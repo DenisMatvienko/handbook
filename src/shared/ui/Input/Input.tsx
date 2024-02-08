@@ -71,6 +71,7 @@ export const Input = memo((props: InputProps) => {
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
+    ref.current?.focus();
   };
 
   const onClearHandler = () => {
@@ -115,7 +116,7 @@ export const Input = memo((props: InputProps) => {
                     Svg={SearchIcon}
                     theme={IconTheme.BLOCK_ICON}
                 />
-                { value
+                { ref.current?.value
                   && (
                   <Button
                       theme={ButtonTheme.CLEAR}

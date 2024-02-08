@@ -5,6 +5,15 @@
   position: relative;
 }
 
+.navbarSearch__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //overflow: scroll; // добавить при условии в другой класс, когда появятся статьи
+  width: 100%;
+  height: 100%;
+}
+
 .navbarSearch__searchIcon {
   position: absolute;
   top: 20px;

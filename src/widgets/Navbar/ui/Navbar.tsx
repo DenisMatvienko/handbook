@@ -25,6 +25,7 @@ interface NavbarProps {
 }
 
 const SEARCH_OPEN_KEY = 'k';
+const PLATFORM_MAC = /Macintosh/;
 
 export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   const { t } = useTranslation('navbar');
@@ -51,7 +52,7 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   }, []);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.ctrlKey && e.key === SEARCH_OPEN_KEY) {
+    if ((PLATFORM_MAC.test(navigator.userAgent) ? e.metaKey : e.ctrlKey) && e.key === SEARCH_OPEN_KEY) {
       e.preventDefault();
       onShowSearchModal();
     }
@@ -137,6 +138,31 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
   return (
       <header className={classNames(classes.navbar, {}, [className])}>
           <div className={classNames(classes.navbar__accountBar, {}, [className])}>
+              <Button
+                  className={classes.navbar__search}
+                  theme={ButtonTheme.SEARCH_NAV}
+                  radius={ButtonRadius.ELLIPSE}
+                  onClick={onShowSearchModal}
+              >
+                  <Icon
+                      className={classes.navbar__searchIcon}
+                      Svg={SearchIcon}
+                      theme={IconTheme.BLOCK_ICON}
+                  />
+                  <Text
+                      className={classes.navbar__searchText}
+                      text={t('Search')}
+                      theme={TextTheme.BLOCK_TEXT}
+                  />
+                  <Icon
+                      className={classes.navbar__ctrlIcon}
+                      Svg={CtrlIcon}
+                  />
+                  <Icon
+                      className={classes.navbar__kIcon}
+                      Svg={KIcon}
+                  />
+              </Button>
               <div className={classes.navbar__theme}>
                   <ThemeSwitcher />
               </div>
@@ -154,6 +180,11 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
                   onClose={onCloseAuthModal}
               />
               )}
+              <NavbarSearch
+                  className={classes.navbar__searchWindow}
+                  isOpen={isSearchModal}
+                  onClose={onCloseSearchModal}
+              />
           </div>
       </header>
   );

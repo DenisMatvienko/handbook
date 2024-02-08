@@ -12,6 +12,7 @@ import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSear
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 
 const initialState: NavbarSearchSchema = {
+  search: '',
   isLoading: false,
 };
 
@@ -20,7 +21,7 @@ export const navbarSearchSlice = createSlice({
   initialState,
   reducers: {
     setSearch: (state, action: PayloadAction<string>) => {
-      state.articleList = action.payload;
+      state.search = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -42,5 +43,5 @@ export const navbarSearchSlice = createSlice({
   },
 });
 
-export const { actions: navbarSearchSliceActions } = navbarSearchSlice;
-export const { reducer: navbarSearchSliceReducer } = navbarSearchSlice;
+export const { actions: navbarSearchActions } = navbarSearchSlice;
+export const { reducer: navbarSearchReducer } = navbarSearchSlice;

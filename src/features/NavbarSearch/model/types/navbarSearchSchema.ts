@@ -8,5 +8,5 @@
 export interface NavbarSearchSchema {
     isLoading?: boolean,
     error?: string,
-    articleList?: string,
+    search: string,
 }

@@ -6,7 +6,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Article } from 'entities/Article';
-import { getNavbarSearchSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 
 interface FetchArticleListProps {
     page?: number,
@@ -26,7 +26,7 @@ export const fetchNavbarSearch = createAsyncThunk<Article[],
           getState,
         } = thunkAPI;
 
-        const search = getNavbarSearchSelector(getState());
+        const search = getNavbarSearchArticleSelector(getState());
 
         try {
           const response = await extra.api.get<Article[]>('/articles', {
