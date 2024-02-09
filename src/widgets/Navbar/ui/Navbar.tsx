@@ -163,6 +163,11 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
                       Svg={KIcon}
                   />
               </Button>
+              <NavbarSearch
+                  className={classes.navbar__searchWindow}
+                  isOpen={isSearchModal}
+                  onClose={onCloseSearchModal}
+              />
               <div className={classes.navbar__theme}>
                   <ThemeSwitcher />
               </div>
@@ -180,11 +185,6 @@ export const Navbar = memo(({ className, isDisplay }: NavbarProps) => {
                   onClose={onCloseAuthModal}
               />
               )}
-              <NavbarSearch
-                  className={classes.navbar__searchWindow}
-                  isOpen={isSearchModal}
-                  onClose={onCloseSearchModal}
-              />
           </div>
       </header>
   );
