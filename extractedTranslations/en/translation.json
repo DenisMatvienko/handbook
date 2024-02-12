@@ -19,6 +19,7 @@
   "Firstname": "Firstname",
   "Lastname": "Lastname",
   "Lorem-layout": "",
+  "NoSearches": "NoSearches",
   "Oopps": {
     "": {
       "": {
@@ -26,16 +27,23 @@
       }
     }
   },
+  "Order": "Order",
   "Profile page": "Profile page",
   "ProfileErrorText": "ProfileErrorText",
   "ProfileErrorTitle": "ProfileErrorTitle",
   "ReadMore": "ReadMore",
   "RefreshPage": "RefreshPage",
+  "Search": "Search",
+  "Sort": "Sort",
   "UserProfile": "UserProfile",
   "Will be Articles": "Will be Articles",
   "Will be Articles Detail": "Will be Articles Detail",
   "age": "age",
+  "asc": "asc",
   "avatar": "avatar",
+  "byCreated": "byCreated",
+  "byTitle": "byTitle",
+  "byViews": "byViews",
   "city": "city",
   "comments": "comments",
   "currency": "currency",
@@ -43,6 +51,7 @@
     "subtitle": "subtitle"
   },
   "decr": "decr",
+  "desc": "desc",
   "hi": "hi",
   "incorrect-age": "incorrect-age",
   "incorrect-city": "incorrect-city",
@@ -57,6 +66,7 @@
   "no-data-error": "no-data-error",
   "server-error": "server-error",
   "tags": "tags",
+  "to close": "to close",
   "username": "username",
   "wrong-age-range-too-old": "wrong-age-range-too-old",
   "wrong-age-range-too-young": "wrong-age-range-too-young",
