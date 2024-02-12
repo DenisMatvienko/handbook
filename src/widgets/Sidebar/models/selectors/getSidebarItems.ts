@@ -41,11 +41,6 @@ export const getSidebarItems = createSelector(
         text: 'About',
         Icon: AboutPageIcon,
       },
-      {
-        path: RoutePath.articles,
-        text: 'Articles',
-        Icon: ArticlesPageIcon,
-      },
     ];
 
     if (userData) {
@@ -54,6 +49,12 @@ export const getSidebarItems = createSelector(
           path: RoutePath.profile + userData.id,
           text: 'Profile',
           Icon: ProfilePageIcon,
+          authOnly: true,
+        },
+        {
+          path: RoutePath.articles,
+          text: 'Articles',
+          Icon: ArticlesPageIcon,
           authOnly: true,
         },
       );

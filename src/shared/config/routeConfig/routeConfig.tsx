@@ -55,18 +55,20 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ARTICLES]: {
     path: RoutePath.articles,
     element: <ArticlesPage />,
+    authOnly: true,
   },
   [AppRoutes.ARTICLE_DETAILS]: {
     path: `${RoutePath.article_details}:id`,
     element: <ArticleDetailsPage />,
-  },
-  [AppRoutes.PROFILE]: {
-    path: `${RoutePath.profile}:id`,
-    element: <ProfilePage />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
     element: <NotFoundPage />,
+  },
+  [AppRoutes.PROFILE]: {
+    path: `${RoutePath.profile}:id`,
+    element: <ProfilePage />,
+    authOnly: true,
   },
 };

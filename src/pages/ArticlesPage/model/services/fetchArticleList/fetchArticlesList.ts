@@ -13,7 +13,6 @@ import {
   getArticlePageOrder,
   getArticlePageSort,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { useSelector } from 'react-redux';
 
 interface FetchArticleListProps {
     page?: number,
