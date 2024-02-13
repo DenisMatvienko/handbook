@@ -3,7 +3,7 @@
 [![codacy](https://img.shields.io/badge/codacy-B-green)](https://app.codacy.com/gh/DenisMatvienko/handbook/dashboard)
 ![Like action](https://shields.io/github/actions/workflow/status/DenisMatvienko/handbook/main.yml?branch=main&style=flat)
 
-Hello! This will be a helper in your work, it will be called Handbook. Here you create and compose your own folders for 
+Hello! This will be a helper in your work, it will be called Handbook. Here you create and compose your own folders for
 classes and preparation. It built with [**_webpack_**](https://webpack.js.org/), [**_react_**](https://react.dev/),
 [**_redux_**](https://redux.js.org/), [**_FSD_**](https://feature-sliced.design/), [**_eslint_**](https://eslint.org/)
 and will be hosted by [**_Netlify_**](https://netlify.com/).
