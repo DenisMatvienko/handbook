@@ -35,7 +35,7 @@ export function buildCssLoader(isDev : boolean) {
           },
         },
       },
-      'resolve-url-loader',
+      'resolve-url-loader', // Help sass work with url(). Necessary should be before sass-loader
       'sass-loader',
     ],
   };

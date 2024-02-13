@@ -17,7 +17,6 @@
  *        but if mode not isDev checking with react-refresh return 'false'
  */
 
-import path from 'path';
 import webpack from 'webpack';
 
 import { BuildOptions } from './types/config';
@@ -48,29 +47,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       {
         loader: 'file-loader',
       },
-      // {
-      //   loader: 'resolve-url-loader',
-      //   options: {
-      //     sourceMap: true,
-      //     join: () => path.join(__dirname, 'src/'),
-      //   },
-      // },
     ],
   };
-
-  // const resolveUrlLoader = {
-  //   use: 'resolve-url-loader',
-  //   options: {
-  //     sourceMap: true,
-  //   },
-  // };
-  //
-  // const sassLoader = {
-  //   loader: 'sass-loader',
-  //   options: {
-  //     sourceMap: true,
-  //   },
-  // };
 
   return [
     svgLoader,
@@ -78,7 +56,5 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     typescriptLoader,
     cssLoader,
     fileLoader,
-    // resolveUrlLoader,
-    // sassLoader,
   ];
 }

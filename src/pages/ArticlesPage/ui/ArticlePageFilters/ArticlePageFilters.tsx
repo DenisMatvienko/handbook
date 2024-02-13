@@ -13,6 +13,7 @@ import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField } from 'entities/Article/model/types/article';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { articlePageSliceActions } from '../../model/slices/articlePageSlice';
 import {
   getArticlePageOrder,
@@ -33,16 +34,24 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   const sort = useSelector(getArticlePageSort);
   const order = useSelector(getArticlePageOrder);
 
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
+  }, [dispatch]);
+
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageSliceActions.setView(view));
   }, [dispatch]);
 
   const onChangeOrder = useCallback((newOrder: SortOrderType) => {
     dispatch(articlePageSliceActions.setOrder(newOrder));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
   }, [dispatch]);
 
   const onChangeSort = useCallback((newSort: ArticleSortField) => {
     dispatch(articlePageSliceActions.setSort(newSort));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
   }, [dispatch]);
 
   return (
