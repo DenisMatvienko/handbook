@@ -17,6 +17,7 @@
  *        but if mode not isDev checking with react-refresh return 'false'
  */
 
+import path from 'path';
 import webpack from 'webpack';
 
 import { BuildOptions } from './types/config';
@@ -28,6 +29,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const {
     isDev,
   } = options;
+
   const svgLoader = BuildSvgLoader();
 
   const babelLoader = buildBabelLoader(options);
@@ -41,13 +43,34 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff2|woff|ttf)$/i,
+    test: /\.(png|jpe?g|gif|woff|woff2|ttf)$/,
     use: [
       {
         loader: 'file-loader',
       },
+      // {
+      //   loader: 'resolve-url-loader',
+      //   options: {
+      //     sourceMap: true,
+      //     join: () => path.join(__dirname, 'src/'),
+      //   },
+      // },
     ],
   };
+
+  // const resolveUrlLoader = {
+  //   use: 'resolve-url-loader',
+  //   options: {
+  //     sourceMap: true,
+  //   },
+  // };
+  //
+  // const sassLoader = {
+  //   loader: 'sass-loader',
+  //   options: {
+  //     sourceMap: true,
+  //   },
+  // };
 
   return [
     svgLoader,
@@ -55,5 +78,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     typescriptLoader,
     cssLoader,
     fileLoader,
+    // resolveUrlLoader,
+    // sassLoader,
   ];
 }

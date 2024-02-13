@@ -1,4 +1,5 @@
 import 'app/styles/index.scss';
+import 'app/styles/fonts/fonts.scss';
 import { ThemeProvider } from 'app/provider/ThemeProvider';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
