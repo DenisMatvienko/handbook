@@ -1,6 +1,6 @@
 # **Handbook**
 
-[![codacy](https://img.shields.io/badge/codacy-B-green)](https://app.codacy.com/gh/DenisMatvienko/handbook/dashboard) 
+[![codacy](https://img.shields.io/badge/codacy-B-green)](https://app.codacy.com/gh/DenisMatvienko/handbook/dashboard)
 ![Like action](https://shields.io/github/actions/workflow/status/DenisMatvienko/handbook/main.yml?branch=main&style=flat)
 
 Hello! This will be a helper in your work, it will be called Handbook. Here you create and compose your own folders for 
@@ -16,7 +16,7 @@ and will be hosted by [**_Netlify_**](https://netlify.com/).
 
 > [!CAUTION]
 > Current node version is 17.4.0, keep in mind it with deps. All deps will be upgraded in near future.
-And also:
+>
 > [!TIP]  
 > You can use `nvm` for sharing between node versions. Here's a quick guid how it uses.
 > [**_nvm docs_**](https://github.com/coreybutler/nvm-windows),
