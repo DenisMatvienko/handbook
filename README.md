@@ -16,7 +16,9 @@ and will be hosted by [**_Netlify_**](https://netlify.com/).
 
 > [!CAUTION]
 > Current node version is 17.4.0, keep in mind it with deps. All deps will be upgraded in near future.
->
+
+And also:
+
 > [!TIP]  
 > You can use `nvm` for sharing between node versions. Here's a quick guid how it uses.
 > [**_nvm docs_**](https://github.com/coreybutler/nvm-windows),
