@@ -3,9 +3,14 @@
 [![codacy](https://img.shields.io/badge/codacy-B-green)](https://app.codacy.com/gh/DenisMatvienko/handbook/dashboard)
 ![Like action](https://shields.io/github/actions/workflow/status/DenisMatvienko/handbook/main.yml?branch=main&style=flat)
 
-Hello! This will be a helper in your work, it will be called Handbook. Here you create and compose your own folders for
-classes and preparation. It built with [**_webpack_**](https://webpack.js.org/), [**_react_**](https://react.dev/),
-[**_redux_**](https://redux.js.org/), [**_FSD_**](https://feature-sliced.design/), [**_eslint_**](https://eslint.org/)
+Hello! This will be a helper in your work, it will be called Handbook.
+Here you create and compose your own folders for
+classes and preparation. It built with
+[**_webpack_**](https://webpack.js.org/),
+[**_react_**](https://react.dev/),
+[**_redux_**](https://redux.js.org/),
+[**_FSD_**](https://feature-sliced.design/),
+[**_eslint_**](https://eslint.org/)
 and will be hosted by [**_Netlify_**](https://netlify.com/).
 
 ## Live demo
@@ -15,12 +20,14 @@ and will be hosted by [**_Netlify_**](https://netlify.com/).
 ## Development
 
 > [!CAUTION]
-> Current node version is 17.4.0, keep in mind it with deps. All deps will be upgraded in near future.
+> Current node version is 17.4.0, keep in
+> mind it with deps. All deps will be upgraded in near future.
 
 And also:
 
-> [!TIP]  
-> You can use `nvm` for sharing between node versions. Here's a quick guid how it uses.
+> [!TIP]
+> You can use `nvm` for sharing between node versions.
+> Here's a quick guid how it uses.
 > [**_nvm docs_**](https://github.com/coreybutler/nvm-windows),
 > [**_nvm windows install_**](https://github.com/coreybutler/nvm-windows/releases)
 
@@ -57,7 +64,8 @@ npm install
 15. [x] GH Actions, lint, unit, ui tests
 
 > [!NOTE]
-> Adaptive layout, not for long, is unavailable now. Please, use app with desktop view.
+> Adaptive layout, not for long, is unavailable now.
+> Please, use app with desktop view.
 
 ## Using and hot keys
 
@@ -86,7 +94,8 @@ npm run test:unit
 # run ui tests. It will just while storybook server is also run
 npm run test:ui
 
-# generate ui report with ui changes. In root loki path, you can track generated .html file with changes.
+# generate ui report with ui changes.
+# In root loki path, you can track generated .html file with changes.
 npm run test:ui:report
 
 # pre-commit check
