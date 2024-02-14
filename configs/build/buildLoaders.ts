@@ -42,11 +42,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff|woff2|ttf)$/,
+    test: /\.(png|jpe?g|gif|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
     use: [
       {
         loader: 'file-loader',
       },
+      // {
+      //   loader: 'file-loader?name=./src/app/styles/fonts/notoSans/[name].[ext]',
+      // },
     ],
   };
 

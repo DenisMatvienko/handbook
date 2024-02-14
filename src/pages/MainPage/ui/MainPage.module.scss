@@ -1,0 +1,37 @@
+.mainPage__wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 75%;
+  height: 70vh;
+  margin: 0 auto;
+  padding: 50px;
+  flex-shrink: 100;
+
+  & h1,p:not(:first-child) {
+    margin-top: 35px;
+  }
+}
+
+.mainPage__title {
+  font: 36px "Arial", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  color: var(--text-main);
+}
+
+.mainPage__paragraph {
+  font: 23px "Arial", sans-serif;
+  color: grey;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+//.mainPage__emodjiIcon {
+//  width: 50px;
+//  height: 50px;
+//}

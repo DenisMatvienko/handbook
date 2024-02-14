@@ -15,6 +15,10 @@
  *      dev build - [path][name]__[local] - simple naming of
  *      mask for path: [path][name]__[local]--[hash:base64:5]
  *      classNames, for debugging and readble
+ *
+ *    @param resolve-url-loader
+ *      Help sass work with url().
+ *      Necessary should be before sass-loader.
  */
 
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -35,7 +39,7 @@ export function buildCssLoader(isDev : boolean) {
           },
         },
       },
-      'resolve-url-loader', // Help sass work with url(). Necessary should be before sass-loader
+      'resolve-url-loader', // Necessary should be before sass-loader
       'sass-loader',
     ],
   };

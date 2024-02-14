@@ -44,6 +44,7 @@ export enum TextTheme {
   TRANSLUCENT = 'text_translucent',
   SUBTITLE='text_subtitle',
   ERROR = 'text_error',
+  MAIN_PAGE_TEXT = 'text_main-page'
 }
 
 export enum TextAlign {
