@@ -73,10 +73,10 @@ export const CommentList = memo((props: CommentListProps) => {
                 ))
                 : (
                     <Text
-                        theme={TextTheme.TRANSLUCENT}
+                        theme={TextTheme.SUBTITLE}
                         text={t('no comments')}
                         align={TextAlign.CENTER}
-                        size={TextSize.XL}
+                        size={TextSize.L}
                     />
                 )}
           </div>

@@ -14,13 +14,13 @@ const MainPage = () => {
                   Привет! 👋
               </h1>
               <h1 className={classes.mainPage__title}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Lorem ipsum dolor sit amet, consectetur @DenisMatvienko adipiscing elit.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                   commodo consequat.
               </h1>
-              <p className={classes.mainPage__paragraph}>
-                  Как дела Whereas recognition of the inherent dignity
-              </p>
+              <span className={classes.mainPage__paragraph}>
+                  Как дела #реакт, #redux recognition #js of the inherent dignity
+              </span>
               <BugButton />
           </div>
       </Page>

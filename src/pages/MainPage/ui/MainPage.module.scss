@@ -9,13 +9,13 @@
   padding: 50px;
   flex-shrink: 100;
 
-  & h1,p:not(:first-child) {
+  & h1,span:not(:first-child) {
     margin-top: 35px;
   }
 }
 
 .mainPage__title {
-  font: 36px "Arial", sans-serif;
+  font: 26px "Arial", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   line-height: 1.2;
@@ -24,14 +24,9 @@
 }
 
 .mainPage__paragraph {
-  font: 23px "Arial", sans-serif;
+  font: 20px "Arial", sans-serif;
   color: grey;
   font-optical-sizing: auto;
   font-weight: 700;
   line-height: 1.2;
 }
-
-//.mainPage__emodjiIcon {
-//  width: 50px;
-//  height: 50px;
-//}

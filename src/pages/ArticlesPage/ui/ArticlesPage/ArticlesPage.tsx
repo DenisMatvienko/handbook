@@ -102,14 +102,17 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   if (error) {
     return (
         <Page>
-            <ErrorPalette
+            <FullPageBlock
                 className={classes.articlesPage__error}
-                theme={ErrorPaletteTheme.DEFAULT}
-                title={t('ArticlePageErrorTitle')}
-                text={t('ArticlePageErrorText')}
-                size={ErrorPaletteSize.XXL}
-                refresh
-            />
+            >
+                <ErrorPalette
+                    theme={ErrorPaletteTheme.TRANSPARENT}
+                    title={t('ArticlePageErrorTitle')}
+                    text={t('ArticlePageErrorText')}
+                    size={ErrorPaletteSize.XXL}
+                    refresh
+                />
+            </FullPageBlock>
         </Page>
     );
   }

@@ -1,7 +1,7 @@
 {
-  "ArticleErrorTitle": "УУПС.. ошибка при загрузке статьи",
+  "ArticleErrorTitle": "\uD83D\uDE2D Ошибка при загрузке статьи",
   "ArticleErrorText": "Статья не найдена. Попробуйте открыть новую статью, либо перезагрузить страницу",
-  "ArticlePageErrorTitle": "Ошибка загрузки статей",
+  "ArticlePageErrorTitle": "\uD83E\uDD2C  Ошибка загрузки статей \uD83D\uDE21",
   "ArticlePageErrorText": "Статьи не загружены, обновите страницу",
   "tags": "Теги",
   "ArticleList": "Список статей",
