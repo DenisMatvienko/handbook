@@ -17,6 +17,9 @@ import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { articlePageSliceActions, getArticles } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import articlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -33,15 +36,22 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   } = props;
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
+  const articles = useSelector(getArticles.selectAll);
   const dispatch = useAppDispatch();
 
   const initialReducers: ReducersList = {
     navbarSearch: navbarSearchReducer,
   };
 
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: false }));
+  }, [dispatch]);
+
   const onChangeSearch = useCallback((newSearch: string) => {
     dispatch(navbarSearchActions.setSearch(newSearch));
-  }, [dispatch]);
+    // dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
 
   return (
       <DynamicModuleLoader
@@ -65,13 +75,17 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
                   />
               </div>
               <div className={classes.navbarSearch__text}>
-                  <Text
-                      key={uid()}
-                      theme={TextTheme.SUBTITLE}
-                      text={t('NoSearches')}
-                      size={TextSize.S}
-                      align={TextAlign.CENTER}
-                  />
+                  { articles
+                    ? <span>{articles.map((item) => item.title)}</span>
+                    : (
+                        <Text
+                            key={uid()}
+                            theme={TextTheme.SUBTITLE}
+                            text={t('NoSearches')}
+                            size={TextSize.S}
+                            align={TextAlign.CENTER}
+                        />
+                    )}
               </div>
           </Modal>
       </DynamicModuleLoader>

@@ -46,13 +46,13 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
     dispatch(articlePageSliceActions.setOrder(newOrder));
     dispatch(articlePageSliceActions.setPage(1));
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, fetchData]);
 
   const onChangeSort = useCallback((newSort: ArticleSortField) => {
     dispatch(articlePageSliceActions.setSort(newSort));
     dispatch(articlePageSliceActions.setPage(1));
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, fetchData]);
 
   return (
       <FullPageBlock className={classNames(classes.articlePageFilters, {}, [className])}>

@@ -9,7 +9,7 @@ import { Article } from 'entities/Article';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 
 interface FetchArticleListProps {
-    page?: number,
+    replace?: boolean,
 }
 
 export const fetchNavbarSearch = createAsyncThunk<Article[],
@@ -17,9 +17,6 @@ export const fetchNavbarSearch = createAsyncThunk<Article[],
     ThunkConfig<string>>(
       'features/fetchArticlesSearch',
       async (props, thunkAPI) => {
-        const {
-          page = 1,
-        } = props;
         const {
           extra,
           rejectWithValue,
