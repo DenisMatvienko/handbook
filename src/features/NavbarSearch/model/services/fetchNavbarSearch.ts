@@ -7,15 +7,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Article } from 'entities/Article';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { SearchableArticle } from 'features/NavbarSearch/model/types/searchableArticle';
 
 interface FetchArticleListProps {
     replace?: boolean,
 }
 
-export const fetchNavbarSearch = createAsyncThunk<Article[],
+export const fetchNavbarSearch = createAsyncThunk<SearchableArticle[],
     FetchArticleListProps,
     ThunkConfig<string>>(
-      'features/fetchArticlesSearch',
+      'features/fetchNavbarSearch',
       async (props, thunkAPI) => {
         const {
           extra,
@@ -26,12 +27,14 @@ export const fetchNavbarSearch = createAsyncThunk<Article[],
         const search = getNavbarSearchArticleSelector(getState());
 
         try {
-          const response = await extra.api.get<Article[]>('/articles', {
+          const response = await extra.api.get<SearchableArticle[]>('/articles', {
             params: {
               _expand: 'user',
               q: search,
             },
           });
+
+          console.log(response.data);
 
           if (!response.data) {
             throw new Error();

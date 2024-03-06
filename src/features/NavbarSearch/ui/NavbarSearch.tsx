@@ -10,16 +10,25 @@ import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
-import { navbarSearchActions, navbarSearchReducer } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
-import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import {
+  getSearchArticles,
+  navbarSearchActions,
+  navbarSearchReducer,
+} from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { uid } from 'shared/lib/uid/uid';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
-import { articlePageSliceActions, getArticles } from 'pages/ArticlesPage/model/slices/articlePageSlice';
-import articlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
+import { useNavigate } from 'react-router-dom';
+import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
+import { Article } from 'entities/Article';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import {
+  getNavbarIsLoadingSelector,
+  getNavbarSearchArticleSelector,
+} from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -27,6 +36,10 @@ interface NavbarSearchProps {
     isOpen?: boolean;
     onClose?: () => void;
 }
+
+const initialReducers: ReducersList = {
+  navbarSearch: navbarSearchReducer,
+};
 
 export const NavbarSearch = (props: NavbarSearchProps) => {
   const {
@@ -36,20 +49,33 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   } = props;
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
-  const articles = useSelector(getArticles.selectAll);
+  const articles = useSelector(getSearchArticles.selectAll);
+  const isLoading = useSelector(getNavbarIsLoadingSelector);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const initialReducers: ReducersList = {
     navbarSearch: navbarSearchReducer,
   };
 
+  const paragraph = articles.map((item, index) => (
+      <div className={classes.navbarSearch__title}>
+          <span>
+              {item.title}
+          </span>
+      </div>
+  ));
+
+  // const onOpenArticles = useCallback(() => {
+  //   navigate(RoutePath.article_details + articles.id);
+  // }, [articles.id, navigate]);
+
   const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: false }));
+    dispatch(fetchNavbarSearch({ replace: true }));
   }, [dispatch]);
 
   const onChangeSearch = useCallback((newSearch: string) => {
     dispatch(navbarSearchActions.setSearch(newSearch));
-    // dispatch(articlePageSliceActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
 
@@ -74,10 +100,12 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
                       placeholder={t('Search')}
                   />
               </div>
+              {/* Will be component Navbar search list - like ArticleList */}
               <div className={classes.navbarSearch__text}>
                   { articles
-                    ? <span>{articles.map((item) => item.title)}</span>
+                    ? paragraph
                     : (
+                        // Will be component NavbarSearchListItem - like ArticleListItem
                         <Text
                             key={uid()}
                             theme={TextTheme.SUBTITLE}
