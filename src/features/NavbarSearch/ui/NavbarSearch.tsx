@@ -41,21 +41,8 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
   const articles = useSelector(getSearchArticles.selectAll);
-  const isLoading = useSelector(getNavbarIsLoadingSelector);
+  const isLoading = true;
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  // const paragraph = articles.map((item, index) => (
-  //     <div className={classes.navbarSearch__title}>
-  //         <span>
-  //             {item.title}
-  //         </span>
-  //     </div>
-  // ));
-
-  // const onOpenArticles = useCallback(() => {
-  //   navigate(RoutePath.article_details + articles.id);
-  // }, [articles.id, navigate]);
 
   const fetchData = useCallback(() => {
     dispatch(fetchNavbarSearch({ replace: true }));

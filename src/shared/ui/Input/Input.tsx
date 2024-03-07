@@ -26,11 +26,6 @@ export enum InputTheme {
   NAVBAR_SEARCH = 'input_navbar-search'
 }
 
-export enum LabelPosition {
-  TOP = 'input_label-top',
-  LEFT = 'input_label-left',
-}
-
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
@@ -38,7 +33,6 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   theme?: InputTheme;
   label?: string;
-  labelPosition?: LabelPosition;
   autofocus?: boolean;
   readonly?: boolean;
 }
@@ -54,7 +48,6 @@ export const Input = memo((props: InputProps) => {
     autofocus,
     readonly,
     label,
-    labelPosition = LabelPosition.TOP,
     ...otherProps
   } = props;
 
@@ -80,17 +73,13 @@ export const Input = memo((props: InputProps) => {
     }
   };
 
-  const wrapperMods: Mods = {
-    [classes[labelPosition]]: true,
-  };
-
   const mods: Mods = {
     [classes[theme]]: true,
     [classes.input_readonly]: readonly,
   };
 
   return (
-      <div className={classNames(classes.input, wrapperMods, [className])}>
+      <div className={classNames(classes.input, {}, [className])}>
           {label && (
           <div className={classes.input__label}>
               <Text

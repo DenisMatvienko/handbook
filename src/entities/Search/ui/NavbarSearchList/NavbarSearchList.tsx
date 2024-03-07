@@ -11,6 +11,7 @@ import { NavbarSearchListItem } from 'entities/Search/ui/NavbarSearchListItem/Na
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
+import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
@@ -22,7 +23,9 @@ interface NavbarSearchListProps {
 
 const getSkeletons = () => new Array(5)
   .fill(0).map(() => (
-      <p>loading</p>
+      <Skeleton
+          width={100}
+      />
   ));
 
 export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
@@ -39,7 +42,7 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   const renderEmptyPull = () => (
       <Text
           theme={TextTheme.SUBTITLE}
-          text="No recent searches"
+          text="Nothing found"
           size={TextSize.M}
           align={TextAlign.CENTER}
       />
