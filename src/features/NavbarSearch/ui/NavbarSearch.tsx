@@ -16,10 +16,9 @@ import {
   navbarSearchReducer,
 } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { useNavigate } from 'react-router-dom';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
-import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector } from '../model/selectors/getNavbarSearchSelectors';
+import { getNavbarSearchArticleSelector } from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
