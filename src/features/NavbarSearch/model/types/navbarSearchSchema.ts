@@ -1,6 +1,6 @@
 import { Article } from 'entities/Article';
 import { EntityState } from '@reduxjs/toolkit';
-import { SearchableArticle } from 'features/NavbarSearch/model/types/searchableArticle';
+import { Search } from 'entities/Search/model/types/search';
 
 /**
  *      Search types
@@ -9,7 +9,7 @@ import { SearchableArticle } from 'features/NavbarSearch/model/types/searchableA
  *          - Data for search request;
  */
 
-export interface NavbarSearchSchema extends EntityState<SearchableArticle> {
+export interface NavbarSearchSchema extends EntityState<Search> {
     isLoading?: boolean,
     error?: string,
     search: string,

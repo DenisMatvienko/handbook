@@ -15,20 +15,11 @@ import {
   navbarSearchActions,
   navbarSearchReducer,
 } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
-import { uid } from 'shared/lib/uid/uid';
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useNavigate } from 'react-router-dom';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
-import { Article } from 'entities/Article';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import {
-  getNavbarIsLoadingSelector,
-  getNavbarSearchArticleSelector,
-} from '../model/selectors/getNavbarSearchSelectors';
+import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
+import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector } from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -54,17 +45,13 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const initialReducers: ReducersList = {
-    navbarSearch: navbarSearchReducer,
-  };
-
-  const paragraph = articles.map((item, index) => (
-      <div className={classes.navbarSearch__title}>
-          <span>
-              {item.title}
-          </span>
-      </div>
-  ));
+  // const paragraph = articles.map((item, index) => (
+  //     <div className={classes.navbarSearch__title}>
+  //         <span>
+  //             {item.title}
+  //         </span>
+  //     </div>
+  // ));
 
   // const onOpenArticles = useCallback(() => {
   //   navigate(RoutePath.article_details + articles.id);
@@ -100,21 +87,10 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
                       placeholder={t('Search')}
                   />
               </div>
-              {/* Will be component Navbar search list - like ArticleList */}
-              <div className={classes.navbarSearch__text}>
-                  { articles
-                    ? paragraph
-                    : (
-                        // Will be component NavbarSearchListItem - like ArticleListItem
-                        <Text
-                            key={uid()}
-                            theme={TextTheme.SUBTITLE}
-                            text={t('NoSearches')}
-                            size={TextSize.S}
-                            align={TextAlign.CENTER}
-                        />
-                    )}
-              </div>
+              <NavbarSearchList
+                  articles={articles}
+                  isLoading={isLoading}
+              />
           </Modal>
       </DynamicModuleLoader>
   );

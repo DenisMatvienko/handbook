@@ -1,6 +1,6 @@
 import { User } from 'entities/User';
 
-export interface SearchableArticle {
+export interface Search {
     id: string,
     title: string,
     subtitle: string,

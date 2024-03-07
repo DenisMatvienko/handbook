@@ -11,11 +11,11 @@ import { Article } from 'entities/Article';
 import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSearchSchema';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
-import { SearchableArticle } from 'features/NavbarSearch/model/types/searchableArticle';
+import { Search } from 'entities/Search/model/types/search';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 
-const articlesSearchAdapter = createEntityAdapter<SearchableArticle>({
-  selectId: (article: SearchableArticle) => article.id,
+const articlesSearchAdapter = createEntityAdapter<Search>({
+  selectId: (article: Search) => article.id,
 });
 
 export const getSearchArticles = articlesSearchAdapter.getSelectors<StateSchema>(
