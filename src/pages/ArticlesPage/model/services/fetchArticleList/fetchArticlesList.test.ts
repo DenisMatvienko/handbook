@@ -62,7 +62,7 @@ describe('fetchArticlesList', () => {
     const thunk = new TestAsyncThunk(fetchArticlesList, stateMock);
     thunk.api.get.mockReturnValue(Promise.resolve({ data: articles }));
 
-    const result = await thunk.callThunk({});
+    const result = await thunk.callThunk({ replace: true });
 
     expect(thunk.api.get)
       .toHaveBeenCalled();

@@ -11,7 +11,7 @@ import { NavbarSearchListItem } from 'entities/Search/ui/NavbarSearchListItem/Na
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
+import { SkeletonNavbarSearchList } from 'shared/ui/Skeleton/SkeletonNavbarSearchList/SkeletonNavbarSearchList';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
@@ -20,13 +20,6 @@ interface NavbarSearchListProps {
     articles: Search[];
     isLoading?: boolean;
 }
-
-const getSkeletons = () => new Array(5)
-  .fill(0).map(() => (
-      <Skeleton
-          width={100}
-      />
-  ));
 
 export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   const { className, articles, isLoading } = props;
@@ -40,22 +33,29 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   );
 
   const renderEmptyPull = () => (
-      <Text
-          theme={TextTheme.SUBTITLE}
-          text="Nothing found"
-          size={TextSize.M}
-          align={TextAlign.CENTER}
-      />
+      <div className={classes.navbarSearchList__empty}>
+          <Text
+              theme={TextTheme.SUBTITLE}
+              text="Any matches not found"
+              size={TextSize.M}
+              align={TextAlign.CENTER}
+          />
+      </div>
   );
+
+  if (isLoading) {
+    return (
+        <SkeletonNavbarSearchList />
+    );
+  }
 
   return (
       <div className={classNames(classes.navbarSearchList, {}, [className])}>
           {
               articles.length > 0
                 ? articles?.map(renderArticle)
-                : renderEmptyPull
+                : renderEmptyPull()
           }
-          { isLoading && getSkeletons}
       </div>
   );
 });

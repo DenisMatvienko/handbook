@@ -5,8 +5,9 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Search } from 'entities/Search/model/types/search';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import classes from './NavbarSearchListItem.module.scss';
@@ -25,14 +26,19 @@ export const NavbarSearchListItem = memo((props: NavbarSearchListItemProps) => {
     if (article) {
       navigate(RoutePath.article_details + article.id);
     }
-  }, [navigate]);
+  }, [article, navigate]);
 
   return (
       <div
           onClick={onOpenArticles}
           className={classNames(classes.navbarSearchListItem, {}, [className])}
       >
-          { article?.title }
+          <Text
+              className={classes.navbarSearchListItem__text}
+              text={article?.title}
+              theme={TextTheme.BLOCK_TEXT}
+              align={TextAlign.LEFT}
+          />
       </div>
   );
 });

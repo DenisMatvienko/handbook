@@ -34,8 +34,6 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
             },
           });
 
-          console.log(response.data);
-
           if (!response.data) {
             throw new Error();
           }

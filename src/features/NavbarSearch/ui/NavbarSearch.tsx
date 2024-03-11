@@ -18,7 +18,8 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
-import { getNavbarSearchArticleSelector } from '../model/selectors/getNavbarSearchSelectors';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector } from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -40,17 +41,19 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
   const articles = useSelector(getSearchArticles.selectAll);
-  const isLoading = true;
+  const isLoading = useSelector(getNavbarIsLoadingSelector);
   const dispatch = useAppDispatch();
 
   const fetchData = useCallback(() => {
     dispatch(fetchNavbarSearch({ replace: true }));
   }, [dispatch]);
 
+  const debounceFetchData = useDebounce(fetchData, 500);
+
   const onChangeSearch = useCallback((newSearch: string) => {
     dispatch(navbarSearchActions.setSearch(newSearch));
-    fetchData();
-  }, [dispatch, fetchData]);
+    debounceFetchData();
+  }, [dispatch, debounceFetchData]);
 
   return (
       <DynamicModuleLoader
