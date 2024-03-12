@@ -3,9 +3,9 @@
  *      - Search window which will opened from navbar
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -19,7 +19,12 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector } from '../model/selectors/getNavbarSearchSelectors';
+import SearchIcon from 'shared/assets/icons/search/search.svg';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { PageLoader } from 'widgets/PageLoader';
+import { LoaderRing } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
+import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
+  from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -43,6 +48,7 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   const articles = useSelector(getSearchArticles.selectAll);
   const isLoading = useSelector(getNavbarIsLoadingSelector);
   const dispatch = useAppDispatch();
+  const [isEntered, setIsEntered] = useState(false);
 
   const fetchData = useCallback(() => {
     dispatch(fetchNavbarSearch({ replace: true }));
@@ -53,6 +59,10 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   const onChangeSearch = useCallback((newSearch: string) => {
     dispatch(navbarSearchActions.setSearch(newSearch));
     debounceFetchData();
+
+    if (newSearch.length > 0) {
+      setIsEntered(true);
+    }
   }, [dispatch, debounceFetchData]);
 
   return (
@@ -68,6 +78,20 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
               lazy
           >
               <div className={classes.navbarSearch__wrapper}>
+                  { isLoading
+                    ? (
+                        <LoaderRing
+                            className={classes.navbarSearch__loader}
+                        />
+                    )
+                    : (
+                        <Icon
+                            className={classes.navbarSearch__icon}
+                            Svg={SearchIcon}
+                            theme={IconTheme.BLOCK_ICON}
+                        />
+                    )}
+
                   <Input
                       className={classes.navbarSearch__search}
                       theme={InputTheme.NAVBAR_SEARCH}
@@ -79,6 +103,7 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
               <NavbarSearchList
                   articles={articles}
                   isLoading={isLoading}
+                  isEntered={isEntered}
               />
           </Modal>
       </DynamicModuleLoader>

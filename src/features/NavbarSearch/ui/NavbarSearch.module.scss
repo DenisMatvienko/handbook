@@ -24,3 +24,21 @@
   height: 30px;
   fill: var(--border-input);
 }
+
+.navbarSearch__icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  fill: var(--border-input);
+}
+
+.navbarSearch__loader {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--border-input);
+}

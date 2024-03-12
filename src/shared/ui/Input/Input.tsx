@@ -100,11 +100,11 @@ export const Input = memo((props: InputProps) => {
           { theme === InputTheme.NAVBAR_SEARCH
             && (
             <div>
-                <Icon
-                    className={classes.input__searchIcon}
-                    Svg={SearchIcon}
-                    theme={IconTheme.BLOCK_ICON}
-                />
+                {/* <Icon */}
+                {/*    className={classes.input__searchIcon} */}
+                {/*    Svg={SearchIcon} */}
+                {/*    theme={IconTheme.BLOCK_ICON} */}
+                {/* /> */}
                 { ref.current?.value
                   && (
                   <Button
