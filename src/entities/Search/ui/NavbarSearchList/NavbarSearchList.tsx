@@ -15,6 +15,7 @@ import { SkeletonNavbarSearchList } from 'shared/ui/Skeleton/SkeletonNavbarSearc
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
