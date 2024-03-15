@@ -56,7 +56,7 @@ npm install
 7. [x] Validation
 8. [x] Posts and tags
 9. [x] Comments
-10. [x] Sort filters, order filters, search
+10. [x] Sort filters, order filters, search (query params for all)
 11. [x] Infinite scroll
 12. [x] Scroll restoration
 13. [x] **I18n** mode

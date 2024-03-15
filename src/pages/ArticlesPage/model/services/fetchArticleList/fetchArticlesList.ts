@@ -13,6 +13,7 @@ import {
   getArticlePageOrder,
   getArticlePageSort, getArticlesPageNum,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -35,6 +36,10 @@ export const fetchArticlesList = createAsyncThunk<Article[],
         const order = getArticlePageOrder(getState());
 
         try {
+          addQueryParams({
+            sort,
+            order,
+          });
           const response = await extra.api.get<Article[]>('/articles', {
             params: {
               _expand: 'user',

@@ -94,6 +94,7 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
 
                   <Input
                       className={classes.navbarSearch__search}
+                      autofocus
                       theme={InputTheme.NAVBAR_SEARCH}
                       onChange={onChangeSearch}
                       value={search}

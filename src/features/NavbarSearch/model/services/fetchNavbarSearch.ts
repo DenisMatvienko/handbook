@@ -8,6 +8,7 @@ import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Article } from 'entities/Article';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Search } from 'entities/Search/model/types/search';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -27,6 +28,9 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
         const search = getNavbarSearchArticleSelector(getState());
 
         try {
+          addQueryParams({
+            search,
+          });
           const response = await extra.api.get<Search[]>('/articles', {
             params: {
               _expand: 'user',
