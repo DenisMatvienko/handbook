@@ -78,6 +78,24 @@
   }
 }
 
+.text_main-page {
+  .text__title {
+    font: 36px "Arial", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-main);
+  }
+
+  .text__paragraph {
+    font: 23px "Arial", sans-serif;
+    color: grey;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+}
+
 .text_right {
   text-align: right;
 }

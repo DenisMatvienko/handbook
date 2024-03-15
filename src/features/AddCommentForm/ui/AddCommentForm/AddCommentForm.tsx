@@ -20,6 +20,8 @@ import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { getUserAuthData } from 'entities/User';
+import { getArticleError } from 'entities/Article/model/selectors/getArticleDetails';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import classes from './AddCommentForm.module.scss';
@@ -37,6 +39,8 @@ const reducers: ReducersList = {
 const AddCommentForm = memo((props: AddCommentFormProps) => {
   const { className, onSendComment, isLoading } = props;
   const { t } = useTranslation('comments');
+  const isAuth = useSelector(getUserAuthData);
+  const isArticleError = useSelector(getArticleError);
   const text = useSelector(getAddCommentFormText);
   const dispatch = useAppDispatch();
 
@@ -49,7 +53,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     onCommentTextChange('');
   }, [onCommentTextChange, onSendComment, text]);
 
-  if (isLoading) {
+  if (isLoading || !isAuth || isArticleError) {
     return (
         <div className={classes.NoneDisplayed} />
     );

@@ -18,7 +18,15 @@
  *        addMany:
  *        - Add new data from state in end of list
  *
+ *      @param addMany
+ *        - in fulfilled:
+ *          A new portion of data is loaded at the end
+ *          setAll - at the beginning of list
+ *          addMany - at the end of list
  *
+ *      @param replace
+ *        - In case when add some filter (sort, order, etc..)
+ *          Need receive new portion of data
  */
 
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -79,14 +87,28 @@ export const articlePageSlice = createSlice({
       .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
+        }
       })
       .addCase(fetchArticlesList.fulfilled, (
         state,
-        action: PayloadAction<Article[]>,
+        action,
       ) => {
         state.isLoading = false;
         articlesAdapter.addMany(state, action.payload);
         state.hasMore = action.payload.length > 0;
+
+        /**
+         *  If you need use just infinite scroll - use addMany
+         *  Else, if you use sort/order filters - use setAll
+         * */
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;

@@ -28,6 +28,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const {
     isDev,
   } = options;
+
   const svgLoader = BuildSvgLoader();
 
   const babelLoader = buildBabelLoader(options);
@@ -41,11 +42,14 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff2|woff|ttf)$/i,
+    test: /\.(png|jpe?g|gif|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
     use: [
       {
         loader: 'file-loader',
       },
+      // {
+      //   loader: 'file-loader?name=./src/app/styles/fonts/notoSans/[name].[ext]',
+      // },
     ],
   };
 

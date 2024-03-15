@@ -63,7 +63,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             className={classes.articleDetails__error}
         >
             <ErrorPalette
-                theme={ErrorPaletteTheme.DEFAULT}
+                theme={ErrorPaletteTheme.TRANSPARENT}
                 title={t('ArticleErrorTitle')}
                 text={t('ArticleErrorText')}
                 size={ErrorPaletteSize.XXL}

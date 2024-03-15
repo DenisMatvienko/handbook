@@ -31,7 +31,9 @@
 
 .code__wrapper {
   font-family: var(--font-family-code);
-  font-weight: 300;
-  font-size: 14px;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
   width: 100%;
 }

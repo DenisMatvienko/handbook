@@ -1,7 +1,7 @@
 {
-  "ArticleErrorTitle": "Ooops... error with loading article",
+  "ArticleErrorTitle": "\uD83D\uDE2D Article loading error",
   "ArticleErrorText": "Article not found. Try to open new article or refresh page",
-  "ArticlePageErrorTitle": "Articles error",
+  "ArticlePageErrorTitle": "\uD83E\uDD2C Articles error \uD83D\uDE21",
   "ArticlePageErrorText": "Articles has not loaded, try to reload page",
   "tags": "Tags",
   "ArticleList": "List of articles",

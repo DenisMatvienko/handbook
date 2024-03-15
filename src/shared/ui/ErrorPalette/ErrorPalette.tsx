@@ -7,6 +7,7 @@ import classes from './ErrorPalette.module.scss';
 
 export enum ErrorPaletteTheme {
   DEFAULT = 'errorPallet_default',
+  TRANSPARENT = 'errorPallete_transparent'
 }
 
 export enum ErrorPaletteSize {
@@ -60,7 +61,7 @@ export const ErrorPalette: FC<ErrorPaletteProps> = (props: ErrorPaletteProps) =>
                 <Text
                     text={text}
                     title={title}
-                    theme={TextTheme.TEXT_WHITE}
+                    theme={TextTheme.BLOCK_TEXT}
                     align={TextAlign.CENTER}
                 />
             </div>

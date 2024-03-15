@@ -6,19 +6,32 @@
  *
  */
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Article } from 'entities/Article';
 import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSearchSchema';
+import { StateSchema } from 'app/provider/StoreProvider';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { Search } from 'entities/Search/model/types/search';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 
-const initialState: NavbarSearchSchema = {
-  search: '',
-  isLoading: false,
-};
+const articlesSearchAdapter = createEntityAdapter<Search>({
+  selectId: (article: Search) => article.id,
+});
+
+export const getSearchArticles = articlesSearchAdapter.getSelectors<StateSchema>(
+  (state) => state.navbarSearch || articlesSearchAdapter.getInitialState(),
+);
 
 export const navbarSearchSlice = createSlice({
   name: 'navbarSearchSlice',
-  initialState,
+  initialState: articlesSearchAdapter.getInitialState<NavbarSearchSchema>(
+    {
+      search: '',
+      isLoading: false,
+      ids: [],
+      entities: {},
+    },
+  ),
   reducers: {
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
@@ -29,12 +42,17 @@ export const navbarSearchSlice = createSlice({
       .addCase(fetchNavbarSearch.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          articlesSearchAdapter.removeAll(state);
+        }
       })
       .addCase(fetchNavbarSearch.fulfilled, (
         state,
-        action: PayloadAction<Article[]>,
+        action,
       ) => {
         state.isLoading = false;
+        articlesSearchAdapter.setAll(state, action.payload);
       })
       .addCase(fetchNavbarSearch.rejected, (state, action) => {
         state.isLoading = false;

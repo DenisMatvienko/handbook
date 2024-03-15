@@ -19,7 +19,7 @@
   "Введите пароль": "Enter password...",
   "Введите логин": "Enter login...",
   "Авторизация": "Authorization",
-  "Некорректные данные": "Incorrect login or password error",
+  "Некорректные данные": "Incorrect login or password error \uD83E\uDD14",
   "Profile": "Profile",
   "Articles": "Articles"
 }

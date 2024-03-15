@@ -3,20 +3,28 @@
  *      - Search window which will opened from navbar
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
-import { navbarSearchActions, navbarSearchReducer } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
-import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
-import { uid } from 'shared/lib/uid/uid';
 import {
-  Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
+  getSearchArticles,
+  navbarSearchActions,
+  navbarSearchReducer,
+} from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
+import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import SearchIcon from 'shared/assets/icons/search/search.svg';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { PageLoader } from 'widgets/PageLoader';
+import { LoaderRing } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
+import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
+  from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {
@@ -24,6 +32,10 @@ interface NavbarSearchProps {
     isOpen?: boolean;
     onClose?: () => void;
 }
+
+const initialReducers: ReducersList = {
+  navbarSearch: navbarSearchReducer,
+};
 
 export const NavbarSearch = (props: NavbarSearchProps) => {
   const {
@@ -33,15 +45,25 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
   } = props;
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
+  const articles = useSelector(getSearchArticles.selectAll);
+  const isLoading = useSelector(getNavbarIsLoadingSelector);
   const dispatch = useAppDispatch();
+  const [isEntered, setIsEntered] = useState(false);
 
-  const initialReducers: ReducersList = {
-    navbarSearch: navbarSearchReducer,
-  };
+  const fetchData = useCallback(() => {
+    dispatch(fetchNavbarSearch({ replace: true }));
+  }, [dispatch]);
+
+  const debounceFetchData = useDebounce(fetchData, 500);
 
   const onChangeSearch = useCallback((newSearch: string) => {
     dispatch(navbarSearchActions.setSearch(newSearch));
-  }, [dispatch]);
+    debounceFetchData();
+
+    if (newSearch.length > 0) {
+      setIsEntered(true);
+    }
+  }, [dispatch, debounceFetchData]);
 
   return (
       <DynamicModuleLoader
@@ -56,23 +78,34 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
               lazy
           >
               <div className={classes.navbarSearch__wrapper}>
+                  { isLoading
+                    ? (
+                        <LoaderRing
+                            className={classes.navbarSearch__loader}
+                        />
+                    )
+                    : (
+                        <Icon
+                            className={classes.navbarSearch__icon}
+                            Svg={SearchIcon}
+                            theme={IconTheme.BLOCK_ICON}
+                        />
+                    )}
+
                   <Input
                       className={classes.navbarSearch__search}
+                      autofocus
                       theme={InputTheme.NAVBAR_SEARCH}
                       onChange={onChangeSearch}
                       value={search}
                       placeholder={t('Search')}
                   />
               </div>
-              <div className={classes.navbarSearch__text}>
-                  <Text
-                      key={uid()}
-                      theme={TextTheme.SUBTITLE}
-                      text={t('NoSearches')}
-                      size={TextSize.S}
-                      align={TextAlign.CENTER}
-                  />
-              </div>
+              <NavbarSearchList
+                  articles={articles}
+                  isLoading={isLoading}
+                  isEntered={isEntered}
+              />
           </Modal>
       </DynamicModuleLoader>
   );
