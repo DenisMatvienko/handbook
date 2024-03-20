@@ -35,6 +35,7 @@ import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
@@ -127,7 +128,22 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           >
               <div className={classNames(classes.articlesPage, {}, [className])}>
                   <ArticlePageFilters />
+                  <Tabs
+                      className={classes.articlePageFilters__tabs}
+                      tabs={[{
+                        value: 'tab1',
+                        content: 'tab1',
+                      },
+                      {
+                        value: 'tab2',
+                        content: 'tab2',
+                      },
+                      ]}
+                      value="tab2"
+                      onTabClick={() => 'hello'}
+                  />
                   <DoubleAdjustableFrame
+                      className={classes.articlePageFilters__tabs}
                       widthLeftBlock="69%"
                       widthRightBlock="30%"
                       leftBlock={componentsLeftSide}

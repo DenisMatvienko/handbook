@@ -14,6 +14,7 @@ import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { Tabs } from 'shared/ui/Tabs/Tabs';
 import { articlePageSliceActions } from '../../model/slices/articlePageSlice';
 import {
   getArticlePageOrder,
