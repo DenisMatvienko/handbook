@@ -3,7 +3,7 @@
  *      - Search window which will opened from navbar
  */
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { useCallback, useState } from 'react';
 import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
@@ -21,7 +21,6 @@ import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSear
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import { PageLoader } from 'widgets/PageLoader';
 import { LoaderRing } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
 import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
   from '../model/selectors/getNavbarSearchSelectors';
