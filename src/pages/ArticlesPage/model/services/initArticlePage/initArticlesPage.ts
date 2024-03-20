@@ -2,6 +2,12 @@
  *    initArticlePage fetching
  *          - If data's not inited: inited and load data from server;
  *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
+ *
+ *          @param searchParams;
+ *           - addQueryParams: add query params to 'location'.
+ *             Here 'searchParams' get this params from 'location'.
+ *             This can make also hook 'useSearchParams' from react-router-dom:
+ *             https://reactrouter.com/en/main/hooks/use-search-params
  */
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
@@ -30,7 +36,6 @@ export const initArticlesPage = createAsyncThunk<void,
         if (!inited) {
           const orderFromUrl = searchParams.get('order') as SortOrderType;
           const sortFromUrl = searchParams.get('sort') as ArticleSortField;
-          const searchFromUrl = searchParams.get('search');
 
           if (orderFromUrl) {
             dispatch(articlePageSliceActions.setOrder(orderFromUrl));
@@ -40,9 +45,6 @@ export const initArticlesPage = createAsyncThunk<void,
             dispatch(articlePageSliceActions.setSort(sortFromUrl));
           }
 
-          if (searchFromUrl) {
-            dispatch(navbarSearchActions.setSearch(searchFromUrl));
-          }
           dispatch(articlePageSliceActions.initView());
           dispatch(fetchArticlesList({}));
         }
