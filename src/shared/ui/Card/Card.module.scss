@@ -1,10 +1,28 @@
 .card__item {
   display: flex;
   flex-flow: column wrap;
-  padding: 30px;
-  background-color: var(--block-color);
 }
 
-.card_tabs {
-  background-color: red;
+.card_view_default {
+  padding: 10px;
+}
+
+.card_view_article {
+  padding: 30px;
+}
+
+.card_theme_tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--tag-default);
+}
+
+.card_theme_tabs_checked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--block-color);
 }

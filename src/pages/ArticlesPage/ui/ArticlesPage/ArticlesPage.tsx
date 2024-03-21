@@ -14,11 +14,15 @@
  *      @param inited;
  *          - If data's not inited: inited and load data from server;
  *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
+ *
+ *      @param Tabs;
+ *          - use horizontal mouse wheel;
+ *          https://ru.stackoverflow.com/questions/1382566/react-horizontal-scroll-to-section-mouse-wheel
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -118,6 +122,22 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     );
   }
 
+  const tabsArray = new Array(50).fill(0).map((item, index) => ({
+    value: `tab${index}`,
+    content: `tab${index}`,
+  }));
+
+  const tagsArray = articles.map((item, index) => (
+    [
+      {
+        value: item.type,
+        content: item.type,
+      },
+    ]
+  ));
+
+  console.log(tagsArray);
+
   return (
       <DynamicModuleLoader
           reducers={reducers}
@@ -128,22 +148,16 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           >
               <div className={classNames(classes.articlesPage, {}, [className])}>
                   <ArticlePageFilters />
-                  <Tabs
-                      className={classes.articlePageFilters__tabs}
-                      tabs={[{
-                        value: 'tab1',
-                        content: 'tab1',
-                      },
-                      {
-                        value: 'tab2',
-                        content: 'tab2',
-                      },
-                      ]}
-                      value="tab2"
-                      onTabClick={() => 'hello'}
-                  />
+                  <div className={classes.articlePageFilters__tabsWrapper}>
+                      <Tabs
+                          className={classes.articlePageFilters__tabs}
+                          tabs={tabsArray}
+                          value="tab2"
+                          onTabClick={() => 'hello'}
+                      />
+                  </div>
                   <DoubleAdjustableFrame
-                      className={classes.articlePageFilters__tabs}
+                      className={classes.articlePageFilters__content}
                       widthLeftBlock="69%"
                       widthRightBlock="30%"
                       leftBlock={componentsLeftSide}

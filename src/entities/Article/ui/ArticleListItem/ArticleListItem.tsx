@@ -7,7 +7,7 @@
  *         - Else it will be gridded cards
  */
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback, useState } from 'react';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -19,7 +19,7 @@ import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme, CardView } from 'shared/ui/Card/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
@@ -84,7 +84,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   if (view === ArticleView.LIST) {
     return (
-        <Card className={classNames(classes.articleListView, {}, [className, classes[view]])}>
+        <Card
+            cardView={CardView.ARTICLE}
+            cardTheme={CardTheme.DEFAULT}
+            className={classNames(classes.articleListView, {}, [className, classes[view]])}
+        >
             <div className={classes.articleListView__header}>
                 <Avatar
                     size={AvatarSize.L}
@@ -172,6 +176,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
       <Card
+          cardView={CardView.ARTICLE}
+          cardTheme={CardTheme.DEFAULT}
           {...bindIsHover}
           className={classes.articleGridView}
       >
