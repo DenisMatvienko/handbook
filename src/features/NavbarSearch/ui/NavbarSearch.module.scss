@@ -42,3 +42,11 @@
   height: 30px;
   background-color: var(--border-input);
 }
+
+.navbarSearch__buttonSearch {
+  position: absolute;
+  top: 7%;
+  right: 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}

@@ -33,7 +33,6 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
           });
           const response = await extra.api.get<Search[]>('/articles', {
             params: {
-              _expand: 'user',
               q: search,
             },
           });

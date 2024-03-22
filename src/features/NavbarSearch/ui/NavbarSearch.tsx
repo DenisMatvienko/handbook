@@ -22,6 +22,8 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import { LoaderRing } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
   from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
@@ -64,6 +66,10 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
     }
   }, [dispatch, debounceFetchData]);
 
+  const onSetSearch = useCallback(() => {
+    console.log('search');
+  }, []);
+
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
@@ -99,6 +105,18 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
                       value={search}
                       placeholder={t('Search')}
                   />
+                  <Button
+                      className={classes.navbarSearch__buttonSearch}
+                      onClick={onSetSearch}
+                      theme={ButtonTheme.BACKGROUND}
+                      size={ButtonSize.XXL}
+                  >
+                      <Text
+                          theme={TextTheme.TEXT_WHITE}
+                          text={t('Search')}
+                          size={TextSize.XL}
+                      />
+                  </Button>
               </div>
               <NavbarSearchList
                   articles={articles}

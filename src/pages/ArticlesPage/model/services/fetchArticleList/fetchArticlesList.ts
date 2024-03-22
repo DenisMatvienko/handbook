@@ -14,6 +14,7 @@ import {
   getArticlePageSort, getArticlesPageNum,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -34,6 +35,7 @@ export const fetchArticlesList = createAsyncThunk<Article[],
         const limit = getArticlePageLimit(getState());
         const sort = getArticlePageSort(getState());
         const order = getArticlePageOrder(getState());
+        const search = getNavbarSearchArticleSelector(getState());
 
         try {
           addQueryParams({
@@ -47,6 +49,7 @@ export const fetchArticlesList = createAsyncThunk<Article[],
               _page: page,
               _sort: sort,
               _order: order,
+              q: search,
             },
           });
 
