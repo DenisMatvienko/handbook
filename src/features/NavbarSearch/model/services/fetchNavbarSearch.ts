@@ -9,6 +9,7 @@ import { Article } from 'entities/Article';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Search } from 'entities/Search/model/types/search';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import { getArticlePageLimit } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -26,6 +27,7 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
         } = thunkAPI;
 
         const search = getNavbarSearchArticleSelector(getState());
+        const limit = getArticlePageLimit(getState());
 
         try {
           addQueryParams({
@@ -34,6 +36,7 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
           const response = await extra.api.get<Search[]>('/articles', {
             params: {
               q: search,
+              _limit: limit,
             },
           });
 

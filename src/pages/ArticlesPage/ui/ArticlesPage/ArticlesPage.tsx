@@ -22,7 +22,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -135,8 +135,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       },
     ]
   ));
-
-  console.log(tagsArray);
 
   return (
       <DynamicModuleLoader

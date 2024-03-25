@@ -14,6 +14,7 @@ import {
 import { SkeletonNavbarSearchList } from 'shared/ui/Skeleton/SkeletonNavbarSearchList/SkeletonNavbarSearchList';
 import { useSelector } from 'react-redux';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { Page } from 'widgets/Page/Page';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
@@ -77,12 +78,15 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   }
 
   return (
-      <div className={classNames(classes.navbarSearchList, {}, [className])}>
+      <Page
+          className={classNames(classes.navbarSearchList, {}, [className])}
+          emptyLayout
+      >
           {
               articles.length > 0
                 ? articles?.map(renderArticle)
                 : renderEmptyPull()
           }
-      </div>
+      </Page>
   );
 });

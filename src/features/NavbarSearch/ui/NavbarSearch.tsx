@@ -21,9 +21,10 @@ import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSear
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import { LoaderRing } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
+import { LoaderRing, LoaderRingTheme } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page/Page';
 import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
   from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';

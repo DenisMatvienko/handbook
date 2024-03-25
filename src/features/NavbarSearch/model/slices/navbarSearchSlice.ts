@@ -30,6 +30,8 @@ export const navbarSearchSlice = createSlice({
       isLoading: false,
       ids: [],
       entities: {},
+      hasMore: true,
+      limit: 7,
     },
   ),
   reducers: {
@@ -52,6 +54,7 @@ export const navbarSearchSlice = createSlice({
         action,
       ) => {
         state.isLoading = false;
+        state.hasMore = action.payload.length > 0;
         articlesSearchAdapter.setAll(state, action.payload);
       })
       .addCase(fetchNavbarSearch.rejected, (state, action) => {

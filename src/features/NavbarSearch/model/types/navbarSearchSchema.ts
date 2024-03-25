@@ -1,4 +1,3 @@
-import { Article } from 'entities/Article';
 import { EntityState } from '@reduxjs/toolkit';
 import { Search } from 'entities/Search/model/types/search';
 
@@ -13,4 +12,7 @@ export interface NavbarSearchSchema extends EntityState<Search> {
     isLoading?: boolean,
     error?: string,
     search: string,
+
+    hasMore?: boolean,
+    limit: number,
 }

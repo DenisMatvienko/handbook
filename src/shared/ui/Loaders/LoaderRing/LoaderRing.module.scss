@@ -1,31 +1,41 @@
-.ldsRing {
-  display: inline-block;
+.ldsRing_dynamic {
   position: absolute;
-  width: 30px;
-  height: 30px;
-}
-.ldsRing div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  margin: 19px;
-  border: 2px solid var(--border-input);
   border-radius: 50%;
-  animation: ldsRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: var(--border-input) transparent transparent transparent;
+  animation: rotation_dynamic .7s linear infinite
 }
-.ldsRing div:nth-child(1) {
-  animation-delay: -0.45s;
+
+.ldsRing_dynamic::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 3px solid var(--border-input);
+  animation: prixClipFix 2s linear infinite ;
 }
-.ldsRing div:nth-child(2) {
-  animation-delay: -0.3s;
+
+@keyframes rotation_dynamic {
+  100%   {transform: rotate(360deg)}
 }
-.ldsRing div:nth-child(3) {
-  animation-delay: -0.15s;
+
+@keyframes prixClipFix {
+  0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+  25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+  50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+  75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+  100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
 }
-@keyframes ldsRing {
+
+.ldsRing_static {
+  border: 2px solid var(--border-input);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation_static .5s linear infinite;
+}
+
+@keyframes rotation_static {
   0% {
     transform: rotate(0deg);
   }

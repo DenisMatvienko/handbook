@@ -43,11 +43,17 @@ import classes from './Page.module.scss';
 interface PageProps {
     className?: string;
     children?: ReactNode;
+    emptyLayout?: boolean;
     onScrollEnd?: () => void;
 }
 
 export const Page = (props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const {
+    className,
+    children,
+    emptyLayout = false,
+    onScrollEnd,
+  } = props;
   const { t } = useTranslation();
   const [showNav, setShowNav] = useState(false);
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -82,6 +88,19 @@ export const Page = (props: PageProps) => {
       path: pathname,
     }));
   }, 500);
+
+  if (emptyLayout) {
+    return (
+        <section
+            ref={wrapperRef}
+            className={classNames(classes.page__empty, {}, [className])}
+            onScroll={onScroll}
+        >
+            { children }
+            {onScrollEnd ? <div className={classes.page__trigger} ref={triggerRef} /> : null}
+        </section>
+    );
+  }
 
   return (
       <section
