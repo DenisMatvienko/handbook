@@ -15,4 +15,5 @@ export interface NavbarSearchSchema extends EntityState<Search> {
 
     hasMore?: boolean,
     limit: number,
+    page: number,
 }

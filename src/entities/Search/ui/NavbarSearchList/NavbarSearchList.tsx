@@ -1,6 +1,6 @@
 /**
  *    NavbarSearchList-component.
- *      NavbarSearchList - contain list of articles which match by query;
+ *      Contain list of articles which match by query;
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -15,6 +15,10 @@ import { SkeletonNavbarSearchList } from 'shared/ui/Skeleton/SkeletonNavbarSearc
 import { useSelector } from 'react-redux';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Page } from 'widgets/Page/Page';
+import {
+  fetchNextNavbarSearchPage,
+} from 'features/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
@@ -32,6 +36,11 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
 
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
+  const dispatch = useAppDispatch();
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextNavbarSearchPage());
+  }, [dispatch]);
 
   const renderArticle = (search: Search) => (
       <NavbarSearchListItem
@@ -80,6 +89,7 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   return (
       <Page
           className={classNames(classes.navbarSearchList, {}, [className])}
+          onScrollEnd={onLoadNextPart}
           emptyLayout
       >
           {

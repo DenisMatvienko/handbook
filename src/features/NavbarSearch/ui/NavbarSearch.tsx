@@ -25,6 +25,10 @@ import { LoaderRing, LoaderRingTheme } from 'shared/ui/Loaders/LoaderRing/Loader
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
+import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import {
+  fetchNextNavbarSearchPage,
+} from 'features/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
 import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
   from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';

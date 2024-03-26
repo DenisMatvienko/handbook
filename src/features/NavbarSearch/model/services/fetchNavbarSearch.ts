@@ -5,11 +5,13 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
-import { Article } from 'entities/Article';
-import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import {
+  getNavbarPageSelector,
+  getNavbarSearchArticleSelector,
+  getNavbarSearchLimit,
+} from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Search } from 'entities/Search/model/types/search';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-import { getArticlePageLimit } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -27,7 +29,8 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
         } = thunkAPI;
 
         const search = getNavbarSearchArticleSelector(getState());
-        const limit = getArticlePageLimit(getState());
+        const limit = getNavbarSearchLimit(getState());
+        const page = getNavbarPageSelector(getState());
 
         try {
           addQueryParams({
@@ -37,6 +40,7 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
             params: {
               q: search,
               _limit: limit,
+              _page: page,
             },
           });
 

@@ -14,29 +14,33 @@ import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticl
 import { Search } from 'entities/Search/model/types/search';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
 
-const articlesSearchAdapter = createEntityAdapter<Search>({
+const navbarSearchAdapter = createEntityAdapter<Search>({
   selectId: (article: Search) => article.id,
 });
 
-export const getSearchArticles = articlesSearchAdapter.getSelectors<StateSchema>(
-  (state) => state.navbarSearch || articlesSearchAdapter.getInitialState(),
+export const getSearchArticles = navbarSearchAdapter.getSelectors<StateSchema>(
+  (state) => state.navbarSearch || navbarSearchAdapter.getInitialState(),
 );
 
 export const navbarSearchSlice = createSlice({
   name: 'navbarSearchSlice',
-  initialState: articlesSearchAdapter.getInitialState<NavbarSearchSchema>(
+  initialState: navbarSearchAdapter.getInitialState<NavbarSearchSchema>(
     {
       search: '',
       isLoading: false,
       ids: [],
       entities: {},
       hasMore: true,
-      limit: 7,
+      limit: 3,
+      page: 1,
     },
   ),
   reducers: {
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
+    },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -46,7 +50,7 @@ export const navbarSearchSlice = createSlice({
         state.isLoading = true;
 
         if (action.meta.arg.replace) {
-          articlesSearchAdapter.removeAll(state);
+          navbarSearchAdapter.removeAll(state);
         }
       })
       .addCase(fetchNavbarSearch.fulfilled, (
@@ -54,8 +58,14 @@ export const navbarSearchSlice = createSlice({
         action,
       ) => {
         state.isLoading = false;
-        state.hasMore = action.payload.length > 0;
-        articlesSearchAdapter.setAll(state, action.payload);
+        navbarSearchAdapter.addMany(state, action.payload);
+        state.hasMore = action.payload.length >= state.limit;
+
+        if (action.meta.arg.replace) {
+          navbarSearchAdapter.setAll(state, action.payload);
+        } else {
+          navbarSearchAdapter.addMany(state, action.payload);
+        }
       })
       .addCase(fetchNavbarSearch.rejected, (state, action) => {
         state.isLoading = false;
