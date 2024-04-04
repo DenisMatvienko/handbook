@@ -64,6 +64,7 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
 
   const onChangeSearch = useCallback((newSearch: string) => {
     dispatch(navbarSearchActions.setSearch(newSearch));
+    dispatch(navbarSearchActions.setPage(1));
     debounceFetchData();
 
     if (newSearch.length > 0) {
