@@ -33,16 +33,18 @@ export const Tabs = memo((props: TabsProps) => {
 
   return (
       <div className={classNames(classes.tabs, {}, [className])}>
-          {tabs.map((item) => (
-              <Card
-                  className={classes.tabs__card}
-                  cardTheme={item.value === value ? CardTheme.TABS_CHECKED : CardTheme.TABS}
-                  cardView={CardView.DEFAULT}
-                  onClick={clickHandle(item)}
-              >
-                  {item.content}
-              </Card>
-          ))}
+          <div className={classes.tabs__wrapper}>
+              {tabs.map((item) => (
+                  <Card
+                      className={classes.tabs__card}
+                      cardTheme={item.value === value ? CardTheme.TABS_CHECKED : CardTheme.TABS}
+                      cardView={CardView.DEFAULT}
+                      onClick={clickHandle(item)}
+                  >
+                      {item.content}
+                  </Card>
+              ))}
+          </div>
       </div>
   );
 });

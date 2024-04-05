@@ -104,6 +104,23 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
+  const tabsArray = new Array(50).fill(0).map((item, index) => ({
+    value: `tab${index}`,
+    content: `tab${index}`,
+  }));
+
+  const widgetsLeftSide: ComponentsObjectType = {
+    filters: '=filters=',
+  };
+
+  const widgetsRightSide: ComponentsObjectType = {
+    tags: <Tabs
+        tabs={tabsArray}
+        value="tab2"
+        onTabClick={() => 'hello'}
+    />,
+  };
+
   if (error) {
     return (
         <Page>
@@ -122,20 +139,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     );
   }
 
-  const tabsArray = new Array(50).fill(0).map((item, index) => ({
-    value: `tab${index}`,
-    content: `tab${index}`,
-  }));
-
-  const tagsArray = articles.map((item, index) => (
-    [
-      {
-        value: item.type,
-        content: item.type,
-      },
-    ]
-  ));
-
   return (
       <DynamicModuleLoader
           reducers={reducers}
@@ -146,16 +149,15 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
           >
               <div className={classNames(classes.articlesPage, {}, [className])}>
                   <ArticlePageFilters />
-                  <div className={classes.articlePageFilters__tabsWrapper}>
-                      <Tabs
-                          className={classes.articlePageFilters__tabs}
-                          tabs={tabsArray}
-                          value="tab2"
-                          onTabClick={() => 'hello'}
-                      />
-                  </div>
                   <DoubleAdjustableFrame
-                      className={classes.articlePageFilters__content}
+                      className={classes.articlesPage__filters}
+                      widthLeftBlock="69%"
+                      widthRightBlock="30%"
+                      leftBlock={widgetsLeftSide}
+                      rightBlock={widgetsRightSide}
+                  />
+                  <DoubleAdjustableFrame
+                      className={classes.articlesPage__content}
                       widthLeftBlock="69%"
                       widthRightBlock="30%"
                       leftBlock={componentsLeftSide}
