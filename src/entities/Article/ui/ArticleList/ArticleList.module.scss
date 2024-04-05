@@ -2,10 +2,12 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 27px;
   margin-left: 0;
+  gap: 27px;
 }
 
 .articleList_row {
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
 }
