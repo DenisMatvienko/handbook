@@ -12,6 +12,13 @@
   padding: 50px;
 }
 
+.articlesPage__selectors {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
 .articlesPage__error {
   display: flex;
   justify-content: center;

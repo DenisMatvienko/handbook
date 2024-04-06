@@ -32,40 +32,13 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
   const { t } = useTranslation('filters');
   const dispatch = useAppDispatch();
   const views = useSelector(getArticlePageView);
-  const sort = useSelector(getArticlePageSort);
-  const order = useSelector(getArticlePageOrder);
-
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }));
-  }, [dispatch]);
 
   const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlePageSliceActions.setView(view));
   }, [dispatch]);
 
-  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
-    dispatch(articlePageSliceActions.setOrder(newOrder));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeSort = useCallback((newSort: ArticleSortField) => {
-    dispatch(articlePageSliceActions.setSort(newSort));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
   return (
       <FullPageBlock className={classNames(classes.articlePageFilters, {}, [className])}>
-          <div className={classes.articlePageFilters__widgets}>
-              <ArticleSortSelector
-                  className={classes.articlePageFilters__selectors}
-                  order={order}
-                  sort={sort}
-                  onChangeOrder={onChangeOrder}
-                  onChangeSort={onChangeSort}
-              />
-          </div>
           <ArticleViewSelector view={views} onViewClick={onChangeView} />
       </FullPageBlock>
   );

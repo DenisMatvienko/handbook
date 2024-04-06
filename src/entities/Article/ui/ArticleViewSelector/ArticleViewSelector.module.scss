@@ -7,16 +7,22 @@
 
 .articleViewSelector {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   flex-flow: row wrap;
-  width: 7%;
+  width: 100%;
 
   &:hover {
     .articleViewSelector__icon {
       fill: var(--block-color);
       stroke: var(--block-color);
     }
+  }
+}
+
+.ArticleViewSelectorButton {
+  &:not(:last-child) {
+    margin-right: 10px;
   }
 }
 

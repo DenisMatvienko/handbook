@@ -27,36 +27,6 @@ export const SkeletonNavbarSearchList = memo((props: SkeletonNavbarSearchListPro
               width="100%"
               height={65}
           />
-          <Skeleton
-              border={5}
-              width="100%"
-              height={65}
-          />
-          <Skeleton
-              border={5}
-              width="100%"
-              height={65}
-          />
-          <Skeleton
-              border={5}
-              width="100%"
-              height={65}
-          />
-          <Skeleton
-              border={5}
-              width="100%"
-              height={65}
-          />
-          <Skeleton
-              border={5}
-              width="100%"
-              height={65}
-          />
-          <Skeleton
-              border={5}
-              width="100%"
-              height={65}
-          />
       </div>
   );
 });

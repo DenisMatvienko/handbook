@@ -19,10 +19,16 @@ export interface SelectOption<T extends string> {
   content: string;
 }
 
+export enum SelectTheme {
+  DEFAULT = 'select_default',
+  FILTER = 'select_filter',
+}
+
 interface SelectProps<T extends string> {
   className?: string,
   label?: string,
   name?: string,
+  theme?: SelectTheme,
   options?: SelectOption<T>[];
   value?: T;
   onChange?: (value: T) => void;
@@ -33,6 +39,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     className,
     label,
     name,
+    theme = SelectTheme.DEFAULT,
     options,
     value,
     onChange,
@@ -56,10 +63,12 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
       </option>
   )), [options]);
 
-  const mods: Mods = {};
+  const mods: Mods = {
+    [classes[theme]]: theme,
+  };
 
   return (
-      <div className={classNames(classes.select, mods)}>
+      <div className={classNames(classes.select, mods, [])}>
           {label && (
           <div className={classes.select__label}>
               <Text

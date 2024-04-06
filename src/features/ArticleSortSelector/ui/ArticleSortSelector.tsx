@@ -21,8 +21,8 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useMemo } from 'react';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
+import React, { memo, useMemo } from 'react';
+import { Select, SelectOption, SelectTheme } from 'shared/ui/Select/Select';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import classes from './ArticleSortSelector.module.scss';
@@ -78,12 +78,14 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
               options={sortFieldOptions}
               name={t('Sort')}
               value={sort}
+              theme={SelectTheme.FILTER}
               onChange={onChangeSort}
           />
           <Select
               options={orderOptions}
               name={t('Order')}
               value={order}
+              theme={SelectTheme.FILTER}
               onChange={onChangeOrder}
           />
       </div>

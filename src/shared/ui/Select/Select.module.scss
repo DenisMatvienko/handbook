@@ -1,20 +1,29 @@
-.select {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .select__label {
   margin-right: 10px;
 }
 
-select {
+.select_default select{
   cursor: pointer;
   background-color: var(--secondary);
   outline: none;
   color: var(--secondary-inverted);
   border: 2px solid var(--main-hover);
   border-radius: 10px;
+  width: auto;
+  height: 34px;
+  line-height: 30px;
+  text-align: center;
+  appearance: none;
+  padding: 0px 5px
+}
+
+.select_filter select{
+  cursor: pointer;
+  background-color: var(--block-color);
+  outline: none;
+  color: var(--secondary-inverted);
+  border: 1px solid var(--title-main);
+  border-radius: 3px;
   width: auto;
   height: 34px;
   line-height: 30px;

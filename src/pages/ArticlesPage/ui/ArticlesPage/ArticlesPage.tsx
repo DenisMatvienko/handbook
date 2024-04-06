@@ -40,15 +40,25 @@ import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
 import { Tabs } from 'shared/ui/Tabs/Tabs';
+import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
+import { ArticleSortField } from 'entities/Article/model/types/article';
+import {
+  fetchArticlesList,
+} from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
-  getArticlePageError,
+  getArticlePageError, getArticlePageOrder, getArticlePageSort,
   getArticlePageView,
   getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
-import { articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
+import {
+  articlePageSliceActions,
+  articlePageSliceReducer,
+  getArticles,
+} from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -66,9 +76,15 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
+  const sort = useSelector(getArticlePageSort);
+  const order = useSelector(getArticlePageOrder);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
+  }, [dispatch]);
+
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
   }, [dispatch]);
 
   useInitialEffect(() => {
@@ -109,8 +125,26 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     content: `tab${index}`,
   }));
 
+  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
+    dispatch(articlePageSliceActions.setOrder(newOrder));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
+  const onChangeSort = useCallback((newSort: ArticleSortField) => {
+    dispatch(articlePageSliceActions.setSort(newSort));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
   const widgetsLeftSide: ComponentsObjectType = {
-    filters: '=filters=',
+    filters: <ArticleSortSelector
+        className={classes.articlesPage__selectors}
+        order={order}
+        sort={sort}
+        onChangeOrder={onChangeOrder}
+        onChangeSort={onChangeSort}
+    />,
   };
 
   const widgetsRightSide: ComponentsObjectType = {
