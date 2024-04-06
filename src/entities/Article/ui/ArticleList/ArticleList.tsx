@@ -34,7 +34,10 @@ interface ArticleListProps {
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 6 : 3)
   .fill(0).map(() => (
-      <SkeletonArticleListItem key={uid()} view={view} />
+      <div className={classes.articleList}>
+          <SkeletonArticleListItem key={uid()} view={view} />
+      </div>
+
   ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
