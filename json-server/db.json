@@ -752,6 +752,12 @@
       "userId": "1",
       "text": "log",
       "id": "rrrEEdI"
+    },
+    {
+      "articleId": "19",
+      "userId": "1",
+      "text": "git push origin branch_name",
+      "id": "Peb84pw"
     }
   ],
   "users": [
