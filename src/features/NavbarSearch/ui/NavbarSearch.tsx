@@ -16,7 +16,7 @@ import {
   navbarSearchReducer,
 } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
+import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch/fetchNavbarSearch';
 import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
@@ -29,6 +29,8 @@ import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNex
 import {
   fetchNextNavbarSearchPage,
 } from 'features/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { initNavbarSearch } from 'features/NavbarSearch/model/services/initNavbarSearch/initNavbarSearch';
 import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
   from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';

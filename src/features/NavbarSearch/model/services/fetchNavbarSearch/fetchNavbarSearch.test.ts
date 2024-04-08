@@ -6,7 +6,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import axios from 'axios';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { Search } from 'entities/Search/model/types/search';
-import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
+import { fetchNavbarSearch } from './fetchNavbarSearch';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);

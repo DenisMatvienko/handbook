@@ -12,7 +12,7 @@ import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSear
 import { StateSchema } from 'app/provider/StoreProvider';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { Search } from 'entities/Search/model/types/search';
-import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
+import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch/fetchNavbarSearch';
 
 const navbarSearchAdapter = createEntityAdapter<Search>({
   selectId: (article: Search) => article.id,
@@ -31,8 +31,9 @@ export const navbarSearchSlice = createSlice({
       ids: [],
       entities: {},
       hasMore: true,
-      limit: 3,
+      limit: 15,
       page: 1,
+      _inited: false,
     },
   ),
   reducers: {

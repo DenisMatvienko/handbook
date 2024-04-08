@@ -13,3 +13,4 @@ export const getNavbarIsLoadingSelector = (state: StateSchema) => state.navbarSe
 export const getNavbarErrorSelector = (state: StateSchema) => state.navbarSearch?.error;
 export const getNavbarPageSelector = (state: StateSchema) => state.navbarSearch?.page || 1;
 export const getNavbarHasMoreSelector = (state: StateSchema) => state.navbarSearch?.hasMore || false;
+export const getNavbarSearchInited = (state: StateSchema) => state.navbarSearch?._inited;

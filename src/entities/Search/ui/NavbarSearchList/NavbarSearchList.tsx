@@ -19,6 +19,8 @@ import {
   fetchNextNavbarSearchPage,
 } from 'features/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { initNavbarSearch } from 'features/NavbarSearch/model/services/initNavbarSearch/initNavbarSearch';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
@@ -37,6 +39,10 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   const { t } = useTranslation('filters');
   const search = useSelector(getNavbarSearchArticleSelector);
   const dispatch = useAppDispatch();
+
+  useInitialEffect(() => {
+    dispatch(initNavbarSearch());
+  });
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextNavbarSearchPage());

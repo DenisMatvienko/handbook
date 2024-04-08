@@ -19,7 +19,7 @@ import {
   getNavbarIsLoadingSelector,
   getNavbarPageSelector,
 } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
-import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch';
+import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch/fetchNavbarSearch';
 import { navbarSearchActions } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 
 export const fetchNextNavbarSearchPage = createAsyncThunk<
