@@ -91,6 +91,18 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     dispatch(initArticlesPage());
   });
 
+  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
+    dispatch(articlePageSliceActions.setOrder(newOrder));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
+  const onChangeSort = useCallback((newSort: ArticleSortField) => {
+    dispatch(articlePageSliceActions.setSort(newSort));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
   const blockMock = useCallback((text: string, indent?: string) => (
       <FullPageBlock
           className={indent}
@@ -107,35 +119,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       </FullPageBlock>
   ), []);
 
-  const componentsLeftSide: ComponentsObjectType = {
-    articleList: <ArticleList
-        view={views}
-        isLoading={isLoading}
-        articles={articles}
-    />,
-  };
-
-  const componentsRightSide: ComponentsObjectType = {
-    recommendations: blockMock('=Temporary recommendations layout='),
-    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
-  };
-
   const tabsArray = new Array(50).fill(0).map((item, index) => ({
     value: `tab${index}`,
     content: `tab${index}`,
   }));
-
-  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
-    dispatch(articlePageSliceActions.setOrder(newOrder));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeSort = useCallback((newSort: ArticleSortField) => {
-    dispatch(articlePageSliceActions.setSort(newSort));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
 
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
@@ -153,6 +140,19 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         value="tab2"
         onTabClick={() => 'hello'}
     />,
+  };
+
+  const contentLeftSide: ComponentsObjectType = {
+    articleList: <ArticleList
+        view={views}
+        isLoading={isLoading}
+        articles={articles}
+    />,
+  };
+
+  const contentRightSide: ComponentsObjectType = {
+    recommendations: blockMock('=Temporary recommendations layout='),
+    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
   if (error) {
@@ -194,8 +194,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                       className={classes.articlesPage__content}
                       widthLeftBlock="69%"
                       widthRightBlock="30%"
-                      leftBlock={componentsLeftSide}
-                      rightBlock={componentsRightSide}
+                      leftBlock={contentLeftSide}
+                      rightBlock={contentRightSide}
                   />
               </div>
           </Page>

@@ -13,7 +13,10 @@ import {
 } from 'shared/ui/Text/Text';
 import { SkeletonNavbarSearchList } from 'shared/ui/Skeleton/SkeletonNavbarSearchList/SkeletonNavbarSearchList';
 import { useSelector } from 'react-redux';
-import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import {
+  getNavbarErrorSelector,
+  getNavbarSearchArticleSelector,
+} from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Page } from 'widgets/Page/Page';
 import {
   fetchNextNavbarSearchPage,
@@ -21,6 +24,9 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initNavbarSearch } from 'features/NavbarSearch/model/services/initNavbarSearch/initNavbarSearch';
+import { ArticleView } from 'entities/Article';
+import { SkeletonArticleListItem } from 'shared/ui/Skeleton/SkeletonArticleListItem/SkeletonArticleListItem';
+import { navbarSearchActions } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 
@@ -30,6 +36,10 @@ interface NavbarSearchListProps {
     isLoading?: boolean;
     isEntered: boolean;
 }
+
+const getSkeletons = () => (
+    <SkeletonNavbarSearchList />
+);
 
 export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
   const {
@@ -71,12 +81,6 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
       </div>
   ), [search]);
 
-  if (isLoading) {
-    return (
-        <SkeletonNavbarSearchList />
-    );
-  }
-
   if (!isEntered) {
     return (
         <div className={classNames(classes.navbarSearchList, {}, [className])}>
@@ -98,11 +102,9 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
           onScrollEnd={onLoadNextPart}
           emptyLayout
       >
-          {
-              articles.length > 0
-                ? articles?.map(renderArticle)
-                : renderEmptyPull()
-          }
+          {articles.length > 0 && articles?.map(renderArticle)}
+          {articles.length < 0 && renderEmptyPull()}
+          { isLoading && getSkeletons()}
       </Page>
   );
 });
