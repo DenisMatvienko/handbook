@@ -78,11 +78,12 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
           </div>
           )}
           <select
+
               value={value}
               className={classes.select__wrapper}
               onChange={onChangeHandler}
           >
-              <option selected disabled>{name}</option>
+              <option defaultValue={name} value={name} disabled>{name}</option>
               {optionsList}
           </select>
       </div>

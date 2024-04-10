@@ -7,20 +7,20 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import 'app/styles/index.scss';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticlePageFilters } from './ArticlePageFilters';
+import { ArticlePageHeader } from './ArticlePageHeader';
 
 export default {
   title: 'features/ArticlePageFilters',
-  component: ArticlePageFilters,
+  component: ArticlePageHeader,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
   args: {
     to: '/',
   },
-} as ComponentMeta<typeof ArticlePageFilters>;
+} as ComponentMeta<typeof ArticlePageHeader>;
 
-const Template: ComponentStory<typeof ArticlePageFilters> = (args) => <ArticlePageFilters {...args} />;
+const Template: ComponentStory<typeof ArticlePageHeader> = (args) => <ArticlePageHeader {...args} />;
 
 export const FirstArticlePageFilters = Template.bind({});
 FirstArticlePageFilters.args = {};

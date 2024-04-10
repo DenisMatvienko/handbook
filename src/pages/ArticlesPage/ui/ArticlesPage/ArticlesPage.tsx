@@ -46,7 +46,7 @@ import { ArticleSortField } from 'entities/Article/model/types/article';
 import {
   fetchArticlesList,
 } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
-import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
+import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
@@ -182,7 +182,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
               onScrollEnd={onLoadNextPart}
           >
               <div className={classNames(classes.articlesPage, {}, [className])}>
-                  <ArticlePageFilters />
+                  <ArticlePageHeader />
                   <DoubleAdjustableFrame
                       className={classes.articlesPage__filters}
                       widthLeftBlock="69%"

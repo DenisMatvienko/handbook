@@ -27,7 +27,7 @@ interface ArticlePageFiltersProps {
     className?: string;
 }
 
-export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
+export const ArticlePageHeader = memo((props: ArticlePageFiltersProps) => {
   const { className } = props;
   const { t } = useTranslation('filters');
   const dispatch = useAppDispatch();
