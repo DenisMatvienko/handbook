@@ -10,12 +10,12 @@ import { Card, CardTheme, CardView } from 'shared/ui/Card/Card';
 import { uid } from 'shared/lib/uid/uid';
 import classes from './Tabs.module.scss';
 
-interface TabsItem {
+export interface TabsItem {
     value?: string;
     content?: ReactNode;
 }
 
-interface TabsProps {
+export interface TabsProps {
     className?: string;
     tabs: TabsItem[];
     value: string;

@@ -22,7 +22,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -39,10 +39,10 @@ import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { Tabs } from 'shared/ui/Tabs/Tabs';
+import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs';
 import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
-import { ArticleSortField } from 'entities/Article/model/types/article';
+import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
 import {
   fetchArticlesList,
 } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
@@ -119,10 +119,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       </FullPageBlock>
   ), []);
 
-  const tabsArray = new Array(50).fill(0).map((item, index) => ({
-    value: `tab${index}`,
-    content: `tab${index}`,
-  }));
+  const tabsArray = useMemo<TabsItem[]>(() => [
+    {
+      value: `${Object.values(ArticleType)}`,
+      content: `${Object.values(ArticleType)}`,
+    },
+  ], []);
 
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector

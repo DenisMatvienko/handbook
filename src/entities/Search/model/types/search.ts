@@ -1,6 +1,6 @@
 import { User } from 'entities/User';
 
-export enum ArticleType {
+export enum SearchArticleType {
     IT = 'IT',
     JS = 'JS',
     ARCHITECTURE = 'Architecture',
@@ -12,6 +12,6 @@ export interface Search {
     subtitle: string,
     views: number,
     createdAt: string,
-    type: ArticleType[],
+    type: SearchArticleType[],
     user: User;
 }

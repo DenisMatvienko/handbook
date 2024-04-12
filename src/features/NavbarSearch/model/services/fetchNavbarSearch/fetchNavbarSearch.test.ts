@@ -5,7 +5,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import axios from 'axios';
 import { ArticleType } from 'entities/Article/model/types/article';
-import { Search } from 'entities/Search/model/types/search';
+import { Search, SearchArticleType } from 'entities/Search/model/types/search';
 import { fetchNavbarSearch } from './fetchNavbarSearch';
 
 jest.mock('axios');
@@ -18,7 +18,7 @@ describe('fetchNavbarSearch', () => {
       id: '1',
       subtitle: 'Управление памятью и принципах работы сборщика мусора',
       title: 'Управление памятью в JavaScript',
-      type: [ArticleType.IT, ArticleType.ARCHITECTURE, ArticleType.JS],
+      type: [SearchArticleType.IT, SearchArticleType.ARCHITECTURE, SearchArticleType.JS],
       user: {
         id: '1',
         username: 'JLebowski',
