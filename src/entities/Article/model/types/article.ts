@@ -43,6 +43,7 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 }
 
 export enum ArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   JS = 'JS',
   ARCHITECTURE = 'Architecture',

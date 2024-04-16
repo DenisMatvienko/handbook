@@ -46,11 +46,12 @@ import { ArticleSortField, ArticleType } from 'entities/Article/model/types/arti
 import {
   fetchArticlesList,
 } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
-  getArticlePageError, getArticlePageOrder, getArticlePageSort,
+  getArticlePageError, getArticlePageOrder, getArticlePageSort, getArticlePageTabs,
   getArticlePageView,
   getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
@@ -78,6 +79,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const error = useSelector(getArticlePageError);
   const sort = useSelector(getArticlePageSort);
   const order = useSelector(getArticlePageOrder);
+  const type = useSelector(getArticlePageTabs);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
@@ -103,6 +105,12 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     fetchData();
   }, [dispatch, fetchData]);
 
+  const onChangeTab = useCallback((setType: TabsItem) => {
+    dispatch(articlePageSliceActions.setType(setType.value as ArticleType));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
   const blockMock = useCallback((text: string, indent?: string) => (
       <FullPageBlock
           className={indent}
@@ -119,12 +127,21 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       </FullPageBlock>
   ), []);
 
-  const tabsArray = useMemo<TabsItem[]>(() => [
-    {
-      value: `${Object.values(ArticleType)}`,
-      content: `${Object.values(ArticleType)}`,
-    },
-  ], []);
+  const tabsArray = useMemo<TabsItem[]>(() => {
+    const tagsList = articles.map((item) => item.type).flat();
+    const set = new Set(tagsList);
+    const uniqueArray = Array.from(set);
+    uniqueArray.unshift(ArticleType.ALL);
+
+    const result = new Array(uniqueArray.length).fill(0).map((item, index) => (
+      {
+        value: `${stringCutter(uniqueArray[index], 11)}`,
+        content: `${stringCutter(uniqueArray[index], 11)}`,
+      }
+    ));
+
+    return result;
+  }, [articles]);
 
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
@@ -139,8 +156,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const widgetsRightSide: ComponentsObjectType = {
     tags: <Tabs
         tabs={tabsArray}
-        value="tab2"
-        onTabClick={() => 'hello'}
+        value={type}
+        onTabClick={onChangeTab}
     />,
   };
 

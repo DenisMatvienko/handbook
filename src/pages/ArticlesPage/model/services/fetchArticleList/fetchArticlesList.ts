@@ -11,10 +11,13 @@ import { Article } from 'entities/Article';
 import {
   getArticlePageLimit,
   getArticlePageOrder,
-  getArticlePageSort, getArticlesPageNum,
+  getArticlePageSort,
+  getArticlePageTabs,
+  getArticlesPageNum,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { ArticleType } from 'entities/Article/model/types/article';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -36,11 +39,13 @@ export const fetchArticlesList = createAsyncThunk<Article[],
         const sort = getArticlePageSort(getState());
         const order = getArticlePageOrder(getState());
         const search = getNavbarSearchArticleSelector(getState());
+        const type = getArticlePageTabs(getState());
 
         try {
           addQueryParams({
             sort,
             order,
+            type,
           });
           const response = await extra.api.get<Article[]>('/articles', {
             params: {
@@ -49,6 +54,7 @@ export const fetchArticlesList = createAsyncThunk<Article[],
               _page: page,
               _sort: sort,
               _order: order,
+              type: type === ArticleType.ALL ? undefined : type,
               q: search,
             },
           });

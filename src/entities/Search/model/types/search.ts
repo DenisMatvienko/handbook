@@ -1,6 +1,7 @@
 import { User } from 'entities/User';
 
 export enum SearchArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     JS = 'JS',
     ARCHITECTURE = 'Architecture',
