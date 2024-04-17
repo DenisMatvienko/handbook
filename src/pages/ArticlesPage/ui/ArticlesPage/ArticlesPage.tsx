@@ -141,6 +141,25 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     ));
 
     return result;
+
+    // return [
+    //   {
+    //     value: `${stringCutter(ArticleType.ARCHITECTURE, 11)}`,
+    //     content: `${stringCutter(ArticleType.ARCHITECTURE, 11)}`,
+    //   },
+    //   {
+    //     value: `${stringCutter(ArticleType.IT, 11)}`,
+    //     content: `${stringCutter(ArticleType.IT, 11)}`,
+    //   },
+    //   {
+    //     value: `${stringCutter(ArticleType.JS, 11)}`,
+    //     content: `${stringCutter(ArticleType.JS, 11)}`,
+    //   },
+    //   {
+    //     value: `${stringCutter(ArticleType.ALL, 11)}`,
+    //     content: `${stringCutter(ArticleType.ALL, 11)}`,
+    //   },
+    // ];
   }, [articles]);
 
   const widgetsLeftSide: ComponentsObjectType = {
