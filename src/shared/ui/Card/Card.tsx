@@ -20,7 +20,7 @@ export enum CardTheme {
     TABS_CHECKED = 'card_theme_tabs_checked',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     cardTheme?: CardTheme;
     cardView?: CardView;

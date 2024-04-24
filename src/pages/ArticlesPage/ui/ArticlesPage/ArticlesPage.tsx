@@ -39,7 +39,7 @@ import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
@@ -47,6 +47,7 @@ import {
   fetchArticlesList,
 } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
@@ -89,6 +90,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     dispatch(fetchArticlesList({ replace: true }));
   }, [dispatch]);
 
+  const debounceFetchData = useDebounce(fetchData, 500);
+
   useInitialEffect(() => {
     dispatch(initArticlesPage());
   });
@@ -105,8 +108,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     fetchData();
   }, [dispatch, fetchData]);
 
-  const onChangeTab = useCallback((setType: TabsItem) => {
-    dispatch(articlePageSliceActions.setType(setType.value as ArticleType));
+  const onChangeType = useCallback((tab: TabItem) => {
+    dispatch(articlePageSliceActions.setType(tab.value as ArticleType));
     dispatch(articlePageSliceActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
@@ -127,40 +130,32 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       </FullPageBlock>
   ), []);
 
-  const tabsArray = useMemo<TabsItem[]>(() => {
-    const tagsList = articles.map((item) => item.type).flat();
-    const set = new Set(tagsList);
-    const uniqueArray = Array.from(set);
-    uniqueArray.unshift(ArticleType.ALL);
-
-    const result = new Array(uniqueArray.length).fill(0).map((item, index) => (
-      {
-        value: `${stringCutter(uniqueArray[index], 11)}`,
-        content: `${stringCutter(uniqueArray[index], 11)}`,
-      }
-    ));
-
-    return result;
-
-    // return [
-    //   {
-    //     value: `${stringCutter(ArticleType.ARCHITECTURE, 11)}`,
-    //     content: `${stringCutter(ArticleType.ARCHITECTURE, 11)}`,
-    //   },
-    //   {
-    //     value: `${stringCutter(ArticleType.IT, 11)}`,
-    //     content: `${stringCutter(ArticleType.IT, 11)}`,
-    //   },
-    //   {
-    //     value: `${stringCutter(ArticleType.JS, 11)}`,
-    //     content: `${stringCutter(ArticleType.JS, 11)}`,
-    //   },
-    //   {
-    //     value: `${stringCutter(ArticleType.ALL, 11)}`,
-    //     content: `${stringCutter(ArticleType.ALL, 11)}`,
-    //   },
-    // ];
-  }, [articles]);
+  const typeTabs = useMemo<TabItem[]>(() => [
+    {
+      value: `${ArticleType.ALL}`,
+      content: `${stringCutter(ArticleType.ALL, 11)}`,
+    },
+    {
+      value: `${ArticleType.ARCHITECTURE}`,
+      content: `${stringCutter(ArticleType.ARCHITECTURE, 11)}`,
+    },
+    {
+      value: `${ArticleType.IT}`,
+      content: `${stringCutter(ArticleType.IT, 11)}`,
+    },
+    {
+      value: `${ArticleType.JS}`,
+      content: `${stringCutter(ArticleType.JS, 11)}`,
+    },
+    {
+      value: `${ArticleType.GIT}`,
+      content: `${stringCutter(ArticleType.GIT, 11)}`,
+    },
+    {
+      value: `${ArticleType.DIFFICULT_PROGRAMMING}`,
+      content: `${stringCutter(ArticleType.DIFFICULT_PROGRAMMING, 11)}`,
+    },
+  ], []);
 
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
@@ -174,9 +169,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   const widgetsRightSide: ComponentsObjectType = {
     tags: <Tabs
-        tabs={tabsArray}
+        tabs={typeTabs}
         value={type}
-        onTabClick={onChangeTab}
+        onTabClick={onChangeType}
     />,
   };
 

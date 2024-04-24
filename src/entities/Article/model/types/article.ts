@@ -47,6 +47,8 @@ export enum ArticleType {
   IT = 'IT',
   JS = 'JS',
   ARCHITECTURE = 'Architecture',
+  GIT = 'GIT',
+  DIFFICULT_PROGRAMMING = 'Ненормальное программирование',
 }
 
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
