@@ -65,33 +65,36 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
       />
   );
 
-  const renderEmptyPull = useCallback(() => (
-      <div className={classes.navbarSearchList__empty}>
-          <Text
-              theme={TextTheme.SUBTITLE}
-              text="No result for"
-              size={TextSize.M}
-              align={TextAlign.CENTER}
-          />
-          <Text
-              theme={TextTheme.BLOCK_TEXT}
-              title={`"${search}"`}
-              align={TextAlign.CENTER}
-          />
-      </div>
-  ), [search]);
-
   if (!isEntered) {
     return (
         <div className={classNames(classes.navbarSearchList, {}, [className])}>
             <div className={classes.navbarSearchList__empty}>
                 <Text
                     theme={TextTheme.SUBTITLE}
-                    text="hello, type here something"
+                    title={t('TypeHere')}
                     size={TextSize.M}
                     align={TextAlign.CENTER}
                 />
             </div>
+        </div>
+    );
+  }
+
+  if (!isLoading && !articles.length) {
+    return (
+        <div className={classes.navbarSearchList__empty}>
+            <Text
+                theme={TextTheme.SUBTITLE}
+                title={t('NoResultFor')}
+                size={TextSize.M}
+                align={TextAlign.CENTER}
+            />
+            <Text
+                className={classes.navbarSearchList__searchResultText}
+                theme={TextTheme.BLOCK_TEXT}
+                title={`"${search}"`}
+                align={TextAlign.CENTER}
+            />
         </div>
     );
   }
@@ -103,7 +106,6 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
           emptyLayout
       >
           {articles.length > 0 && articles?.map(renderArticle)}
-          {articles.length < 0 && renderEmptyPull()}
           { isLoading && getSkeletons()}
       </Page>
   );

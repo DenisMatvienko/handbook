@@ -21,6 +21,7 @@ import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleList
 import { uid } from 'shared/lib/uid/uid';
 import { SkeletonArticleListItem } from 'shared/ui/Skeleton/SkeletonArticleListItem/SkeletonArticleListItem';
 import { ArticleSortSelector } from 'features/ArticleSortSelector/ui/ArticleSortSelector';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/article';
 
 import classes from './ArticleList.module.scss';
@@ -50,7 +51,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     isLoading,
     view = ArticleView.LIST,
   } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
 
   const renderArticle = (article: Article) => (
       <ArticleListItem
@@ -63,6 +64,25 @@ export const ArticleList = memo((props: ArticleListProps) => {
   const mods: Mods = {
     [classes.articleList_row]: view === 'GRID',
   };
+
+  if (!isLoading && !articles.length) {
+    return (
+        <div className={classNames(classes.articleList__notFound, mods, [className])}>
+            <div>
+                <Text
+                    title={t('ArticlesNotFound')}
+                    theme={TextTheme.BACKGROUND_TEXT}
+                    align={TextAlign.LEFT}
+                />
+                <Text
+                    theme={TextTheme.BACKGROUND_TEXT}
+                    text={t('TryTo')}
+                    align={TextAlign.LEFT}
+                />
+            </div>
+        </div>
+    );
+  }
 
   return (
       <div className={classNames(classes.articleList, mods, [className])}>

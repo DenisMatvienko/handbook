@@ -45,7 +45,6 @@ export const Tabs = memo((props: TabsProps) => {
                           key={uid()}
                           cardTheme={tab.value === value ? CardTheme.TABS_CHECKED : CardTheme.TABS}
                           cardView={CardView.DEFAULT}
-                          onClick={clickHandle(tab)}
                       >
                           {tab.content}
                       </Card>

@@ -12,6 +12,7 @@
   "Articles": "Articles",
   "Articles Detail page": "Articles Detail page",
   "Articles page": "Articles page",
+  "ArticlesNotFound": "ArticlesNotFound",
   "Back": "Back",
   "Comments": "Comments",
   "Country": "Country",
@@ -19,6 +20,7 @@
   "Firstname": "Firstname",
   "Lastname": "Lastname",
   "Lorem-layout": "Lorem-layout",
+  "NoResultFor": "NoResultFor",
   "NoSearches": "NoSearches",
   "Oopps": {
     "": {
@@ -35,6 +37,8 @@
   "RefreshPage": "RefreshPage",
   "Search": "Search",
   "Sort": "Sort",
+  "TryTo": "TryTo",
+  "TypeHere": "TypeHere",
   "UserProfile": "UserProfile",
   "Will be Articles": "Will be Articles",
   "Will be Articles Detail": "Will be Articles Detail",

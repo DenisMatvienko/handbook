@@ -22,7 +22,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useMemo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import {
   ComponentsObjectType,
@@ -39,28 +39,24 @@ import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleSortSelector } from 'features/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
-import {
-  fetchArticlesList,
-} from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
-import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
-  getArticlePageError, getArticlePageOrder, getArticlePageSort, getArticlePageTabs,
+  getArticlePageError,
+  getArticlePageOrder,
+  getArticlePageSort,
+  getArticlePageTabs,
   getArticlePageView,
   getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
-import {
-  articlePageSliceActions,
-  articlePageSliceReducer,
-  getArticles,
-} from '../../model/slices/articlePageSlice';
+import { articlePageSliceActions, articlePageSliceReducer, getArticles } from '../../model/slices/articlePageSlice';
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -108,8 +104,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     fetchData();
   }, [dispatch, fetchData]);
 
-  const onChangeType = useCallback((tab: TabItem) => {
-    dispatch(articlePageSliceActions.setType(tab.value as ArticleType));
+  const onChangeType = useCallback((value: ArticleType) => {
+    dispatch(articlePageSliceActions.setType(value));
     dispatch(articlePageSliceActions.setPage(1));
     fetchData();
   }, [dispatch, fetchData]);
@@ -130,33 +126,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       </FullPageBlock>
   ), []);
 
-  const typeTabs = useMemo<TabItem[]>(() => [
-    {
-      value: `${ArticleType.ALL}`,
-      content: `${stringCutter(ArticleType.ALL, 11)}`,
-    },
-    {
-      value: `${ArticleType.ARCHITECTURE}`,
-      content: `${stringCutter(ArticleType.ARCHITECTURE, 11)}`,
-    },
-    {
-      value: `${ArticleType.IT}`,
-      content: `${stringCutter(ArticleType.IT, 11)}`,
-    },
-    {
-      value: `${ArticleType.JS}`,
-      content: `${stringCutter(ArticleType.JS, 11)}`,
-    },
-    {
-      value: `${ArticleType.GIT}`,
-      content: `${stringCutter(ArticleType.GIT, 11)}`,
-    },
-    {
-      value: `${ArticleType.DIFFICULT_PROGRAMMING}`,
-      content: `${stringCutter(ArticleType.DIFFICULT_PROGRAMMING, 11)}`,
-    },
-  ], []);
-
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
         className={classes.articlesPage__selectors}
@@ -168,10 +137,9 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   };
 
   const widgetsRightSide: ComponentsObjectType = {
-    tags: <Tabs
-        tabs={typeTabs}
+    tags: <ArticleTypeTabs
+        onChangeType={onChangeType}
         value={type}
-        onTabClick={onChangeType}
     />,
   };
 

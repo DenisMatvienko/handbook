@@ -8,5 +8,7 @@
   "byCreated": "By created",
   "byViews": "By views",
   "to close": "to close",
-  "NoSearches": "No recent searches"
+  "NoSearches": "No recent searches",
+  "NoResultFor": "\uD83D\uDE2D No result for",
+  "TypeHere": "\uD83D\uDC4B No recent searches"
 }

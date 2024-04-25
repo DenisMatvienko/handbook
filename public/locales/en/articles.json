@@ -2,6 +2,8 @@
   "ArticleErrorTitle": "\uD83D\uDE2D Article loading error",
   "ArticleErrorText": "Article not found. Try to open new article or refresh page",
   "ArticlePageErrorTitle": "\uD83E\uDD2C Articles error \uD83D\uDE21",
+  "ArticlesNotFound": "\uD83E\uDD2C Articles not found \uD83D\uDE21",
+  "TryTo": "Try to search something else",
   "ArticlePageErrorText": "Articles has not loaded, try to reload page",
   "tags": "Tags",
   "ArticleList": "List of articles",
