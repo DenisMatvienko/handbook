@@ -56,6 +56,7 @@ import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollRestorationSchema } from 'features/ScrollRestoration';
 import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSearchSchema';
+import { Navbar } from 'widgets/Navbar/model/types/navbar';
 
 export interface StateSchema {
   /** Static reducer's */
@@ -71,6 +72,7 @@ export interface StateSchema {
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
   navbarSearch?: NavbarSearchSchema;
+  navbar?: Navbar;
 }
 
 export type StateSchemaKey = keyof StateSchema;

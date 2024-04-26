@@ -12,6 +12,7 @@ import {
 } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Search } from 'entities/Search/model/types/search';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
+import { getNavbarSearchIsOpen } from 'widgets/Navbar/model/selectors/getNavbarSelectors';
 
 interface FetchArticleListProps {
     replace?: boolean,
@@ -28,14 +29,18 @@ export const fetchNavbarSearch = createAsyncThunk<Search[],
           getState,
         } = thunkAPI;
 
+        const searchModalIsOpen = getNavbarSearchIsOpen(getState());
         const search = getNavbarSearchArticleSelector(getState());
         const limit = getNavbarSearchLimit(getState());
         const page = getNavbarPageSelector(getState());
 
         try {
-          addQueryParams({
-            search,
-          });
+          if (searchModalIsOpen) {
+            addQueryParams({
+              search,
+            });
+          }
+
           const response = await extra.api.get<Search[]>('/articles', {
             params: {
               q: search,

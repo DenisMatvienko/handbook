@@ -8,6 +8,7 @@ import { ThunkConfig } from 'app/provider/StoreProvider';
 import { navbarSearchActions } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch/fetchNavbarSearch';
 import { getNavbarSearchInited } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { getNavbarSearchIsOpen } from 'widgets/Navbar/model/selectors/getNavbarSelectors';
 
 export const initNavbarSearch = createAsyncThunk<void,
     void,
@@ -20,10 +21,11 @@ export const initNavbarSearch = createAsyncThunk<void,
         } = thunkAPI;
 
         const searchParams = new URLSearchParams(window.location.search);
+        const searchModalIsOpen = getNavbarSearchIsOpen(getState());
 
         const inited = getNavbarSearchInited(getState());
 
-        if (!inited) {
+        if (!inited && searchModalIsOpen) {
           const searchFromUrl = searchParams.get('search');
 
           if (searchFromUrl) {
