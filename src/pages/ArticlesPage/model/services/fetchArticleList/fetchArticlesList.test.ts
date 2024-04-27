@@ -55,7 +55,7 @@ describe('fetchArticlesList', () => {
         entities: {},
         limit: 5,
         isLoading: false,
-        hasMore: true,
+        hasMore: false,
       },
     };
 

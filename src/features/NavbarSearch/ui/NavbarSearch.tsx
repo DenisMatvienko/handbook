@@ -74,10 +74,6 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
     }
   }, [dispatch, debounceFetchData]);
 
-  const onSetSearch = useCallback(() => {
-    console.log('search');
-  }, []);
-
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
@@ -113,18 +109,6 @@ export const NavbarSearch = (props: NavbarSearchProps) => {
                       value={search}
                       placeholder={t('Search')}
                   />
-                  <Button
-                      className={classes.navbarSearch__buttonSearch}
-                      onClick={onSetSearch}
-                      theme={ButtonTheme.BACKGROUND}
-                      size={ButtonSize.XXL}
-                  >
-                      <Text
-                          theme={TextTheme.TEXT_WHITE}
-                          text={t('Search')}
-                          size={TextSize.XL}
-                      />
-                  </Button>
               </div>
               <NavbarSearchList
                   articles={articles}

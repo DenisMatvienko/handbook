@@ -6,19 +6,21 @@
  *
  */
 
-import { add_type_schema } from 'widgets/Navbar/model/slices/NavbarSlice.test';
-import { add_slice_action, add_slice_reduser } from './NavbarSlice';
+import { Navbar } from 'widgets/Navbar/model/types/navbar';
+import { NavbarActions, NavbarReducer } from 'widgets/Navbar/model/slices/NavbarSlice';
 
-const InitialState: DeepPartial<add_type_schema> = {};
-
-const data = {
-  also_can_add_manual_data,
+const InitialState: DeepPartial<Navbar> = {
+  searchIsOpen: false,
 };
 
 describe('NavbarSlice', () => {
-  test('NavbarSlice reducer test', () => {
-  });
-
-  test('NavbarSlice reducer test', () => {
+  test('setSearchIsOpen reducer test', () => {
+    expect(NavbarReducer(
+        InitialState as Navbar,
+        NavbarActions.setSearchIsOpen(true),
+    ))
+      .toEqual({
+        searchIsOpen: true,
+      });
   });
 });
