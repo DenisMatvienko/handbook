@@ -25,5 +25,6 @@ CountrySelectWithLabel.args = {
 CountrySelectWithLabel.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const CountrySelectEmpty = Template.bind({});
-CountrySelectEmpty.args = {};
-CountrySelectEmpty.decorators = [ThemeDecorator(Theme.DARK)];
+CountrySelectEmpty.args = {
+  label: true,
+};

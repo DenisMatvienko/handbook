@@ -1,29 +1,29 @@
 .ldsRing_dynamic {
   position: absolute;
   border-radius: 50%;
-  animation: rotation_dynamic .7s linear infinite
+  animation: rotation-dynamic 0.7s linear infinite;
 }
 
 .ldsRing_dynamic::before {
   content: "";
   box-sizing: border-box;
   position: absolute;
-  inset: 0px;
+  inset: 0;
   border-radius: 50%;
   border: 3px solid var(--border-input);
-  animation: prixClipFix 2s linear infinite ;
+  animation: prix-clip-fix 2s linear infinite;
 }
 
-@keyframes rotation_dynamic {
-  100%   {transform: rotate(360deg)}
+@keyframes rotation-dynamic {
+  100% { transform: rotate(360deg); }
 }
 
-@keyframes prixClipFix {
-  0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-  25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-  50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-  75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-  100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+@keyframes prix-clip-fix {
+  0% { clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0); }
+  25% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0); }
+  50% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%); }
+  75% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%); }
+  100% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0); }
 }
 
 .ldsRing_static {
@@ -32,13 +32,14 @@
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
-  animation: rotation_static .5s linear infinite;
+  animation: rotation-static 0.5s linear infinite;
 }
 
-@keyframes rotation_static {
+@keyframes rotation-static {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

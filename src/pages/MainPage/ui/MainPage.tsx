@@ -5,21 +5,19 @@ import { BugButton } from 'app/provider/ErrorBoundary';
 import classes from './MainPage.module.scss';
 
 const MainPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('main');
 
   return (
       <Page>
           <div className={classes.mainPage__wrapper}>
               <h1 className={classes.mainPage__title}>
-                  Привет! 👋
+                  {t('Hi')}
               </h1>
               <h1 className={classes.mainPage__title}>
-                  Lorem ipsum dolor sit amet, consectetur @DenisMatvienko adipiscing elit.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
+                  {t('Title')}
               </h1>
               <span className={classes.mainPage__paragraph}>
-                  Как дела #реакт, #redux recognition #js of the inherent dignity
+                  {t('Subtitle')}
               </span>
               <BugButton />
           </div>

@@ -2,7 +2,7 @@
   margin-right: 10px;
 }
 
-.select_default select{
+.select_default select {
   cursor: pointer;
   background-color: var(--secondary);
   outline: none;
@@ -14,10 +14,10 @@
   line-height: 30px;
   text-align: center;
   appearance: none;
-  padding: 0px 5px
+  padding: 0 5px;
 }
 
-.select_filter select{
+.select_filter select {
   cursor: pointer;
   background-color: var(--block-color);
   outline: none;
@@ -29,7 +29,7 @@
   line-height: 30px;
   text-align: center;
   appearance: none;
-  padding: 0px 5px
+  padding: 0 5px;
 }
 
 .select__option {
