@@ -39,8 +39,15 @@ export function buildCssLoader(isDev : boolean) {
           },
         },
       },
-      'resolve-url-loader', // Necessary should be before sass-loader
-      'sass-loader',
+      {
+        loader: 'resolve-url-loader', // Necessary should be before sass-loader,
+      },
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true,
+        },
+      },
     ],
   };
 }

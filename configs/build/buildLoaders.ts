@@ -47,9 +47,6 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       {
         loader: 'file-loader',
       },
-      // {
-      //   loader: 'file-loader?name=./src/app/styles/fonts/notoSans/[name].[ext]',
-      // },
     ],
   };
 
