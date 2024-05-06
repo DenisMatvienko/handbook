@@ -1,0 +1,12 @@
+/**
+     - Webpack have problem with url()
+          https://webpack.js.org/loaders/sass-loader/#resolving-import-at-rules
+
+     - To solve need use 'resolve-url-loader':
+          https://dev.to/varya/using-web-fonts-with-sass-and-webpack-51m4
+          https://github.com/bholloway/resolve-url-loader/blob/v5/packages/resolve-url-loader/README.md
+          https://tocode.ru/courses/nastroika-webpack4/podkluchenie-shriftov/
+ */
+
+@import "./consolas/consolas";
+@import "./notoSans/notoSans";

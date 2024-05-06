@@ -1,0 +1,33 @@
+.mainPage__wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 75%;
+  height: 70vh;
+  margin: 0 auto;
+  padding: 50px;
+  flex-shrink: 100;
+
+  & h1,
+  span:not(:first-child) {
+    margin-top: 35px;
+  }
+}
+
+.mainPage__title {
+  font: 26px Arial, sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  color: var(--text-main);
+}
+
+.mainPage__paragraph {
+  font: 20px Arial, sans-serif;
+  color: grey;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  line-height: 1.2;
+}

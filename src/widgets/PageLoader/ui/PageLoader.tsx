@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { LoaderSpinner } from 'shared/ui/LoaderSpinner/LoaderSpinner';
+import { LoaderSpinner } from 'shared/ui/Loaders/LoaderSpinner/LoaderSpinner';
 import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {

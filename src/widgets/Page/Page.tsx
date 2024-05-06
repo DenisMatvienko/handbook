@@ -22,23 +22,19 @@
  *          - Wrapper which should contain scroll
  */
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
-  memo, MutableRefObject, UIEvent, ReactNode, useRef, useState, useEffect,
+  MutableRefObject, ReactNode, UIEvent, useRef, useState,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { ButtonToTop } from 'shared/ui/ButtonToTop/ButtonToTop';
 import { ScrollRestorationActions } from 'features/ScrollRestoration';
 import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import {
-  getScrollRestoration,
-  getScrollRestorationBypath,
-} from 'features/ScrollRestoration/model/selectors/GetScrollRestoration';
+import { getScrollRestorationBypath } from 'features/ScrollRestoration/model/selectors/GetScrollRestoration';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
@@ -47,11 +43,17 @@ import classes from './Page.module.scss';
 interface PageProps {
     className?: string;
     children?: ReactNode;
+    emptyLayout?: boolean;
     onScrollEnd?: () => void;
 }
 
 export const Page = (props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const {
+    className,
+    children,
+    emptyLayout = false,
+    onScrollEnd,
+  } = props;
   const { t } = useTranslation();
   const [showNav, setShowNav] = useState(false);
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -87,6 +89,19 @@ export const Page = (props: PageProps) => {
     }));
   }, 500);
 
+  if (emptyLayout) {
+    return (
+        <section
+            ref={wrapperRef}
+            className={classNames(classes.page__empty, {}, [className])}
+            onScroll={onScroll}
+        >
+            { children }
+            {onScrollEnd ? <div className={classes.page__trigger} ref={triggerRef} /> : null}
+        </section>
+    );
+  }
+
   return (
       <section
           ref={wrapperRef}
@@ -100,7 +115,7 @@ export const Page = (props: PageProps) => {
                   className={classNames(classes.page__content, {}, [className])}
               >
                   { children }
-                  <div ref={triggerRef} />
+                  {onScrollEnd ? <div className={classes.page__trigger} ref={triggerRef} /> : null}
               </div>
           </div>
       </section>

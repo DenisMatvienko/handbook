@@ -8,6 +8,12 @@
  *      This made for autocomplete.
  */ import { User } from 'entities/User';
 
+export enum ArticleSortField {
+   VIEWS = 'views',
+   TITLE = 'title',
+   CREATED = 'createdAt',
+}
+
 export enum ArticleBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
@@ -37,9 +43,12 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 }
 
 export enum ArticleType {
+  ALL = 'ALL',
   IT = 'IT',
   JS = 'JS',
   ARCHITECTURE = 'Architecture',
+  GIT = 'GIT',
+  DIFFICULT_PROGRAMMING = 'Ненормальное программирование',
 }
 
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;

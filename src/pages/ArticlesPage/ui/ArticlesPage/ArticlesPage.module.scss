@@ -4,14 +4,6 @@
   width: 100%;
 }
 
-.articlesPage__header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
 .recommendationsMock {
   display: flex;
   justify-content: center;
@@ -20,6 +12,28 @@
   padding: 50px;
 }
 
+.articlesPage__selectors {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+.articlesPage__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
 .recommendationsMock_wrapper {
+  margin-top: 10px;
+}
+
+.articlesPage__filters {
+  margin-top: 10px;
+}
+
+.articlesPage__content {
   margin-top: 10px;
 }

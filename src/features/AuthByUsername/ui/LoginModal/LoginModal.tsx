@@ -1,4 +1,4 @@
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { PageLoader } from 'widgets/PageLoader';
 import { memo, Suspense } from 'react';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
@@ -13,6 +13,7 @@ export const LoginModal = memo(({ className, isOpen, onClose }: LoginModalProps)
     <Modal
         isOpen={isOpen}
         onClose={onClose}
+        modalTheme={ModalTheme.DEFAULT}
         lazy
     >
         <Suspense fallback={<PageLoader />}>

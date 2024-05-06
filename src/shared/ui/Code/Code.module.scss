@@ -9,18 +9,19 @@
 
 .code__copyBtn {
   position: absolute;
+  top: 10px;
   right: 4%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 
 .code__copyIcon {
   fill: var(--main);
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .code__copyIcon:hover,
@@ -30,7 +31,9 @@
 
 .code__wrapper {
   font-family: var(--font-family-code);
-  font-weight: 300;
-  font-size: 14px;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
   width: 100%;
 }

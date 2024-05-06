@@ -1,15 +1,13 @@
 /**
  *    TagsInfo-component.
- *      - TagsInfo
+ *      - Info window about tags, which didn't throw into overflow in card
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, Suspense } from 'react';
+import React, { memo } from 'react';
 import { Article } from 'entities/Article';
-import { PageLoader } from 'widgets/PageLoader';
-import { LoginFormAsync } from 'features/AuthByUsername/ui/LoginForm/LoginForm.async';
-import { Modal } from 'shared/ui/Modal/Modal';
+import { Modal, ModalTheme } from 'shared/ui/Modal/Modal';
 import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
 import { uid } from 'shared/lib/uid/uid';
 import classes from './TagsInfo.module.scss';
@@ -32,6 +30,7 @@ export const TagsInfo = memo((props: TagsInfoProps) => {
           className={classNames(classes.tagsInfo, {}, [className])}
           isOpen={isOpen}
           onClose={onClose}
+          modalTheme={ModalTheme.DEFAULT}
           lazy
       >
           <div className={classes.tagsInfo__wrapper}>

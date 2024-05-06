@@ -13,17 +13,17 @@ import React, {
   InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import SearchIcon from 'shared/assets/icons/search/search.svg';
+import ClearIcon from 'shared/assets/icons/search/clear.svg';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
 export enum InputTheme {
-  SIMPLE = 'label__default',
-}
-
-export enum LabelPosition {
-  TOP = 'input__label_top',
-  LEFT = 'input__label_left',
+  SIMPLE = 'input_default',
+  NAVBAR_SEARCH = 'input_navbar-search'
 }
 
 interface InputProps extends HTMLInputProps {
@@ -33,7 +33,6 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
   theme?: InputTheme;
   label?: string;
-  labelPosition?: LabelPosition;
   autofocus?: boolean;
   readonly?: boolean;
 }
@@ -49,7 +48,6 @@ export const Input = memo((props: InputProps) => {
     autofocus,
     readonly,
     label,
-    labelPosition = LabelPosition.TOP,
     ...otherProps
   } = props;
 
@@ -66,10 +64,13 @@ export const Input = memo((props: InputProps) => {
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
+    ref.current?.focus();
   };
 
-  const wrapperMods: Mods = {
-    [classes[labelPosition]]: true,
+  const onClearHandler = () => {
+    if (ref.current != null) {
+      ref.current.value = '';
+    }
   };
 
   const mods: Mods = {
@@ -78,7 +79,7 @@ export const Input = memo((props: InputProps) => {
   };
 
   return (
-      <div className={classNames(classes.input, wrapperMods, [className])}>
+      <div className={classNames(classes.input, {}, [className])}>
           {label && (
           <div className={classes.input__label}>
               <Text
@@ -96,6 +97,25 @@ export const Input = memo((props: InputProps) => {
               onChange={onChangeHandler}
               {...otherProps}
           />
+          { theme === InputTheme.NAVBAR_SEARCH
+            && (
+            <div>
+                { ref.current?.value
+                  && (
+                  <Button
+                      theme={ButtonTheme.CLEAR}
+                      radius={ButtonRadius.ELLIPSE}
+                      onClick={onClearHandler}
+                  >
+                      <Icon
+                          className={classes.input__clearIcon}
+                          Svg={ClearIcon}
+                          theme={IconTheme.BLOCK_ICON}
+                      />
+                  </Button>
+                  )}
+            </div>
+            )}
       </div>
   );
 });

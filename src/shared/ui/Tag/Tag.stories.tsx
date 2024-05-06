@@ -26,6 +26,7 @@ const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
 export const FirstTag = Template.bind({});
 FirstTag.args = {
+  data: 'hello this is tag',
   theme: TagTheme.DEFAULT,
 };
 FirstTag.decorators = [ThemeDecorator(Theme.DARK)];

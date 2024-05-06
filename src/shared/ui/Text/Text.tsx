@@ -39,11 +39,12 @@ import classes from './Text.module.scss';
 export enum TextTheme {
   BACKGROUND_TEXT = 'text_background',
   BLOCK_TEXT='text_block',
-  SECONDARY_INVERTED = 'text_secondary_inverted',
+  SECONDARY_INVERTED = 'text_secondary-inverted',
   TEXT_WHITE = 'text_white',
   TRANSLUCENT = 'text_translucent',
   SUBTITLE='text_subtitle',
   ERROR = 'text_error',
+  MAIN_PAGE_TEXT = 'text_main-page'
 }
 
 export enum TextAlign {
@@ -53,11 +54,11 @@ export enum TextAlign {
 }
 
 export enum TextSize {
-  XS = 'text_size_xs',
-  S = 'text_size_s',
-  M = 'text_size_m',
-  L = 'text_size_l',
-  XL = 'text_size_xl',
+  XS = 'text_size-xs',
+  S = 'text_size-s',
+  M = 'text_size-m',
+  L = 'text_size-l',
+  XL = 'text_size-xl',
 }
 
 interface TextProps {

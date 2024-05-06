@@ -25,35 +25,35 @@
     cursor: pointer;
   }
 
-  &_size_m {
+  &_size-m {
     width: 25px;
     height: 25px;
   }
 
-  &_size_l {
+  &_size-l {
     width: 50px;
     height: 50px;
   }
 
-  &_size_xl {
+  &_size-xl {
     width: 100px;
     height: 100px;
   }
 
-  &_size_xxl {
+  &_size-xxl {
     width: 200px;
     height: 200px;
   }
 
-  &_radius_square {
+  &_radius-square {
     border-radius: 0%;
   }
 
-  &_radius_circle {
+  &_radius-circle {
     border-radius: 50%;
   }
 
-  &_radius_ellipse {
+  &_radius-ellipse {
     border-radius: 10px;
   }
 }
