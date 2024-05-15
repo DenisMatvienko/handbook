@@ -45,6 +45,10 @@ import { ArticleSortField, ArticleType } from 'entities/Article/model/types/arti
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import {
+  articlesPageRecommendationsReducer,
+} from 'features/ArticlesPageRecommendations/model/slices/articlesPageRecommendationsSlice';
+import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations/ui/ArticlesPageRecommendations';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
@@ -65,6 +69,7 @@ interface ArticlesPageProps {
 
 const reducers: ReducersList = {
   articlesPage: articlePageSliceReducer,
+  articlesPageRecommendations: articlesPageRecommendationsReducer,
 };
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
@@ -152,7 +157,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   };
 
   const contentRightSide: ComponentsObjectType = {
-    recommendations: blockMock('=Temporary recommendations layout='),
+    recommendations: <ArticlesPageRecommendations />,
     histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
