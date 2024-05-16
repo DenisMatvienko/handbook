@@ -69,7 +69,6 @@ interface ArticlesPageProps {
 
 const reducers: ReducersList = {
   articlesPage: articlePageSliceReducer,
-  articlesPageRecommendations: articlesPageRecommendationsReducer,
 };
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
