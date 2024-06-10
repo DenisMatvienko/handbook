@@ -99,14 +99,14 @@ module.exports = {
       ],
     'max-len': ['error', {
       ignoreComments: true,
-      code: 120,
+      code: 200,
     }],
     'jsx-a11y/no-static-element-interactions': 'off', // semantic filter, use later
     'jsx-a11y/click-events-have-key-events': 'off', // semantic filter, use later
     'react-hooks/rules-of-hooks': 'error', // Check rules of Hooks
     'react-hooks/exhaustive-deps': 'error', // Check effect dependencies
     'no-param-reassign': 'off', // allow to change functions args (immer js for slices)
-    // 'react/no-array-index-key': 'off', // off because indexes allow to use outer of lists which need to change
+    // // 'react/no-array-index-key': 'off', // off because indexes allow to use outer of lists which need to change
   },
   globals: {
     __IS_DEV__: true,

@@ -1,5 +1,6 @@
 @import "./reset";
 @import "./variables/global";
+@import "./fonts/fonts";
 @import "./themes/light/light";
 @import "./themes/dark/dark";
 @import "./themes/pink/pink";
@@ -19,8 +20,7 @@ body {
 
 /* Works on Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--button-dpurple-lblack-hover);
+  scrollbar-color: var(--scroll-background);
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -32,7 +32,7 @@ body {
 *::-webkit-scrollbar-track {
   cursor: pointer;
   border-radius: 10px;
-  background: var(--scroll-background);
+  background: var(--background);
 }
 
 *::-webkit-scrollbar-thumb {

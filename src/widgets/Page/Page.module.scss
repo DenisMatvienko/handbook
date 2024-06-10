@@ -4,6 +4,7 @@
   flex-shrink: 100;
   max-height: 100vh;
   overflow-y: auto;
+  scrollbar-gutter: stable;
 }
 
 .page__wrapper {
@@ -16,4 +17,8 @@
   margin: 0 auto;
   padding: 20px;
   flex-shrink: 100;
+}
+
+.page__trigger {
+  height: 20px;
 }

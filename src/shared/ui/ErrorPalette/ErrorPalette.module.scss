@@ -25,6 +25,13 @@
   fill: var(--secondary);
 }
 
+.errorPallete_transparent {
+  border-radius: 10px;
+  background: none;
+  color: var(--main-hover);
+  fill: var(--main-hover);
+}
+
 .errorPallet_size-none {
   width: 100px;
   padding: 5px;

@@ -15,16 +15,13 @@
  *      If you need to do something after event (ex: after auth you need to redirect into profile)
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/provider/ThemeProvider';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
-import { PageLoader } from 'widgets/PageLoader';
 import { getUserInited, userActions } from 'entities/User';
+import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ButtonToTop } from 'shared/ui/ButtonToTop/ButtonToTop';
+import { PageLoader } from 'widgets/PageLoader';
 import { AppRouter } from './provider/router';
 
 function App() {

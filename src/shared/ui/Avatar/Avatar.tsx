@@ -14,16 +14,16 @@ export enum AvatarTheme {
 }
 
 export enum AvatarSize {
-  M = 'avatar_size_m',
-  L = 'avatar_size_l',
-  XL = 'avatar_size_xl',
-  XXL = 'avatar_size_xxl',
+  M = 'avatar_size-m',
+  L = 'avatar_size-l',
+  XL = 'avatar_size-xl',
+  XXL = 'avatar_size-xxl',
 }
 
 export enum AvatarRadius {
-  SQUARE = 'avatar_radius_square',
-  CIRCLE = 'avatar_radius_circle',
-  ELLIPSE = 'avatar_radius_ellipse',
+  SQUARE = 'avatar_radius-square',
+  CIRCLE = 'avatar_radius-circle',
+  ELLIPSE = 'avatar_radius-ellipse',
 }
 
 interface AvatarProps {

@@ -7,7 +7,7 @@
  *         - Else it will be gridded cards
  */
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback, useState } from 'react';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -19,7 +19,7 @@ import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
-import { Card } from 'shared/ui/Card/Card';
+import { Card, CardTheme, CardView } from 'shared/ui/Card/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
@@ -50,7 +50,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           />
           <Text
               theme={TextTheme.BLOCK_TEXT}
-              text="1024"
+              text={t(String(article?.views))}
               size={TextSize.S}
           />
       </div>
@@ -84,7 +84,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   if (view === ArticleView.LIST) {
     return (
-        <Card className={classNames(classes.articleListView, {}, [className, classes[view]])}>
+        <Card
+            cardView={CardView.ARTICLE}
+            cardTheme={CardTheme.DEFAULT}
+            className={classNames(classes.articleListView, {}, [className, classes[view]])}
+        >
             <div className={classes.articleListView__header}>
                 <Avatar
                     size={AvatarSize.L}
@@ -101,7 +105,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         />
                         <Text
                             theme={TextTheme.SUBTITLE}
-                            text="27.10.2017"
+                            text={t(String(article?.createdAt))}
                             size={TextSize.S}
                         />
                     </div>
@@ -115,13 +119,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                 </div>
             </div>
-            <Text
-                className={classes.articleListView__title}
-                theme={TextTheme.BLOCK_TEXT}
-                title={stringCutter(article.title, 50)}
-                size={TextSize.M}
-                align={TextAlign.LEFT}
-            />
+            <div
+                onClick={onOpenArticles}
+            >
+                <Text
+                    className={classes.articleListView__title}
+                    theme={TextTheme.BLOCK_TEXT}
+                    title={stringCutter(article.title, 50)}
+                    size={TextSize.M}
+                    align={TextAlign.LEFT}
+                />
+            </div>
             <div
                 className={classes.articleListView__tags}
             >
@@ -135,11 +143,20 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     />
                 ))}
             </div>
-            <img
-                className={classNames(classes.ArticleListItemImg, {}, [classes.ListViewIndent])}
-                src={article.img}
-                alt={article.title}
-            />
+            <div
+                onClick={onOpenArticles}
+            >
+                <img
+                    className={classNames(
+                      `${classes.articleImage} ${classes.articleImage_list}`,
+                      {},
+                      [classes.ListViewIndent],
+                    )}
+                    src={article.img}
+                    alt={article.title}
+                />
+            </div>
+
             <div />
             <div className={classes.articleListView__description}>
                 {paragraph}
@@ -159,23 +176,29 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   return (
       <Card
+          cardView={CardView.ARTICLE}
+          cardTheme={CardTheme.DEFAULT}
           {...bindIsHover}
           className={classes.articleGridView}
       >
-          <img
-              onClick={onOpenArticles}
-              aria-hidden="true"
-              className={classes.articleGridView__img}
-              src={article.img}
-              alt={article.title}
-          />
+          <div
+              className={`${classes.articleImage__wrapper}`}
+          >
+              <img
+                  onClick={onOpenArticles}
+                  aria-hidden="true"
+                  className={`${classes.articleImage} ${classes.articleImage_grid}`}
+                  src={article.img}
+                  alt={article.title}
+              />
+          </div>
           <div
               onClick={onOpenArticles}
               className={classes.articleGridView__title}
           >
               <Text
                   theme={TextTheme.BLOCK_TEXT}
-                  title={stringCutter(article.title, 20)}
+                  title={stringCutter(article.title, 40)}
                   size={TextSize.S}
                   align={TextAlign.LEFT}
               />

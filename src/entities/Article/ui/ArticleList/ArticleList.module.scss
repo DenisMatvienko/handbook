@@ -2,10 +2,18 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 27px;
   margin-left: 0;
+  gap: 15px;
+}
+
+.articleList__notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .articleList_row {
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }

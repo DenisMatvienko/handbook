@@ -18,13 +18,23 @@
  *        addMany:
  *        - Add new data from state in end of list
  *
+ *      @param addMany
+ *        - in fulfilled:
+ *          A new portion of data is loaded at the end
+ *          setAll - at the beginning of list
+ *          addMany - at the end of list
  *
+ *      @param replace
+ *        - In case when add some filter (sort, order, etc..)
+ *          Need receive new portion of data
  */
 
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Article, ArticleView } from 'entities/Article';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
+import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticleList/fetchArticlesList';
 
@@ -44,9 +54,13 @@ export const articlePageSlice = createSlice({
     ids: [],
     entities: {},
     view: ArticleView.LIST,
+    limit: 10,
+    order: 'asc',
+    sort: ArticleSortField.TITLE,
     page: 1,
     hasMore: true,
     _inited: false,
+    type: ArticleType.ALL,
   }),
   reducers: {
     setView: (state, action:PayloadAction<ArticleView>) => {
@@ -62,20 +76,43 @@ export const articlePageSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
+    setOrder: (state, action: PayloadAction<SortOrderType>) => {
+      state.order = action.payload;
+    },
+    setSort: (state, action: PayloadAction<ArticleSortField>) => {
+      state.sort = action.payload;
+    },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
+        }
       })
       .addCase(fetchArticlesList.fulfilled, (
         state,
-        action: PayloadAction<Article[]>,
+        action,
       ) => {
         state.isLoading = false;
         articlesAdapter.addMany(state, action.payload);
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length >= state.limit;
+
+        /**
+         *  If you need use just infinite scroll - use addMany
+         *  Else, if you use sort/order filters - use setAll
+         * */
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
       })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;

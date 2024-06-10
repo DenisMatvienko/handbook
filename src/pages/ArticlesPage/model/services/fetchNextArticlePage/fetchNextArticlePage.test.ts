@@ -20,7 +20,7 @@ describe('fetchNextArticlePage', () => {
   test('ok request, success status, correct data', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlePage, {
       articlesPage: {
-        page: 2,
+        page: 3,
         ids: [],
         entities: {},
         limit: 5,
@@ -32,7 +32,7 @@ describe('fetchNextArticlePage', () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+    expect(fetchArticlesList).toHaveBeenCalledWith({});
   });
   test('error', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlePage, {

@@ -86,16 +86,26 @@
 .articleGridView {
   cursor: pointer;
   transition: 0.2s;
-  width: 31.3%;
+  width: 100%;
   min-height: 200px;
 
   &:hover {
-    transform: scale(1.01);
+    box-shadow: 1px 15px 15px 2px rgb(28 35 40 / 21%);
+  }
+
+  & img {
+    width: 100%;
+    transition: 0.1s;
   }
 }
 
-.articleGridView__img {
+.articleGridView:hover img {
+  transform: scale(1.1);
+}
+
+.articleImage {
   display: flex;
+  cursor: pointer;
   justify-content: center;
   margin: 0 auto;
   background-size: cover;
@@ -103,17 +113,33 @@
   background-repeat: no-repeat;
   border-radius: 5px;
   width: 100%;
-  min-height: 200px;
   overflow: hidden;
   backdrop-filter: blur(5px);
   object-fit: cover;
 }
 
+.articleImage__wrapper {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.articleImage_list {
+  height: 400px;
+}
+
+.articleImage_grid {
+  height: 200px;
+  overflow: hidden;
+}
+
 .articleGridView__title {
   width: 100%;
+  height: 45px;
   display: flex;
   align-items: center;
   flex-flow: row  wrap;
+  overflow: hidden;
+  margin-top: 5px;
 }
 
 .articleGridView__statistic {
@@ -178,19 +204,4 @@
   width: 20px;
   height: 20px;
   margin-right: 5px;
-}
-
-.ArticleListItemImg {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  width: 100%;
-  min-height: 200px;
-  overflow: hidden;
-  backdrop-filter: blur(5px);
-  object-fit: cover;
 }

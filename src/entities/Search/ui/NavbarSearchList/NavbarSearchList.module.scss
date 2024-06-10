@@ -1,0 +1,21 @@
+.navbarSearchList {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+.navbarSearchList__empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarSearchList__searchResultText {
+  margin-left: 10px;
+}

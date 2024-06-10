@@ -14,6 +14,10 @@
  *      @param inited;
  *          - If data's not inited: inited and load data from server;
  *          - Otherwise, there is no need to do this, because the data has already been loaded and inited
+ *
+ *      @param Tabs;
+ *          - use horizontal mouse wheel;
+ *          https://ru.stackoverflow.com/questions/1382566/react-horizontal-scroll-to-section-mouse-wheel
  */
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -33,13 +37,26 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
-import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
+import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
+import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import {
+  articlesPageRecommendationsReducer,
+} from 'features/ArticlesPageRecommendations/model/slices/articlesPageRecommendationsSlice';
+import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations/ui/ArticlesPageRecommendations';
+import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import {
   getArticlePageError,
+  getArticlePageOrder,
+  getArticlePageSort,
+  getArticlePageTabs,
   getArticlePageView,
   getArticlesPageIsLoading,
 } from '../../model/selectors/articlesPageSelectors';
@@ -61,18 +78,41 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
+  const sort = useSelector(getArticlePageSort);
+  const order = useSelector(getArticlePageOrder);
+  const type = useSelector(getArticlePageTabs);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlePageSliceActions.setView(view));
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
   }, [dispatch]);
+
+  const debounceFetchData = useDebounce(fetchData, 500);
 
   useInitialEffect(() => {
     dispatch(initArticlesPage());
   });
+
+  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
+    dispatch(articlePageSliceActions.setOrder(newOrder));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
+  const onChangeSort = useCallback((newSort: ArticleSortField) => {
+    dispatch(articlePageSliceActions.setSort(newSort));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
+  const onChangeType = useCallback((value: ArticleType) => {
+    dispatch(articlePageSliceActions.setType(value));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
 
   const blockMock = useCallback((text: string, indent?: string) => (
       <FullPageBlock
@@ -90,7 +130,24 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
       </FullPageBlock>
   ), []);
 
-  const componentsLeftSide: ComponentsObjectType = {
+  const widgetsLeftSide: ComponentsObjectType = {
+    filters: <ArticleSortSelector
+        className={classes.articlesPage__selectors}
+        order={order}
+        sort={sort}
+        onChangeOrder={onChangeOrder}
+        onChangeSort={onChangeSort}
+    />,
+  };
+
+  const widgetsRightSide: ComponentsObjectType = {
+    tags: <ArticleTypeTabs
+        onChangeType={onChangeType}
+        value={type}
+    />,
+  };
+
+  const contentLeftSide: ComponentsObjectType = {
     articleList: <ArticleList
         view={views}
         isLoading={isLoading}
@@ -98,22 +155,25 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     />,
   };
 
-  const componentsRightSide: ComponentsObjectType = {
-    recommendations: blockMock('=Temporary recommendations layout='),
+  const contentRightSide: ComponentsObjectType = {
+    recommendations: <ArticlesPageRecommendations />,
     histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
   if (error) {
     return (
         <Page>
-            <ErrorPalette
+            <FullPageBlock
                 className={classes.articlesPage__error}
-                theme={ErrorPaletteTheme.DEFAULT}
-                title={t('ArticlePageErrorTitle')}
-                text={t('ArticlePageErrorText')}
-                size={ErrorPaletteSize.XXL}
-                refresh
-            />
+            >
+                <ErrorPalette
+                    theme={ErrorPaletteTheme.TRANSPARENT}
+                    title={t('ArticlePageErrorTitle')}
+                    text={t('ArticlePageErrorText')}
+                    size={ErrorPaletteSize.XXL}
+                    refresh
+                />
+            </FullPageBlock>
         </Page>
     );
   }
@@ -127,16 +187,20 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
               onScrollEnd={onLoadNextPart}
           >
               <div className={classNames(classes.articlesPage, {}, [className])}>
-                  <FullPageBlock
-                      className={classes.articlesPage__header}
-                  >
-                      <ArticleViewSelector view={views} onViewClick={onChangeView} />
-                  </FullPageBlock>
+                  <ArticlePageHeader />
                   <DoubleAdjustableFrame
+                      className={classes.articlesPage__filters}
                       widthLeftBlock="69%"
                       widthRightBlock="30%"
-                      leftBlock={componentsLeftSide}
-                      rightBlock={componentsRightSide}
+                      leftBlock={widgetsLeftSide}
+                      rightBlock={widgetsRightSide}
+                  />
+                  <DoubleAdjustableFrame
+                      className={classes.articlesPage__content}
+                      widthLeftBlock="69%"
+                      widthRightBlock="30%"
+                      leftBlock={contentLeftSide}
+                      rightBlock={contentRightSide}
                   />
               </div>
           </Page>

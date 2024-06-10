@@ -35,6 +35,7 @@ export enum ButtonTheme {
   BACKGROUND = 'button_background',
   BACKGROUND_BLOCK = 'button_background-block',
   BACKGROUND_LBLACK_DPURPLE = 'button_background-black-purple',
+  SEARCH_NAV = 'button_search-nav'
 }
 
 export enum ButtonSize {

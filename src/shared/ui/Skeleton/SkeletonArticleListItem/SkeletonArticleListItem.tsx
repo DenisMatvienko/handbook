@@ -129,8 +129,8 @@ export const SkeletonArticleListItem = memo((props: SkeletonArticleListItemProps
   return (
       <div className={classNames(classes.skeletonArticleListItem, mods, [className])}>
           <Skeleton
-              width={295}
-              height="auto"
+              width="100%"
+              height={420}
               border={5}
               theme={SkeletonTheme.BLOCKS}
               className={classes.skeletonArticleListItem__wrapper_grid}

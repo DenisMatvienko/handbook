@@ -112,10 +112,10 @@ describe('articlePageSlice', () => {
     };
     expect(articlePageSliceReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(articles, '', { page: 2 }),
+        fetchArticlesList.fulfilled(articles, '', {}),
     ))
       .toEqual({
-        hasMore: true,
+        hasMore: false,
         isLoading: false,
         view: ArticleView.LIST,
         ids: new Array(16).fill(0).map((_, i) => String(i)),
@@ -129,11 +129,13 @@ describe('articlePageSlice', () => {
     };
     expect(articlePageSliceReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.pending,
+        fetchArticlesList.pending('hello', { replace: true }, {}),
     ))
       .toEqual({
         isLoading: true,
         error: undefined,
+        ids: [],
+        entities: {},
       });
   });
 });

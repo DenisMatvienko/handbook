@@ -36,8 +36,8 @@
       "title": "Мемоизация React.js",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "views": 500,
+      "createdAt": "20.01.2022",
       "userId": "2",
       "type": [
         "IT",
@@ -60,8 +60,8 @@
       "title": "Сложность алгоритмов",
       "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
       "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "views": 10,
+      "createdAt": "27.10.1994",
       "userId": "2",
       "type": [
         "IT",
@@ -81,12 +81,12 @@
     },
     {
       "id": "4",
-      "title": "Управление памятью в JavaScript",
-      "subtitle": "Управление памятью и принципах работы сборщика мусора, а также о том, как избежать самых распространенных видов утечек памяти.",
-      "img": "https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
-      "userId": "1",
+      "title": "Цикл событий в JavaScript",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--2ssYbxDc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ca3pgjj89ewbq012l1zh.gif",
+      "views": 631,
+      "createdAt": "10.15.2018",
+      "userId": "2",
       "type": [
         "IT",
         "JS",
@@ -105,11 +105,11 @@
     },
     {
       "id": "5",
-      "title": "Мемоизация React.js",
+      "title": "Движок v8",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "img": "https://webmobtuts.com/wp-content/uploads/2018/10/1gZq22sBm1y3eq1NfhEaXeg-800x400.png?fcff47&fcff47",
+      "views": 120,
+      "createdAt": "05.12.2016",
       "userId": "2",
       "type": [
         "IT",
@@ -129,22 +129,15 @@
     },
     {
       "id": "6",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "Модель ветвления Git flow",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--LiD1QJP6--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/i/ehlef9pp6xym7d80g3np.png",
+      "views": 200,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
         "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture"
+        "GIT"
       ],
       "blocks": [
         {
@@ -152,18 +145,18 @@
           "type": "TEXT",
           "title": "Ссылки в JavaScript",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Источник: https://bitworks.software/2019-03-12-gitflow-workflow.html \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
           ]
         }
       ]
     },
     {
       "id": "7",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "title": "Паттерны ООП",
+      "subtitle": "Привести в пример паттерн проектирования – один из самых популярных запросов на собеседованиях. Объясняем порождающие паттерны простыми словами.",
+      "img": "https://www.litres.ru/pub/c/cover/64073196.jpg",
+      "views": 10,
+      "createdAt": "29.11.2016",
       "userId": "2",
       "type": [
         "IT",
@@ -189,11 +182,11 @@
     },
     {
       "id": "8",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
+      "title": "Сборка мусора JS",
+      "subtitle": "Источник: https://learn.javascript.ru/garbage-collection",
+      "img": "https://art-mumu.ru/wp-content/uploads/2020/11/garbology-1.jpg",
+      "views": 122,
+      "createdAt": "03.06.2022",
       "userId": "2",
       "type": [
         "IT",
@@ -219,10 +212,10 @@
     },
     {
       "id": "9",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
+      "title": "Управление версиями Node.js и NPM с помощью NVM",
+      "subtitle": "Источник: https://habr.com/ru/companies/timeweb/articles/541452/",
+      "img": "https://habrastorage.org/webt/-c/gf/fh/-cgffhoutjzazega5d-mftihfw8.jpeg",
+      "views": 53,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
@@ -249,10 +242,10 @@
     },
     {
       "id": "10",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "БЭМ МЕТОДОЛОГИЯ, Быстрый старт",
+      "subtitle": "Источник: https://ru.bem.info/methodology/quick-start/",
+      "img": "https://i.ytimg.com/vi/EfDu-4A6T2M/maxresdefault.jpg",
+      "views": 77,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
@@ -272,17 +265,17 @@
           "type": "TEXT",
           "title": "Ссылки в JavaScript",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "БЭМ (Блок, Элемент, Модификатор) — компонентный подход к веб-разработке. В его основе лежит принцип разделения интерфейса на независимые блоки. Он позволяет легко и быстро разрабатывать интерфейсы любой сложности и повторно использовать существующий код, избегая «Copy-Paste»."
           ]
         }
       ]
     },
     {
       "id": "11",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
+      "title": "5 отличий между обычными и стрелочными функциями",
+      "subtitle": "В JS ты можешь инициализировать функцию несколькими способами.",
+      "img": "https://developerplus.com.br/wp-content/uploads/2021/04/O-Que-Sao-Arrow-Functions-e-Como-Usar.jpg",
+      "views": 202,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
@@ -309,40 +302,47 @@
     },
     {
       "id": "12",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "Почему typeof null === 'object'?",
+      "subtitle": "Источник: https://habr.com/ru/articles/200664/",
+      "img": "https://i.stack.imgur.com/a9e9J.png",
+      "views": 505,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture",
         "IT",
         "JS",
         "Architecture"
       ],
       "blocks": [
         {
-          "id": "5",
+          "id": "1",
           "type": "TEXT",
           "title": "Ссылки в JavaScript",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Все JavaScript-программисты давно привыкли к тому, что typeof null === 'object'; // true, хотя фактически null — примитивное значение. Многие знают, что это баг, и лично Брэндан Айк это признает. Этот баг, вероятно, никогда не будет исправлен из-за необходимости сохранения обратной совместимости существующего кода с новыми версиями языка.\n\nИнтересна история того, как же это получилось. Она восходит корнями к первой версии языка, а именно — к тому факту, что значения переменных хранились в 32-битных ячейках в следующем формате:\n29-31 бит: само значение;\n1-3 бита: метка типа данных;\n\nБыло всего пять вариантов метки типа:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "000: object;\n1: integer;\n010: double;\n100: string;\n110: boolean;"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Ссылки в JavaScript",
+          "paragraphs": [
+            "Соответственно, если младший бит был равен единице, то оставшийся 31 бит интерпретировался как integer. Если 0 — то тип определялся в зависимости от значения следующих двух бит.\n\nТакже было два специальных зарезервированных значения:\n\nundefined (JSVAL_VOID) — целое –230\nnull (JSVAL_NULL) — указатель на NULL (machine code NULL pointer), то есть, метка объекта и ссылка на то, что его численное представление равно нулю.\n\nТак и вышло, что typeof стал определять null как object — он проверял метку типа, которая сообщала ему, что null — это не что иное, как object."
           ]
         }
       ]
     },
     {
       "id": "13",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
+      "title": "Методы строк в JavaScript: простая шпаргалка с примерами",
+      "subtitle": "Не обязательно знать все встроенные методы строк JS наизусть. Достаточно помнить об основных возможностях, которые они предоставляют.",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--LLK9xR01--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://cl.ly/1S3N0m1Z1L11/Image%25202018-07-12%2520at%252011.45.54%2520AM.png",
+      "views": 150,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
@@ -362,116 +362,85 @@
           "type": "TEXT",
           "title": "Ссылки в JavaScript",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Любые текстовые данные в JavaScript считаются строками.  Это примитивный тип, но язык позволяет работать с ним так, будто он является объектом. В том числе — использовать  встроенные в JS методы строк, которые собраны в этой шпаргалке.\n\nВажно: при использовании методов создаётся новая строка, которая записывается в ту же переменную вместо старой строки."
           ]
         }
       ]
     },
     {
       "id": "14",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "Объяснение алгоритмов сортировки с примерами на Python",
+      "subtitle": "В этой статье рассмотрены популярные алгоритмы, принципы их работы и реализация на Python. Также сравним, как быстро они сортируют элементы в списке.",
+      "img": "https://tproger.ru/signed_image/K1ShQor8svlpWDYf3YyvCj2OYojC5xUP3qFUOSjX7qw/rs:fill:766:0:true/cb:vimg_2/f:webp/aHR0cHM6Ly9tZWRpYS50cHJvZ2VyLnJ1L3VwbG9hZHMvMjAxOS8wNC92ZWN0b3ItbGFuZGZpbGwtZ2FyYmFnZS1zb3J0aW5nLmpwZw=",
+      "views": 1034,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture"
+        "Алгоритмы"
       ],
       "blocks": [
         {
-          "id": "5",
+          "id": "1",
           "type": "TEXT",
-          "title": "Ссылки в JavaScript",
+          "title": "Пирамидальная сортировка",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Также известна как сортировка кучей. Этот популярный алгоритм, как и сортировки вставками или выборкой, сегментирует список на две части: отсортированную и неотсортированную. Алгоритм преобразует второй сегмент списка в структуру данных «куча» (heap), чтобы можно было эффективно определить самый большой элемент."
           ]
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "title": "Алгоритм",
+          "paragraphs": [
+            "Сначала преобразуем список в Max Heap — бинарное дерево, где самый большой элемент является вершиной дерева. Затем помещаем этот элемент в конец списка. После перестраиваем Max Heap и снова помещаем новый наибольший элемент уже перед последним элементом в списке.\n\nЭтот процесс построения кучи повторяется, пока все вершины дерева не будут удалены."
+          ]
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Реализация",
+          "paragraphs": [
+            "Создадим вспомогательную функцию heapify() для реализации этого алгоритма:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "def heapify(nums, heap_size, root_index):  \n    # Индекс наибольшего элемента считаем корневым индексом\n    largest = root_index\n    left_child = (2 * root_index) + 1\n    right_child = (2 * root_index) + 2\n\n    # Если левый потомок корня — допустимый индекс, а элемент больше,\n    # чем текущий наибольший, обновляем наибольший элемент\n    if left_child < heap_size and nums[left_child] > nums[largest]:\n        largest = left_child\n\n    # То же самое для правого потомка корня\n    if right_child < heap_size and nums[right_child] > nums[largest]:\n        largest = right_child\n\n    # Если наибольший элемент больше не корневой, они меняются местами\n    if largest != root_index:\n        nums[root_index], nums[largest] = nums[largest], nums[root_index]\n        # Heapify the new root element to ensure it's the largest\n        heapify(nums, heap_size, largest)\n\ndef heap_sort(nums):  \n    n = len(nums)\n\n    # Создаём Max Heap из списка\n    # Второй аргумент означает остановку алгоритма перед элементом -1, т.е.\n    # перед первым элементом списка\n    # 3-й аргумент означает повторный проход по списку в обратном направлении, \n    # уменьшая счётчик i на 1 \n    for i in range(n, -1, -1):\n        heapify(nums, n, i)\n\n    # Перемещаем корень Max Heap в конец списка\n    for i in range(n - 1, 0, -1):\n        nums[i], nums[0] = nums[0], nums[i]\n        heapify(nums, i, 0)\n\n# Проверяем, что оно работает\nrandom_list_of_nums = [35, 12, 43, 8, 51]  \nheap_sort(random_list_of_nums)  \nprint(random_list_of_nums)"
         }
       ]
     },
     {
       "id": "15",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
+      "title": "toString: Великий и Ужасный",
+      "subtitle": "Функция toString в языке JavaScript наверно самая \"неявно\" обсуждаемая как среди самих js-разработчиков, так и среди внешних наблюдателей. Она — причина многочисленных шуток и мемов про многие подозрительные арифметические операции, преобразования, вводящие в ступор [object Object]'ы. Уступает, возможно, лишь удивлениям при работе с float64.",
+      "img": "https://habrastorage.org/webt/on/px/4c/onpx4cu-vxqkdask5tvj3so9va4.jpeg",
+      "views": 305,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture"
+        "Ненормальное программирование"
       ],
       "blocks": [
         {
-          "id": "5",
+          "id": "1",
           "type": "TEXT",
-          "title": "Ссылки в JavaScript",
+          "title": "Все что нужно знать",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Функция toString — свойство объекта-прототипа Object, простыми словами — его метод. Используется при строковом преобразовании объекта и по-хорошему должна возвращать примитивное значение. Свои реализации также имеют объекты-прототипы: Function, Array, String, Boolean, Number, Symbol, Date, RegExp, Error. Если вы реализуете свой объект-прототип (класс), то хорошим тоном будет определить для него и toString.\n\n\nJavaScript — язык со слабой системой типов: а значит, позволяет нам смешивать разные типы, выполняет многие операции неявно. В преобразованиях toString работает в паре с valueOf, чтобы свести объект к нужному для операции примитиву. Например, оператор сложения оборачивается конкатенацией при наличии среди операторов хотя бы одной строки. Некоторые стандартные функции языка перед своей работой приводят аргумент к строке: parseInt, decodeURI, JSON.parse, btoa и проч.\n\n\nПро неявное приведение типов сказано и высмеяно уже довольно много. Мы же рассмотрим реализации toString ключевых объектов-прототипов языка."
           ]
         }
       ]
     },
     {
       "id": "16",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "Неизменяемость в JavaScript",
+      "subtitle": "Original: https://habr.com/ru/articles/260319/\n\nНеизменяемость — основной принцип функционального программирования, который также может многое предложить объектно-ориентированным программам. В этой статье я расскажу вам о том, что именно является краеугольным камнем неизменяемости, как использовать эту концепцию в JavaScript и почему это полезно.",
+      "img": "https://i.stack.imgur.com/Fsr0H.png",
+      "views": 206,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture"
-      ],
-      "blocks": [
-        {
-          "id": "5",
-          "type": "TEXT",
-          "title": "Ссылки в JavaScript",
-          "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "17",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
-      "views": 1022,
-      "createdAt": "19.09.2023",
-      "userId": "2",
-      "type": [
-        "IT",
-        "JS",
-        "Architecture",
-        "IT",
-        "JS",
-        "Architecture",
         "IT",
         "JS",
         "Architecture"
@@ -489,10 +458,10 @@
     },
     {
       "id": "18",
-      "title": "Сложность алгоритмов",
-      "subtitle": "Алгоритм - это программа, которая представляет из себя исключительное вычисление",
-      "img": "https://www.lavivienpost.com/wp-content/uploads/2022/07/algorithms1.jpg",
-      "views": 1022,
+      "title": "Создаем слайдер с изображением и текстом на React.js с нуля и оптимизируем",
+      "subtitle": "В этой статье я хочу затронуть задачу, с которой вы можете столкнуться на собеседовании на позицию Front-End — создание Image Slider.",
+      "img": "https://habrastorage.org/getpro/habr/upload_files/daf/054/fe3/daf054fe31c32155cd7ebd645d5de251.png",
+      "views": 5250,
       "createdAt": "19.09.2023",
       "userId": "2",
       "type": [
@@ -512,8 +481,60 @@
           "type": "TEXT",
           "title": "Ссылки в JavaScript",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "Original: https://habr.com/ru/articles/677236/\n\nВы должны реализовать этот виджет за ~45–50 минут и рассказать об оптимизации. Эту информацию я постараюсь рассказать здесь. Основная цель состоит не в том, чтобы реализовать Image Slider с большим количеством функционала, а в том, чтобы показать, как реализовать и оптимизировать."
           ]
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "Полезные Алиасы в GIT",
+      "subtitle": "Общие команды, для которых полезно иметь сокращения.",
+      "img": "https://main-cdn.sbermegamarket.ru/big1/hlr-system/1481104/100000580802b0.jpg",
+      "views": 777,
+      "createdAt": "19.09.2023",
+      "userId": "2",
+      "type": [
+        "GIT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Общие алиасы",
+          "paragraphs": [
+            "Для пользователей Windows:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "git config --global alias.co checkout\ngit config --global alias.ci commit\ngit config --global alias.st status\ngit config --global alias.br branch\ngit config --global alias.hist \"log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short\"\ngit config --global alias.type 'cat-file -t'\ngit config --global alias.dump 'cat-file -p'"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Алиасы команд (опционально)",
+          "paragraphs": [
+            "Если ваша оболочка поддерживает алиасы или шорткаты, вы можете добавить алиасы и на этом уровне. Я использую:"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "alias gs='git status '\nalias ga='git add '\nalias gb='git branch '\nalias gc='git commit'\nalias gd='git diff'\nalias gco='git checkout '\nalias gk='gitk --all&'\nalias gx='gitx --all'\n\nalias got='git '\nalias get='git '"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "paragraphs": [
+            "Сокращение gco для команды git checkout особенно полезно. Оно позволяет мне вводить:"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "gco название_ветки"
         }
       ]
     }
@@ -722,6 +743,18 @@
       "userId": "1",
       "text": "12",
       "id": "XtTSQIW"
+    },
+    {
+      "articleId": "14",
+      "userId": "1",
+      "text": "log",
+      "id": "rrrEEdI"
+    },
+    {
+      "articleId": "19",
+      "userId": "1",
+      "text": "git push origin branch_name",
+      "id": "Peb84pw"
     }
   ],
   "users": [
