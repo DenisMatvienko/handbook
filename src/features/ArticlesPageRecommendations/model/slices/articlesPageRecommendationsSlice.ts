@@ -11,7 +11,7 @@ import {
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
 
 const recommendationAdapter = createEntityAdapter<Recommendation>({
-  selectId: (comment) => comment.id,
+  selectId: (recommendation) => recommendation.id,
 });
 
 export const getArticleRecommendations = recommendationAdapter.getSelectors<StateSchema>(
@@ -27,7 +27,6 @@ const articlesPageRecommendationsSlice = createSlice({
     entities: {},
     limit: 5,
     page: 1,
-    _inited: false,
   }),
   reducers: {},
   // extraReducers: (builder) => {

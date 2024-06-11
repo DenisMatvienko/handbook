@@ -4,7 +4,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import {
@@ -17,7 +17,6 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { navbarSearchReducer } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import {
   getArticlesPageRecommendationsErrorSelector,
   getArticlesPageRecommendationsIsLoadingSelector,
@@ -45,7 +44,7 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchArticlePageRecommendations({ replace: true }));
+    dispatch(fetchArticlePageRecommendations({}));
   });
 
   console.log(recommendations);
@@ -53,7 +52,6 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
-          removeAfterUnmount
       >
           <FullPageBlock
               className={classNames(classes.ArticlesPageRecommendations, {}, [className])}
