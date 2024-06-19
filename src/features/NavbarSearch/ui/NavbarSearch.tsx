@@ -16,23 +16,18 @@ import {
   navbarSearchReducer,
 } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { fetchNavbarSearch } from 'features/NavbarSearch/model/services/fetchNavbarSearch/fetchNavbarSearch';
+import {
+  fetchNavbarSearch,
+} from 'features/NavbarSearch/model/services/fetchNavbarSearch/fetchNavbarSearch';
 import { NavbarSearchList } from 'entities/Search/ui/NavbarSearchList/NavbarSearchList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import SearchIcon from 'shared/assets/icons/search/search.svg';
 import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import { LoaderRing, LoaderRingTheme } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { Page } from 'widgets/Page/Page';
-import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { LoaderRing } from 'shared/ui/Loaders/LoaderRing/LoaderRing';
 import {
-  fetchNextNavbarSearchPage,
-} from 'features/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { initNavbarSearch } from 'features/NavbarSearch/model/services/initNavbarSearch/initNavbarSearch';
-import { getNavbarIsLoadingSelector, getNavbarSearchArticleSelector }
-  from '../model/selectors/getNavbarSearchSelectors';
+  getNavbarIsLoadingSelector,
+  getNavbarSearchArticleSelector,
+} from '../model/selectors/getNavbarSearchSelectors';
 import classes from './NavbarSearch.module.scss';
 
 interface NavbarSearchProps {

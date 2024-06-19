@@ -19,6 +19,10 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { navbarSearchReducer } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import {
+  initArticlePageRecommendations,
+} from 'features/ArticlesPageRecommendations/model/services/initArticlePageRecommendations';
+import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
+import {
   getArticlesPageRecommendationsErrorSelector,
   getArticlesPageRecommendationsIsLoadingSelector,
 } from '../model/selectors/getArticlesPageRecommendations';
@@ -45,15 +49,18 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchArticlePageRecommendations({ replace: true }));
+    dispatch(initArticlePageRecommendations());
   });
 
-  console.log(recommendations);
+  if (isLoading) {
+    return (
+        <p>loading...</p>
+    );
+  }
 
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
-          removeAfterUnmount
       >
           <FullPageBlock
               className={classNames(classes.ArticlesPageRecommendations, {}, [className])}
@@ -66,7 +73,7 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
                               className={classes.recommendationsMock}
                               key={uid()}
                               theme={TextTheme.BLOCK_TEXT}
-                              text={item.createdAt}
+                              text={item.title}
                               size={TextSize.M}
                               align={TextAlign.LEFT}
                           />

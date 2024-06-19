@@ -30,7 +30,7 @@ export const fetchArticlePageRecommendations = createAsyncThunk<Recommendation[]
         const page = getArticlesPageRecommendationsPageSelector(getState());
 
         try {
-          const response = await extra.api.get<Recommendation[]>('/articles', {
+          const response = await extra.api.get<Recommendation[]>('/recommendations', {
             params: {
               _limit: limit,
               _page: page,

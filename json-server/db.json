@@ -6,6 +6,84 @@
       "author": "typicode"
     }
   ],
+  "recommendations": [
+    {
+      "id": "1",
+      "title": "Управление памятью в JavaScript",
+      "subtitle": "Управление памятью и принципах работы сборщика мусора, а также о том, как избежать самых распространенных видов утечек памяти.",
+      "img": "https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg",
+      "views": 1022,
+      "createdAt": "19.09.2023",
+      "userId": "1",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Управление памятью в JavaScript",
+      "subtitle": "Управление памятью и принципах работы сборщика мусора, а также о том, как избежать самых распространенных видов утечек памяти.",
+      "img": "https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg",
+      "views": 1022,
+      "createdAt": "19.09.2023",
+      "userId": "1",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Движок v8",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "img": "https://webmobtuts.com/wp-content/uploads/2018/10/1gZq22sBm1y3eq1NfhEaXeg-800x400.png?fcff47&fcff47",
+      "views": 120,
+      "createdAt": "05.12.2016",
+      "userId": "2",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "БЭМ МЕТОДОЛОГИЯ, Быстрый старт",
+      "subtitle": "Источник: https://ru.bem.info/methodology/quick-start/",
+      "img": "https://i.ytimg.com/vi/EfDu-4A6T2M/maxresdefault.jpg",
+      "views": 77,
+      "createdAt": "19.09.2023",
+      "userId": "2",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture",
+        "IT",
+        "JS",
+        "Architecture",
+        "IT",
+        "JS",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Почему typeof null === 'object'?",
+      "subtitle": "Источник: https://habr.com/ru/articles/200664/",
+      "img": "https://i.stack.imgur.com/a9e9J.png",
+      "views": 505,
+      "createdAt": "19.09.2023",
+      "userId": "2",
+      "type": [
+        "IT",
+        "JS",
+        "Architecture"
+      ]
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -33,11 +111,11 @@
     },
     {
       "id": "2",
-      "title": "Мемоизация React.js",
+      "title": "Сложность алгоритмов",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "img": "https://frontendmasters.com/static-assets/learn/og-learning-path-react.jpg",
       "views": 500,
-      "createdAt": "20.01.2022",
+      "createdAt": "27.10.1994",
       "userId": "2",
       "type": [
         "IT",
@@ -274,7 +352,7 @@
       "id": "11",
       "title": "5 отличий между обычными и стрелочными функциями",
       "subtitle": "В JS ты можешь инициализировать функцию несколькими способами.",
-      "img": "https://developerplus.com.br/wp-content/uploads/2021/04/O-Que-Sao-Arrow-Functions-e-Como-Usar.jpg",
+      "img": "https://dev-gang.ru/static/storage/12006635280618938056084186739437793463.png",
       "views": 202,
       "createdAt": "19.09.2023",
       "userId": "2",

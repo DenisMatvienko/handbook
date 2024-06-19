@@ -9,6 +9,9 @@ import {
   ArticlesPageRecommendationsSchema,
 } from 'features/ArticlesPageRecommendations/model/types/articlesPageRecommendationsSchema';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
+import {
+  fetchArticlePageRecommendations,
+} from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
 
 const recommendationAdapter = createEntityAdapter<Recommendation>({
   selectId: (comment) => comment.id,
@@ -30,24 +33,34 @@ const articlesPageRecommendationsSlice = createSlice({
     _inited: false,
   }),
   reducers: {},
-  // extraReducers: (builder) => {
-  //     builder
-  //         .addCase(fetchCommentsByArticleId.pending, (state, action) => {
-  //             state.error = undefined;
-  //             state.isLoading = true;
-  //         })
-  //         .addCase(fetchCommentsByArticleId.fulfilled, (
-  //             state,
-  //             action: PayloadAction<Comment[]>,
-  //         ) => {
-  //             state.isLoading = false;
-  //             commentAdapter.setAll(state, action.payload);
-  //         })
-  //         .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
-  //             state.isLoading = false;
-  //             state.error = action.payload;
-  //         });
-  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchArticlePageRecommendations.pending, (state, action) => {
+        state.error = undefined;
+        state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          recommendationAdapter.removeAll(state);
+        }
+      })
+      .addCase(fetchArticlePageRecommendations.fulfilled, (
+        state,
+        action,
+      ) => {
+        state.isLoading = false;
+        recommendationAdapter.addMany(state, action.payload);
+
+        if (action.meta.arg.replace) {
+          recommendationAdapter.setAll(state, action.payload);
+        } else {
+          recommendationAdapter.addMany(state, action.payload);
+        }
+      })
+      .addCase(fetchArticlePageRecommendations.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
 export const { actions: articlesPageRecommendationsActions } = articlesPageRecommendationsSlice;

@@ -11,6 +11,7 @@ export interface Recommendation {
     id: string,
     title: string,
     subtitle: string,
+    img: string,
     views: number,
     createdAt: string,
     type: RecommendationType[],
