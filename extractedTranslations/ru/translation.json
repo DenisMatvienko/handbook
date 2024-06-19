@@ -21,6 +21,7 @@
   "Hi": "Hi",
   "Lastname": "Lastname",
   "Lorem-layout": "Lorem-layout",
+  "NoResultFor": "NoResultFor",
   "NoSearches": "NoSearches",
   "Oopps": {
     "": {
@@ -37,6 +38,10 @@
   "RefreshPage": "RefreshPage",
   "Search": "Search",
   "Sort": "Sort",
+  "Subtitle": "Subtitle",
+  "Title": "Title",
+  "TryTo": "TryTo",
+  "TypeHere": "TypeHere",
   "UserProfile": "UserProfile",
   "Will be Articles": "Will be Articles",
   "Will be Articles Detail": "Will be Articles Detail",
