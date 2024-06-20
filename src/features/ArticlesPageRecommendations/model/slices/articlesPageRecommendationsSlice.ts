@@ -5,13 +5,13 @@
 
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/provider/StoreProvider';
-import {
-  ArticlesPageRecommendationsSchema,
-} from 'features/ArticlesPageRecommendations/model/types/articlesPageRecommendationsSchema';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
 import {
   fetchArticlePageRecommendations,
-} from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
+} from '../services/fetchArticlePageRecommendations';
+import {
+  ArticlesPageRecommendationsSchema,
+} from '../types/articlesPageRecommendationsSchema';
 
 const recommendationAdapter = createEntityAdapter<Recommendation>({
   selectId: (comment) => comment.id,

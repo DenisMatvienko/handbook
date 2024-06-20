@@ -5,7 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
@@ -23,6 +23,10 @@ import {
 import {
   fetchArticlePageRecommendations,
 } from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import {
+  RecommendationsArticleItemMain,
+} from 'entities/Recommendation/ui/RecommendationsArticleItemMain/RecommendationsArticleItemMain';
 import classes from './RecommendationsArticleListMain.module.scss';
 
 interface RecommendationsArticleListMainProps {
@@ -51,17 +55,14 @@ export const RecommendationsArticleListMain = memo((props: RecommendationsArticl
   return (
       <div className={classNames(classes.RecommendationsArticleListMain, {}, [className])}>
           {
-        recommendations?.map((item) => (
-            <Text
-                className={classes.recommendationsMock}
-                key={uid()}
-                theme={TextTheme.BLOCK_TEXT}
-                text={item.title}
-                size={TextSize.M}
-                align={TextAlign.LEFT}
-            />
-        ))
-      }
+            recommendations?.map((item) => (
+                <RecommendationsArticleItemMain
+                    key={uid()}
+                    recommendation={item.title}
+                    articleId={item.article}
+                />
+            ))
+          }
       </div>
   );
 });

@@ -8,7 +8,7 @@ import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
 import {
   getArticlesPageRecommendationsLimitSelector,
-} from 'features/ArticlesPageRecommendations/model/selectors/getArticlesPageRecommendations';
+} from '../selectors/getArticlesPageRecommendations';
 
 interface FetchArticleListProps {
     replace?: boolean,

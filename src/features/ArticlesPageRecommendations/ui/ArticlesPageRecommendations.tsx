@@ -8,15 +8,15 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import {
-  fetchArticlePageRecommendations,
-} from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import {
   RecommendationsArticleListMain,
 } from 'entities/Recommendation/ui/RecommendationsArticleListMain/RecommendationsArticleListMain';
+import {
+  initArticlePageRecommendations,
+} from '../model/services/initArticlePageRecommendations';
 import {
   getArticlesPageRecommendationsErrorSelector,
   getArticlesPageRecommendationsIsLoadingSelector,
@@ -44,13 +44,12 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchArticlePageRecommendations({ replace: true }));
+    dispatch(initArticlePageRecommendations());
   });
 
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
-          removeAfterUnmount
       >
           <FullPageBlock
               className={classNames(classes.ArticlesPageRecommendations, {}, [className])}
