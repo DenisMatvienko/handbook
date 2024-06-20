@@ -29,7 +29,6 @@ const articlesPageRecommendationsSlice = createSlice({
     ids: [],
     entities: {},
     limit: 5,
-    page: 1,
     _inited: false,
   }),
   reducers: {},

@@ -11,6 +11,5 @@ export interface ArticlesPageRecommendationsSchema extends EntityState<Recommend
 
     hasMore?: boolean,
     limit: number,
-    page: number,
     _inited: boolean,
 }

@@ -8,7 +8,6 @@ import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
 import {
   getArticlesPageRecommendationsLimitSelector,
-  getArticlesPageRecommendationsPageSelector,
 } from 'features/ArticlesPageRecommendations/model/selectors/getArticlesPageRecommendations';
 
 interface FetchArticleListProps {
@@ -18,7 +17,7 @@ interface FetchArticleListProps {
 export const fetchArticlePageRecommendations = createAsyncThunk<Recommendation[],
     FetchArticleListProps,
     ThunkConfig<string>>(
-      'features/fetchNavbarSearch',
+      'features/fetchArticlePageRecommendations',
       async (props, thunkAPI) => {
         const {
           extra,
@@ -27,13 +26,11 @@ export const fetchArticlePageRecommendations = createAsyncThunk<Recommendation[]
         } = thunkAPI;
 
         const limit = getArticlesPageRecommendationsLimitSelector(getState());
-        const page = getArticlesPageRecommendationsPageSelector(getState());
 
         try {
           const response = await extra.api.get<Recommendation[]>('/recommendations', {
             params: {
               _limit: limit,
-              _page: page,
             },
           });
 
