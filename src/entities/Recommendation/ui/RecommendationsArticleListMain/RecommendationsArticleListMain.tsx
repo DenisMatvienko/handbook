@@ -5,7 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
@@ -59,7 +59,7 @@ export const RecommendationsArticleListMain = memo((props: RecommendationsArticl
                 <RecommendationsArticleItemMain
                     key={uid()}
                     recommendation={item.title}
-                    articleId={item.article}
+                    articleId={item.articleId}
                 />
             ))
           }

@@ -14,12 +14,13 @@ import { uid } from 'shared/lib/uid/uid';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Article } from 'entities/Article';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import classes from './RecommendationsArticleItemMain.module.scss';
 
 interface RecommendationsArticleItemMainProps {
   className?: string;
   recommendation?: string;
-  articleId?: Article;
+  articleId?: string;
 }
 
 export const RecommendationsArticleItemMain = memo((props: RecommendationsArticleItemMainProps) => {
@@ -31,25 +32,30 @@ export const RecommendationsArticleItemMain = memo((props: RecommendationsArticl
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const onOpenArticles = useCallback(() => {
-    navigate(RoutePath.article_details + articleId?.id);
-  }, [articleId, navigate]);
+  // const onOpenArticles = useCallback(() => {
+  //   navigate(RoutePath.article_details + articleId);
+  // }, [articleId, navigate]);
 
-  console.log(articleId);
+  if (!articleId) {
+    return null;
+  }
 
   return (
-      <div
-          onClick={onOpenArticles}
-          className={classNames(classes.RecommendationsArticleItemMain, {}, [className])}
+      <AppLink
+          className={classes.commentCard__link}
+          to={`${RoutePath.article_details}${articleId}`}
       >
-          <Text
-              // className={classes.recommendationsMock}
-              key={uid()}
-              theme={TextTheme.BLOCK_TEXT}
-              text={recommendation}
-              size={TextSize.M}
-              align={TextAlign.LEFT}
-          />
-      </div>
+          <div
+              className={classNames(classes.RecommendationsArticleItemMain, {}, [className])}
+          >
+              <Text
+                  key={uid()}
+                  theme={TextTheme.BLOCK_TEXT}
+                  text={recommendation}
+                  size={TextSize.M}
+                  align={TextAlign.LEFT}
+              />
+          </div>
+      </AppLink>
   );
 });
