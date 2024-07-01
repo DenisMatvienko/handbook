@@ -7,16 +7,17 @@ import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import {
-  fetchArticlePageRecommendations,
-} from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+
+import {
+  RecommendationsArticleListMain,
+} from 'entities/Recommendation/ui/RecommendationsArticleListMain/RecommendationsArticleListMain';
+import {
+  initArticlePageRecommendations,
+} from '../model/services/initArticlePageRecommendations';
 import {
   getArticlesPageRecommendationsErrorSelector,
   getArticlesPageRecommendationsIsLoadingSelector,
@@ -44,10 +45,8 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchArticlePageRecommendations({}));
+    dispatch(initArticlePageRecommendations());
   });
-
-  console.log(recommendations);
 
   return (
       <DynamicModuleLoader
@@ -58,18 +57,11 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
               key={uid()}
           >
               <div>
-                  {
-                      recommendations?.map((item) => (
-                          <Text
-                              className={classes.recommendationsMock}
-                              key={uid()}
-                              theme={TextTheme.BLOCK_TEXT}
-                              text={item.createdAt}
-                              size={TextSize.M}
-                              align={TextAlign.LEFT}
-                          />
-                      ))
-                  }
+                  <RecommendationsArticleListMain
+                      recommendations={recommendations}
+                      isLoading={isLoading}
+                      error={error}
+                  />
               </div>
           </FullPageBlock>
       </DynamicModuleLoader>

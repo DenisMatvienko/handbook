@@ -105,7 +105,7 @@ export const NavbarSearchList = memo((props: NavbarSearchListProps) => {
           onScrollEnd={onLoadNextPart}
           emptyLayout
       >
-          {articles.length > 0 && articles?.map(renderArticle)}
+          { articles.length > 0 && articles?.map(renderArticle) }
           { isLoading && getSkeletons()}
       </Page>
   );
