@@ -58,8 +58,7 @@ export const RecommendationsArticleListMain = memo((props: RecommendationsArticl
             recommendations?.map((item) => (
                 <RecommendationsArticleItemMain
                     key={uid()}
-                    recommendation={item.title}
-                    articleId={item.articleId}
+                    recommendation={item}
                 />
             ))
           }

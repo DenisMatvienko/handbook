@@ -19,31 +19,25 @@ import classes from './RecommendationsArticleItemMain.module.scss';
 
 interface RecommendationsArticleItemMainProps {
   className?: string;
-  recommendation?: string;
-  articleId?: string;
+  recommendation?: Recommendation;
 }
 
 export const RecommendationsArticleItemMain = memo((props: RecommendationsArticleItemMainProps) => {
   const {
     className,
     recommendation,
-    articleId,
   } = props;
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  // const onOpenArticles = useCallback(() => {
-  //   navigate(RoutePath.article_details + articleId);
-  // }, [articleId, navigate]);
-
-  if (!articleId) {
+  if (!recommendation) {
     return null;
   }
 
   return (
       <AppLink
           className={classes.commentCard__link}
-          to={`${RoutePath.article_details}${articleId}`}
+          to={`${RoutePath.article_details}${recommendation?.article?.id}`}
       >
           <div
               className={classNames(classes.RecommendationsArticleItemMain, {}, [className])}
@@ -51,7 +45,21 @@ export const RecommendationsArticleItemMain = memo((props: RecommendationsArticl
               <Text
                   key={uid()}
                   theme={TextTheme.BLOCK_TEXT}
-                  text={recommendation}
+                  text={`${recommendation?.article?.title}`}
+                  size={TextSize.M}
+                  align={TextAlign.LEFT}
+              />
+              <Text
+                  key={uid()}
+                  theme={TextTheme.BLOCK_TEXT}
+                  text={`${recommendation?.user?.username}`}
+                  size={TextSize.M}
+                  align={TextAlign.LEFT}
+              />
+              <Text
+                  key={uid()}
+                  theme={TextTheme.BLOCK_TEXT}
+                  text={`${recommendation?.views}`}
                   size={TextSize.M}
                   align={TextAlign.LEFT}
               />

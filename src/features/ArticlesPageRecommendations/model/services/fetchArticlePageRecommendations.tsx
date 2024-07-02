@@ -6,6 +6,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
+import { getUserAuthData } from 'entities/User';
+import { getArticleDetails } from 'entities/Article/model/selectors/getArticleDetails';
 import {
   getArticlesPageRecommendationsLimitSelector,
 } from '../selectors/getArticlesPageRecommendations';
@@ -31,6 +33,7 @@ export const fetchArticlePageRecommendations = createAsyncThunk<Recommendation[]
           const response = await extra.api.get<Recommendation[]>('/recommendations', {
             params: {
               _limit: limit,
+              _expand: ['article', 'user'],
             },
           });
 

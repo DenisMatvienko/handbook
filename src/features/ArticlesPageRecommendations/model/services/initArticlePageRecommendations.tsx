@@ -25,7 +25,7 @@ export const initArticlePageRecommendations = createAsyncThunk<void,
       const inited = getArticlesPageRecommendationsInitedSelecor(getState());
 
       if (!inited) {
-        dispatch(fetchArticlePageRecommendations({}));
+        dispatch(fetchArticlePageRecommendations({ replace: true }));
       }
     },
   );
