@@ -16,6 +16,9 @@ import {
   RecommendationsArticleListMain,
 } from 'entities/Recommendation/ui/RecommendationsArticleListMain/RecommendationsArticleListMain';
 import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
+import {
   initArticlePageRecommendations,
 } from '../model/services/initArticlePageRecommendations';
 import {
@@ -56,6 +59,13 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
               className={classNames(classes.ArticlesPageRecommendations, {}, [className])}
               key={uid()}
           >
+              <Text
+                  key={uid()}
+                  theme={TextTheme.TRANSLUCENT}
+                  text="Рекомендации:"
+                  size={TextSize.L}
+                  align={TextAlign.LEFT}
+              />
               <div>
                   <RecommendationsArticleListMain
                       recommendations={recommendations}

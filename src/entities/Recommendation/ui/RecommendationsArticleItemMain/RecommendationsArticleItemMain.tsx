@@ -45,22 +45,22 @@ export const RecommendationsArticleItemMain = memo((props: RecommendationsArticl
               <Text
                   key={uid()}
                   theme={TextTheme.BLOCK_TEXT}
-                  text={`${recommendation?.article?.title}`}
+                  title={`${recommendation?.article?.title}`}
                   size={TextSize.M}
                   align={TextAlign.LEFT}
               />
               <Text
                   key={uid()}
-                  theme={TextTheme.BLOCK_TEXT}
+                  theme={TextTheme.SUBTITLE}
                   text={`${recommendation?.user?.username}`}
-                  size={TextSize.M}
+                  size={TextSize.S}
                   align={TextAlign.LEFT}
               />
               <Text
                   key={uid()}
-                  theme={TextTheme.BLOCK_TEXT}
+                  theme={TextTheme.SUBTITLE}
                   text={`${recommendation?.views}`}
-                  size={TextSize.M}
+                  size={TextSize.S}
                   align={TextAlign.LEFT}
               />
           </div>
