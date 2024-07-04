@@ -27,6 +27,10 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import {
   RecommendationsArticleItemMain,
 } from 'entities/Recommendation/ui/RecommendationsArticleItemMain/RecommendationsArticleItemMain';
+import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
+import {
+  SkeletonRecommendationsArticlesList,
+} from 'shared/ui/Skeleton/SkeletonRecommendationsArticlesList/SkeletonRecommendationsArticlesList';
 import classes from './RecommendationsArticleListMain.module.scss';
 
 interface RecommendationsArticleListMainProps {
@@ -48,7 +52,7 @@ export const RecommendationsArticleListMain = memo((props: RecommendationsArticl
 
   if (isLoading) {
     return (
-        <div>loading..</div>
+        <SkeletonRecommendationsArticlesList />
     );
   }
 

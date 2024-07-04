@@ -19,6 +19,9 @@ import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
 import {
+  fetchArticlePageRecommendations,
+} from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
+import {
   initArticlePageRecommendations,
 } from '../model/services/initArticlePageRecommendations';
 import {
@@ -41,14 +44,14 @@ const initialReducers: ReducersList = {
 
 export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendationsProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('recommendations');
   const recommendations = useSelector(getArticleRecommendations.selectAll);
   const isLoading = useSelector(getArticlesPageRecommendationsIsLoadingSelector);
   const error = useSelector(getArticlesPageRecommendationsErrorSelector);
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(initArticlePageRecommendations());
+    dispatch(fetchArticlePageRecommendations({ replace: true }));
   });
 
   return (
@@ -62,11 +65,13 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
               <Text
                   key={uid()}
                   theme={TextTheme.TRANSLUCENT}
-                  text="Рекомендации:"
+                  text={t('recommendationsTile')}
                   size={TextSize.L}
                   align={TextAlign.LEFT}
               />
-              <div>
+              <div
+                  className={classes.ArticlesPageRecommendations__list}
+              >
                   <RecommendationsArticleListMain
                       recommendations={recommendations}
                       isLoading={isLoading}

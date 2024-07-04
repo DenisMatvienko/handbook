@@ -114,22 +114,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     fetchData();
   }, [dispatch, fetchData]);
 
-  const blockMock = useCallback((text: string, indent?: string) => (
-      <FullPageBlock
-          className={indent}
-          key={uid()}
-      >
-          <Text
-              className={classes.recommendationsMock}
-              key={uid()}
-              theme={TextTheme.BLOCK_TEXT}
-              text={text}
-              size={TextSize.M}
-              align={TextAlign.LEFT}
-          />
-      </FullPageBlock>
-  ), []);
-
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
         className={classes.articlesPage__selectors}
@@ -157,7 +141,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
   const contentRightSide: ComponentsObjectType = {
     recommendations: <ArticlesPageRecommendations />,
-    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
   };
 
   if (error) {
