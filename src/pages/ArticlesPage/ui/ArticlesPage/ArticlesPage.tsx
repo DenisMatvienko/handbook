@@ -48,7 +48,7 @@ import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleType
 import {
   articlesPageRecommendationsReducer,
 } from 'features/ArticlesPageRecommendations/model/slices/articlesPageRecommendationsSlice';
-import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations/ui/ArticlesPageRecommendations';
+import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations/ui/ArticlesPageRecommendations/ArticlesPageRecommendations';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';

@@ -9,6 +9,9 @@ import {
   fetchArticlePageRecommendations,
 } from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
 import { getArticlePageInited } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import {
+  getArticlesPageRecommendationsInitedSelecor,
+} from 'features/ArticlesPageRecommendations/model/selectors/getArticlesPageRecommendations';
 
 export const initArticlePageRecommendations = createAsyncThunk<void,
   void,
@@ -20,10 +23,10 @@ export const initArticlePageRecommendations = createAsyncThunk<void,
         getState,
       } = thunkAPI;
 
-      const initedArticles = getArticlePageInited(getState());
+      const init = getArticlesPageRecommendationsInitedSelecor(getState());
 
-      // if (initedArticles) {
-      //   dispatch(fetchArticlePageRecommendations({}));
-      // }
+      if (!init) {
+        dispatch(fetchArticlePageRecommendations({}));
+      }
     },
   );

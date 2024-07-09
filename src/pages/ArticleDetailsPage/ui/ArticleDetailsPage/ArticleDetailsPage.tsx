@@ -18,9 +18,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
-import {
-  Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
@@ -37,9 +35,11 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
+import {
+  ArticleDetailRecommendations,
+} from 'features/ArticleDetailRecommendations/ui/ArticleDetailRecommendations/ArticleDetailRecommendations';
+import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations';
 import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
@@ -70,28 +70,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     dispatch(addCommentForArticle(text));
   }, [dispatch]);
 
-  const blockMock = useCallback((text: string, indent?: string) => (
-      <FullPageBlock
-          className={indent}
-          key={uid()}
-      >
-          <Text
-              className={classes.recommendationsMock}
-              key={uid()}
-              theme={TextTheme.BLOCK_TEXT}
-              text={text}
-              size={TextSize.M}
-              align={TextAlign.LEFT}
-          />
-      </FullPageBlock>
-  ), []);
-
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   }, [id, dispatch]);
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
+    articlesRecommendations: <ArticleDetailRecommendations />,
     addCommentForm: <AddCommentForm
         isLoading={commentsIsLoading}
         onSendComment={onSendComment}
@@ -104,8 +89,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   };
 
   const componentsRightSide: ComponentsObjectType = {
-    recommendations: blockMock('=Temporary recommendations layout='),
-    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
+    recommendations: <ArticlesPageRecommendations />,
   };
 
   if (!id) {

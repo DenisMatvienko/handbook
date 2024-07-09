@@ -23,15 +23,15 @@ import {
 } from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
 import {
   initArticlePageRecommendations,
-} from '../model/services/initArticlePageRecommendations';
+} from '../../model/services/initArticlePageRecommendations';
 import {
   getArticlesPageRecommendationsErrorSelector,
   getArticlesPageRecommendationsIsLoadingSelector,
-} from '../model/selectors/getArticlesPageRecommendations';
+} from '../../model/selectors/getArticlesPageRecommendations';
 import {
   articlesPageRecommendationsReducer,
   getArticleRecommendations,
-} from '../model/slices/articlesPageRecommendationsSlice';
+} from '../../model/slices/articlesPageRecommendationsSlice';
 import classes from './ArticlesPageRecommendations.module.scss';
 
 interface ArticlesPageRecommendationsProps {
@@ -51,7 +51,7 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   const dispatch = useAppDispatch();
 
   useInitialEffect(() => {
-    dispatch(fetchArticlePageRecommendations({ replace: true }));
+    dispatch(initArticlePageRecommendations());
   });
 
   return (
