@@ -16,6 +16,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { uid } from 'shared/lib/uid/uid';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
 import {
+  articleDetailRecommendationsReducer,
   getArticleDetailRecommendations,
 } from 'features/ArticleDetailRecommendations/model/slices/articleDetailRecommendationsSlice';
 import {
@@ -32,7 +33,7 @@ interface ArticleDetailRecommendationsProps {
 }
 
 const initialReducers: ReducersList = {
-  articlesPageRecommendations: articlesPageRecommendationsReducer,
+  articleDetailRecommendations: articleDetailRecommendationsReducer,
 };
 
 export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommendationsProps) => {
@@ -56,7 +57,11 @@ export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommenda
               key={uid()}
           >
               <div>
-                  articles detail recommendations
+                  {recommendations.map((item) => (
+                      <div>
+                          {item.article.title}
+                      </div>
+                  ))}
               </div>
           </FullPageBlock>
       </DynamicModuleLoader>

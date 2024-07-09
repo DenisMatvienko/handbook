@@ -60,6 +60,9 @@ import { Navbar } from 'widgets/Navbar/model/types/navbar';
 import {
   ArticlesPageRecommendationsSchema,
 } from 'features/ArticlesPageRecommendations/model/types/articlesPageRecommendationsSchema';
+import {
+  ArticleDetailRecommendationsSchema,
+} from 'features/ArticleDetailRecommendations/model/types/articleDetailRecommendationsSchema';
 
 export interface StateSchema {
   /** Static reducer's */
@@ -77,6 +80,7 @@ export interface StateSchema {
   navbarSearch?: NavbarSearchSchema;
   navbar?: Navbar;
   articlesPageRecommendations?: ArticlesPageRecommendationsSchema;
+  articleDetailRecommendations?: ArticleDetailRecommendationsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
