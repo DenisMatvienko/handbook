@@ -76,15 +76,16 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
-    articlesRecommendations: <ArticleDetailRecommendations />,
-    addCommentForm: <AddCommentForm
-        isLoading={commentsIsLoading}
-        onSendComment={onSendComment}
-    />,
+    // articlesRecommendations: <ArticleDetailRecommendations />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop
         comments={comments}
+        articleId={id || '0'}
+    />,
+    addCommentForm: <AddCommentForm
+        isLoading={commentsIsLoading}
+        onSendComment={onSendComment}
     />,
   };
 

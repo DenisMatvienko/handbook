@@ -57,7 +57,7 @@ const articleDetailsCommentsSlice = createSlice({
   }),
   reducers: {
     setCommentPage: (state, action: PayloadAction<number>) => {
-      state.page = action.payload;
+      state.page = state.hasMore ? action.payload : 1;
     },
   },
   extraReducers: (builder) => {
@@ -65,13 +65,14 @@ const articleDetailsCommentsSlice = createSlice({
       .addCase(fetchCommentsByArticleId.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+        commentAdapter.removeAll(state);
       })
       .addCase(fetchCommentsByArticleId.fulfilled, (
         state,
         action: PayloadAction<Comment[]>,
       ) => {
         state.isLoading = false;
-        commentAdapter.setAll(state, action.payload);
+        commentAdapter.addMany(state, action.payload);
         state.hasMore = action.payload.length >= state.limit;
       })
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {

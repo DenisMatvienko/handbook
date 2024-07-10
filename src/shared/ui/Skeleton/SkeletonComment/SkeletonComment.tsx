@@ -35,19 +35,19 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
                   className={classes.skeletonComment__title}
                   border={5}
                   width={150}
-                  height={20}
+                  height={10}
               />
               <Skeleton
                   border={5}
                   width={50}
-                  height={20}
+                  height={10}
               />
           </div>
           <div className={classes.skeletonComment__text}>
               <Skeleton
                   border={5}
-                  width="95%"
-                  height={55}
+                  width="60%"
+                  height={20}
               />
           </div>
       </div>

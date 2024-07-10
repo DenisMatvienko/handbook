@@ -61,7 +61,7 @@ describe('ArticleDetailsCommentsSlice', () => {
     };
     expect(articleDetailsCommentsReducer(
             state as ArticleDetailsCommentsSchema,
-            fetchCommentsByArticleId.fulfilled(comment, '', ''),
+            fetchCommentsByArticleId.fulfilled(comment, '', '1'),
     ))
       .toEqual({
         isLoading: false,
