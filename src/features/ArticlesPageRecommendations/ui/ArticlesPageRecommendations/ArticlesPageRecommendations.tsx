@@ -57,6 +57,7 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
+          removeAfterUnmount
       >
           <FullPageBlock
               className={classNames(classes.ArticlesPageRecommendations, {}, [className])}
