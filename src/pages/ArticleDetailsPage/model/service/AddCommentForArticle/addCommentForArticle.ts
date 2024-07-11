@@ -11,7 +11,6 @@ import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Comment } from 'entities/Comment';
 import { getUserAuthData } from 'entities/User';
 import { getArticleDetails } from 'entities/Article/model/selectors/getArticleDetails';
-import { articleDetailsCommentsActions } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { getArticleCommentsHasMore } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
@@ -29,7 +28,6 @@ export const addCommentForArticle = createAsyncThunk<Comment,
 
         const userData = getUserAuthData(getState());
         const article = getArticleDetails(getState());
-        const hasMore = getArticleCommentsHasMore(getState());
 
         if (!userData || !text || !article) {
           return rejectWithValue('no data :(');

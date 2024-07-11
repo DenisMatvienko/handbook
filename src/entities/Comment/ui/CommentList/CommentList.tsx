@@ -16,6 +16,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getArticleCommentsHasMore } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
+import { uid } from 'shared/lib/uid/uid';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentList.module.scss';
@@ -30,7 +31,9 @@ interface CommentListProps {
 
 const getCommentSkeletons = () => new Array(5)
   .fill(0).map(() => (
-      <SkeletonComment />
+      <SkeletonComment
+          key={uid()}
+      />
   ));
 
 export const CommentList = memo((props: CommentListProps) => {
@@ -58,6 +61,11 @@ export const CommentList = memo((props: CommentListProps) => {
       dispatch(fetchNextCommentPage(articleId));
     }
   }, [articleId, dispatch]);
+
+  const onClick = useCallback((e: React.MouseEvent<Element, MouseEvent>) => {
+    e.preventDefault();
+    onLoadNextPage();
+  }, [onLoadNextPage]);
 
   const mods: Mods = {
     [classes.marginTop]: marginTop,
@@ -93,7 +101,7 @@ export const CommentList = memo((props: CommentListProps) => {
               {hasMoreComments && comments?.length
                   && (
                   <Button
-                      onClick={onLoadNextPage}
+                      onClick={onClick}
                       theme={ButtonTheme.BACKGROUND_BLOCK}
                       radius={ButtonRadius.SEMI_ELLIPSE}
                   >

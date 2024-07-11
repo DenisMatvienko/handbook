@@ -23,6 +23,7 @@ import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useParams } from 'react-router-dom';
+import { getUserAuthData } from 'entities/User';
 
 export const fetchNextCommentPage = createAsyncThunk<
     void,
@@ -37,8 +38,9 @@ export const fetchNextCommentPage = createAsyncThunk<
         const isLoading = getArticleCommentsIsLoading(getState());
         const page = getArticleCommentsPage(getState());
         const hasMore = getArticleCommentsHasMore(getState());
+        const userData = getUserAuthData(getState());
 
-        if (hasMore && !isLoading) {
+        if (hasMore && !isLoading && id === userData?.id) {
           dispatch(articleDetailsCommentsActions.setCommentPage(page + 1));
           dispatch(fetchCommentsByArticleId(id));
         }

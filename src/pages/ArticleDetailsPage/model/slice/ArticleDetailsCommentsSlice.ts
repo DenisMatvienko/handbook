@@ -57,7 +57,7 @@ const articleDetailsCommentsSlice = createSlice({
   }),
   reducers: {
     setCommentPage: (state, action: PayloadAction<number>) => {
-      state.page = state.hasMore ? action.payload : 1;
+      state.page = action.payload;
     },
   },
   extraReducers: (builder) => {

@@ -25,14 +25,16 @@ import {
   getArticleCommentsLimit,
   getArticleCommentsPage,
 } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
+import { articleDetailsCommentsActions } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 
 export const fetchCommentsByArticleId = createAsyncThunk<Comment[],
-    string | undefined,
+    string,
     ThunkConfig<string>>(
       'pages/fetchCommentsByArticleId',
       async (articleId, thunkAPI) => {
         const {
           extra,
+          dispatch,
           rejectWithValue,
           getState,
         } = thunkAPI;
@@ -53,6 +55,8 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[],
               _expand: 'user',
             },
           });
+
+          // dispatch(articleDetailsCommentsActions.setCommentPage(page));
 
           if (!response.data) {
             throw new Error();

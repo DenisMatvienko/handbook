@@ -71,7 +71,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchCommentsByArticleId(id || '0'));
   }, [id, dispatch]);
 
   const componentsLeftSide: ComponentsObjectType = {
