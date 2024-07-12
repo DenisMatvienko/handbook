@@ -15,7 +15,10 @@ import { fetchNextCommentPage } from 'pages/ArticleDetailsPage/model/service/fet
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getArticleCommentsHasMore } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
+import {
+  getArticleCommentsHasMore,
+  getArticleCommentsPage,
+} from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
 import { uid } from 'shared/lib/uid/uid';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
@@ -47,6 +50,10 @@ export const CommentList = memo((props: CommentListProps) => {
   const { t } = useTranslation('comments');
   const dispatch = useAppDispatch();
   const hasMoreComments = useSelector(getArticleCommentsHasMore);
+  const pageComments = useSelector(getArticleCommentsPage);
+
+  console.log(hasMoreComments);
+  console.log(pageComments);
 
   const renderComment = (comment: Comment) => (
       <CommentCard
