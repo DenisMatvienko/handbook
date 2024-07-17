@@ -52,7 +52,7 @@ export const ArticlesPageRecommendations = memo((props: ArticlesPageRecommendati
 
   useInitialEffect(() => {
     dispatch(initArticlePageRecommendations());
-  });
+  }, [dispatch]);
 
   return (
       <DynamicModuleLoader

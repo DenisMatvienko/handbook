@@ -50,10 +50,6 @@ export const CommentList = memo((props: CommentListProps) => {
   const { t } = useTranslation('comments');
   const dispatch = useAppDispatch();
   const hasMoreComments = useSelector(getArticleCommentsHasMore);
-  const pageComments = useSelector(getArticleCommentsPage);
-
-  console.log(hasMoreComments);
-  console.log(pageComments);
 
   const renderComment = (comment: Comment) => (
       <CommentCard
@@ -99,7 +95,7 @@ export const CommentList = memo((props: CommentListProps) => {
               <Text
                   className={classes.title}
                   theme={TextTheme.BLOCK_TEXT}
-                  title={comments ? `${t('comments')}(${comments?.length})` : `${t('comments')}(0)`}
+                  title={`${t('comments')}`}
                   align={TextAlign.LEFT}
                   size={TextSize.S}
               />

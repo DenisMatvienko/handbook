@@ -15,35 +15,34 @@
  *      - Main article content, should to take most of the place. By default, width - 69%.
  */
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { ArticleDetails } from 'entities/Article';
+import { CommentList } from 'entities/Comment';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations';
+
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   ComponentsObjectType,
   DoubleAdjustableFrame,
 } from 'shared/ui/Block/DoubleAdjustableFrame/DoubleAdjustableFrame';
-import { CommentList } from 'entities/Comment';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
-import ArrowLeftIcon from 'shared/assets/icons/left-arrow-alt.svg';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
-import {
-  ArticleDetailRecommendations,
-} from 'features/ArticleDetailRecommendations/ui/ArticleDetailRecommendations/ArticleDetailRecommendations';
-import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations';
-import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
+import { ArticleDetailRecommendations } from 'features/ArticleDetailRecommendations';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
+import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { articleDetailsCommentsActions, articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/ArticleDetailsCommentsSlice';
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -71,12 +70,13 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
+    dispatch(articleDetailsCommentsActions.resetCommentPage());
     dispatch(fetchCommentsByArticleId(id || '0'));
   }, [id, dispatch]);
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
-    // articlesRecommendations: <ArticleDetailRecommendations />,
+    articlesRecommendations: <ArticleDetailRecommendations />,
     comments: <CommentList
         isLoading={commentsIsLoading}
         marginTop

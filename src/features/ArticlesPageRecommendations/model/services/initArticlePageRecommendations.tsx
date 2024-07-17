@@ -12,6 +12,7 @@ import { getArticlePageInited } from 'pages/ArticlesPage/model/selectors/article
 import {
   getArticlesPageRecommendationsInitedSelecor,
 } from 'features/ArticlesPageRecommendations/model/selectors/getArticlesPageRecommendations';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 export const initArticlePageRecommendations = createAsyncThunk<void,
   void,
