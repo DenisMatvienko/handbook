@@ -16,10 +16,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import {
-  getArticleCommentsHasMore,
+  getArticleCommentsHasMore, getArticleCommentsIsLoading,
   getArticleCommentsPage,
 } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
 import { uid } from 'shared/lib/uid/uid';
+import { getArticleComments } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentList.module.scss';
@@ -27,9 +28,7 @@ import classes from './CommentList.module.scss';
 interface CommentListProps {
   className?: string;
   marginTop?: boolean;
-  comments: Comment[];
   articleId?: string;
-  isLoading?: boolean;
 }
 
 const getCommentSkeletons = () => new Array(5)
@@ -43,13 +42,13 @@ export const CommentList = memo((props: CommentListProps) => {
   const {
     className,
     marginTop = false,
-    comments,
-    isLoading,
     articleId,
   } = props;
   const { t } = useTranslation('comments');
   const dispatch = useAppDispatch();
   const hasMoreComments = useSelector(getArticleCommentsHasMore);
+  const comments = useSelector(getArticleComments.selectAll);
+  const isLoading = useSelector(getArticleCommentsIsLoading);
 
   const renderComment = (comment: Comment) => (
       <CommentCard

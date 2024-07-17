@@ -22,13 +22,13 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { getUserAuthData } from 'entities/User';
 import { getArticleError } from 'entities/Article/model/selectors/getArticleDetails';
+import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import classes from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
-    isLoading?: boolean
     onSendComment: (text: string) => void;
 }
 
@@ -37,12 +37,13 @@ const reducers: ReducersList = {
 };
 
 const AddCommentForm = memo((props: AddCommentFormProps) => {
-  const { className, onSendComment, isLoading } = props;
+  const { className, onSendComment } = props;
   const { t } = useTranslation('comments');
   const isAuth = useSelector(getUserAuthData);
   const isArticleError = useSelector(getArticleError);
   const text = useSelector(getAddCommentFormText);
   const dispatch = useAppDispatch();
+  const isLoading = useSelector(getArticleCommentsIsLoading);
 
   const onCommentTextChange = useCallback((value: string) => {
     dispatch(addCommentFormActions.setText(value));

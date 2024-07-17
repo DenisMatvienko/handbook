@@ -58,8 +58,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const comments = useSelector(getArticleComments.selectAll);
-  const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
   const onBackToList = useCallback(() => {
     navigate(RoutePath.articles);
@@ -78,13 +76,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     articleContent: <ArticleDetails id={id || '0'} />,
     articlesRecommendations: <ArticleDetailRecommendations />,
     comments: <CommentList
-        isLoading={commentsIsLoading}
+        // isLoading={commentsIsLoading}
         marginTop
-        comments={comments}
+        // comments={comments}
         articleId={id || '0'}
     />,
     addCommentForm: <AddCommentForm
-        isLoading={commentsIsLoading}
         onSendComment={onSendComment}
     />,
   };
