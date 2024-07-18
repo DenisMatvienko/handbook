@@ -64,11 +64,6 @@ export const CommentList = memo((props: CommentListProps) => {
     }
   }, [articleId, dispatch]);
 
-  const onClick = useCallback((e: React.MouseEvent<Element, MouseEvent>) => {
-    e.preventDefault();
-    onLoadNextPage();
-  }, [onLoadNextPage]);
-
   const mods: Mods = {
     [classes.marginTop]: marginTop,
   };
@@ -98,12 +93,14 @@ export const CommentList = memo((props: CommentListProps) => {
                   align={TextAlign.LEFT}
                   size={TextSize.S}
               />
-              {comments.length > 0 && comments.map(renderComment)}
+              {comments.length > 0
+                ? comments.map(renderComment)
+                : null}
               { isLoading && getCommentSkeletons() }
               {hasMoreComments && comments?.length
                   && (
                   <Button
-                      onClick={onClick}
+                      onClick={onLoadNextPage}
                       theme={ButtonTheme.BACKGROUND_BLOCK}
                       radius={ButtonRadius.SEMI_ELLIPSE}
                   >

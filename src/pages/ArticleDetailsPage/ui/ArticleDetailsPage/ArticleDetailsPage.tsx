@@ -76,9 +76,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     articleContent: <ArticleDetails id={id || '0'} />,
     articlesRecommendations: <ArticleDetailRecommendations />,
     comments: <CommentList
-        // isLoading={commentsIsLoading}
         marginTop
-        // comments={comments}
         articleId={id || '0'}
     />,
     addCommentForm: <AddCommentForm

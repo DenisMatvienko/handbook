@@ -28,8 +28,8 @@ export const SkeletonComment = memo((props: SkeletonCommentProps) => {
               </div>
               <Skeleton
                   border="50%"
-                  width={50}
-                  height={50}
+                  width={25}
+                  height={25}
               />
               <Skeleton
                   className={classes.skeletonComment__title}
