@@ -9,22 +9,35 @@ import { memo, useCallback, useMemo } from 'react';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { stringCutter } from 'shared/lib/stringCutter/stringCutter';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { articlePageSliceActions } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { getArticlePageTabs } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import classes from './ArticleTypeTabs.module.scss';
 
 interface ArticleTypeTabsProps {
     className?: string;
-    value: ArticleType;
-    onChangeType: (type: ArticleType) => void;
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
   const {
     className,
-    value,
-    onChangeType,
   } = props;
 
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const value = useSelector(getArticlePageTabs);
+
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
+  }, [dispatch]);
+
+  const onChangeType = useCallback((value: ArticleType) => {
+    dispatch(articlePageSliceActions.setType(value));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
 
   const typeTabs = useMemo<TabItem[]>(() => [
     {

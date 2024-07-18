@@ -37,7 +37,11 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const { className, article, view } = props;
+  const {
+    className,
+    article,
+    view = ArticleView.LIST,
+  } = props;
   const [isTagModal, setIsTagModal] = useState(false);
   const [isHover, bindIsHover] = useHover();
   const { t } = useTranslation('articles');

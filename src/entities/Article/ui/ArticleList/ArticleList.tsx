@@ -25,13 +25,12 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 import { useSelector } from 'react-redux';
 import { getArticles } from 'pages/ArticlesPage/model/slices/articlePageSlice';
-import { getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { getArticlePageView, getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string;
-    view?: ArticleView;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 6 : 3)
@@ -48,11 +47,11 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
-    view = ArticleView.LIST,
   } = props;
   const { t } = useTranslation('articles');
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
+  const view = useSelector(getArticlePageView);
 
   const renderArticle = (article: Article) => (
       <ArticleListItem

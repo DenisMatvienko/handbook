@@ -74,29 +74,17 @@ const reducers: ReducersList = {
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
-  const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
-  const type = useSelector(getArticlePageTabs);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }));
-  }, [dispatch]);
-
-  const debounceFetchData = useDebounce(fetchData, 500);
+  // const debounceFetchData = useDebounce(fetchData, 500);
 
   useInitialEffect(() => {
     dispatch(initArticlesPage());
   });
-
-  const onChangeType = useCallback((value: ArticleType) => {
-    dispatch(articlePageSliceActions.setType(value));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
 
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
@@ -105,16 +93,11 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   };
 
   const widgetsRightSide: ComponentsObjectType = {
-    tags: <ArticleTypeTabs
-        onChangeType={onChangeType}
-        value={type}
-    />,
+    tags: <ArticleTypeTabs />,
   };
 
   const contentLeftSide: ComponentsObjectType = {
-    articleList: <ArticleList
-        view={views}
-    />,
+    articleList: <ArticleList />,
   };
 
   const contentRightSide: ComponentsObjectType = {
