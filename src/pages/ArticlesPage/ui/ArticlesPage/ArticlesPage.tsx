@@ -74,8 +74,6 @@ const reducers: ReducersList = {
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
   const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
   const sort = useSelector(getArticlePageSort);
@@ -134,8 +132,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const contentLeftSide: ComponentsObjectType = {
     articleList: <ArticleList
         view={views}
-        isLoading={isLoading}
-        articles={articles}
     />,
   };
 
