@@ -76,8 +76,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const dispatch = useAppDispatch();
   const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
-  const sort = useSelector(getArticlePageSort);
-  const order = useSelector(getArticlePageOrder);
   const type = useSelector(getArticlePageTabs);
 
   const onLoadNextPart = useCallback(() => {
@@ -94,18 +92,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     dispatch(initArticlesPage());
   });
 
-  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
-    dispatch(articlePageSliceActions.setOrder(newOrder));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeSort = useCallback((newSort: ArticleSortField) => {
-    dispatch(articlePageSliceActions.setSort(newSort));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
   const onChangeType = useCallback((value: ArticleType) => {
     dispatch(articlePageSliceActions.setType(value));
     dispatch(articlePageSliceActions.setPage(1));
@@ -115,10 +101,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
         className={classes.articlesPage__selectors}
-        order={order}
-        sort={sort}
-        onChangeOrder={onChangeOrder}
-        onChangeSort={onChangeSort}
     />,
   };
 

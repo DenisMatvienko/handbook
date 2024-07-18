@@ -21,29 +21,45 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { Select, SelectOption, SelectTheme } from 'shared/ui/Select/Select';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
+import { articlePageSliceActions } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
+import { useSelector } from 'react-redux';
+import { getArticlePageOrder, getArticlePageSort } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import classes from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
     className?: string;
-    order: SortOrderType;
-    sort: ArticleSortField;
-    onChangeOrder: (newOrder: SortOrderType) => void;
-    onChangeSort: (newSort: ArticleSortField) => void;
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
   const {
     className,
-    order,
-    sort,
-    onChangeOrder,
-    onChangeSort,
   } = props;
   const { t } = useTranslation('filters');
+  const dispatch = useAppDispatch();
+  const sort = useSelector(getArticlePageSort);
+  const order = useSelector(getArticlePageOrder);
+
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
+  }, [dispatch]);
+
+  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
+    dispatch(articlePageSliceActions.setOrder(newOrder));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
+
+  const onChangeSort = useCallback((newSort: ArticleSortField) => {
+    dispatch(articlePageSliceActions.setSort(newSort));
+    dispatch(articlePageSliceActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
 
   const orderOptions = useMemo<SelectOption<SortOrderType>[]>(() => [
     {

@@ -27,8 +27,5 @@ export default {
 const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector {...args} />;
 
 export const FirstArticleSortSelector = Template.bind({});
-FirstArticleSortSelector.args = {
-  order: 'asc',
-  sort: ArticleSortField.CREATED,
-};
+FirstArticleSortSelector.args = {};
 FirstArticleSortSelector.decorators = [ThemeDecorator(Theme.DARK)];
