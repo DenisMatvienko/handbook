@@ -56,8 +56,6 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[],
             },
           });
 
-          // dispatch(articleDetailsCommentsActions.setCommentPage(page));
-
           if (!response.data) {
             throw new Error();
           }

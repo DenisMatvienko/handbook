@@ -31,11 +31,13 @@ interface CommentListProps {
   articleId?: string;
 }
 
-const getCommentSkeletons = () => new Array(5)
-  .fill(0).map(() => (
-      <SkeletonComment
-          key={uid()}
-      />
+const getCommentSkeletons = (count: number) => new Array(count || 5)
+  .fill(0).map((_, index) => (
+      <div>
+          <SkeletonComment
+              key={uid()}
+          />
+      </div>
   ));
 
 export const CommentList = memo((props: CommentListProps) => {
@@ -93,20 +95,21 @@ export const CommentList = memo((props: CommentListProps) => {
                   align={TextAlign.LEFT}
                   size={TextSize.S}
               />
-              {comments.length > 0
+              {comments?.length > 0
                 ? comments.map(renderComment)
                 : null}
-              { isLoading && getCommentSkeletons() }
+              { isLoading && getCommentSkeletons(comments?.length) }
               {hasMoreComments && comments?.length
-                  && (
-                  <Button
-                      onClick={onLoadNextPage}
-                      theme={ButtonTheme.BACKGROUND_BLOCK}
-                      radius={ButtonRadius.SEMI_ELLIPSE}
-                  >
-                      next page
-                  </Button>
-                  )}
+                ? (
+                    <Button
+                        onClick={onLoadNextPage}
+                        theme={ButtonTheme.BACKGROUND_BLOCK}
+                        radius={ButtonRadius.SEMI_ELLIPSE}
+                    >
+                        next page
+                    </Button>
+                )
+                : null}
           </div>
       </FullPageBlock>
   );
