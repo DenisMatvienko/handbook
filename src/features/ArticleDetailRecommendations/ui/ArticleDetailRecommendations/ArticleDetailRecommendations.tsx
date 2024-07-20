@@ -58,7 +58,9 @@ export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommenda
           >
               <div>
                   {recommendations.map((item) => (
-                      <div>
+                      <div
+                          key={item.id}
+                      >
                           {item.article.title}
                       </div>
                   ))}
