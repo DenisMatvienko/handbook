@@ -3,26 +3,25 @@
  *      - List with comment-cards, which contain text with comments.
  */
 
+import {
+  getArticleCommentsHasMore, getArticleCommentsIsLoading
+} from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
+import { fetchNextCommentPage } from 'pages/ArticleDetailsPage/model/service/fetchNextCommentPage/fetchNextCommentPage';
+import { getArticleComments } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import React, { memo, useCallback } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { uid } from 'shared/lib/uid/uid';
+import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
+import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
+import { SkeletonComment } from 'shared/ui/Skeleton/SkeletonComment/SkeletonComment';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
-import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { SkeletonComment } from 'shared/ui/Skeleton/SkeletonComment/SkeletonComment';
-import { fetchNextCommentPage } from 'pages/ArticleDetailsPage/model/service/fetchNextCommentPage/fetchNextCommentPage';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
-import { useSelector } from 'react-redux';
-import {
-  getArticleCommentsHasMore, getArticleCommentsIsLoading,
-  getArticleCommentsPage,
-} from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
-import { uid } from 'shared/lib/uid/uid';
-import { getArticleComments } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
-import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
+import { CommentCard } from '../../ui/CommentCard/CommentCard';
 import classes from './CommentList.module.scss';
 
 interface CommentListProps {
@@ -54,7 +53,6 @@ export const CommentList = memo((props: CommentListProps) => {
 
   const renderComment = (comment: Comment) => (
       <CommentCard
-          isLoading={isLoading}
           comment={comment}
           key={comment.id}
       />
@@ -99,7 +97,7 @@ export const CommentList = memo((props: CommentListProps) => {
                 ? comments.map(renderComment)
                 : null}
               { isLoading && getCommentSkeletons(comments?.length) }
-              {hasMoreComments && comments?.length
+              { hasMoreComments && comments?.length
                 ? (
                     <Button
                         onClick={onLoadNextPage}

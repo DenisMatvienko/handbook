@@ -36,17 +36,3 @@ FirstCommentCard.args = {
   },
 };
 FirstCommentCard.decorators = [StoreDecorator({})];
-
-export const isLoadingCommentCard = Template.bind({});
-isLoadingCommentCard.args = {
-  comment: {
-    id: '2',
-    text: 'Hello',
-    user: {
-      id: '2',
-      username: 'Danzel',
-    },
-  },
-  isLoading: true,
-};
-isLoadingCommentCard.decorators = [StoreDecorator({})];
