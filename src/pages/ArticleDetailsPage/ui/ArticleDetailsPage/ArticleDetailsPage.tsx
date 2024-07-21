@@ -74,7 +74,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   const componentsLeftSide: ComponentsObjectType = {
     articleContent: <ArticleDetails id={id || '0'} />,
-    articlesRecommendations: <ArticleDetailRecommendations />,
+    articlesDetailRecommendations: <ArticleDetailRecommendations />,
     comments: <CommentList
         marginTop
         articleId={id || '0'}

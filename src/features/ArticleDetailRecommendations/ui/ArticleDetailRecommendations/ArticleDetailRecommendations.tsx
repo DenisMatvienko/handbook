@@ -26,6 +26,9 @@ import {
 import {
   initArticleDetailRecommendations,
 } from 'features/ArticleDetailRecommendations/model/services/initArticleDetailRecommendations';
+import {
+  Text, TextAlign, TextSize, TextTheme,
+} from 'shared/ui/Text/Text';
 import classes from './ArticleDetailRecommendations.module.scss';
 
 interface ArticleDetailRecommendationsProps {
@@ -56,15 +59,20 @@ export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommenda
               className={classNames(classes.ArticleDetailRecommendations, {}, [className])}
               key={uid()}
           >
-              <div>
-                  {recommendations.map((item) => (
-                      <div
-                          key={item.id}
-                      >
-                          {item.article.title}
-                      </div>
-                  ))}
-              </div>
+              {recommendations.map((item) => (
+                  <div
+                      className={classes.ArticleDetailRecommendations__block}
+                      key={item.id}
+                  >
+                      <Text
+                          className={classes.title}
+                          theme={TextTheme.BLOCK_TEXT}
+                          title={item.article.title}
+                          align={TextAlign.LEFT}
+                          size={TextSize.S}
+                      />
+                  </div>
+              ))}
           </FullPageBlock>
       </DynamicModuleLoader>
   );
