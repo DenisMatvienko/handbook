@@ -1,0 +1,64 @@
+.RecommendationsArticleDetailItem__block {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  border: 1px var(--border-grey) solid;
+  border-radius: 3px;
+  padding: 15px 40px;
+  margin-top: 10px;
+
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  &:hover {
+    background-color: rgba(255,255,255,0.10);
+    -webkit-box-shadow: var(--box-shadow-recommendations);
+    box-shadow: var(--box-shadow-recommendations);
+    transition: 500ms ease-in-out;
+  }
+}
+
+.RecommendationsArticleDetailItem__recommendationsDetailHeader {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-right: 10px;
+
+  & * {
+    margin-right: 5px;
+  }
+}
+
+.RecommendationsArticleDetailItem__linkToProfile {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.RecommendationsArticleDetailItem__itemInfoWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 100%;
+
+  & * {
+    margin-right: 10px;
+  }
+}
+
+.RecommendationsArticleDetailItem__viewsIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.RecommendationsArticleDetailItem__Tags {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.RecommendationsArticleDetailItem__Tag {
+  padding: 10px;
+}

@@ -35,6 +35,10 @@ import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Tag, TagTheme } from 'shared/ui/Tag/Tag';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-show.svg';
+import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
+import {
+  RecommendationsArticleDetailList,
+} from 'entities/Recommendation/ui/RecommendationsArticleDetail/RecommendationsArticleDetailList/RecommendationsArticleDetailList';
 import classes from './ArticleDetailRecommendations.module.scss';
 
 interface ArticleDetailRecommendationsProps {
@@ -57,16 +61,6 @@ export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommenda
     dispatch(initArticleDetailRecommendations());
   });
 
-  if (isLoading) {
-    return (
-        <FullPageBlock
-            className={classes.ArticleDetailRecommendations__isLoading}
-        >
-            <p>loading...</p>
-        </FullPageBlock>
-    );
-  }
-
   return (
       <DynamicModuleLoader
           reducers={initialReducers}
@@ -75,71 +69,18 @@ export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommenda
               className={classNames(classes.ArticleDetailRecommendations, {}, [className])}
               key={uid()}
           >
-              {recommendations.map((item) => (
-                  <div
-                      className={classes.ArticleDetailRecommendations__block}
-                      key={item.id}
-                  >
-                      <Avatar
-                          size={AvatarSize.L}
-                          radius={AvatarRadius.ELLIPSE}
-                          src={item.user.avatar}
-                          alt={item.user.avatar}
-                      />
-                      <AppLink
-                          className={classes.ArticleDetailRecommendations__linkToProfile}
-                          to={`${RoutePath.profile}${item?.user?.id}`}
-                      >
-                          <Text
-                              key={uid()}
-                              theme={TextTheme.BLOCK_TEXT}
-                              text={`${item?.user?.username}`}
-                              size={TextSize.M}
-                              align={TextAlign.LEFT}
-                          />
-                      </AppLink>
-                      <Text
-                          key={uid()}
-                          theme={TextTheme.SUBTITLE}
-                          text={`${item?.article?.createdAt}`}
-                          size={TextSize.S}
-                          align={TextAlign.LEFT}
-                      />
-                      <AppLink
-                          className={classes.ArticleDetailRecommendations__linkToArticle}
-                          to={`${RoutePath.article_details}${item?.article?.id}`}
-                      >
-                          <Text
-                              key={uid()}
-                              theme={TextTheme.BLOCK_TEXT}
-                              title={`${item?.article?.title}`}
-                              size={TextSize.M}
-                              align={TextAlign.LEFT}
-                          />
-                      </AppLink>
-                      <div className={classes.ArticleDetailRecommendations__itemInfoWrapper}>
-                          <Icon
-                              className={classes.ArticleDetailRecommendations__viewsIcon}
-                              Svg={EyeIcon}
-                          />
-                          <Text
-                              key={uid()}
-                              theme={TextTheme.SUBTITLE}
-                              text={`${item?.views}`}
-                              size={TextSize.S}
-                              align={TextAlign.LEFT}
-                          />
-                      </div>
-                      {item?.article?.type.slice(0, 5).map((item) => (
-                          <Tag
-                              className={classes.Tag}
-                              key={uid()}
-                              theme={TagTheme.DEFAULT}
-                              data={item}
-                          />
-                      ))}
-                  </div>
-              ))}
+              <Text
+                  key={uid()}
+                  theme={TextTheme.BLOCK_TEXT}
+                  title="Публикации"
+                  size={TextSize.S}
+                  align={TextAlign.LEFT}
+              />
+              <RecommendationsArticleDetailList
+                  recommendations={recommendations}
+                  isLoading={isLoading}
+                  error={error}
+              />
           </FullPageBlock>
       </DynamicModuleLoader>
   );

@@ -26,7 +26,7 @@ import {
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import {
   RecommendationsArticleItemMain,
-} from 'entities/Recommendation/ui/RecommendationsArticleItemMain/RecommendationsArticleItemMain';
+} from 'entities/Recommendation/ui/RecommendationsArticleMain/RecommendationsArticleItemMain/RecommendationsArticleItemMain';
 import { Skeleton } from 'shared/ui/Skeleton/SkeletonDefault/Skeleton';
 import {
   SkeletonRecommendationsArticlesList,
@@ -47,7 +47,6 @@ export const RecommendationsArticleListMain = memo((props: RecommendationsArticl
     isLoading,
     error,
   } = props;
-  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   if (isLoading) {

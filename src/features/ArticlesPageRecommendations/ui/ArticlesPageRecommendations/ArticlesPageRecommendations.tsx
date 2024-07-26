@@ -14,7 +14,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 
 import {
   RecommendationsArticleListMain,
-} from 'entities/Recommendation/ui/RecommendationsArticleListMain/RecommendationsArticleListMain';
+} from 'entities/Recommendation/ui/RecommendationsArticleMain/RecommendationsArticleListMain/RecommendationsArticleListMain';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
