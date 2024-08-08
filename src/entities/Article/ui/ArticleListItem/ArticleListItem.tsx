@@ -25,6 +25,7 @@ import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import {
   Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
@@ -74,10 +75,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       />
   ));
 
-  const onOpenArticles = useCallback(() => {
-    navigate(RoutePath.article_details + article.id);
-  }, [article.id, navigate]);
-
   const onShowTagInfo = useCallback(() => {
     setIsTagModal(true);
   }, []);
@@ -123,8 +120,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                 </div>
             </div>
-            <div
-                onClick={onOpenArticles}
+
+            <AppLink
+                to={`${RoutePath.article_details + article.id}`}
             >
                 <Text
                     className={classes.articleListView__title}
@@ -133,7 +131,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     size={TextSize.M}
                     align={TextAlign.LEFT}
                 />
-            </div>
+            </AppLink>
             <div
                 className={classes.articleListView__tags}
             >
@@ -147,8 +145,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     />
                 ))}
             </div>
-            <div
-                onClick={onOpenArticles}
+            <AppLink
+                to={`${RoutePath.article_details + article.id}`}
             >
                 <img
                     className={classNames(
@@ -159,20 +157,23 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     src={article.img}
                     alt={article.title}
                 />
-            </div>
+            </AppLink>
 
             <div />
             <div className={classes.articleListView__description}>
                 {paragraph}
             </div>
             <div className={classes.articleListView__footer}>
-                <Button
-                    onClick={onOpenArticles}
-                    theme={ButtonTheme.BACKGROUND_BLOCK}
-                    radius={ButtonRadius.SEMI_ELLIPSE}
+                <AppLink
+                    to={`${RoutePath.article_details + article.id}`}
                 >
-                    {t('ReadMore')}
-                </Button>
+                    <Button
+                        theme={ButtonTheme.BACKGROUND_BLOCK}
+                        radius={ButtonRadius.SEMI_ELLIPSE}
+                    >
+                        {t('ReadMore')}
+                    </Button>
+                </AppLink>
             </div>
         </Card>
     );
@@ -188,26 +189,32 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           <div
               className={`${classes.articleImage__wrapper}`}
           >
-              <img
-                  onClick={onOpenArticles}
-                  aria-hidden="true"
-                  className={`${classes.articleImage} ${classes.articleImage_grid}`}
-                  src={article.img}
-                  alt={article.title}
-              />
+              <AppLink
+                  to={`${RoutePath.article_details + article.id}`}
+              >
+                  <img
+                      aria-hidden="true"
+                      className={`${classes.articleImage} ${classes.articleImage_grid}`}
+                      src={article.img}
+                      alt={article.title}
+                  />
+              </AppLink>
           </div>
-          <div
-              onClick={onOpenArticles}
-              className={classes.articleGridView__title}
+          <AppLink
+              to={`${RoutePath.article_details + article.id}`}
           >
-              <Text
-                  theme={TextTheme.BLOCK_TEXT}
-                  title={stringCutter(article.title, 40)}
-                  size={TextSize.S}
-                  align={TextAlign.LEFT}
-              />
+              <div
+                  className={classes.articleGridView__title}
+              >
+                  <Text
+                      theme={TextTheme.BLOCK_TEXT}
+                      title={stringCutter(article.title, 40)}
+                      size={TextSize.S}
+                      align={TextAlign.LEFT}
+                  />
 
-          </div>
+              </div>
+          </AppLink>
           <div
               className={classes.articleGridView__statistic}
           >

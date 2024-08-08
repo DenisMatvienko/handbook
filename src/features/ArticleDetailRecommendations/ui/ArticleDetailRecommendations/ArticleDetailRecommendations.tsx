@@ -80,6 +80,7 @@ export const ArticleDetailRecommendations = memo((props: ArticleDetailRecommenda
                   recommendations={recommendations}
                   isLoading={isLoading}
                   error={error}
+                  target="_blank"
               />
           </FullPageBlock>
       </DynamicModuleLoader>

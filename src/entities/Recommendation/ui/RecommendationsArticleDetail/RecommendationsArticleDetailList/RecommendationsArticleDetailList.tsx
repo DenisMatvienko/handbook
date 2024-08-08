@@ -5,7 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
 import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
@@ -31,6 +31,7 @@ interface RecommendationsArticleDetailListProps {
     recommendations: Recommendation[];
     isLoading?: boolean;
     error?: string;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = () => new Array(3)
@@ -47,6 +48,7 @@ export const RecommendationsArticleDetailList = memo((props: RecommendationsArti
     className,
     recommendations,
     isLoading,
+    target,
     error,
   } = props;
   const { t } = useTranslation();
@@ -65,6 +67,7 @@ export const RecommendationsArticleDetailList = memo((props: RecommendationsArti
       <div className={classNames(classes.RecommendationsArticleDetailList, {}, [className])}>
           {recommendations.map((item) => (
               <RecommendationsArticleDetailItem
+                  target={target}
                   recommendation={item}
               />
           ))}
