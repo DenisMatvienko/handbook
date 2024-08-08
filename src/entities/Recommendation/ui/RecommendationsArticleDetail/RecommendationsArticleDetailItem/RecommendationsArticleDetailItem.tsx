@@ -5,7 +5,7 @@
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Recommendation } from 'entities/Recommendation/model/types/recommendation';
 import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
@@ -22,12 +22,14 @@ import classes from './RecommendationsArticleDetailItem.module.scss';
 interface RecommendationsArticleDetailItemProps {
     className?: string;
     recommendation?: Recommendation;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const RecommendationsArticleDetailItem = memo((props: RecommendationsArticleDetailItemProps) => {
   const {
     className,
     recommendation,
+    target,
   } = props;
   const { t } = useTranslation();
 
@@ -51,6 +53,7 @@ export const RecommendationsArticleDetailItem = memo((props: RecommendationsArti
                       alt={recommendation.user.avatar}
                   />
                   <AppLink
+                      target={target}
                       className={classes.RecommendationsArticleDetailItem__linkToProfile}
                       to={`${RoutePath.profile}${recommendation?.user?.id}`}
                   >
@@ -71,6 +74,7 @@ export const RecommendationsArticleDetailItem = memo((props: RecommendationsArti
                   />
               </div>
               <AppLink
+                  target={target}
                   className={classes.RecommendationsArticleDetailItem__linkToArticle}
                   to={`${RoutePath.article_details}${recommendation?.article?.id}`}
               >
