@@ -14,7 +14,7 @@ import {
 describe('get recommendations', () => {
   test('selector should return date of getArticleDetailRecommendationsIsLoadingSelector', () => {
     const state: DeepPartial<StateSchema> = {
-      articlesPageRecommendations: {
+      articleDetailRecommendations: {
         isLoading: true,
       },
     };
@@ -28,7 +28,7 @@ describe('get recommendations', () => {
   });
   test('selector should return date of getArticleDetailRecommendationsErrorSelector', () => {
     const state: DeepPartial<StateSchema> = {
-      articlesPageRecommendations: {
+      articleDetailRecommendations: {
         error: 'error',
       },
     };
@@ -42,7 +42,7 @@ describe('get recommendations', () => {
   });
   test('selector should return date of getArticleDetailRecommendationsLimitSelector', () => {
     const state: DeepPartial<StateSchema> = {
-      articlesPageRecommendations: {
+      articleDetailRecommendations: {
         limit: 5,
       },
     };
@@ -56,7 +56,7 @@ describe('get recommendations', () => {
   });
   test('selector should return date of getArticleDetailRecommendationsInitedSelecor', () => {
     const state: DeepPartial<StateSchema> = {
-      articlesPageRecommendations: {
+      articleDetailRecommendations: {
         _inited: true,
       },
     };
@@ -70,7 +70,7 @@ describe('get recommendations', () => {
   });
   test('selector should return date of getArticleDetailRecommendationsHasMoreSelector', () => {
     const state: DeepPartial<StateSchema> = {
-      articlesPageRecommendations: {
+      articleDetailRecommendations: {
         hasMore: true,
       },
     };

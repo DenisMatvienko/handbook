@@ -1,6 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import { Article } from 'entities/Article';
-import { mockedArticle } from '../MockedData/MockedData';
+import { Recommendation } from 'entities/Recommendation';
+import { mockedArticle, mockedRecommendation } from '../MockedData/MockedData';
 
 export class ArticleMock {
   article: Article;
@@ -23,6 +24,25 @@ export class ArticleMock {
   }
 }
 
-export class UserMock {
-  // Articles data
+export class RecommendationMock {
+  // Recommendation data
+  recommendation: Recommendation;
+
+  constructor() {
+    this.recommendation = mockedRecommendation;
+  }
+
+  getRecommendationsMock(count: number) {
+    const recommendations: Recommendation[] = new Array(count)
+      .fill(0)
+      .map((item, index) => (
+        {
+          ...this.recommendation,
+          id: String(index),
+          articleId: String(index + 1),
+        }
+      ));
+
+    return recommendations;
+  }
 }
