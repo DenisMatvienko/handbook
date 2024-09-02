@@ -3,14 +3,17 @@ import { Article } from 'entities/Article';
 import { Recommendation } from 'entities/Recommendation';
 import { mockedArticle, mockedRecommendation } from '../MockedData/MockedData';
 
-export class ArticleMock {
+export class MockedEntitiesGenerator {
   article: Article;
+
+  recommendation: Recommendation;
 
   constructor() {
     this.article = mockedArticle;
+    this.recommendation = mockedRecommendation;
   }
 
-  getArticlesMock(count: number) {
+  createArticlesMock(count: number) {
     const articles: Article[] = new Array(count)
       .fill(0)
       .map((item, index) => (
@@ -22,17 +25,8 @@ export class ArticleMock {
 
     return articles;
   }
-}
 
-export class RecommendationMock {
-  // Recommendation data
-  recommendation: Recommendation;
-
-  constructor() {
-    this.recommendation = mockedRecommendation;
-  }
-
-  getRecommendationsMock(count: number) {
+  createRecommendationsMock(count: number) {
     const recommendations: Recommendation[] = new Array(count)
       .fill(0)
       .map((item, index) => (
