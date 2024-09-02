@@ -4,14 +4,14 @@
 
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import axios from 'axios';
-import { RecommendationMock } from 'shared/lib/tests/MockDataGenerator/MockedEntities/MockedEntities';
+import { MockedEntitiesGenerator } from 'shared/lib/tests/MockDataGenerator/MockedEntitiesGenerator/MockedEntitiesGenerator';
 import {
   fetchArticleDetailRecommendations,
 } from 'features/ArticleDetailRecommendations/model/services/fetchArticleDetailRecommendations';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
-const recommendations = new RecommendationMock().getRecommendationsMock(16);
+const recommendations = new MockedEntitiesGenerator().createRecommendationsMock(16);
 
 describe('fetchArticleDetailRecommendations', () => {
   test('ok request fetchArticlesList', async () => {

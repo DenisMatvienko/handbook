@@ -4,15 +4,14 @@
 
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import axios from 'axios';
-import { Recommendation, RecommendationType } from 'entities/Recommendation/model/types/recommendation';
 import {
   fetchArticlePageRecommendations,
 } from 'features/ArticlesPageRecommendations/model/services/fetchArticlePageRecommendations';
-import { RecommendationMock } from 'shared/lib/tests/MockDataGenerator/MockedEntities/MockedEntities';
+import { MockedEntitiesGenerator } from 'shared/lib/tests/MockDataGenerator/MockedEntitiesGenerator/MockedEntitiesGenerator';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
-const recommendations = new RecommendationMock().getRecommendationsMock(16);
+const recommendations = new MockedEntitiesGenerator().createRecommendationsMock(16);
 
 describe('fetchArticlePageRecommendations', () => {
   test('ok request fetchArticlePageRecommendations', async () => {

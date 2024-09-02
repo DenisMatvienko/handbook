@@ -2,9 +2,9 @@
  *   Test generated data by mocking api
  */
 
-import { MockDataGenerator } from 'shared/lib/tests/MockDataGenerator/MockDataGenerator';
+import { MockNormalizedDataGenerator } from 'shared/lib/tests/MockDataGenerator/MockNormalizedDataGenerator';
 import { Article } from 'entities/Article';
-import { ArticleMock } from 'shared/lib/tests/MockDataGenerator/MockedEntities/MockedEntities';
+import { MockedEntitiesGenerator } from 'shared/lib/tests/MockDataGenerator/MockedEntitiesGenerator/MockedEntitiesGenerator';
 import { mockedArticle } from './MockedData/MockedData';
 
 const articles: Article[] = new Array(5)
@@ -31,17 +31,17 @@ const entities = (count: number):Record<string, object> => {
 
 describe('MockDataGenerator', () => {
   test('check on correct normalized data', () => {
-    const generated = new MockDataGenerator().createNormalizedArticleMock(16, mockedArticle);
+    const generated = new MockNormalizedDataGenerator().createNormalizedArticleMock(16, mockedArticle);
     expect(generated).toEqual(entities(16));
   });
 
   test('check on correct normalized data with default data', () => {
-    const generated = new MockDataGenerator().createNormalizedArticleMock(16);
+    const generated = new MockNormalizedDataGenerator().createNormalizedArticleMock(16);
     expect(generated).toEqual(entities(16));
   });
 
   test('check on correct articles data', () => {
-    const generated = new ArticleMock().getArticlesMock(5);
+    const generated = new MockedEntitiesGenerator().createArticlesMock(5);
     expect(generated).toEqual(articles);
   });
 });
