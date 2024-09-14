@@ -2,6 +2,7 @@ import { Article } from 'entities/Article';
 import { Recommendation } from 'entities/Recommendation';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { RecommendationType } from 'entities/Recommendation/model/types/recommendation';
+import { Comment } from 'entities/Comment';
 
 export const mockedArticle: Article = {
   blocks: [
@@ -57,4 +58,14 @@ export const mockedRecommendation: Recommendation = {
     type: [],
     blocks: [],
   },
+};
+
+export const mockedComment: Comment = {
+  id: '1',
+  user: {
+    id: '1',
+    username: 'DenisCyberTerminator4100',
+    avatar: '123',
+  },
+  text: 'ban',
 };

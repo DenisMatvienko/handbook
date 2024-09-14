@@ -17,33 +17,22 @@ import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { Comment } from 'entities/Comment';
+import { MockNormalizedDataGenerator } from 'shared/lib/tests/MockDataGenerator/MockNormalizedDataGenerator';
+import { mockedComment } from 'shared/lib/tests/MockDataGenerator/MockedData/MockedData';
+import {
+  MockedEntitiesGenerator,
+} from 'shared/lib/tests/MockDataGenerator/MockedEntitiesGenerator/MockedEntitiesGenerator';
 
-const comment: Comment[] = [
-  {
-    id: '1',
-    user: {
-      id: '1',
-      username: 'DenisCyberTerminator4100',
-      avatar: '123',
-    },
-    text: 'ban',
-  },
-  {
-    id: '2',
-    user: {
-      id: '2',
-      username: 'Zubenko Mikhail Petrovich aka Mafioziy',
-      avatar: '321',
-    },
-    text: 'sorry',
-  },
-];
+const generateEntitiesComments = new MockNormalizedDataGenerator().createUniversalDataMock(16, mockedComment);
+const comment = new MockedEntitiesGenerator().createCommentMock(16);
 
 describe('ArticleDetailsCommentsSlice', () => {
   test('fetchCommentsByArticleId service pending state in extraReducer', () => {
     const state: DeepPartial<ArticleDetailsCommentsSchema> = {
-      error: undefined,
       isLoading: true,
+      error: undefined,
+      ids: new Array(16).fill(0).map((_, i) => String(i)),
+      entities: generateEntitiesComments,
     };
     expect(articleDetailsCommentsReducer(
             state as ArticleDetailsCommentsSchema,
@@ -52,6 +41,8 @@ describe('ArticleDetailsCommentsSlice', () => {
       .toEqual({
         isLoading: true,
         error: undefined,
+        ids: new Array(16).fill(0).map((_, i) => String(i)),
+        entities: generateEntitiesComments,
       });
   });
 
