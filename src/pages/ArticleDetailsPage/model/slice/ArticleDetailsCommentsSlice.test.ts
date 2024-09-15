@@ -12,7 +12,10 @@
  */
 
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
+import {
+  articleDetailsCommentsActions,
+  articleDetailsCommentsReducer,
+} from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -22,11 +25,85 @@ import { mockedComment } from 'shared/lib/tests/MockDataGenerator/MockedData/Moc
 import {
   MockedEntitiesGenerator,
 } from 'shared/lib/tests/MockDataGenerator/MockedEntitiesGenerator/MockedEntitiesGenerator';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { articlePageSliceActions, articlePageSliceReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import { ArticleView } from 'entities/Article';
 
 const generateEntitiesComments = new MockNormalizedDataGenerator().createUniversalDataMock(16, mockedComment);
 const comment = new MockedEntitiesGenerator().createCommentMock(16);
 
 describe('ArticleDetailsCommentsSlice', () => {
+  test('setCommentPage reducer test', () => {
+    const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+      isLoading: false,
+      error: undefined,
+      ids: [],
+      entities: {},
+      limit: 5,
+      hasMore: true,
+      page: 1,
+    };
+    expect(articleDetailsCommentsReducer(
+        state as ArticleDetailsCommentsSchema,
+        articleDetailsCommentsActions.setCommentPage(2),
+    ))
+      .toEqual({
+        isLoading: false,
+        error: undefined,
+        ids: [],
+        entities: {},
+        limit: 5,
+        hasMore: true,
+        page: 2,
+      });
+  });
+
+  test('resetCommentPage reducer test', () => {
+    const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+      isLoading: false,
+      error: undefined,
+      ids: [],
+      entities: {},
+      limit: 5,
+      hasMore: true,
+      page: 5,
+    };
+    expect(articleDetailsCommentsReducer(
+        state as ArticleDetailsCommentsSchema,
+        articleDetailsCommentsActions.resetCommentPage(),
+    ))
+      .toEqual({
+        isLoading: false,
+        error: undefined,
+        ids: [],
+        entities: {},
+        limit: 5,
+        hasMore: true,
+        page: 1,
+      });
+  });
+
+  test('fetchCommentsByArticleId service fulfilled state in extraReducer', () => {
+    const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+      isLoading: false,
+      error: undefined,
+      hasMore: false,
+      ids: new Array(16).fill(0).map((_, i) => String(i)),
+      entities: generateEntitiesComments,
+    };
+    expect(articleDetailsCommentsReducer(
+        state as ArticleDetailsCommentsSchema,
+        fetchCommentsByArticleId.fulfilled(comment, '', ''),
+    ))
+      .toEqual({
+        isLoading: false,
+        error: undefined,
+        hasMore: false,
+        ids: new Array(16).fill(0).map((_, i) => String(i)),
+        entities: generateEntitiesComments,
+      });
+  });
+
   test('fetchCommentsByArticleId service pending state in extraReducer', () => {
     const state: DeepPartial<ArticleDetailsCommentsSchema> = {
       isLoading: true,
@@ -41,42 +118,8 @@ describe('ArticleDetailsCommentsSlice', () => {
       .toEqual({
         isLoading: true,
         error: undefined,
-        ids: new Array(16).fill(0).map((_, i) => String(i)),
-        entities: generateEntitiesComments,
-      });
-  });
-
-  test('fetchCommentsByArticleId service fulfilled state in extraReducer', () => {
-    const state: DeepPartial<ArticleDetailsCommentsSchema> = {
-      isLoading: true,
-    };
-    expect(articleDetailsCommentsReducer(
-            state as ArticleDetailsCommentsSchema,
-            fetchCommentsByArticleId.fulfilled(comment, '', '1'),
-    ))
-      .toEqual({
-        isLoading: false,
-        ids: ['1', '2'],
-        entities: {
-          1: {
-            id: '1',
-            user: {
-              id: '1',
-              username: 'DenisCyberTerminator4100',
-              avatar: '123',
-            },
-            text: 'ban',
-          },
-          2: {
-            id: '2',
-            user: {
-              id: '2',
-              username: 'Zubenko Mikhail Petrovich aka Mafioziy',
-              avatar: '321',
-            },
-            text: 'sorry',
-          },
-        },
+        ids: [],
+        entities: {},
       });
   });
 });

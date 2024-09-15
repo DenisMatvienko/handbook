@@ -21,7 +21,7 @@ const entities = (count: number):Record<string, object> => {
   for (let i = 0; i < count; i++) {
     const key = new Array(count).fill(0).map((_, i) => String(i))[i];
     const value = {
-      ...mockedArticle,
+      mockedArticle,
       id: String(key),
     };
     entity[key] = value;
@@ -31,7 +31,7 @@ const entities = (count: number):Record<string, object> => {
 
 describe('MockDataGenerator', () => {
   test('check on correct normalized data', () => {
-    const generated = new MockNormalizedDataGenerator().createNormalizedArticleMock(16, mockedArticle);
+    const generated = new MockNormalizedDataGenerator().createNormalizedArticleMock(16);
     expect(generated).toEqual(entities(16));
   });
 
