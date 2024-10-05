@@ -17,8 +17,8 @@
 
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations';
+import { AddCommentForm } from 'features/comments/AddCommentForm';
+import { ArticlesPageRecommendations } from 'features/recommendations/ArticlesPageRecommendations';
 
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -38,7 +38,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/Page';
-import { ArticleDetailRecommendations } from 'features/ArticleDetailRecommendations';
+import { ArticleDetailRecommendations } from 'features/recommendations/ArticleDetailRecommendations';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/GetComments';
 import { addCommentForArticle } from '../../model/service/AddCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';

@@ -9,10 +9,11 @@ import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Theme } from 'app/provider/ThemeProvider';
+import { mockedRecommendation } from 'shared/lib/tests/MockDataGenerator/MockedData/MockedData';
 import { RecommendationsArticleItemMain } from './RecommendationsArticleItemMain';
 
 export default {
-  title: 'enterSlice/RecommendationsArticleItemMain',
+  title: 'entities/RecommendationsArticleItemMain',
   component: RecommendationsArticleItemMain,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -23,13 +24,16 @@ export default {
 } as ComponentMeta<typeof RecommendationsArticleItemMain>;
 
 const Template: ComponentStory<typeof RecommendationsArticleItemMain> = (args) => <RecommendationsArticleItemMain {...args} />;
+const recommendation = mockedRecommendation;
 
 export const FirstRecommendationsArticleItemMain = Template.bind({});
-FirstRecommendationsArticleItemMain.args = {};
-FirstRecommendationsArticleItemMain.decorators = [ThemeDecorator(Theme.DARK)];
+FirstRecommendationsArticleItemMain.args = {
+  recommendation,
+};
 FirstRecommendationsArticleItemMain.decorators = [StoreDecorator({})];
 
 export const SecondRecommendationsArticleItemMain = Template.bind({});
-SecondRecommendationsArticleItemMain.args = {};
+SecondRecommendationsArticleItemMain.args = {
+  recommendation,
+};
 SecondRecommendationsArticleItemMain.decorators = [ThemeDecorator(Theme.DARK)];
-SecondRecommendationsArticleItemMain.decorators = [StoreDecorator({})];

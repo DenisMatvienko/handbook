@@ -20,7 +20,7 @@ import React, { memo } from 'react';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { uid } from 'shared/lib/uid/uid';
 import { SkeletonArticleListItem } from 'shared/ui/Skeleton/SkeletonArticleListItem/SkeletonArticleListItem';
-import { ArticleSortSelector } from 'features/ArticleSortSelector/ui/ArticleSortSelector';
+import { ArticleSortSelector } from 'features/selectors/ArticleSortSelector/ui/ArticleSortSelector';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 import { useSelector } from 'react-redux';

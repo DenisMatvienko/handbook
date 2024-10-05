@@ -16,17 +16,17 @@ import { useSelector } from 'react-redux';
 import {
   getNavbarErrorSelector,
   getNavbarSearchArticleSelector,
-} from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+} from 'features/navbar/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { Page } from 'widgets/Page/Page';
 import {
   fetchNextNavbarSearchPage,
-} from 'features/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
+} from 'features/navbar/NavbarSearch/model/services/fetchNextNavbarSearchPage/fetchNextNavbarSearchPage';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { initNavbarSearch } from 'features/NavbarSearch/model/services/initNavbarSearch/initNavbarSearch';
+import { initNavbarSearch } from 'features/navbar/NavbarSearch/model/services/initNavbarSearch/initNavbarSearch';
 import { ArticleView } from 'entities/Article';
 import { SkeletonArticleListItem } from 'shared/ui/Skeleton/SkeletonArticleListItem/SkeletonArticleListItem';
-import { navbarSearchActions } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
+import { navbarSearchActions } from 'features/navbar/NavbarSearch/model/slices/navbarSearchSlice';
 import { Search } from '../../model/types/search';
 import classes from './NavbarSearchList.module.scss';
 

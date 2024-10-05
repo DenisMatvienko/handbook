@@ -32,8 +32,8 @@ export const mockedArticle: Article = {
 export const mockedRecommendation: Recommendation = {
   id: '1',
   articleId: '1',
-  title: 'hello',
-  subtitle: 'subtitle',
+  title: 'Hello this is test title',
+  subtitle: 'Hello this is test subtitle',
   img: 'path/to/img',
   views: 21,
   createdAt: '21.10.15',
@@ -45,8 +45,8 @@ export const mockedRecommendation: Recommendation = {
   },
   article: {
     id: '1',
-    title: '2',
-    subtitle: '21',
+    title: 'Hello this is test title',
+    subtitle: 'Hello this is test subtitle',
     img: 'string',
     views: 21,
     createdAt: '21',

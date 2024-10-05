@@ -4,7 +4,7 @@
  */
 
 import {
-  getArticleCommentsHasMore, getArticleCommentsIsLoading
+  getArticleCommentsHasMore, getArticleCommentsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
 import { fetchNextCommentPage } from 'pages/ArticleDetailsPage/model/service/fetchNextCommentPage/fetchNextCommentPage';
 import { getArticleComments } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
@@ -89,7 +89,7 @@ export const CommentList = memo((props: CommentListProps) => {
               <Text
                   className={classes.title}
                   theme={TextTheme.BLOCK_TEXT}
-                  title={`${t('comments')}`}
+                  title={t('comments')}
                   align={TextAlign.LEFT}
                   size={TextSize.S}
               />
@@ -104,7 +104,7 @@ export const CommentList = memo((props: CommentListProps) => {
                         theme={ButtonTheme.BACKGROUND_BLOCK}
                         radius={ButtonRadius.SEMI_ELLIPSE}
                     >
-                        next page
+                        {t('nextPage')}
                     </Button>
                 )
                 : null}

@@ -41,7 +41,7 @@
 
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
+import { LoginSchema } from 'features/authentification/AuthByUsername';
 import {
   AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -52,17 +52,17 @@ import { NavigateOptions } from 'react-router';
 import { Dispatch } from 'redux';
 import { ArticleDetailSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { AddCommentFormSchema } from 'features/comments/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ScrollRestorationSchema } from 'features/ScrollRestoration';
-import { NavbarSearchSchema } from 'features/NavbarSearch/model/types/navbarSearchSchema';
+import { ScrollRestorationSchema } from 'features/scroll/ScrollRestoration';
+import { NavbarSearchSchema } from 'features/navbar/NavbarSearch/model/types/navbarSearchSchema';
 import { Navbar } from 'widgets/Navbar/model/types/navbar';
 import {
   ArticlesPageRecommendationsSchema,
-} from 'features/ArticlesPageRecommendations/model/types/articlesPageRecommendationsSchema';
+} from 'features/recommendations/ArticlesPageRecommendations/model/types/articlesPageRecommendationsSchema';
 import {
   ArticleDetailRecommendationsSchema,
-} from 'features/ArticleDetailRecommendations/model/types/articleDetailRecommendationsSchema';
+} from 'features/recommendations/ArticleDetailRecommendations/model/types/articleDetailRecommendationsSchema';
 
 export interface StateSchema {
   /** Static reducer's */

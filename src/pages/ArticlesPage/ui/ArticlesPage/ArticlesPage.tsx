@@ -39,7 +39,7 @@ import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { ArticleSortSelector } from 'features/selectors/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
@@ -47,8 +47,8 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import {
   articlesPageRecommendationsReducer,
-} from 'features/ArticlesPageRecommendations/model/slices/articlesPageRecommendationsSlice';
-import { ArticlesPageRecommendations } from 'features/ArticlesPageRecommendations/ui/ArticlesPageRecommendations/ArticlesPageRecommendations';
+} from 'features/recommendations/ArticlesPageRecommendations/model/slices/articlesPageRecommendationsSlice';
+import { ArticlesPageRecommendations } from 'features/recommendations/ArticlesPageRecommendations/ui/ArticlesPageRecommendations/ArticlesPageRecommendations';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';

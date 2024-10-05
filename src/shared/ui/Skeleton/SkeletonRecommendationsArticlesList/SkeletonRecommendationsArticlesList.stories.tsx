@@ -12,7 +12,7 @@ import { Theme } from 'app/provider/ThemeProvider';
 import { SkeletonRecommendationsArticlesList } from './SkeletonRecommendationsArticlesList';
 
 export default {
-  title: 'enterSlice/SkeletonRecommendationsArticlesList',
+  title: 'shared/SkeletonRecommendationsArticlesList',
   component: SkeletonRecommendationsArticlesList,
   argTypes: {
     backgroundColor: { control: 'color' },
