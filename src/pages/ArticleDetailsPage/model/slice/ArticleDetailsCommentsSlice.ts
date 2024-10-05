@@ -51,20 +51,32 @@ const articleDetailsCommentsSlice = createSlice({
     error: undefined,
     ids: [],
     entities: {},
+    limit: 5,
+    hasMore: true,
+    page: 1,
   }),
-  reducers: {},
+  reducers: {
+    setCommentPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    resetCommentPage: (state) => {
+      state.page = 1;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCommentsByArticleId.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+        commentAdapter.removeAll(state);
       })
       .addCase(fetchCommentsByArticleId.fulfilled, (
         state,
         action: PayloadAction<Comment[]>,
       ) => {
         state.isLoading = false;
-        commentAdapter.setAll(state, action.payload);
+        commentAdapter.addMany(state, action.payload);
+        state.hasMore = action.payload.length >= state.limit;
       })
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
         state.isLoading = false;

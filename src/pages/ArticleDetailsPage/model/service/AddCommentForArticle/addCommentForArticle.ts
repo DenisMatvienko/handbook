@@ -9,12 +9,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Comment } from 'entities/Comment';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 import { getArticleDetails } from 'entities/Article/model/selectors/getArticleDetails';
-import {
-  fetchCommentsByArticleId,
-} from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleCommentsHasMore } from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 export const addCommentForArticle = createAsyncThunk<Comment,
     string,

@@ -20,4 +20,8 @@ import { Comment } from 'entities/Comment/model/types/comment';
 export interface ArticleDetailsCommentsSchema extends EntityState<Comment> {
     isLoading?: boolean,
     error?: string,
+
+    limit: number,
+    hasMore?: boolean,
+    page: number,
 }

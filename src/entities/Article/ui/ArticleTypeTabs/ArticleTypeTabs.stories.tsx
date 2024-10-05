@@ -25,13 +25,9 @@ export default {
 const Template: ComponentStory<typeof ArticleTypeTabs> = (args) => <ArticleTypeTabs {...args} />;
 
 export const FirstArticleTypeTabs = Template.bind({});
-FirstArticleTypeTabs.args = {
-  value: ArticleType.JS,
-};
+FirstArticleTypeTabs.args = {};
 FirstArticleTypeTabs.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SecondArticleTypeTabs = Template.bind({});
-SecondArticleTypeTabs.args = {
-  value: ArticleType.GIT,
-};
+SecondArticleTypeTabs.args = {};
 SecondArticleTypeTabs.decorators = [ThemeDecorator(Theme.LIGHT)];

@@ -21,6 +21,9 @@
  *      Which means, that in this place needed to add all fields, as already added password field
  *      https://stackoverflow.com/questions/61132262/typescript-deep-partial
  *
+ *      @param extends
+ *        https://stackoverflow.com/questions/61648189/typescript-generic-type-parameters-t-vs-t-extends
+ *
  *     @type OptionalRecord<>
  *     - Is different of Record utility type:
  *       differs only due to the fact that the keys are optional parameters

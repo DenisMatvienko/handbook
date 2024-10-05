@@ -4,7 +4,7 @@ import { Button, ButtonRadius, ButtonTheme } from 'shared/ui/Button/Button';
 import React, {
   memo, useCallback, useEffect, useState,
 } from 'react';
-import { LoginModal } from 'features/AuthByUsername';
+import { LoginModal } from 'features/authentification/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -16,7 +16,7 @@ import SearchIcon from 'shared/assets/icons/search/search.svg';
 import CtrlIcon from 'shared/assets/icons/search/key-ctrl.svg';
 import KIcon from 'shared/assets/icons/search/key-k.svg';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { NavbarSearch } from 'features/NavbarSearch/ui/NavbarSearch';
+import { NavbarSearch } from 'features/navbar/NavbarSearch/ui/NavbarSearch';
 import { NavbarActions, NavbarReducer } from 'widgets/Navbar/model/slices/NavbarSlice';
 import { getNavbarSearchIsOpen } from 'widgets/Navbar/model/selectors/getNavbarSelectors';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';

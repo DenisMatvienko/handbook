@@ -15,11 +15,11 @@
 import '../../../../app/styles/index.scss';
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/provider/StoreProvider';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { loginReducer } from 'features/authentification/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
+import { addCommentFormReducer } from 'features/comments/AddCommentForm/model/slice/addCommentFormSlice';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 
 const defaultAsyncReducers: ReducersList = {

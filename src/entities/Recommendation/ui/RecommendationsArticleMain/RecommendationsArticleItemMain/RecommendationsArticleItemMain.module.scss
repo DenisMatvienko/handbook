@@ -1,0 +1,38 @@
+.RecommendationsArticleItemMain {
+  display: flex;
+  flex-flow: column wrap;
+
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+}
+
+.RecommendationsArticleItemMain__itemInfo {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  margin-top: 5px;
+}
+
+.RecommendationsArticleItemMain__itemInfoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.RecommendationsArticleItemMain__profileLink {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.RecommendationsArticleItemMain__userIcon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.RecommendationsArticleItemMain__viewsIcon {
+  width: 20px;
+  margin-right: 3px;
+}

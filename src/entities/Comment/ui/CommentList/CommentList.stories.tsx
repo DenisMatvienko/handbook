@@ -25,31 +25,9 @@ export default {
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
 
 export const FirstCommentList = Template.bind({});
-FirstCommentList.args = {
-  comments: [
-    {
-      id: '2',
-      text: 'send nudes..',
-      user: {
-        id: '2',
-        username: 'CyberHaraser27',
-      },
-    },
-    {
-      id: '1',
-      text: 'BAN',
-      user: {
-        id: '1',
-        username: 'admin',
-      },
-    },
-  ],
-};
+FirstCommentList.args = {};
 FirstCommentList.decorators = [StoreDecorator({})];
 
 export const isLoadingCommentList = Template.bind({});
-isLoadingCommentList.args = {
-  comments: [],
-  isLoading: true,
-};
+isLoadingCommentList.args = {};
 isLoadingCommentList.decorators = [StoreDecorator({})];

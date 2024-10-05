@@ -21,25 +21,37 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
 import { Comment } from 'entities/Comment';
+import {
+  getArticleCommentsLimit,
+  getArticleCommentsPage,
+} from 'pages/ArticleDetailsPage/model/selectors/comments/GetComments';
+import { articleDetailsCommentsActions } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
 
 export const fetchCommentsByArticleId = createAsyncThunk<Comment[],
-    string | undefined,
+    string,
     ThunkConfig<string>>(
       'pages/fetchCommentsByArticleId',
       async (articleId, thunkAPI) => {
         const {
           extra,
+          dispatch,
           rejectWithValue,
+          getState,
         } = thunkAPI;
 
         if (!articleId) {
           return rejectWithValue('error');
         }
 
+        const limit = getArticleCommentsLimit(getState());
+        const page = getArticleCommentsPage(getState());
+
         try {
           const response = await extra.api.get<Comment[]>('/comments', {
             params: {
               articleId,
+              _limit: limit,
+              _page: page,
               _expand: 'user',
             },
           });
