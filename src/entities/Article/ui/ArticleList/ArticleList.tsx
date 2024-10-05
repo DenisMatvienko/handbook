@@ -20,17 +20,17 @@ import React, { memo } from 'react';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { uid } from 'shared/lib/uid/uid';
 import { SkeletonArticleListItem } from 'shared/ui/Skeleton/SkeletonArticleListItem/SkeletonArticleListItem';
-import { ArticleSortSelector } from 'features/ArticleSortSelector/ui/ArticleSortSelector';
+import { ArticleSortSelector } from 'features/selectors/ArticleSortSelector/ui/ArticleSortSelector';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { Article, ArticleView } from '../../model/types/article';
 
+import { useSelector } from 'react-redux';
+import { getArticles } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import { getArticlePageView, getArticlesPageIsLoading } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import classes from './ArticleList.module.scss';
+import { Article, ArticleView } from '../../model/types/article';
 
 interface ArticleListProps {
     className?: string;
-    articles: Article[];
-    isLoading?: boolean;
-    view?: ArticleView;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 6 : 3)
@@ -47,11 +47,11 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
-    articles,
-    isLoading,
-    view = ArticleView.LIST,
   } = props;
   const { t } = useTranslation('articles');
+  const articles = useSelector(getArticles.selectAll);
+  const isLoading = useSelector(getArticlesPageIsLoading);
+  const view = useSelector(getArticlePageView);
 
   const renderArticle = (article: Article) => (
       <ArticleListItem

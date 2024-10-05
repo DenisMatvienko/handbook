@@ -39,12 +39,16 @@ import { useSelector } from 'react-redux';
 import { uid } from 'shared/lib/uid/uid';
 import { Page } from 'widgets/Page/Page';
 import { ErrorPalette, ErrorPaletteSize, ErrorPaletteTheme } from 'shared/ui/ErrorPalette/ErrorPalette';
-import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { ArticleSortSelector } from 'features/selectors/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import {
+  articlesPageRecommendationsReducer,
+} from 'features/recommendations/ArticlesPageRecommendations/model/slices/articlesPageRecommendationsSlice';
+import { ArticlesPageRecommendations } from 'features/recommendations/ArticlesPageRecommendations/ui/ArticlesPageRecommendations/ArticlesPageRecommendations';
 import { ArticlePageHeader } from '../ArticlePageFilters/ArticlePageHeader';
 import { initArticlesPage } from '../../model/services/initArticlePage/initArticlesPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
@@ -70,90 +74,34 @@ const reducers: ReducersList = {
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
-  const views = useSelector(getArticlePageView);
   const error = useSelector(getArticlePageError);
-  const sort = useSelector(getArticlePageSort);
-  const order = useSelector(getArticlePageOrder);
-  const type = useSelector(getArticlePageTabs);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlePage());
   }, [dispatch]);
 
-  const fetchData = useCallback(() => {
-    dispatch(fetchArticlesList({ replace: true }));
-  }, [dispatch]);
-
-  const debounceFetchData = useDebounce(fetchData, 500);
+  // const debounceFetchData = useDebounce(fetchData, 500);
 
   useInitialEffect(() => {
     dispatch(initArticlesPage());
   });
 
-  const onChangeOrder = useCallback((newOrder: SortOrderType) => {
-    dispatch(articlePageSliceActions.setOrder(newOrder));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeSort = useCallback((newSort: ArticleSortField) => {
-    dispatch(articlePageSliceActions.setSort(newSort));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const onChangeType = useCallback((value: ArticleType) => {
-    dispatch(articlePageSliceActions.setType(value));
-    dispatch(articlePageSliceActions.setPage(1));
-    fetchData();
-  }, [dispatch, fetchData]);
-
-  const blockMock = useCallback((text: string, indent?: string) => (
-      <FullPageBlock
-          className={indent}
-          key={uid()}
-      >
-          <Text
-              className={classes.recommendationsMock}
-              key={uid()}
-              theme={TextTheme.BLOCK_TEXT}
-              text={text}
-              size={TextSize.M}
-              align={TextAlign.LEFT}
-          />
-      </FullPageBlock>
-  ), []);
-
   const widgetsLeftSide: ComponentsObjectType = {
     filters: <ArticleSortSelector
         className={classes.articlesPage__selectors}
-        order={order}
-        sort={sort}
-        onChangeOrder={onChangeOrder}
-        onChangeSort={onChangeSort}
     />,
   };
 
   const widgetsRightSide: ComponentsObjectType = {
-    tags: <ArticleTypeTabs
-        onChangeType={onChangeType}
-        value={type}
-    />,
+    tags: <ArticleTypeTabs />,
   };
 
   const contentLeftSide: ComponentsObjectType = {
-    articleList: <ArticleList
-        view={views}
-        isLoading={isLoading}
-        articles={articles}
-    />,
+    articleList: <ArticleList />,
   };
 
   const contentRightSide: ComponentsObjectType = {
-    recommendations: blockMock('=Temporary recommendations layout='),
-    histories: blockMock('=Temporary histories layout=', classes.recommendationsMock_wrapper),
+    recommendations: <ArticlesPageRecommendations />,
   };
 
   if (error) {

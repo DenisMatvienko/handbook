@@ -20,62 +20,19 @@
  */
 
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { Article, ArticleView } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleView } from 'entities/Article';
 import { articlePageSliceActions, articlePageSliceReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';
-
-type articlesEntitiesType = Record<string, object>;
-
-const article: Article = {
-  blocks: [
-    {
-      id: '1',
-      type: ArticleBlockType.TEXT,
-      title: 'Стек и куча',
-      paragraphs: [
-        'В JavaScript есть два варианта хранения данных: в стеке и в куче;',
-      ],
-    },
-  ],
-  createdAt: '19.09.2023',
-  id: '1',
-  img: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
-  subtitle: 'Управление памятью и принципах работы сборщика мусора',
-  title: 'Управление памятью в JavaScript',
-  type: [ArticleType.IT, ArticleType.ARCHITECTURE, ArticleType.JS],
-  user: {
-    id: '1',
-    username: 'JLebowski',
-    avatar: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg',
-  },
-  views: 1022,
-};
-
-const articles: Article[] = new Array(16)
-  .fill(0)
-  .map((item, index) => (
-    {
-      ...article,
-      id: String(index),
-    }
-  ));
-
-const entities = (count: number):articlesEntitiesType => {
-  const entity: articlesEntitiesType = {};
-  for (let i = 0; i < count; i++) {
-    const key = new Array(count).fill(0).map((_, i) => String(i))[i];
-    const value = {
-      ...article,
-      id: String(key),
-    };
-    entity[key] = value;
-  }
-  return entity;
-};
+import { MockNormalizedDataGenerator } from 'shared/lib/tests/MockDataGenerator/MockNormalizedDataGenerator';
+import {
+  MockedEntitiesGenerator,
+} from 'shared/lib/tests/MockDataGenerator/MockedEntitiesGenerator/MockedEntitiesGenerator';
 
 describe('articlePageSlice', () => {
+  const generatedArticleMock = new MockedEntitiesGenerator().createArticlesMock(16);
+  const generatedNormalizedMock = new MockNormalizedDataGenerator().createNormalizedArticleMock(16);
+
   test('setView reducer test', () => {
     const state: DeepPartial<ArticlesPageSchema> = { view: ArticleView.GRID };
     expect(articlePageSliceReducer(
@@ -108,18 +65,19 @@ describe('articlePageSlice', () => {
       hasMore: true,
       view: ArticleView.LIST,
       ids: new Array(16).fill(0).map((_, i) => String(i)),
-      entities: entities(16),
+      entities: generatedNormalizedMock,
     };
+
     expect(articlePageSliceReducer(
         state as ArticlesPageSchema,
-        fetchArticlesList.fulfilled(articles, '', {}),
+        fetchArticlesList.fulfilled(generatedArticleMock, '', {}),
     ))
       .toEqual({
         hasMore: false,
         isLoading: false,
         view: ArticleView.LIST,
         ids: new Array(16).fill(0).map((_, i) => String(i)),
-        entities: entities(16),
+        entities: generatedNormalizedMock,
       });
   });
   test('fetchArticlesList service pending state in extraReducer', () => {

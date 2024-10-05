@@ -51,29 +51,10 @@ const article: Article = {
 };
 
 export const FirstArticleList = Template.bind({});
-FirstArticleList.args = {
-  articles: new Array(16)
-    .fill(0)
-    .map((item, index) => (
-      {
-        ...article,
-        id: String(index),
-      }
-    )),
-};
+FirstArticleList.args = {};
 FirstArticleList.decorators = [ThemeDecorator(Theme.DARK)];
 FirstArticleList.decorators = [StoreDecorator({})];
 
 export const SecondArticleGrid = Template.bind({});
-SecondArticleGrid.args = {
-  articles: new Array(16)
-    .fill(0)
-    .map((item, index) => (
-      {
-        ...article,
-        id: String(index),
-      }
-    )),
-  view: ArticleView.GRID,
-};
+SecondArticleGrid.args = {};
 SecondArticleGrid.decorators = [StoreDecorator({})];

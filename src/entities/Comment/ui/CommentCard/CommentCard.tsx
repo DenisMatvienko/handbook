@@ -3,36 +3,27 @@
  *      - CommentCard
  */
 
+import { memo } from 'react';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import React, { memo } from 'react';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar, AvatarRadius, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import {
   Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
-import { SkeletonComment } from 'shared/ui/Skeleton/SkeletonComment/SkeletonComment';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {
   className?: string;
   comment: Comment;
-  isLoading?: boolean;
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
   const {
     className,
     comment,
-    isLoading,
   } = props;
-
-  if (isLoading) {
-    return (
-        <SkeletonComment />
-    );
-  }
 
   if (!comment) {
     return null;

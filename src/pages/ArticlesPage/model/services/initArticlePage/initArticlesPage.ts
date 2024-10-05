@@ -14,7 +14,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/provider/StoreProvider';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
-import { navbarSearchActions } from 'features/NavbarSearch/model/slices/navbarSearchSlice';
 import { getArticlePageInited } from '../../selectors/articlesPageSelectors';
 import { articlePageSliceActions } from '../../slices/articlePageSlice';
 import { fetchArticlesList } from '../../services/fetchArticleList/fetchArticlesList';

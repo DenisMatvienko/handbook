@@ -31,10 +31,10 @@ import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfinit
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { ScrollRestorationActions } from 'features/ScrollRestoration';
+import { ScrollRestorationActions } from 'features/scroll/ScrollRestoration';
 import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { getScrollRestorationBypath } from 'features/ScrollRestoration/model/selectors/GetScrollRestoration';
+import { getScrollRestorationBypath } from 'features/scroll/ScrollRestoration/model/selectors/GetScrollRestoration';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/provider/StoreProvider';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';

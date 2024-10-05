@@ -10,7 +10,7 @@ import { ArticleView, ArticleViewSelector } from 'entities/Article';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { FullPageBlock } from 'shared/ui/Block/FullPageBlock/FullPageBlock';
-import { ArticleSortSelector } from 'features/ArticleSortSelector';
+import { ArticleSortSelector } from 'features/selectors/ArticleSortSelector';
 import { SortOrderType } from 'shared/types/sortOrder/sortOrderType';
 import { ArticleSortField } from 'entities/Article/model/types/article';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticlesList';

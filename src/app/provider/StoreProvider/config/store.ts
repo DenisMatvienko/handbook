@@ -35,7 +35,7 @@ import { $api } from 'shared/api/api';
 import { NavigateOptions } from 'react-router';
 import { To } from 'react-router-dom';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/ArticleDetailsCommentsSlice';
-import { ScrollRestorationReducer } from 'features/ScrollRestoration/model/slices/ScrollRestoration';
+import { ScrollRestorationReducer } from 'features/scroll/ScrollRestoration/model/slices/ScrollRestoration';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(

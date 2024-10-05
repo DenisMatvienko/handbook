@@ -16,7 +16,7 @@ import {
   getArticlesPageNum,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-import { getNavbarSearchArticleSelector } from 'features/NavbarSearch/model/selectors/getNavbarSearchSelectors';
+import { getNavbarSearchArticleSelector } from 'features/navbar/NavbarSearch/model/selectors/getNavbarSearchSelectors';
 import { ArticleType } from 'entities/Article/model/types/article';
 
 interface FetchArticleListProps {
