@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, ReactNode, useCallback } from 'react';
 import { Card, CardTheme, CardView } from 'shared/ui/Card/Card';
 import { uid } from 'shared/lib/uid/uid';
+import { Slider } from 'widgets/Slider/Slider';
 import classes from './Tabs.module.scss';
 
 export interface TabItem {
@@ -31,6 +32,26 @@ export const Tabs = memo((props: TabsProps) => {
   const clickHandle = useCallback((tab: TabItem) => () => {
     onTabClick(tab);
   }, [onTabClick]);
+
+  const renderTabs = useCallback(() => (
+      <div>
+          {tabs.map((tab) => (
+              <div
+                  className={classes.tabs__card}
+                  key={uid()}
+                  onClick={clickHandle(tab)}
+              >
+                  <Card
+                      key={uid()}
+                      cardTheme={tab.value === value ? CardTheme.TABS_CHECKED : CardTheme.TABS}
+                      cardView={CardView.DEFAULT}
+                  >
+                      {tab.content}
+                  </Card>
+              </div>
+          ))}
+      </div>
+  ), [clickHandle, tabs, value]);
 
   return (
       <div className={classNames(classes.tabs, {}, [className])}>

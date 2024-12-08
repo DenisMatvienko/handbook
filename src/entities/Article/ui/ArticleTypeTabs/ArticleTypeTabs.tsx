@@ -14,6 +14,7 @@ import { articlePageSliceActions } from 'pages/ArticlesPage/model/slices/article
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getArticlePageTabs } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { Slider } from 'widgets/Slider/Slider';
 import classes from './ArticleTypeTabs.module.scss';
 
 interface ArticleTypeTabsProps {
